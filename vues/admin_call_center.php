@@ -268,172 +268,104 @@
       <section id="main-content">
         <section class="wrapper">
           	<h3><i class="fa fa-angle-right"></i> Liste des Centres d'appels</h3>
-		  		    <div class="row mt">
-			       		<div class="col-lg-12">
-                      <div class="content-panel">
-                      <h4><i class="fa fa-angle-right"></i> Centre First <i class="fa fa-info-circle" data-toggle="modal" data-target="#infos"></i></h4>
-                          <section id="unseen">
-                            <table class="table table-bordered table-striped table-condensed">
-                              <thead>
-                              <tr>
-                                  <th>Nom</th>
-                                  <th>Prenoms</th>
-                                  <th>Login</th>
-                                  <th class="numeric">Extensions</th>
-                                  <th class="numeric">Numéro</th>
-                                  <th class="numeric">Option de Transfert</th>
-                                  <th>Protocole</th>
-                                  <th>Adresse Mail</th>
-                                  <th>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-plus" data-toggle="modal" data-target="#ajoutermember"></i></button>
-                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"  data-toggle="modal" data-toggle="modal" data-target="#supprmember"></i></button>
-                                  </th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td>MOUGNIN</td>
-                                  <td>Serge Louis Adolphe</td>
-                                  <td>adolphe</td>
-                                  <td class="numeric">1000</td>
-                                  <td class="numeric">0752243150</td>
-                                  <td class="numeric">1</td>
-                                  <td>SIP</td>
-                                  <td>mougnin@intechinfo.fr</td>
-                              </tr>
-                              <tr>
-                                  <td>SANGARE</td>
-                                  <td>Hassane Ibrahim</td>
-                                  <td>hassane</td>
-                                  <td class="numeric">1001</td>
-                                  <td class="numeric">0652543010</td>
-                                  <td class="numeric">1</td>
-                                  <td>DAHDI</td>
-                                  <td>sangares@intechinfo.fr</td>
-                              </tr>
-                              <tr>
-                                  <td>ILANGOVANE</td>
-                                  <td>Steephenraaj</td>
-                                  <td>steephen</td>
-                                  <td class="numeric">1002</td>
-                                  <td class="numeric"></td>
-                                  <td class="numeric">0</td>
-                                  <td>SIP</td>
-                                  <td>ilangovane@intechinfo.fr</td>
-                              </tr>
-                              <tr>
-                                  <td>KOUDOSSOU</td>
-                                  <td>Adjevi Alexandre</td>
-                                  <td>adjevi</td>
-                                  <td class="numeric">1002</td>
-                                  <td class="numeric"></td>
-                                  <td class="numeric">0</td>
-                                  <td>SIP</td>
-                                  <td></td>
-                              </tr>
-                              </tbody>
-                          </table>
-                          </section>
-                  </div><!-- /content-panel -->
-               </div><!-- /col-lg-4 -->			
-		          </div><!-- /row -->
-
-              <div class="row mt">
-                <div class="col-lg-12">
-                      <div class="content-panel">
-                      <h4><i class="fa fa-angle-right"></i> Centre First <i class="fa fa-info-circle" data-toggle="modal" data-target="#infos"></i></h4>
-                          <section id="unseen">
-                            <table class="table table-bordered table-striped table-condensed">
-                              <thead>
-                              <tr>
-                                  <th>Nom</th>
-                                  <th>Prenoms</th>
-                                  <th>Login</th>
-                                  <th class="numeric">Extensions</th>
-                                  <th class="numeric">Numéro</th>
-                                  <th class="numeric">Option de Transfert</th>
-                                  <th>Protocole</th>
-                                  <th>Adresse Mail</th>
-                                  <th>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-plus" data-toggle="modal" data-target="#ajoutermember"></i></button>
-                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o" data-toggle="modal" data-target="#supprmember"></i></button>
-                                  </th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td>MOUGNIN</td>
-                                  <td>Serge Louis Adolphe</td>
-                                  <td>adolphe</td>
-                                  <td class="numeric">1000</td>
-                                  <td class="numeric">0752243150</td>
-                                  <td class="numeric">1</td>
-                                  <td>SIP</td>
-                                  <td>mougnin@intechinfo.fr</td>
-                              </tr>
-                              <tr>
-                                  <td>SANGARE</td>
-                                  <td>Hassane Ibrahim</td>
-                                  <td>hassane</td>
-                                  <td class="numeric">1001</td>
-                                  <td class="numeric">0652543010</td>
-                                  <td class="numeric">1</td>
-                                  <td>DAHDI</td>
-                                  <td>sangares@intechinfo.fr</td>
-                              </tr>
-                              <tr>
-                                  <td>ILANGOVANE</td>
-                                  <td>Steephenraaj</td>
-                                  <td>steephen</td>
-                                  <td class="numeric">1002</td>
-                                  <td class="numeric"></td>
-                                  <td class="numeric">0</td>
-                                  <td>SIP</td>
-                                  <td>ilangovane@intechinfo.fr</td>
-                              </tr>
-                              <tr>
-                                  <td>KOUDOSSOU</td>
-                                  <td>Adjevi Alexandre</td>
-                                  <td>adjevi</td>
-                                  <td class="numeric">1002</td>
-                                  <td class="numeric"></td>
-                                  <td class="numeric">0</td>
-                                  <td>SIP</td>
-                                  <td></td>
-                              </tr>
-                              </tbody>
-                          </table>
-                          </section>
-                  </div><!-- /content-panel -->
-               </div><!-- /col-lg-4 -->     
-              </div><!-- /row -->
-
-		    </section><! --/wrapper -->
-        <center>
-          <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
-            Ajouter un call center
-          </button>
-          <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
-            Supprimer un call center
-          </button>
-        </center>
+			<center>
+			  <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
+				<i class="fa fa-plus"></i> call center
+			  </button>
+			  <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
+				<i class="fa fa-minus"></i> call center
+			  </button>
+			</center>
+			<div class="row mt">
+				<div class="col-lg-12">
+			  <div class="content-panel">
+			  <h4><i class="fa fa-angle-right"></i> Centre First <i class="fa fa-info-circle" data-toggle="modal" data-target="#infos"></i></h4>
+				  <section id="unseen">
+					<table class="table table-bordered table-striped table-condensed">
+					  <thead>
+					  <tr>
+						  <th>Nom</th>
+						  <th>Prenoms</th>
+						  <th>Login</th>
+						  <th class="numeric">Numéro de téléphone</th>
+						  <th class="numeric">Numéro de transfert</th>
+						  <th class="numeric">Option de Transfert</th>
+						  <th>Protocole</th>
+						  <th>Adresse Mail</th>
+						  <th>
+							<button class="btn btn-success btn-xs"><i class="fa fa-plus" data-toggle="modal" data-target="#ajoutermember"></i></button>
+							<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+							<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"  data-toggle="modal" data-toggle="modal" data-target="#supprmember"></i></button>
+						  </th>
+					  </tr>
+					  </thead>
+					  <tbody>
+					  <tr>
+						  <td>MOUGNIN</td>
+						  <td>Serge Louis Adolphe</td>
+						  <td>adolphe</td>
+						  <td class="numeric">1000</td>
+						  <td class="numeric">0752243150</td>
+						  <td class="numeric">Oui</td>
+						  <td>SIP</td>
+						  <td>mougnin@intechinfo.fr</td>
+						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
+					  </tr>
+					  <tr>
+						  <td>SANGARE</td>
+						  <td>Hassane Ibrahim</td>
+						  <td>hassane</td>
+						  <td class="numeric">1001</td>
+						  <td class="numeric">0652543010</td>
+						  <td class="numeric">Oui</td>
+						  <td>DAHDI</td>
+						  <td>sangare@intechinfo.fr</td>
+						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
+					  </tr>
+					  <tr>
+						  <td>ILANGOVANE</td>
+						  <td>Steephenraaj</td>
+						  <td>steephen</td>
+						  <td class="numeric">1002</td>
+						  <td class="numeric"></td>
+						  <td class="numeric">Non</td>
+						  <td>SIP</td>
+						  <td>ilangovane@intechinfo.fr</td>
+						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
+					  </tr>
+					  <tr>
+						  <td>KOUDOSSOU</td>
+						  <td>Adjevi Alexandre</td>
+						  <td>adjevi</td>
+						  <td class="numeric">1002</td>
+						  <td class="numeric"></td>
+						  <td class="numeric">Non</td>
+						  <td>SIP</td>
+						  <td></td>
+						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
+					  </tr>
+					  </tbody>
+					</table>
+				  </section>
+			</div><!-- /content-panel -->
+          </div><!-- /col-lg-4 -->			
+		 </div><!-- /row -->
+		</section><! --/wrapper -->
         <!-- Modal -->
         <div class="modal fade" id="ajoutermember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter un membre</h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un Centre d'appels</h4>
               </div>
               <div class="modal-body">
                 <center>
                 <form>
                 <table width="300">
                   <tr>
-                    <th><label>Nom Calcenter</label></th>
-                    <th><input type="textbox" placeholder="Callcenter"></input></th>
+                    <th><label>Nom du centre</label></th>
+                    <th><input type="textbox" placeholder="centre d'appels"></input></th>
                   </tr>
                   <tr>
                     <td><label>Numero utilisateur</label></td>
@@ -455,15 +387,15 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un membre</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer un centre d'appels</h4>
               </div>
               <div class="modal-body">
                 <center>
                 <form>
                 <table width="300">
                   <tr>
-                    <th><label>Nom Calcenter</label></th>
-                    <th><input type="textbox" placeholder="Callcenter"></input></th>
+                    <th><label>Nom du centre d'appels</label></th>
+                    <th><input type="textbox" placeholder="centre d'appels"></input></th>
                   </tr>
                   <tr>
                     <td><label>Numero utilisateur</label></td>
@@ -485,7 +417,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Informations sur le callcenter</h4>
+                <h4 class="modal-title" id="myModalLabel">Informations sur le centre d'appels</h4>
               </div>
               <div class="modal-body">
                 <center>
@@ -519,7 +451,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter un callcenter</h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un centre d'appels</h4>
               </div>
               <div class="modal-body">
                 <center>
@@ -553,7 +485,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un callcenter</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer un centre d'appels</h4>
               </div>
               <div class="modal-body">
 
