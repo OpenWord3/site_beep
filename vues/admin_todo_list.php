@@ -9,14 +9,14 @@
 
     <title>Tableau de bord - Beep</title>
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css">    
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/style-responsive.css" rel="stylesheet">
-    <script src="../assets/js/chart-master/Chart.js"></script>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="./assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/lineicons/style.css">    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style-responsive.css" rel="stylesheet">
+    <script src="./assets/js/chart-master/Chart.js"></script>
   </head>
 
   <body>
@@ -28,7 +28,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
 
-            <a href="admin_index.php" class="logo"><img src="../assets/img/logo.png" width="80"></img></a>
+            <a href="admin_index.php" class="logo"><img src="./assets/img/logo.png" width="80"></img></a>
             <div class="nav notify-row" id="top_menu">
               
                 <ul class="nav top-menu">
@@ -113,7 +113,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
                                     <span class="time">Maintenant</span>
@@ -125,7 +125,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
                                     <span class="time">40 mins.</span>
@@ -137,7 +137,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
                                     <span class="time">2 hrs.</span>
@@ -149,7 +149,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
                                     <span class="time">4 hrs.</span>
@@ -185,7 +185,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                 
-                  <p class="centered"><a href="admin_index.php"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                  <p class="centered"><a href="admin_index.php"><img src="./assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
@@ -528,19 +528,19 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/jquery-1.8.3.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="../assets/js/jquery.sparkline.js"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jquery-1.8.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="./assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="./assets/js/jquery.scrollTo.min.js"></script>
+    <script src="./assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="./assets/js/jquery.sparkline.js"></script>
 
 
     <!--common script for all pages-->
-    <script src="../assets/js/common-scripts.js"></script>
-    <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+    <script src="./assets/js/common-scripts.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter-conf.js"></script>
     
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>

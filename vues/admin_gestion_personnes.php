@@ -9,15 +9,15 @@
 
     <title>Tableau de bord - Beep</title>
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css">    
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/style-responsive.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">
-    <script src="../assets/js/chart-master/Chart.js"></script>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="./assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/lineicons/style.css">    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/img/favicons/favicon.ico">
+    <script src="./assets/js/chart-master/Chart.js"></script>
   </head>
 
   <body>
@@ -29,7 +29,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
 
-            <a href="admin_index.php" class="logo"><img src="../assets/img/logo.png" width="80"></img></a>
+            <a href="admin_index.php" class="logo"><img src="./assets/img/logo.png" width="80"></img></a>
             <div class="nav notify-row" id="top_menu">
               
                 <ul class="nav top-menu">
@@ -114,7 +114,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
                                     <span class="time">Maintenant</span>
@@ -126,7 +126,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
                                     <span class="time">40 mins.</span>
@@ -138,7 +138,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
                                     <span class="time">2 hrs.</span>
@@ -150,7 +150,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
                                     <span class="time">4 hrs.</span>
@@ -171,7 +171,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Deconnexion</a></li>
+                    <li><a class="logout" href="<?php INDEX ?>?=vue_accueil">Deconnexion</a></li>
               </ul>
             </div>
         </header>
@@ -186,11 +186,11 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <p class="centered"><a href="admin_profile.php"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                  <p class="centered"><a href="admin_profile.php"><img src="./assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
-                      <a class="active" href="admin_index.php">
+                      <a class="active" href="<?php INDEX ?>?index=vue_accueil_admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Tableau de bord</span>
                       </a>
@@ -202,34 +202,34 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="admin_gestion_personnes.php">Personnes</a></li>
-                          <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
+                          <li><a  href="<?php INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
+                          <li><a  href="<?php INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_salles_conferences.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_conference" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_droits.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_droit" >
                           <i class="fa fa-check-circle"></i>
                           <span>Droits</span>
                       </a>
                   </li>
                   
                   <li class="sub-menu">
-                      <a href="admin_call_center.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_callcenter" >
                           <i class="fa fa-phone-square"></i>
                           <span>Centres d'appels</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_standard.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_standard" >
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
@@ -237,10 +237,15 @@
 
 
                   <li class="sub-menu">
-                      <a href="admin_gateways.php" >
+                      <a href="admin_javascript:;" >
                           <i class="fa fa-random"></i>
-                          <span>Gateways</span>
+                          <span>Gateway, numeros entrants et switch</span>
                       </a>
+                      <ul class="sub">
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                      </ul>
                   </li>
 
                   <li class="sub-menu">
@@ -515,7 +520,7 @@
             </div>
           </div>
         </div>
-
+<!------------------------------------------------------------------------------------- -->
         <div class="modal fade" id="ajouter_groupe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -529,7 +534,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
-                    <td><input type="textbox" placeholder="Nom du groupe"></td>
+                    <td><input type="textbox" placeholder="Nom du groupe" name="groupe"></td>
                   </tr>
                 </table>
                 </form>
@@ -537,7 +542,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
+                <button type="button" class="btn btn-primary" name="ajouter_groupe">Ajouter</button>
               </div>
             </div>
           </div>
@@ -556,39 +561,47 @@
                 <table width="300">
                   <tr>
                     <th><label>Protocole</label></th>
-                    <th><select required><option>SIP</option><option>DAHDI</option></select></th>
+                    <th><select required name="protocole"><option>SIP</option><option>DAHDI</option></select></th>
+                  </tr>
+                  <tr>
+                    <th><label>Groupe</label></th>
+                    <th><select required name="groupe"><option>Travail</option><option>Cours</option><option>Administrateur</option></select></th>
                   </tr>
                   <tr>
                     <td><label>Option De Transfert</label></td>
-                    <td><select required><option>Non</option><option>Oui</option></select></td>
+                    <td><select required name="transfert"><option>Non</option><option>Oui</option></select></td>
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" placeholder="Login" required></td>
+                    <td><input type="textbox" placeholder="Login" name="pseudo" required></td>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
-                    <td><input type="textbox" placeholder="Nom"></td>
+                    <td><input type="textbox" placeholder="Nom" name="nom"></td>
                   </tr>
                   <tr>
                     <td><label>Prenoms</label></td>
-                    <td><input type="textbox" placeholder="Prenoms"></td>
+                    <td><input type="textbox" placeholder="Prenoms" name="prenom"></td>
                   </tr>
                   <tr>
                     <td><label>Adresse Mail</label></td>
-                    <td><input type="mail" placeholder="Adresse Mail" required></td>
+                    <td><input type="mail" placeholder="Adresse Mail" name="email" required></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" Value="BeepProject"></td>
+                    <td><input type="textbox" Value="BeepProject" name="mdp"></td>
                   </tr>
                   <tr>
                     <td><label>Numéro de téléphone</label></td>
-                    <td><input type="textbox" placeholder="Numéro de téléphone" required></td>
+                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num_exten" required></td>
                   </tr>
                   <tr>
                     <td><label>Numéro de transfert</label></td>
-                    <td><input type="textbox" placeholder="Numéro de transfert"></td>
+                    <td><input type="textbox" placeholder="Numéro de transfert" name="telephone"></td>
+                  </tr>
+                  <tr>
+                    <td><label>Port Dahdi</label></td>
+                    <th><select required name="port"><option>Pas besoin</option><option>Port 1</option><option>Port 2</option><option>Port 3</option></select></th>
                   </tr>
                 </table>
                 </form>
@@ -615,11 +628,11 @@
                     <table width="300">
                       <tr>
                         <th><label>Le nom de l'utilisateur</label></th>
-                        <th><input type="textbox" placeholder="Le nom de l'utilisateur"></th>
+                        <th><input type="textbox" placeholder="Le nom de l'utilisateur" name="pseudo"></th>
                       </tr>
                       <tr>
                         <th><label>Le nom de son groupe</label></th>
-                        <th><input type="textbox" placeholder="Le nom de son groupe"></th>
+                        <th><input type="textbox" placeholder="Le nom de son groupe" name="groupe"></th>
                       </tr>
                     </table>
                   </form>
@@ -745,20 +758,20 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/jjquery-1.8.3.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jjquery-1.8.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="./assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="./assets/js/jquery.scrollTo.min.js"></script>
+    <script src="./assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
     <!--common script for all pages-->
-    <script src="../assets/js/common-scripts.js"></script>
+    <script src="./assets/js/common-scripts.js"></script>
 
     <!--script for this page-->    <!--script for this page-->
-    <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter-conf.js"></script>
     
   <script>
       //custom select box

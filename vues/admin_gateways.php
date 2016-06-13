@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!--<meta http-equiv="Refresh" content="30; url=<?php echo INDEX ?>?index=vue_gestion_gateway"> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tableau de bord Admin">
     <meta name="author" content="Louis-Adolphe Mougnin">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Theme, Responsive, Fluid, Retina">
 
+
     <title>Tableau de bord - Beep</title>
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css">    
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/style-responsive.css" rel="stylesheet">
-    <script src="../assets/js/chart-master/Chart.js"></script>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="./assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/lineicons/style.css">    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style-responsive.css" rel="stylesheet">
+    <script src="./assets/js/chart-master/Chart.js"></script>
   </head>
 
   <body>
@@ -28,7 +30,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
 
-            <a href="admin_index.php" class="logo"><img src="../assets/img/logo.png" width="80"></img></a>
+            <a href="admin_index.php" class="logo"><img src="./assets/img/logo.png" width="80"></img></a>
             <div class="nav notify-row" id="top_menu">
               
                 <ul class="nav top-menu">
@@ -113,7 +115,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
                                     <span class="time">Maintenant</span>
@@ -125,7 +127,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
                                     <span class="time">40 mins.</span>
@@ -137,7 +139,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
                                     <span class="time">2 hrs.</span>
@@ -149,7 +151,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
                                     <span class="time">4 hrs.</span>
@@ -170,7 +172,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Deconnexion</a></li>
+                    <li><a class="logout" href="<?php echo INDEX ?>?=vue_accueil">Deconnexion</a></li>
               </ul>
             </div>
         </header>
@@ -185,11 +187,11 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <p class="centered"><a href="admin_profile.php"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                  <p class="centered"><a href="admin_profile.php"><img src="./assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
-                      <a class="active" href="admin_index.php">
+                      <a class="active" href="<?php echo INDEX ?>?index=vue_accueil_admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Tableau de bord</span>
                       </a>
@@ -201,45 +203,49 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="admin_gestion_personnes.php">Personnes</a></li>
-                          <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_salles_conferences.php" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_conference" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_droits.php" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_droit" >
                           <i class="fa fa-plus-circle"></i>
                           <span>Droits</span>
                       </a>
                   </li>
                   
                   <li class="sub-menu">
-                      <a href="admin_call_center.php" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_callcenter" >
                           <i class="fa fa-phone-square"></i>
                           <span>Centres d'appels</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_standard.php" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_standard">
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
                   </li>
 
-
                   <li class="sub-menu">
-                      <a href="admin_gateways.php" >
+                      <a href="admin_javascript:;" >
                           <i class="fa fa-random"></i>
-                          <span>Gateways</span>
+                          <span>Gateway, numeros entrants et switch</span>
                       </a>
+                      <ul class="sub">
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                      </ul>
                   </li>
 
                   <li class="sub-menu">
@@ -274,82 +280,29 @@
                       <h4><i class="fa fa-angle-right"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
+                              <?php if(isset($_POST["ajouter"])){ echo $alert; }else if(isset($_POST["modifier"])){ echo $alert; } ?>
                               <thead>
                               <tr>
-                                  <th>Utilisateur</th>
-                      
-                      <td>motdepasse25123</td>            <th>Compte (Ippi, Ovh)</th>
-                                  <th>Mot de passe</th>
-                                  <th>Host</th>
-                                  <th class="numeric">Numéro Géographique</th>
-                      
-                                  <th class="numeric">Numéro iNUM</th>
+                                <th>Compte</th>
+                                <th>Mot de passe</th>
+                                <th>Host (Ippi, Ovh, etc...)</th>
+                                <th>port</th>
+                                <th>Actions</th>
                               </tr>
                               </thead>
                               <tbody>
-                              <tr>
-                                  <td>exemple</td>
-                                  <td>beepproject</td>
-                                  <td>motdepasse25123</td>
-                                  <td>ipp.fr</td>
-                                  <td class="numeric">0156849756</td>
-                                  <td class="numeric">895121612113232252</td>
-                                  <td class="numeric">165621522</td>
-                              </tr>
-                              <tr>
-                                  <td>exemple</td>
-                                  <td>beepproject</td>
-                                  <td>motdepasse25123</td>
-                                  <td>ipp.fr</td>
-                                  <td class="numeric">0156849756</td>
-                                  <td class="numeric">895121612113232252</td>
-                                  <td class="numeric">165621522</td>
-                              </tr>
-                             <tr>
-                                  <td>exemple</td>
-                                  <td>beepproject</td>
-                                  <td>motdepasse25123</td>
-                                  <td>ipp.fr</td>
-                                  <td class="numeric">0156849756</td>
-                                  <td class="numeric">895121612113232252</td>
-                                  <td class="numeric">165621522</td>
-                              </tr>
-                             <tr>
-                                  <td>exemple</td>
-                                  <td>beepproject</td>
-                                  <td>motdepasse25123</td>
-                                  <td>ipp.fr</td>
-                                  <td class="numeric">0156849756</td>
-                                  <td class="numeric">895121612113232252</td>
-                                  <td class="numeric">165621522</td>
-                              </tr>
-                              <tr>
-                                  <td>exemple</td>
-                                  <td>beepproject</td>
-                                  <td>motdepasse25123</td>
-                                  <td>ipp.fr</td>
-                                  <td class="numeric">0156849756</td>
-                                  <td class="numeric">895121612113232252</td>
-                                  <td class="numeric">165621522</td>
-                              </tr>
-                             <tr>
-                                  <td>exemple</td>
-                                  <td>beepproject</td>
-                                  <td>motdepasse25123</td>
-                                  <td>ipp.fr</td>
-                                  <td class="numeric">0156849756</td>
-                                  <td class="numeric">895121612113232252</td>
-                                  <td class="numeric">165621522</td>
-                              </tr>
-                             <tr>
-                                  <td>exemple</td>
-                                  <td>beepproject</td>
-                                  <td>motdepasse25123</td>
-                                  <td>ipp.fr</td>
-                                  <td class="numeric">0156849756</td>
-                                  <td class="numeric">895121612113232252</td>
-                                  <td class="numeric">165621522</td>
-                              </tr>
+                                <?php foreach($liste_gateway as $result) { ?>
+                                <tr>                                  
+                                  <td><?php echo $result["compte"]; ?></td>
+                                  <td><?php echo $result["mdp"]; ?></td>
+                                  <td><?php echo $result["host"]; ?></td>
+                                  <td><?php echo $result["port"]; ?></td>
+                                  <td>
+                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification<?php echo $result["id_gateway"]; ?>" ><a href="#modification<?php echo $result["id_gateway"]; ?>"></a><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_gateway"]; ?>"><i class="fa fa-trash-o "></i></button>
+                                  </td>
+                                </tr> 
+                                <?php } ?>                             
                               </tbody>
                           </table>
                           </section>
@@ -367,6 +320,76 @@
           </button>
         </center>
         <!-- Modal -->
+
+        <?php foreach($liste_gateway as $result) { ?>
+
+          <div class="modal fade" id="suppression<?php echo $result["id_gateway"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Suppression de la gateway <?php echo $result["compte"]; ?></h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_gateway" method="POST">
+                  <table width="300">
+                    <tr>
+                      <input type="hidden" name="id_gateway" value="<?php echo $result["id_gateway"] ?>">
+                      <p>Etes-vous sûr de vouloir supprimer cette gateway ?</p>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Non</button>
+                    <button type="submit" class="btn btn-primary" name="supprimer">Oui</button>
+                  </div> 
+                </form>
+                </center>
+              </div>
+            </div>
+          </div>
+          </div>
+        <?php } ?>
+
+        <?php foreach($liste_gateway as $result) { ?>
+
+          <div class="modal fade" id="modification<?php echo $result["id_gateway"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modification de la gateway <?php echo $result["compte"]; ?></h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_gateway" method="POST">
+                  <table width="300">
+                   <tr>
+                      <td><label>nouveau mot de passe</label></td>
+                      <input type="hidden" name="id_gateway" value="<?php echo $result["id_gateway"] ?>">
+                      <td><input type="textbox" placeholder="Nouveau mot de passe" name="new_mdp" required></td>
+                    </tr>
+                    <tr>
+                      <td><label>Mot de Passe</label></td>
+                      <td><input type="textbox" Value="Chargé son mot de passe"></td>
+                    </tr>
+                    <tr>
+                      <td><label>Port</label></td>
+                      <td><input type="textbox" placeholder="Entrez le port SVP"></td>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Fermer</button>
+                    <button type="submit" class="btn btn-primary" name="modifier">Modifier</button>
+                  </div> 
+                </form>
+                </center>
+              </div>
+            </div>
+          </div>
+          </div>
+        <?php } ?>
+
         <div class="modal fade" id="ajouter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -376,44 +399,33 @@
               </div>
               <div class="modal-body">
                 <center>
-                <form>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_gateway" method="POST">
                 <table width="300">
                   <tr>
-                    <td><label>Utilisateur</label></td>
-                    <td><input type="textbox" placeholder="Utilisateur"></td>
-                  </tr>
-                  <tr>
                     <td><label>Compte</label></td>
-                    <td><input type="textbox" placeholder="Ovh ou Ippi"></td>
+                    <td><input type="textbox" placeholder="Ovh ou Ippi" name="compte"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de passe</label></td>
-                    <td><input type="textbox" placeholder="Mot de passe"></td>
+                    <td><input type="textbox" placeholder="Mot de passe" name="mdp"></td>
                   </tr>
                   <tr>
                     <td><label>Host</label></td>
-                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr"></td>
+                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr" name="host"></td>
                   </tr>
                   <tr>
-                    <td><label>Numéro Géographique</label></td>
-                    <td><input type="textbox" placeholder="Numéro Géographique"></td>
-                  </tr>
-                  <tr>
-                    <td><label>Numéro SIP</label></td>
-                    <td><input type="textbox" placeholder="Numéro SIP"></td>
-                  </tr>
-                  <tr>
-                    <td><label>Numéro iNum</label></td>
-                    <td><input type="textbox" placeholder="Numéro iNum"></td>
+                    <td><label>Port</label></td>
+                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr" name="port"></td>
                   </tr>
                 </table>
-                </form>
+                
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" name="ajouter_gateway">Ajouter</button>
+                  </div>
+                  </form>
                 </center>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
-              </div>
+              </div> 
             </div>
           </div>
         </div>
@@ -443,6 +455,9 @@
               </div>
             </div>
           </div>
+
+          
+
       </section><!-- /MAIN CONTENT -->
       
       <!--main content end-->
@@ -459,20 +474,20 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/jjquery-1.8.3.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jjquery-1.8.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="./assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="./assets/js/jquery.scrollTo.min.js"></script>
+    <script src="./assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
     <!--common script for all pages-->
-    <script src="../assets/js/common-scripts.js"></script>
+    <script src="./assets/js/common-scripts.js"></script>
 
     <!--script for this page-->    <!--script for this page-->
-    <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter-conf.js"></script>
     
   <script>
       //custom select box

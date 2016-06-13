@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!--<meta http-equiv="Refresh" content="30; url=<?php echo INDEX ?>?index=vue_gestion_gateway"> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tableau de bord Admin">
     <meta name="author" content="Louis-Adolphe Mougnin">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Theme, Responsive, Fluid, Retina">
+
 
     <title>Tableau de bord - Beep</title>
 
@@ -16,7 +18,6 @@
     <link rel="stylesheet" type="text/css" href="./assets/lineicons/style.css">    
     <link href="./assets/css/style.css" rel="stylesheet">
     <link href="./assets/css/style-responsive.css" rel="stylesheet">
-    <link rel="shortcut icon" href="./assets/img/favicons/favicon.ico">
     <script src="./assets/js/chart-master/Chart.js"></script>
   </head>
 
@@ -171,7 +172,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="<?php INDEX ?>?=vue_accueil">Deconnexion</a></li>
+                    <li><a class="logout" href="<?php echo INDEX ?>?=vue_accueil">Deconnexion</a></li>
               </ul>
             </div>
         </header>
@@ -190,7 +191,7 @@
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
-                      <a class="active" href="<?php INDEX ?>?index=vue_accueil_admin">
+                      <a class="active" href="<?php echo INDEX ?>?index=vue_accueil_admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Tableau de bord</span>
                       </a>
@@ -202,40 +203,38 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_conference" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_conference" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_droit" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_droit" >
                           <i class="fa fa-plus-circle"></i>
                           <span>Droits</span>
                       </a>
                   </li>
                   
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_callcenter" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_callcenter" >
                           <i class="fa fa-phone-square"></i>
                           <span>Centres d'appels</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_standard" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_standard" >
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
                   </li>
-
-
                   <li class="sub-menu">
                       <a href="admin_javascript:;" >
                           <i class="fa fa-random"></i>
@@ -273,118 +272,163 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i> Liste des Gateways</h3>
+		  		    <div class="row mt">
+			       		<div class="col-lg-12">
+                      <div class="content-panel">
+                      <h4><i class="fa fa-angle-right"></i></h4>
+                          <section id="unseen">
+                            <table class="table table-bordered table-striped table-condensed">
+                              <?php if(isset($_POST["ajouter_switch"])){ echo $alert; }else if(isset($_POST["supprimer_switch"])){ echo $alert; } ?>
+                              <thead>
+                              <tr>
+                                <th>Compte</th>
+                                <th>Host</th>
+                                <th>Groupe</th>
+                                <th>Switch</th>
+                                <th>Actions</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <?php foreach($all_switchs as $result) { ?>
+                                <tr>                                  
+                                  <td><?php echo $result["compte"]; ?></td>
+                                  <td><?php echo $result["host"]; ?></td>
+                                  <td><?php echo $result["nom"]; ?></td>
+                                  <td><?php echo $result["switch"]; ?></td>
+                                  <td>
+                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification<?php echo $result["id_switch"]; ?>" ><a href="#modification<?php echo $result["id_switch"]; ?>"></a><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_switch"]; ?>"><i class="fa fa-trash-o "></i></button>
+                                  </td>
+                                </tr> 
+                                <?php } ?>                             
+                              </tbody>
+                          </table>
+                          </section>
+                  </div><!-- /content-panel -->
+               </div><!-- /col-lg-4 -->			
+		          </div><!-- /row -->
 
-        <div class="row mt">
-          <div class="col-lg-12">
-            <center>
-              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
-                <i class="fa fa-plus"></i> droits
-              </button>
-              <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
-                <i class="fa fa-minus"></i> droits
-              </button>
-            </center>
-          </div>
-        </div>
-
-        <div class="row mt">
-          <div class="col-lg-12">
-                <div class="content-panel">
-                    <h3><i class="fa fa-angle-right"></i> Les droits</h3>
-                    <section id="unseen">
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Groupe 1</th>
-                            <th><center>Autorisation</center></th>
-                            <th>Groupe 2</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Travail</td>
-                            <td><center><img src="./assets/img/2.png" width="20%"></center></td>
-                            <td>Cours</td>
-                            <td>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Cours</td>
-                            <td><center><img src="./assets/img/1.png" width="20%"></center></td>
-                            <td>Administrateur</td>
-                            <td>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Administrateur</td>
-                            <td><center><img src="./assets/img/2.png" width="20%"></center></td>
-                            <td>Travail</td>
-                            <td>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td>Commerciaux</td>
-                            <td><center><img src="./assets/img/3.png" width="20%"></center></td>
-                            <td>Direction</td>
-                            <td>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">5</th>
-                            <td>Direction</td>
-                            <td><center><img src="./assets/img/1.png" width="20%"></center></td>
-                            <td>Commerciaux</td>
-                            <td>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </section>
-            </div><!-- /content-panel -->
-         </div><!-- /col-lg-4 -->     
-        </div><!-- /row -->
-
+		    </section><! --/wrapper -->
+        <center>
+          <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
+            Ajouter une gateway
+          </button>
+          <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
+            Supprimer une gateway
+          </button>
+        </center>
         <!-- Modal -->
+
+        <?php foreach($all_switchs as $result) { ?>
+
+          <div class="modal fade" id="suppression<?php echo $result["id_switch"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Suppression du switch <?php echo $result["switch"]; ?> de la gateway <?php echo $result["compte"]; ?> du host <?php echo $result["host"]; ?></h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="POST">
+                  <table width="300">
+                    <tr>
+                      <input type="hidden" name="id_switch" value="<?php echo $result["id_switch"] ?>">
+                      <p>Etes-vous sûr de vouloir supprimer cette gateway ?</p>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Non</button>
+                    <button type="submit" class="btn btn-primary" name="supprimer_switch">Oui</button>
+                  </div> 
+                </form>
+                </center>
+              </div>
+            </div>
+          </div>
+          </div>
+        <?php } ?>
+
+        <?php foreach($all_switchs as $result) { ?>
+
+          <div class="modal fade" id="modification<?php echo $result["id_switch"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modification du switch <?php echo $result["switch"]; ?> de la gateway <?php echo $result["compte"]; ?> du host <?php echo $result["host"]; ?></h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="POST">
+                  <table width="300">
+                   <tr>
+                      <td><label>nouveau switch</label></td>
+                      <input type="hidden" name="id_switch" value="<?php echo $result["id_switch"] ?>">
+                      <td><input type="textbox" placeholder="Nouveau switch" name="new_switch" required></td>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Fermer</button>
+                    <button type="submit" class="btn btn-primary" name="modifier">Modifier</button>
+                  </div> 
+                </form>
+                </center>
+              </div>
+            </div>
+          </div>
+          </div>
+        <?php } ?>
+
         <div class="modal fade" id="ajouter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter un droit</h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un switch</h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form>
-                  <table width="500">
-                    <tr>
-                      <td><label> Le groupe </label>&nbsp;<select name="groupe1"><option>Travail</option><option>Cours</option><option>Administrateurs</option><option>Commerciaux</option><option>Direction</option></select></td>
-                      <td colspan="2"><label><center>a le droit de contacter</center></label></td>
-                      <td><label> le groupe </label>&nbsp;<select name="groupe2"><option>Travail</option><option>Cours</option><option>Administrateurs</option><option>Commerciaux</option><option>Direction</option></select></td>
-                    </tr>
-                    <tr>
-                      <td> </td>
-                    </tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="unidirectionnel"><label><b>Unidirectionnel</b> Appels possibles du groupe 1 vers le groupe 2</label></td></tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="bidirectionnel"><label><b>Bidirectionnel</b> Appels possibles entre les 2 groupes</label></td></tr>
-                  </table>
-                </form>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="POST">
+                <table width="300">
+                  <tr>
+                    <td><label>Compte</label></td>
+                    <td><select name="compte">
+                        <?php foreach($all_gateways as $result){ ?>
+                          <option><?php echo $result["compte"]; ?></option>
+                        <?php } ?>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td><label>Host</label></td>
+                    <td><select name="host">
+                        <?php foreach($all_gateways as $result){ ?>
+                          <option><?php echo $result["host"]; ?></option>
+                        <?php } ?>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td><label>Groupe</label></td>
+                    <td><select name="groupe">
+                        <?php foreach($groupes as $result){ ?>
+                          <option><?php echo $result["nom"]; ?></option>
+                        <?php } ?>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td><label>Switch</label></td>
+                    <td><input type="textbox" value="X" name="switch"></td>
+                  </tr>
+                </table>
+                
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" name="ajouter_switch">Ajouter</button>
+                  </div>
+                  </form>
                 </center>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
-              </div>
+              </div> 
             </div>
           </div>
         </div>
@@ -394,60 +438,28 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un droit</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer un switch</h4>
               </div>
               <div class="modal-body">
+
                 <center>
                 <form>
-                  <table width="600">
-                    <tr>
-                      <td><label> Le groupe </label>&nbsp;<select name="groupe1"><option>Travail</option><option>Cours</option><option>Administrateurs</option><option>Commerciaux</option><option>Direction</option></select></td>
-                      <td colspan="2"><label><center>n'a pas le droit de contacter</center></label></td>
-                      <td><label> le groupe </label>&nbsp;<select name="groupe2"><option>Travail</option><option>Cours</option><option>Administrateurs</option><option>Commerciaux</option><option>Direction</option></select></td>
-                    </tr>
-                    <tr>
-                      <td> </td>
-                    </tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="unidirectionnel"><label><b>Unidirectionnel</b> Le groupe 1 ne pourra plus joindre le groupe 2</label></td></tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="bidirectionnel"><label><b>Bidirectionnel</b> Les deux groupes ne pourront plus se joindre</label></td></tr>
-                  </table>
+                <table width="300">
+                  <tr>
+                    <th><label>Entrer le switch</label></th>
+                    <th><input type="textbox" placeholder="Le nom"></th>
+                  </tr>
+                </table>
                 </form>
-                </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Supprimer</button>
+                <button type="button" class="btn btn-primary" data-target="#confirmer">Supprimer</button>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer ce droit ?</h4>
-              </div>
-              <div class="modal-body">
-                <center>
-                  <form>
-                    <table width="300">
-                      <tr>
-                        <button class="btn btn-success btn-lg" data-target="#">
-                          Oui 
-                        </button>
-                        <button class="btn btn-danger btn-lg" data-target="#">
-                          Non
-                        </button>
-                      </tr>
-                    </table>
-                  </form>
-                </center>
-              </div>
-            </div>
-          </div>
-        </div>
+          
 
       </section><!-- /MAIN CONTENT -->
       
