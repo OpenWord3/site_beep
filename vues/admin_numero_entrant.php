@@ -280,7 +280,7 @@
                       <h4><i class="fa fa-angle-right"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
-                              <?php if(isset($_POST["ajouter_set"])){ echo $alert; }else if(isset($_POST["modifier_set"])){ echo $alert_geo+" "+$alert_sip+" "+$alert_inum; }else if(isset($_POST["supprimer_set"])){ echo $alert; } ?>
+                              <?php if(isset($_POST["ajouter_set"])){ echo $alert_geo+" "+$alert_sip+" "+$alert_inum; }else if(isset($_POST["modifier_set"])){ echo $alert_geo+" "+$alert_sip+" "+$alert_inum; }else if(isset($_POST["supprimer_set"])){ echo $alert; } ?>
                               <thead>
                               <tr>
                                 <th>Compte</th>                                
@@ -407,7 +407,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Compte</label></td>
-                    <td><select>
+                    <td><select name="compte">
                         <?php foreach($all_gateways as $result){ ?>
                         <option><?php echo $result["compte"]; ?></option>
                         <?php } ?>
@@ -415,7 +415,7 @@
                   </tr>
                   <tr>
                     <td><label>Host</label></td>
-                    <td><select>
+                    <td><select name="host">
                         <?php foreach($all_gateways as $result){ ?>
                         <option><?php echo $result["host"]; ?></option>
                         <?php } ?>

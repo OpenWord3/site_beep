@@ -11,19 +11,13 @@
 		$inum = htmlspecialchars($_POST["inum"]);
 
 		if($num_geo != ""){
-			$verif_num_geo = verif_num_geo($num_geo);	
-		} else {
-			$verif_num_geo = 0;			
-		}
-		if($num_sip != ""){
+			$verif_num_geo = verif_num_geo($num_geo);
+
+		}else if($num_sip != ""){
 			$verif_num_sip = verif_num_sip($num_sip);
-		} else {
-			$verif_num_sip = 0;
-		}
-		if($inum != ""){
+			
+		}else if($inum != ""){
 			$verif_inum = verif_inum($inum);
-		} else {
-			$verif_inum = 0;
 		}		
 
 		$id_gateway = id_gateway_switch($compte,$host);
@@ -32,25 +26,37 @@
 		add_set($id_gateway);
 		$id_set = id_set();
 
-		if($verif_num_geo == 0){
-			add_num_geo($id_set,$num_geo);
+		if(isset($verif_num_geo)){
+			if($verif_num_geo == 0){
+				add_num_geo($id_set,$num_geo);
+				$alert_geo = "";
+			} else {
+				$alert_geo = "Ce numéro géographique existe déjà.";
+			}
+		} else {
 			$alert_geo = "";
-		} else {
-			$alert_geo = "Ce numéro géographique existe déjà.";
 		}
 
-		if($verif_num_sip == 0){
-			add_num_sip($id_set,$num_sip);
+		if(isset($verif_num_sip)){
+			if($verif_num_sip == 0){
+				add_num_sip($id_set,$num_sip);
+				$alert_sip = "";
+			} else {
+				$alert_sip = "Ce numéro SIP existe déjà.";	
+			}
+		} else {
 			$alert_sip = "";
-		} else {
-			$alert_sip = "Ce numéro SIP existe déjà.";	
 		}
 
-		if($verif_inum == 0){
-			add_inum($id_set,$inum);
+		if(isset($verif_inum)){
+			if($verif_inum == 0){
+				add_inum($id_set,$inum);
+				$alert_inum = "";
+			} else {
+				$alert_inum = "Ce numéro INUM existe déjà.";
+			}
+		}else {
 			$alert_inum = "";
-		} else {
-			$alert_inum = "Ce numéro INUM existe déjà.";
 		}
 
 		include("./vues/admin_numero_entrant.php");

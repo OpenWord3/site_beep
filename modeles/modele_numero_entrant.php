@@ -43,7 +43,7 @@
 	function add_set($id_gateway){
 		global $bdd;
 
-		$req = $bdd->qrery("INSERT INTO `set_nums` (`num_geo`, `num_sip`, `inum`, `id_gateway`) VALUES (NULL, NULL, NULL, '$id_gateway');");
+		$req = $bdd->query("INSERT INTO `set_nums` (`num_geo`, `num_sip`, `inum`, `id_gateway`) VALUES (NULL, NULL, NULL, '$id_gateway');");
 
 		$req->closeCursor();
 	}
@@ -61,7 +61,7 @@
 	function add_num_sip($id_set_num,$num_sip){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `set_nums` SET `num_geo` = '$num_sip' WHERE `id_set_num` = '$id_set_num';");
+		$req = $bdd->query("UPDATE `set_nums` SET `num_sip` = '$num_sip' WHERE `id_set_num` = '$id_set_num';");
 
 		$req->closeCursor();
 	}
@@ -70,7 +70,7 @@
 	function add_inum($id_set_num,$num_inum){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `set_nums` SET `num_geo` = '$num_inum' WHERE `id_set_num` = '$id_set_num';");
+		$req = $bdd->query("UPDATE `set_nums` SET `inum` = '$num_inum' WHERE `id_set_num` = '$id_set_num';");
 
 		$req->closeCursor();
 	}
