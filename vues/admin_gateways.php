@@ -373,10 +373,6 @@
                       <td><label>Mot de Passe</label></td>
                       <td><input type="textbox" Value="Chargé son mot de passe"></td>
                     </tr>
-                    <tr>
-                      <td><label>Port</label></td>
-                      <td><input type="textbox" placeholder="Entrez le port SVP"></td>
-                    </tr>
                   </table>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" >Fermer</button>

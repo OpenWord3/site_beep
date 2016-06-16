@@ -280,7 +280,11 @@
                       <h4><i class="fa fa-angle-right"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
-                              <?php if(isset($_POST["ajouter_set"])){ echo $alert_geo+" "+$alert_sip+" "+$alert_inum; }else if(isset($_POST["modifier_set"])){ echo $alert_geo+" "+$alert_sip+" "+$alert_inum; }else if(isset($_POST["supprimer_set"])){ echo $alert; } ?>
+                              <?php if(isset($_POST["ajouter_set"])){ 
+                                      echo $alert_geo+" "+$alert_sip+" "+$alert_inum; 
+                                    }else if(isset($_POST["modifier_set"])){ 
+                                      echo $alert_geo+" "+$alert_sip+" "+$alert_inum; 
+                                    }else if(isset($_POST["supprimer_set"])){ echo $alert; } ?>
                               <thead>
                               <tr>
                                 <th>Compte</th>                                
@@ -337,7 +341,7 @@
                 <form action="<?php echo INDEX ?>?index=vue_gestion_numero_entrant" method="POST">
                   <table width="300">
                     <tr>
-                      <input type="hidden" name="id_gateway" value="<?php echo $result["id_set_num"] ?>">
+                      <input type="hidden" name="id_set_num" value="<?php echo $result["id_set_num"] ?>">
                       <p>Etes-vous sûr de vouloir supprimer ce set de numero ?</p>
                     </tr>
                   </table>

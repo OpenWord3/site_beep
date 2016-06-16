@@ -101,4 +101,13 @@
 		$req->closeCursor();
 		return $result;
 	}
+
+	//Fonction qui supprime un set de numero
+	function del_set($id_set_num){
+		global $bdd;
+
+		$req = $bdd->query("DELETE FROM `set_nums` WHERE `id_set_num` = '$id_set_num'");
+
+		$req->closeCursor();		
+	}
 ?>

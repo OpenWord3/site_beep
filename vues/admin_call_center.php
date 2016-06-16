@@ -170,7 +170,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="<?php INDEX ?>?=vue_accueil">Deconnexion</a></li>
+                    <li><a class="logout" href="<?php echo INDEX ?>?index=vue_accueil">Deconnexion</a></li>
               </ul>
             </div>
         </header>
@@ -189,7 +189,7 @@
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
-                      <a class="active" href="<?php INDEX ?>?index=vue_accueil_admin">
+                      <a class="active" href="<?php echo INDEX ?>?index=vue_accueil_admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Tableau de bord</span>
                       </a>
@@ -201,34 +201,34 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_conference" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_conference" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_droit" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_droit" >
                           <i class="fa fa-plus-circle"></i>
                           <span>Droits</span>
                       </a>
                   </li>
                   
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_callcenter" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_callcenter" >
                           <i class="fa fa-phone-square"></i>
                           <span>Centres d'appels</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_standard" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_standard" >
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
@@ -281,10 +281,14 @@
 				<i class="fa fa-minus"></i> call center
 			  </button>
 			</center>
+      <?php foreach($all_callcenters as $result){ 
+        $nom_call = $result["nom"];
+        $membre_call = membre_call($nom_call);
+      ?>
 			<div class="row mt">
 				<div class="col-lg-12">
 			  <div class="content-panel">
-			  <h4><i class="fa fa-angle-right"></i> Centre First <i class="fa fa-info-circle" data-toggle="modal" data-target="#infos"></i></h4>
+			  <h4><i class="fa fa-angle-right"></i> <?php echo $result["nom"]; ?> numéro : <?php echo $result["num"]; ?> <i class="fa fa-info-circle" data-toggle="modal" data-target="#infos"></i></h4>
 				  <section id="unseen">
 					<table class="table table-bordered table-striped table-condensed">
 					  <thead>
@@ -292,130 +296,117 @@
 						  <th>Nom</th>
 						  <th>Prenoms</th>
 						  <th>Login</th>
-						  <th class="numeric">Numéro de téléphone</th>
 						  <th class="numeric">Numéro de transfert</th>
-						  <th class="numeric">Option de Transfert</th>
-						  <th>Protocole</th>
 						  <th>Adresse Mail</th>
 						  <th>
-							<button class="btn btn-success btn-xs"><i class="fa fa-plus" data-toggle="modal" data-target="#ajoutermember"></i></button>
-							<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-							<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"  data-toggle="modal" data-toggle="modal" data-target="#supprmember"></i></button>
+							<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#ajoutermembre<?php echo $result["id_callcenter"]; ?>"><i class="fa fa-plus" ></i></button>
+							<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifierstrategy"><i class="fa fa-pencil"></i></button>
+							<button class="btn btn-danger btn-xs" data-toggle="modal" data-toggle="modal" data-target="#supprimermembre<?php echo $result["id_callcenter"]; ?>"><i class="fa fa-trash-o"></i></button>
 						  </th>
 					  </tr>
 					  </thead>
 					  <tbody>
-					  <tr>
-						  <td>MOUGNIN</td>
-						  <td>Serge Louis Adolphe</td>
-						  <td>adolphe</td>
-						  <td class="numeric">1000</td>
-						  <td class="numeric">0752243150</td>
-						  <td class="numeric">Oui</td>
-						  <td>SIP</td>
-						  <td>mougnin@intechinfo.fr</td>
-						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
-					  </tr>
-					  <tr>
-						  <td>SANGARE</td>
-						  <td>Hassane Ibrahim</td>
-						  <td>hassane</td>
-						  <td class="numeric">1001</td>
-						  <td class="numeric">0652543010</td>
-						  <td class="numeric">Oui</td>
-						  <td>DAHDI</td>
-						  <td>sangare@intechinfo.fr</td>
-						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
-					  </tr>
-					  <tr>
-						  <td>ILANGOVANE</td>
-						  <td>Steephenraaj</td>
-						  <td>steephen</td>
-						  <td class="numeric">1002</td>
-						  <td class="numeric"></td>
-						  <td class="numeric">Non</td>
-						  <td>SIP</td>
-						  <td>ilangovane@intechinfo.fr</td>
-						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
-					  </tr>
-					  <tr>
-						  <td>KOUDOSSOU</td>
-						  <td>Adjevi Alexandre</td>
-						  <td>adjevi</td>
-						  <td class="numeric">1002</td>
-						  <td class="numeric"></td>
-						  <td class="numeric">Non</td>
-						  <td>SIP</td>
-						  <td></td>
-						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
-					  </tr>
+            <?php foreach($membre_call as $result){ ?>
+  					  <tr>
+  						  <td><?php echo $result["nom"]; ?></td>
+  						  <td><?php echo $result["prenom"]; ?></td>
+  						  <td><?php echo $result["login"]; ?></td>
+  						  <td class="numeric"><?php echo $result["num_transfert"]; ?></td>
+  						  <td><?php echo $result["mail"]; ?></td>
+  						  <td><i class="btn btn-danger btn-xs" class="fa fa-minus"></i></td>
+  					  </tr>
+            <?php } ?>
 					  </tbody>
 					</table>
 				  </section>
-			</div><!-- /content-panel -->
-          </div><!-- /col-lg-4 -->			
+			  </div><!-- /content-panel -->
+        </div><!-- /col-lg-4 -->			
 		 </div><!-- /row -->
+     <?php } ?>
 		</section><! --/wrapper -->
         <!-- Modal -->
-        <div class="modal fade" id="ajoutermember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php foreach($all_callcenters as $result){ 
+          $nom_call = $result["nom"];
+        ?>
+        <div class="modal fade" id="ajoutermembre<?php echo $result["id_callcenter"]; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter un Centre d'appels</h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un membre</h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form>
-                <table width="300">
-                  <tr>
-                    <th><label>Nom du centre</label></th>
-                    <th><input type="textbox" placeholder="centre d'appels" name="nom_call"></input></th>
-                  </tr>
-                  <tr>
-                    <td><label>Numero utilisateur</label></td>
-                    <td><input type="textbox" placeholder="SIP/Hassane" name="membre"></input></td>
-                  </tr>
-                  </table>
-                </form>
+                  <form action="<?php echo INDEX ?>?index=vue_gestion_callcenter" method="POST">
+                    <table width="300">
+                      <tr>
+                        <th><label>Nom du centre</label></th>
+                        <input type="hidden" value="<?php echo $result["nom"]; ?>" name="nom_call" />
+                        <th><input type="textbox" value="<?php echo $result["nom"]; ?>" disabled /></th>
+                      </tr>
+                      <tr>
+                        <td><label>Numero utilisateur</label></td>
+                        <td><select name="membre">
+                          <?php $all_users = all_users();
+                            foreach($all_users as $result){
+                          ?>
+                          <option><?php echo $result["login"]; ?></option>
+                          <?php } ?>
+                        </select></td>
+                      </tr>
+                    </table>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                      <button type="submit" class="btn btn-primary" name="ajouter_membre">Ajouter</button>
+                    </div>
+                  </form>
                 </center>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-              </div>
+              </div>              
             </div>
           </div>
         </div>
+        <?php } ?>
 
-        <div class="modal fade" id="supprmember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php foreach($all_callcenters as $result){ 
+          $nom_call = $result["nom"];
+          $membre_call = membre_call($nom_call);
+        ?>
+        <div class="modal fade" id="supprimermembre<?php echo $result["id_callcenter"]; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un centre d'appels</h4>
+                <h4 class="modal-title" id="myModalLabel">Retirer un membre du centre d'appel</h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form>
-                <table width="300">
-                  <tr>
-                    <th><label>Nom du centre d'appels</label></th>
-                    <th><input type="textbox" placeholder="centre d'appels"></input></th>
-                  </tr>
-                  <tr>
-                    <td><label>Numero utilisateur</label></td>
-                    <td><input type="textbox" placeholder="SIP/Hassane"></input></td>
-                  </tr>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_callcenter" method="POST">
+                  <table width="300">
+                    <tr>
+                      <th><label>Nom du centre d'appels</label></th>
+                      <input type="hidden" value="<?php echo $result["nom"]; ?>" name="nom_call" />
+                      <th><input type="textbox" value="<?php echo $result["nom"]; ?>" disabled /></th>
+                    </tr>
+                    <tr>
+                      <td><label>Numero utilisateur</label></td>
+                      <td><select name="membre">
+                        <?php foreach($membre_call as $result){ ?>
+                          <option><?php echo $result["login"]; ?></option>
+                        <?php } ?>
+                      </select></td>
+                    </tr>
                   </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" name="supprimer_membre">Retirer</button>
+                  </div>
                 </form>
                 </center>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-              </div>
+              </div>              
             </div>
           </div>
         </div>
+        <?php } ?>
 
         <div class="modal fade" id="infos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -460,27 +451,37 @@
               </div>
               <div class="modal-body">
                 <center>
-                <form>
-                <table width="300">
-                  <tr>
-                    <td><label>Nom</label></td>
-                    <td><input type="textbox" placeholder="Nom" name="nom_call"></td>
-                  </tr>
-                    <td><label>Numéro de téléphone</label></td>
-                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num_call"></td>
-                  </tr>
-                  <tr>
-                    <th><label>Stratégie</label></th>
-                    <th><select required name="strategy"><option>RingAll</option><option>RoundRobin</option><option>LeastRecent</option><option>FewestCall</option><option>Random</option><option>RRMemory</option><option>Linear</option><option>WRandom</option></select></th>
-                  </tr>
-                </table>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_callcenter" method="POST">
+                  <table width="300">
+                    <tr>
+                      <td><label>Nom</label></td>
+                      <td><input type="textbox" placeholder="Nom" name="nom_call"></td>
+                    </tr>
+                      <td><label>Numéro de téléphone</label></td>
+                      <td><input type="textbox" placeholder="Numéro de téléphone" name="num_call"></td>
+                    </tr>
+                    <tr>
+                      <th><label>Stratégie</label></th>
+                      <th><select required name="strategy">
+                            <option>ringall</option>
+                            <option>roundrobin</option>
+                            <option>leastrecent</option>
+                            <option>fewestcall</option>
+                            <option>random</option>
+                            <option>rrmemory</option>
+                            <option>linear</option>
+                            <option>wrandom</option>
+                          </select></th>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" name="ajouter_call_center">Ajouter</button>
+                  </div>
                 </form>
                 </center>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -495,19 +496,24 @@
               <div class="modal-body">
 
                 <center>
-                <form>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_callcenter" method="POST">
                 <table width="300">
                   <tr>
                     <th><label>Entrer le nom</label></th>
-                    <th><input type="textbox" placeholder="Le nom" name="nom_call"></th>
+                    <th><select name="nom_call">
+                      <?php foreach ($all_callcenters as $result) { ?>
+                        <option><?php echo $result["nom"]; ?></option>
+                      <?php } ?>
+                    </select></th>
                   </tr>
                 </table>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                  <button type="submit" class="btn btn-primary" name="supprimer_call_center">Supprimer</button>
+                </div>
                 </form>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary" data-target="#confirmer">Supprimer</button>
-              </div>
+              
             </div>
           </div>
       </section><!-- /MAIN CONTENT -->

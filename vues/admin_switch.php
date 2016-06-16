@@ -272,7 +272,7 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Liste des Gateways</h3>
+          	<h3><i class="fa fa-angle-right"></i> Liste des Gateways et leurs switchs</h3>
 		  		    <div class="row mt">
 			       		<div class="col-lg-12">
                       <div class="content-panel">
@@ -284,6 +284,7 @@
                               <tr>
                                 <th>Compte</th>
                                 <th>Host</th>
+                                <th>Port</th>
                                 <th>Groupe</th>
                                 <th>Switch</th>
                                 <th>Actions</th>
@@ -294,6 +295,7 @@
                                 <tr>                                  
                                   <td><?php echo $result["compte"]; ?></td>
                                   <td><?php echo $result["host"]; ?></td>
+                                  <td><?php echo $result["port"]; ?></td>
                                   <td><?php echo $result["nom"]; ?></td>
                                   <td><?php echo $result["switch"]; ?></td>
                                   <td>
@@ -312,10 +314,10 @@
 		    </section><! --/wrapper -->
         <center>
           <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
-            Ajouter une gateway
+            Ajouter un switch
           </button>
           <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
-            Supprimer une gateway
+            Supprimer un switch
           </button>
         </center>
         <!-- Modal -->
@@ -405,6 +407,14 @@
                     <td><select name="host">
                         <?php foreach($all_gateways as $result){ ?>
                           <option><?php echo $result["host"]; ?></option>
+                        <?php } ?>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td><label>Port</label></td>
+                    <td><select name="port">
+                        <?php foreach($all_gateways as $result){ ?>
+                          <option><?php echo $result["port"]; ?></option>
                         <?php } ?>
                     </select></td>
                   </tr>

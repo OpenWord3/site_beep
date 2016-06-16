@@ -50,4 +50,33 @@
 							'mail'=>$mail));
 		$req->closeCursor();
 	}
+
+	//Fonction qui liste tous les utilisateurs
+	function all_users(){
+		global $bdd;
+
+		$req = $bdd->query("SELECT login FROM users WHERE role = '0'");
+
+		$req->execute(array(0));
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+		return $result;
+	}
+
+	//Fonction qui recupere l'id de l'utilisateur
+	function id_user($login){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT id_user FROM users WHERE login = :login");
+		$req->execute(array("login"=>$login));
+
+		while($results = $req->fetch()){
+			$result = $results["id_user"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
 ?>

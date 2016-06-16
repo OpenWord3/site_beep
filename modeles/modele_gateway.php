@@ -1,11 +1,12 @@
 <?php
 	//Fonction qui recupere le compte de la gateway
-	function compte_gateway($compte,$host){
+	function compte_gateway($compte,$host,$port){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT compte FROM `gateways` WHERE compte = :compte AND host = :host");
+		$req = $bdd->prepare("SELECT compte FROM `gateways` WHERE compte = :compte AND host = :host AND port = :port");
 		$req->execute(array("compte"=>$compte,
-							"host"=>$host));
+							"host"=>$host,
+							"port"=>$port));
 		$exist = $req->rowCount();
 		$req->closeCursor();
 
@@ -103,15 +104,6 @@
 		global $bdd;
 
 		$req = $bdd->query("DELETE FROM `gateways` WHERE id_gateway = '$id_gateway'");
-
-		$req->closeCursor();
-	}
-
-	//Fonction qui supprime la liaison entre la gateway et le groupe
-	function del_liaison($id_gateway){
-		global $bdd;
-
-		$req = $bdd->query("DELETE FROM `gateway_has_contextes` WHERE id_gateway = '$id_gateway'");
 
 		$req->closeCursor();
 	}

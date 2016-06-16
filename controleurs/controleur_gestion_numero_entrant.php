@@ -22,7 +22,7 @@
 
 		$id_gateway = id_gateway_switch($compte,$host);
 
-		//je creer le set sans aucun numero depart
+		//je creer le set sans aucun numero au depart
 		add_set($id_gateway);
 		$id_set = id_set();
 
@@ -112,6 +112,12 @@
 
 		include("./vues/admin_numero_entrant.php");	
 
+	}else if(isset($_POST["supprimer_set"])){
+		$id_set_num = $_POST["id_set_num"];
+		del_set($id_set_num);
+		$alert = "le set a bien été supprimé";
+		include("./vues/admin_numero_entrant.php");
+		
 	} else {
 		include("./vues/admin_numero_entrant.php");
 	}

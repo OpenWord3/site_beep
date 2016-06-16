@@ -56,7 +56,7 @@
 	function all_switchs(){
 		global $bdd;
 
-		$req = $bdd->query("SELECT switchs.id_switch,compte,host,nom,switch FROM switchs 
+		$req = $bdd->query("SELECT switchs.id_switch,compte,host,port,nom,switch FROM switchs 
 							 JOIN gateways ON gateways.id_gateway = switchs.id_gateway 
 							 JOIN contextes_has_switchs ON switchs.id_switch = contextes_has_switchs.id_switch
 							 JOIN contextes ON contextes.id_contexte = contextes_has_switchs.id_contexte");
@@ -68,12 +68,13 @@
 	}
 
 	//Fonction qui recupere l'id de la gateway du switch
-	function id_gateway_switch($compte,$host){
+	function id_gateway_switch($compte,$host,$port){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT `id_gateway` FROM `gateways` WHERE compte = :compte AND host = :host");
+		$req = $bdd->prepare("SELECT `id_gateway` FROM `gateways` WHERE compte = :compte AND host = :host AND port = :port");
 		$req->execute(array("compte"=>$compte,
-							"host"=>$host));
+							"host"=>$host,
+							"port"=>$port));
 
 		while($results = $req->fetch()){
 			$result = $results["id_gateway"];
@@ -108,5 +109,19 @@
 		$req = $bdd->query("DELETE FROM `switchs` WHERE `id_switch` = '$id_switch'");
 
 		$req->closeCursor();
+	}
+
+	//Fonction qui verifie le compte et son host avant ajout d'un switch
+	function check_compte_host($compte,$host){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT compte FROM gateways WHERE compte = :compte AND host = :host");
+		$req->execute(array("compte"=>$compte,
+							"host"=>$host));
+
+		$exist = $req->rowCount();
+		$req->closeCursor();
+
+		return $exist;
 	}
 ?>
