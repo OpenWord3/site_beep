@@ -9,19 +9,18 @@
 
     <title>Tableau de bord - Beep</title>
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css">    
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/style-responsive.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">
-    <script src="../assets/js/chart-master/Chart.js"></script>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="./assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/lineicons/style.css">    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/img/favicons/favicon.ico">
+    <script src="./assets/js/chart-master/Chart.js"></script>
   </head>
 
   <body>
-
   <section id="container" >
 
       <header class="header black-bg">
@@ -29,7 +28,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
 
-            <a href="admin_index.php" class="logo"><img src="../assets/img/logo.png" width="80"></img></a>
+            <a href="admin_index.php" class="logo"><img src="./assets/img/logo.png" width="80"></img></a>
             <div class="nav notify-row" id="top_menu">
               
                 <ul class="nav top-menu">
@@ -114,7 +113,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
                                     <span class="time">Maintenant</span>
@@ -126,7 +125,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
                                     <span class="time">40 mins.</span>
@@ -138,7 +137,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
                                     <span class="time">2 hrs.</span>
@@ -150,7 +149,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
                                     <span class="time">4 hrs.</span>
@@ -186,7 +185,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <p class="centered"><a href="admin_profile.php"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                  <p class="centered"><a href="admin_profile.php"><img src="./assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
@@ -203,12 +202,12 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="admin_gestion_personnes.php">Personnes</a></li>
-                          <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_salles_conferences.php" >
+                      <a href="<?php echo INDEX ?>?index=show_conferences" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
@@ -280,11 +279,12 @@
                   <i class="fa fa-minus"></i> utilisateur
                 </button>
               </center>
-
+					<?php if(isset($msg)){echo $msg; }?>
+		  		    <?php $show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $contexte =  $donnees['nom'];$select_users = select_users($contexte); ?>
 		  		    <div class="row mt">
 			       		<div class="col-lg-12">
                       <div class="content-panel">
-                      <h4><i class="fa fa-angle-right"></i> Contexte Travail <i class="fa fa-plus" data-toggle="modal" data-target="#ajouter_au_groupe"></i></h4>
+                      <h4><i class="fa fa-angle-right"></i><?php echo $contexte; ?><i class="fa fa-plus" data-toggle="modal" data-target="#ajouter_au_groupe"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
                               <thead>
@@ -300,150 +300,38 @@
                               </tr>
                               </thead>
                               <tbody>
+							  <?php while($donnees = $select_users->fetch()){ ?>
                               <tr>
-                                  <td>MOUGNIN</td>
-                                  <td>Serge Louis Adolphe</td>
-                                  <td>adolphe</td>
-                                  <td class="numeric">1000</td>
-                                  <td class="numeric">0752243150</td>
-                                  <td class="numeric">Oui</td>
-                                  <td>SIP</td>
-                                  <td>mougnin@intechinfo.fr</td>
+                                  <td><?php echo $donnees['nom']; ?></td>
+                                  <td><?php echo $donnees['prenom']; ?></td>
+                                  <td><?php echo $donnees['login']; ?></td>
+                                  <td class="numeric"><?php echo $donnees['num']; ?></td>
+                                  <td class="numeric"><?php echo $donnees['num_transfert']; ?></td>
+                                  <td class="numeric"><?php if($donnees['option_transfert'] == 1){echo "Oui"; }else{echo "Non";} ?></td>
+                                  <td><?php echo $donnees['protocole']; ?></td>
+                                  <td><?php echo $donnees['mail']; ?></td>
                                   <td>
-                                      <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
+								  <form action ="<?php echo INDEX ?>?index=del_user" method="POST">
+										<input type="hidden" name="login" value="<?php echo $donnees['login']; ?>">
+										<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash-o "></i></button>
+								  </form>
+                                    <!--  <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button> -->
                                   </td>
+								  <td>
+								 <a data-toggle="modal" href="#" data-target="#modal_edit" class="LienModal" rel="<?php echo $donnees['id_user']; ?>"><i class="fa fa-pencil"></i></a>
+						
+									</td>
                               </tr>
-                              <tr>
-                                  <td>SANGARE</td>
-                                  <td>Hassane Ibrahim</td>
-                                  <td>hassane</td>
-                                  <td class="numeric">1001</td>
-                                  <td class="numeric">0652543010</td>
-                                  <td class="numeric">Oui</td>
-                                  <td>DAHDI</td>
-                                  <td>sangares@intechinfo.fr</td>
-                                  <td>
-                                      <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>ILANGOVANE</td>
-                                  <td>Steephenraaj</td>
-                                  <td>steephen</td>
-                                  <td class="numeric">1002</td>
-                                  <td class="numeric"></td>
-                                  <td class="numeric">Non</td>
-                                  <td>SIP</td>
-                                  <td>ilangovane@intechinfo.fr</td>
-                                  <td>
-                                      <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>KOUDOSSOU</td>
-                                  <td>Adjevi Alexandre</td>
-                                  <td>adjevi</td>
-                                  <td class="numeric">1002</td>
-                                  <td class="numeric"></td>
-                                  <td class="numeric">Non</td>
-                                  <td>SIP</td>
-                                  <td></td>
-                                  <td>
-                                      <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
+							  <?php } ?>
+
                               </tbody>
                           </table>
                           </section>
                   </div><!-- /content-panel -->
                </div><!-- /col-lg-4 -->			
 		          </div><!-- /row -->
+				  	<?php } ?>
 
-              <div class="row mt">
-                <div class="col-lg-12">
-                      <div class="content-panel">
-                      <h4><i class="fa fa-angle-right"></i> Contexte Administrateur <i class="fa fa-plus" data-toggle="modal" data-target="#ajouter_au_groupe"></i></h4>
-                          <section id="unseen">
-                            <table class="table table-bordered table-striped table-condensed">
-                              <thead>
-                              <tr>
-                                  <th>Nom</th>
-                                  <th>Prenoms</th>
-                                  <th>Login</th>
-                                  <th class="numeric">Numéro de téléphone</th>
-                                  <th class="numeric">Numéro de transfert</th>
-                                  <th class="numeric">Option de Transfert</th>
-                                  <th>Protocole</th>
-                                  <th>Adresse Mail</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td>MOUGNIN</td>
-                                  <td>Serge Louis Adolphe</td>
-                                  <td>adolphe</td>
-                                  <td class="numeric">1000</td>
-                                  <td class="numeric">0752243150</td>
-                                  <td class="numeric">Oui</td>
-                                  <td>SIP</td>
-                                  <td>mougnin@intechinfo.fr</td>
-                                  <td>
-                                      <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>SANGARE</td>
-                                  <td>Hassane Ibrahim</td>
-                                  <td>hassane</td>
-                                  <td class="numeric">1001</td>
-                                  <td class="numeric">0652543010</td>
-                                  <td class="numeric">Oui</td>
-                                  <td>DAHDI</td>
-                                  <td>sangares@intechinfo.fr</td>
-                                  <td>
-                                      <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>ILANGOVANE</td>
-                                  <td>Steephenraaj</td>
-                                  <td>steephen</td>
-                                  <td class="numeric">1002</td>
-                                  <td class="numeric"></td>
-                                  <td class="numeric">Non</td>
-                                  <td>SIP</td>
-                                  <td>ilangovane@intechinfo.fr</td>
-                                  <td>
-                                      <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>KOUDOSSOU</td>
-                                  <td>Adjevi Alexandre</td>
-                                  <td>adjevi</td>
-                                  <td class="numeric">1002</td>
-                                  <td class="numeric"></td>
-                                  <td class="numeric">Non</td>
-                                  <td>SIP</td>
-                                  <td></td>
-                                  <td>
-                                      <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              </tbody>
-                          </table>
-                          </section>
-                  </div><!-- /content-panel -->
-               </div><!-- /col-lg-4 -->     
-              </div><!-- /row -->
 
 		  </section><! --/wrapper -->
         <!-- Modal -->
@@ -456,62 +344,74 @@
               </div>
               <div class="modal-body">
                 <center>
-                <form>
+                <form action="<?php echo INDEX ?>?index=add_user" method="POST">
                 <table width="300">
                   <tr>
                     <th><label>Protocole</label></th>
-                    <th><select required><option>SIP</option><option>DAHDI</option></select></th>
+                    <th><select required name="protocole" onChange="THEFUNCTION(this.selectedIndex);">
+					<option>SIP</option>
+					<?php if($nb_dahdi['nb_dahdi'] >= 3){}else{?>
+					<option>DAHDI</option>
+					<?php } ?>
+					</select>
+					</th>
                   </tr>
+				  <div style="display:none;" id="port">
+					<label for="type">Port : </label>
+					<select id="" name="port">
+					<?php for($i=0; $i < count($ports); $i++){?> 
+					<option value="<?php echo $ports[$i]; ?>"><?php echo $ports[$i]; ?>
+					<?php } ?>
+					</select>
+				</div>
                   <tr>
                     <td><label>Groupe</label></td>
                     <td>
-                      <select required>
-                        <option>Travail</option>
-                        <option>Cours</option>
-                        <option>Administrateur</option>  
+                      <select name="groupe" required>
+						<?php 	$show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $nom = $donnees['nom']; echo "<option value='$nom'>$nom</option>"; } ?>
                       </select>
                     </td>
                   </tr>
                   <tr>
                     <td><label>Option De Transfert</label></td>
-                    <td><select required><option>Non</option><option>Oui</option></select></td>
+                    <td><select required name="option_transfert"><option value="0">Non</option><option value="1">Oui</option></select></td>
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" placeholder="Login" required></td>
+                    <td><input type="textbox" placeholder="Login" name="login" required></td>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
-                    <td><input type="textbox" placeholder="Nom"></td>
+                    <td><input type="textbox" placeholder="Nom" name="nom"></td>
                   </tr>
                   <tr>
                     <td><label>Prenoms</label></td>
-                    <td><input type="textbox" placeholder="Prenoms"></td>
+                    <td><input type="textbox" placeholder="Prenoms" name="prenom"></td>
                   </tr>
                   <tr>
                     <td><label>Adresse Mail</label></td>
-                    <td><input type="mail" placeholder="Adresse Mail" required></td>
+                    <td><input type="mail" placeholder="Adresse Mail" name="mail" required></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" Value="BeepProject"></td>
+                    <td><input type="textbox" Value="BeepProject" name="mdp"></td>
                   </tr>
                   <tr>
                     <td><label>Numéro de téléphone</label></td>
-                    <td><input type="textbox" placeholder="Numéro de téléphone" required></td>
+                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num" required></td>
                   </tr>
                   <tr>
                     <td><label>Numéro de transfert</label></td>
-                    <td><input type="textbox" placeholder="Numéro de transfert"></td>
+                    <td><input type="textbox" placeholder="Numéro de transfert" name="num_transfert"></td>
                   </tr>
                 </table>
-                </form>
                 </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
               </div>
+			  </form>
             </div>
           </div>
         </div>
@@ -525,20 +425,20 @@
               </div>
               <div class="modal-body">
                 <center>
-                <form>
+                <form action="<?php echo INDEX ?>?index=add_contexte" method="POST">
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
-                    <td><input type="textbox" placeholder="Nom du groupe"></td>
+                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></td>
                   </tr>
                 </table>
-                </form>
                 </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
               </div>
+              </form>
             </div>
           </div>
         </div>
@@ -611,55 +511,69 @@
               </div>
               <div class="modal-body">
                 <center>
-                  <form>
+                  <form action="<?php echo INDEX ?>?index=del_user" method="POST">
                     <table width="300">
                       <tr>
                         <th><label>Le nom de l'utilisateur</label></th>
-                        <th><input type="textbox" placeholder="Le nom de l'utilisateur"></th>
+                        <th><input type="textbox" placeholder="Le nom de l'utilisateur" name="login"></th>
                       </tr>
                       <tr>
                         <th><label>Le nom de son groupe</label></th>
                         <th><input type="textbox" placeholder="Le nom de son groupe"></th>
                       </tr>
                     </table>
-                  </form>
                 </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary" button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation">Supprimer</button>
+                <button type="submit" class="btn btn-primary" button class="btn btn-danger btn-xs" >Supprimer</button>
               </div>
+              </form>
             </div>
           </div>
         </div>
 
-        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer l'utilisateur {nom de l'utilisateur} ?</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer l'utilisateur</h4>
               </div>
               <div class="modal-body">
                 <center>
-                  <form>
                     <table width="300">
                       <tr>
-                        <button class="btn btn-success btn-lg" data-target="#">
-                          Oui
-                        </button>
-                        <button class="btn btn-danger btn-lg" data-target="#">
-                          Non
-                        </button>
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+
+						<button type="button" data-dismiss="modal" class="btn">Cancel</button>	
+
                       </tr>
                     </table>
-                  </form>
                 </center>
               </div>
             </div>
           </div>
         </div>
-
+<div id="modal_edit" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+ 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Modifer l'utilisateur</h4>
+                </div>
+				<center>
+                <div class="modal-body">
+                    <p>Loading...</p>
+                </div>
+				</center>
+ 
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
         <div class="modal fade" id="modification" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -745,20 +659,20 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/jjquery-1.8.3.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jjquery-1.8.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="./assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="./assets/js/jquery.scrollTo.min.js"></script>
+    <script src="./assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
     <!--common script for all pages-->
-    <script src="../assets/js/common-scripts.js"></script>
+    <script src="./assets/js/common-scripts.js"></script>
 
     <!--script for this page-->    <!--script for this page-->
-    <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter-conf.js"></script>
     
   <script>
       //custom select box
@@ -768,7 +682,42 @@
       });
 
   </script>
-    
-
+  	<script>
+$('button[name="remove_levels"]').on('click', function(e){
+    var $form=$(this).closest('form');
+    e.preventDefault();
+    $('#confirm').modal({ backdrop: 'static', keyboard: false })
+        .one('click', '#delete', function (e) {
+            $form.trigger('submit');
+        });
+});
+	</script>    
+    <script>
+$(".LienModal").click(function(oEvt){
+    oEvt.preventDefault();
+    var Id=$(this).attr("rel");
+        $(".modal-body").fadeIn(1000).html('<div style="text-align:center; margin-right:auto; margin-left:auto">Patientez...</div>');
+        $.ajax({
+            type:"GET",
+            data : "Id="+Id,
+            url:"<?php echo INDEX ?>?index=show_edit_user",
+            error:function(msg){
+                $(".modal-body").addClass("tableau_msg_erreur").fadeOut(800).fadeIn(800).fadeOut(400).fadeIn(400).html('<div style="margin-right:auto; margin-left:auto; text-align:center">Impossible de charger cette page</div>');
+            },
+            success:function(data){
+                $(".modal-body").fadeIn(1000).html(data);
+            }
+        });
+    });
+    </script>  
+	<script>
+		function THEFUNCTION(i) {
+			var port = document.getElementById('port');
+			switch(i) {
+				case 1 : port.style.display = ''; break;
+				default: port.style.display = 'none'; break;
+			}
+		}
+	</script>
   </body>
 </html>

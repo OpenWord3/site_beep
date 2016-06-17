@@ -9,14 +9,15 @@
 
     <title>Tableau de bord - Beep</title>
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css">    
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/style-responsive.css" rel="stylesheet">
-    <script src="../assets/js/chart-master/Chart.js"></script>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="./assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/lineicons/style.css">    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/img/favicons/favicon.ico">
+    <script src="./assets/js/chart-master/Chart.js"></script>
   </head>
 
   <body>
@@ -28,7 +29,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
 
-            <a href="admin_index.php" class="logo"><img src="../assets/img/logo.png" width="80"></img></a>
+            <a href="admin_index.php" class="logo"><img src="./assets/img/logo.png" width="80"></img></a>
             <div class="nav notify-row" id="top_menu">
               
                 <ul class="nav top-menu">
@@ -113,7 +114,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
                                     <span class="time">Maintenant</span>
@@ -125,7 +126,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
                                     <span class="time">40 mins.</span>
@@ -137,7 +138,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
                                     <span class="time">2 hrs.</span>
@@ -149,7 +150,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
                                     <span class="time">4 hrs.</span>
@@ -185,7 +186,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <p class="centered"><a href="admin_profile.php"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                  <p class="centered"><a href="admin_profile.php"><img src="./assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
@@ -267,50 +268,64 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
+			<?php if(isset($msg)){ echo $msg;} ?>
           	<h3><i class="fa fa-angle-right"></i> Liste des Salles de conférences</h3>
-				<center>
-				  <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
-					<i class="fa fa-plus"></i> salle de conférence
-				  </button>
-				  <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
-					<i class="fa fa-minus"></i> salle de conférence
-				  </button>
-				</center>
+			<center>
+				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
+				<i class="fa fa-plus"></i> salle de conférence
+				</button>
+				<button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
+				<i class="fa fa-minus"></i> salle de conférence
+				</button>
+			</center>
+						<?php 
+			$show_conf = show_conf();
+			while($donnees = $show_conf->fetch()){
+			?>
 				<div class="row mt">
 					<div class="col-lg-12">
 						<div class="content-panel">
-						<h4><i class="fa fa-angle-right"></i> Salle <b>7001</b></h4>
+                      <h4><i class="fa fa-angle-right"></i><?php echo "Salle ",$donnees['num']; ?></h4>
 						  <section id="unseen">
-							<table class="table table-bordered table-striped table-condensed">
-							  <thead>
+                            <table class="table table-bordered table-striped table-condensed">
+                              <thead>
+                              <tr>
+                                  <th>Options</th>
+                                  <th>Valeurs</th>
+                                  <th>
+								  <form>
+										<input type="hidden" name="id_conf" value="<?php echo $donnees['id_conf']; ?>">
+										<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash-o "></i></button>
+									</form>    
+								<a data-toggle="modal" href="#" data-target="#modal_edit" class="LienModal" rel="<?php echo $donnees['id_conf']; ?>"><i class="fa fa-pencil"></i></a>									
+							  </th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                  <td>Mot de passe</td>
+                                  <td><?php echo $donnees['mdp']; ?></td>
+                              </tr>
+                              <tr>
+                                  <td>TalkOnly</td>
+                                  <td><?php if($donnees['option_talk'] == 1){echo "Oui";}else{echo "Non";}?></td>
+                              </tr>
+                              <tr>
+                                  <td>Musique</td>
+                                  <td><?php if($donnees['option_music'] == 1){echo "Oui";}else{echo "Non";}?></td>
+                              </tr>                              
 							  <tr>
-								  <th>Options</th>
-								  <th>Valeurs</th>
-								  <th>
-									<button class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#modifier"><i class="fa fa-pencil"></i></button>
-									<button class="btn btn-danger btn-xs"  data-toggle="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-								  </th>
-							  </tr>
-							  </thead>
-							  <tbody>
-							  <tr>
-								  <td>Mot de passe</td>
-								  <td>12345</td>
-							  </tr>
-							  <tr>
-								  <td>TalkOnly</td>
-								  <td>Non</td>
-							  </tr>
-							  <tr>
-								  <td>Musique</td>
-								  <td>Oui</td>
-							  </tr>
-							  </tbody>
-							</table>
+                                  <td>Login</td>
+                                  <td><?php echo $donnees['login']; ?></td>
+                              </tr>
+                              </tbody>
+                            </table>
 						  </section>
 						</div><!-- /content-panel -->
-					<!-- /col-lg-4 -->     
+					</div><!-- /col-lg-4 -->     
 				</div><!-- /row -->
+				<?php }
+				?>
 		    </section><! --/wrapper -->
         
 		<!-- Modal -->
@@ -323,99 +338,56 @@
               </div>
               <div class="modal-body">
                 <center>
-                <form>
+                <form action="<?php echo INDEX ?>?index=add_conf" method="POST">
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" placeholder="Nunméro de salle de conférence"></td>
+                    <td><input type="textbox" placeholder="Nunméro de salle de conférence" name="num_conf"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" Value="BeepProject"></td>
+                    <td><input type="textbox" Value="BeepProject" name="mdp_conf"></td>
                   </tr>
                   <tr>
                     <td><label>TalkOnly</label></td>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" name="opt_talk" value="1"></td>
                   </tr>
                   <tr>
                     <td><label>Musique d'attente</label></td>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" name="opt_music" value="1"></td>
                   </tr>
                 </table>
-                </form>
                 </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
               </div>
+			</form>
             </div>
           </div>
         </div>
 		
-		<div class="modal fade" id="modifier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Modifier une salle de conférence</h4>
-              </div>
-              <div class="modal-body">
-                <center>
-                <form>
-                <table width="300">
-                  <tr>
-                    <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" placeholder="Nunméro de salle de conférence"></td>
-                  </tr>
-                  <tr>
-                    <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" Value="BeepProject"></td>
-                  </tr>
-                  <tr>
-                    <td><label>TalkOnly</label></td>
-                    <td><input type="checkbox"></td>
-                  </tr>
-                  <tr>
-                    <td><label>Musique d'attente</label></td>
-                    <td><input type="checkbox"></td>
-                  </tr>
-                </table>
-                </form>
-                </center>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
-              </div>
-            </div>
-          </div>
-        </div>
-		
-		<div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer la salle {xxx} ?</h4>
-              </div>
-              <div class="modal-body">
-                <center>
-				  <button class="btn btn-success btn-lg">
-					OUI
-				  </button>
-				  <button class="btn btn-danger btn-lg">
-					NON
-				  </button>
+<div id="modal_edit" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+ 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Modifer l'utilisateur</h4>
+                </div>
+				<center>
+                <div class="modal-body">
+                    <p>Loading...</p>
+                </div>
 				</center>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Supprimer</button>
-              </div>
-            </div>
-          </div>
+ 
         </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+		
 		
         <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -425,26 +397,25 @@
                 <h4 class="modal-title" id="myModalLabel">Supprimer une salle de conférence</h4>
               </div>
               <div class="modal-body">
-
                 <center>
-                <form>
+                <form action="<?php echo INDEX ?>?index=del_conf" method="POST">
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" placeholder="Nunméro de salle de conférence"></td>
+                    <td><input type="textbox" placeholder="Nunméro de salle de conférence" name="num_conf"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" Value="S'il existe"></td>
+                    <td><input type="textbox" Value="S'il existe" name="mdp_conf"></td>
                   </tr>
                   <tr>
                 </table>
-                </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#confirmation">Supprimer</button>
+                <button type="submit" class="btn btn-primary" data-target="#confirmer">Supprimer</button>
               </div>
+             </form>
             </div>
           </div>
       </section><!-- /MAIN CONTENT -->
@@ -463,20 +434,20 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/jjquery-1.8.3.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jjquery-1.8.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="./assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="./assets/js/jquery.scrollTo.min.js"></script>
+    <script src="./assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
     <!--common script for all pages-->
-    <script src="../assets/js/common-scripts.js"></script>
+    <script src="./assets/js/common-scripts.js"></script>
 
     <!--script for this page-->    <!--script for this page-->
-    <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter-conf.js"></script>
     
   <script>
       //custom select box
@@ -486,7 +457,24 @@
       });
 
   </script>
-    
+  <script>
+$(".LienModal").click(function(oEvt){
+    oEvt.preventDefault();
+    var Id=$(this).attr("rel");
+        $(".modal-body").fadeIn(1000).html('<div style="text-align:center; margin-right:auto; margin-left:auto">Patientez...</div>');
+        $.ajax({
+            type:"GET",
+            data : "Id="+Id,
+            url:"<?php echo INDEX ?>?index=show_edit_conf",
+            error:function(msg){
+                $(".modal-body").addClass("tableau_msg_erreur").fadeOut(800).fadeIn(800).fadeOut(400).fadeIn(400).html('<div style="margin-right:auto; margin-left:auto; text-align:center">Impossible de charger cette page</div>');
+            },
+            success:function(data){
+                $(".modal-body").fadeIn(1000).html(data);
+            }
+        });
+    });
+   </script>  
 
   </body>
 </html>

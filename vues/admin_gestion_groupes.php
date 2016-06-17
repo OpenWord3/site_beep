@@ -9,15 +9,15 @@
 
     <title>Tableau de bord - Beep</title>
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css">    
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/style-responsive.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../assets/img/favicons/favicon.ico">
-    <script src="../assets/js/chart-master/Chart.js"></script>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="./assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/lineicons/style.css">    
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/img/favicons/favicon.ico">
+    <script src="./assets/js/chart-master/Chart.js"></script>
   </head>
 
   <body>
@@ -29,7 +29,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
 
-            <a href="admin_index.php" class="logo"><img src="../assets/img/logo.png" width="80"></img></a>
+            <a href="admin_index.php" class="logo"><img src="./assets/img/logo.png" width="80"></img></a>
             <div class="nav notify-row" id="top_menu">
               
                 <ul class="nav top-menu">
@@ -114,7 +114,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
                                     <span class="time">Maintenant</span>
@@ -126,7 +126,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
                                     <span class="time">40 mins.</span>
@@ -138,7 +138,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
                                     <span class="time">2 hrs.</span>
@@ -150,7 +150,7 @@
                             </li>
                             <li>
                                 <a href="admin_index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="./assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
                                     <span class="time">4 hrs.</span>
@@ -202,7 +202,7 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="admin_gestion_personnes.php">Personnes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
                           <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
                       </ul>
                   </li>
@@ -285,6 +285,7 @@
 		    <div class="row mt">
        		<div class="col-lg-12">
                 <div class="content-panel">
+				<?php if(isset($msg)){ echo $msg;} ?>
                     <h3><i class="fa fa-angle-right"></i> Liste des groupes d'utilisateurs</h3>
                     <section id="unseen">
                       <table class="table table-hover">
@@ -295,41 +296,18 @@
                           </tr>
                         </thead>
                         <tbody>
+						<?php $i=1; $show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $nom = $donnees['nom']; ?>
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Travail</td>
+                            <th scope="row"><?php echo $i; ?></th>
+                            <td><?php echo $nom; ?></td>
                             <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
+							<form action="<?php echo INDEX ?>?index=del_contexte" method="POST">
+								<input type="hidden" name="nom_groupe" value="<?php echo $nom; ?>">
+								<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash-o "></i></button>
+							</form>                            
+							</th>
                           </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Cours</td>
-                            <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Administrateur</td>
-                            <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td>Commerciaux</td>
-                            <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
-                          </tr>
-                          <tr>
-                            <th scope="row">5</th>
-                            <td>Direction</td>
-                            <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
-                          </tr>
+						<?php $i++;} ?>
                         </tbody>
                       </table>
                     </section>
@@ -350,21 +328,21 @@
 
               <div class="modal-body">
                 <center>
-                  <form>
+                  <form action="<?php echo INDEX ?>?index=del_contexte" method="POST">
                     <table width="300">
                       <tr>
                         <th><label>Nom du groupe</label></th>
-                        <th><input type="textbox" placeholder="Nom du groupe"></th>
+                        <th><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></th>
                       </tr>
                     </table>
-                  </form>
                 </center>
               </div>
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#confirmation" data-target="#confirmation">Supprimer</button>
+                <button type="submit" class="btn btn-primary" button class="btn btn-danger btn-xs" >Supprimer</button>
               </div>
+			 </form>
             </div>
           </div>
         </div>
@@ -378,45 +356,39 @@
               </div>
               <div class="modal-body">
                 <center>
-                <form>
+                <form action="<?php echo INDEX ?>?index=add_contexte" method="POST">
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
-                    <td><input type="textbox" placeholder="Nom du groupe"></td>
+                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></td>
                   </tr>
                 </table>
-                </form>
                 </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-primary"  name="from_groupe" value="from_groupe">Ajouter</button>
               </div>
+              </form>
             </div>
           </div>
         </div>
 
-        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer le groupe {nom du groupe} ?</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer le groupe</h4>
               </div>
               <div class="modal-body">
                 <center>
-                  <form>
                     <table width="300">
                       <tr>
-                        <button class="btn btn-success btn-lg" data-target="#">
-                          Oui
-                        </button>
-                        <button class="btn btn-danger btn-lg" data-target="#">
-                          Non
-                        </button>
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+						<button type="button" data-dismiss="modal" class="btn">Cancel</button>	
                       </tr>
                     </table>
-                  </form>
                 </center>
               </div>
             </div>
@@ -438,20 +410,20 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/jjquery-1.8.3.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jjquery-1.8.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="./assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="./assets/js/jquery.scrollTo.min.js"></script>
+    <script src="./assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
     <!--common script for all pages-->
-    <script src="../assets/js/common-scripts.js"></script>
+    <script src="./assets/js/common-scripts.js"></script>
 
     <!--script for this page-->    <!--script for this page-->
-    <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="./assets/js/gritter-conf.js"></script>
     
   <script>
       //custom select box
@@ -461,7 +433,16 @@
       });
 
   </script>
-    
+	<script>
+		$('button[name="remove_levels"]').on('click', function(e){
+			var $form=$(this).closest('form');
+			e.preventDefault();
+			$('#confirm').modal({ backdrop: 'static', keyboard: false })
+				.one('click', '#delete', function (e) {
+					$form.trigger('submit');
+				});
+		});
+	</script> 
 
   </body>
 </html>
