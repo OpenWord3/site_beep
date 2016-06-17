@@ -230,12 +230,11 @@
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php echo INDEX ?>?index=vue_gestion_standard">
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_standard" >
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
                   </li>
-
                   <li class="sub-menu">
                       <a href="admin_javascript:;" >
                           <i class="fa fa-random"></i>
@@ -273,33 +272,35 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Liste des Gateways</h3>
+          	<h3><i class="fa fa-angle-right"></i> Liste des Gateways et leurs switchs</h3>
 		  		    <div class="row mt">
 			       		<div class="col-lg-12">
                       <div class="content-panel">
                       <h4><i class="fa fa-angle-right"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
-                              <?php if(isset($_POST["ajouter"])){ echo $alert; }else if(isset($_POST["modifier"])){ echo $alert; } ?>
+                              <?php if(isset($_POST["ajouter_switch"])){ echo $alert; }else if(isset($_POST["supprimer_switch"])){ echo $alert; } ?>
                               <thead>
                               <tr>
                                 <th>Compte</th>
-                                <th>Mot de passe</th>
-                                <th>Host (Ippi, Ovh, etc...)</th>
-                                <th>port</th>
+                                <th>Host</th>
+                                <th>Port</th>
+                                <th>Groupe</th>
+                                <th>Switch</th>
                                 <th>Actions</th>
                               </tr>
                               </thead>
                               <tbody>
-                                <?php foreach($liste_gateway as $result) { ?>
+                                <?php foreach($all_switchs as $result) { ?>
                                 <tr>                                  
                                   <td><?php echo $result["compte"]; ?></td>
-                                  <td><?php echo $result["mdp"]; ?></td>
                                   <td><?php echo $result["host"]; ?></td>
                                   <td><?php echo $result["port"]; ?></td>
+                                  <td><?php echo $result["nom"]; ?></td>
+                                  <td><?php echo $result["switch"]; ?></td>
                                   <td>
-                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification<?php echo $result["id_gateway"]; ?>" ><a href="#modification<?php echo $result["id_gateway"]; ?>"></a><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_gateway"]; ?>"><i class="fa fa-trash-o "></i></button>
+                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification<?php echo $result["id_switch"]; ?>" ><a href="#modification<?php echo $result["id_switch"]; ?>"></a><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_switch"]; ?>"><i class="fa fa-trash-o "></i></button>
                                   </td>
                                 </tr> 
                                 <?php } ?>                             
@@ -313,35 +314,35 @@
 		    </section><! --/wrapper -->
         <center>
           <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
-            Ajouter une gateway
+            Ajouter un switch
           </button>
           <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
-            Supprimer une gateway
+            Supprimer un switch
           </button>
         </center>
         <!-- Modal -->
 
-        <?php foreach($liste_gateway as $result) { ?>
+        <?php foreach($all_switchs as $result) { ?>
 
-          <div class="modal fade" id="suppression<?php echo $result["id_gateway"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="suppression<?php echo $result["id_switch"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Suppression de la gateway <?php echo $result["compte"]; ?></h4>
+                <h4 class="modal-title" id="myModalLabel">Suppression du switch <?php echo $result["switch"]; ?> de la gateway <?php echo $result["compte"]; ?> du host <?php echo $result["host"]; ?></h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form action="<?php echo INDEX ?>?index=vue_gestion_gateway" method="POST">
+                <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="POST">
                   <table width="300">
                     <tr>
-                      <input type="hidden" name="id_gateway" value="<?php echo $result["id_gateway"] ?>">
+                      <input type="hidden" name="id_switch" value="<?php echo $result["id_switch"] ?>">
                       <p>Etes-vous sûr de vouloir supprimer cette gateway ?</p>
                     </tr>
                   </table>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" >Non</button>
-                    <button type="submit" class="btn btn-primary" name="supprimer">Oui</button>
+                    <button type="submit" class="btn btn-primary" name="supprimer_switch">Oui</button>
                   </div> 
                 </form>
                 </center>
@@ -351,27 +352,23 @@
           </div>
         <?php } ?>
 
-        <?php foreach($liste_gateway as $result) { ?>
+        <?php foreach($all_switchs as $result) { ?>
 
-          <div class="modal fade" id="modification<?php echo $result["id_gateway"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modification<?php echo $result["id_switch"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Modification de la gateway <?php echo $result["compte"]; ?></h4>
+                <h4 class="modal-title" id="myModalLabel">Modification du switch <?php echo $result["switch"]; ?> de la gateway <?php echo $result["compte"]; ?> du host <?php echo $result["host"]; ?></h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form action="<?php echo INDEX ?>?index=vue_gestion_gateway" method="POST">
+                <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="POST">
                   <table width="300">
                    <tr>
-                      <td><label>nouveau mot de passe</label></td>
-                      <input type="hidden" name="id_gateway" value="<?php echo $result["id_gateway"] ?>">
-                      <td><input type="textbox" placeholder="Nouveau mot de passe" name="new_mdp" required></td>
-                    </tr>
-                    <tr>
-                      <td><label>Mot de Passe</label></td>
-                      <td><input type="textbox" Value="Chargé son mot de passe"></td>
+                      <td><label>nouveau switch</label></td>
+                      <input type="hidden" name="id_switch" value="<?php echo $result["id_switch"] ?>">
+                      <td><input type="textbox" placeholder="Nouveau switch" name="new_switch" required></td>
                     </tr>
                   </table>
                   <div class="modal-footer">
@@ -391,33 +388,53 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter une gateway</h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un switch</h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form action="<?php echo INDEX ?>?index=vue_gestion_gateway" method="POST">
+                <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="POST">
                 <table width="300">
                   <tr>
                     <td><label>Compte</label></td>
-                    <td><input type="textbox" placeholder="Ovh ou Ippi" name="compte"></td>
-                  </tr>
-                  <tr>
-                    <td><label>Mot de passe</label></td>
-                    <td><input type="textbox" placeholder="Mot de passe" name="mdp"></td>
+                    <td><select name="compte">
+                        <?php foreach($all_gateways as $result){ ?>
+                          <option><?php echo $result["compte"]; ?></option>
+                        <?php } ?>
+                    </select></td>
                   </tr>
                   <tr>
                     <td><label>Host</label></td>
-                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr" name="host"></td>
+                    <td><select name="host">
+                        <?php foreach($all_gateways as $result){ ?>
+                          <option><?php echo $result["host"]; ?></option>
+                        <?php } ?>
+                    </select></td>
                   </tr>
                   <tr>
                     <td><label>Port</label></td>
-                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr" name="port"></td>
+                    <td><select name="port">
+                        <?php foreach($all_gateways as $result){ ?>
+                          <option><?php echo $result["port"]; ?></option>
+                        <?php } ?>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td><label>Groupe</label></td>
+                    <td><select name="groupe">
+                        <?php foreach($groupes as $result){ ?>
+                          <option><?php echo $result["nom"]; ?></option>
+                        <?php } ?>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td><label>Switch</label></td>
+                    <td><input type="textbox" value="X" name="switch"></td>
                   </tr>
                 </table>
                 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-primary" name="ajouter_gateway">Ajouter</button>
+                    <button type="submit" class="btn btn-primary" name="ajouter_switch">Ajouter</button>
                   </div>
                   </form>
                 </center>
@@ -431,7 +448,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer une gateway</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer un switch</h4>
               </div>
               <div class="modal-body">
 
@@ -439,7 +456,7 @@
                 <form>
                 <table width="300">
                   <tr>
-                    <th><label>Entrer le nom</label></th>
+                    <th><label>Entrer le switch</label></th>
                     <th><input type="textbox" placeholder="Le nom"></th>
                   </tr>
                 </table>

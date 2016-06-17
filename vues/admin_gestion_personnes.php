@@ -170,7 +170,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Deconnexion</a></li>
+                    <li><a class="logout" href="<?php INDEX ?>?=vue_accueil">Deconnexion</a></li>
               </ul>
             </div>
         </header>
@@ -189,7 +189,7 @@
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
-                      <a class="active" href="admin_index.php">
+                      <a class="active" href="<?php INDEX ?>?index=vue_accueil_admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Tableau de bord</span>
                       </a>
@@ -201,34 +201,43 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
+<<<<<<< HEAD
                           <li><a  href="admin_gestion_personnes.php">Personnes</a></li>
                           <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
+=======
+                          <li><a  href="<?php INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
+                          <li><a  href="<?php INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
+>>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                       </ul>
                   </li>
 
                   <li class="sub-menu">
+<<<<<<< HEAD
                       <a href="<?php echo INDEX ?>?index=show_conferences" >
+=======
+                      <a href="<?php INDEX ?>?index=vue_gestion_conference" >
+>>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_droits.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_droit" >
                           <i class="fa fa-check-circle"></i>
                           <span>Droits</span>
                       </a>
                   </li>
                   
                   <li class="sub-menu">
-                      <a href="admin_call_center.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_callcenter" >
                           <i class="fa fa-phone-square"></i>
                           <span>Centres d'appels</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_standard.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_standard" >
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
@@ -236,10 +245,15 @@
 
 
                   <li class="sub-menu">
-                      <a href="admin_gateways.php" >
+                      <a href="admin_javascript:;" >
                           <i class="fa fa-random"></i>
-                          <span>Gateways</span>
+                          <span>Gateway, numeros entrants et switch</span>
                       </a>
+                      <ul class="sub">
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                      </ul>
                   </li>
 
                   <li class="sub-menu">
@@ -415,7 +429,7 @@
             </div>
           </div>
         </div>
-
+<!------------------------------------------------------------------------------------- -->
         <div class="modal fade" id="ajouter_groupe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -429,14 +443,22 @@
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
+<<<<<<< HEAD
                     <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></td>
+=======
+                    <td><input type="textbox" placeholder="Nom du groupe" name="groupe"></td>
+>>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                   </tr>
                 </table>
                 </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+<<<<<<< HEAD
                 <button type="submit" class="btn btn-primary">Ajouter</button>
+=======
+                <button type="button" class="btn btn-primary" name="ajouter_groupe">Ajouter</button>
+>>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
               </div>
               </form>
             </div>
@@ -456,39 +478,47 @@
                 <table width="300">
                   <tr>
                     <th><label>Protocole</label></th>
-                    <th><select required><option>SIP</option><option>DAHDI</option></select></th>
+                    <th><select required name="protocole"><option>SIP</option><option>DAHDI</option></select></th>
+                  </tr>
+                  <tr>
+                    <th><label>Groupe</label></th>
+                    <th><select required name="groupe"><option>Travail</option><option>Cours</option><option>Administrateur</option></select></th>
                   </tr>
                   <tr>
                     <td><label>Option De Transfert</label></td>
-                    <td><select required><option>Non</option><option>Oui</option></select></td>
+                    <td><select required name="transfert"><option>Non</option><option>Oui</option></select></td>
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" placeholder="Login" required></td>
+                    <td><input type="textbox" placeholder="Login" name="pseudo" required></td>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
-                    <td><input type="textbox" placeholder="Nom"></td>
+                    <td><input type="textbox" placeholder="Nom" name="nom"></td>
                   </tr>
                   <tr>
                     <td><label>Prenoms</label></td>
-                    <td><input type="textbox" placeholder="Prenoms"></td>
+                    <td><input type="textbox" placeholder="Prenoms" name="prenom"></td>
                   </tr>
                   <tr>
                     <td><label>Adresse Mail</label></td>
-                    <td><input type="mail" placeholder="Adresse Mail" required></td>
+                    <td><input type="mail" placeholder="Adresse Mail" name="email" required></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" Value="BeepProject"></td>
+                    <td><input type="textbox" Value="BeepProject" name="mdp"></td>
                   </tr>
                   <tr>
                     <td><label>Numéro de téléphone</label></td>
-                    <td><input type="textbox" placeholder="Numéro de téléphone" required></td>
+                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num_exten" required></td>
                   </tr>
                   <tr>
                     <td><label>Numéro de transfert</label></td>
-                    <td><input type="textbox" placeholder="Numéro de transfert"></td>
+                    <td><input type="textbox" placeholder="Numéro de transfert" name="telephone"></td>
+                  </tr>
+                  <tr>
+                    <td><label>Port Dahdi</label></td>
+                    <th><select required name="port"><option>Pas besoin</option><option>Port 1</option><option>Port 2</option><option>Port 3</option></select></th>
                   </tr>
                 </table>
                 </form>
@@ -515,11 +545,15 @@
                     <table width="300">
                       <tr>
                         <th><label>Le nom de l'utilisateur</label></th>
+<<<<<<< HEAD
                         <th><input type="textbox" placeholder="Le nom de l'utilisateur" name="login"></th>
+=======
+                        <th><input type="textbox" placeholder="Le nom de l'utilisateur" name="pseudo"></th>
+>>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                       </tr>
                       <tr>
                         <th><label>Le nom de son groupe</label></th>
-                        <th><input type="textbox" placeholder="Le nom de son groupe"></th>
+                        <th><input type="textbox" placeholder="Le nom de son groupe" name="groupe"></th>
                       </tr>
                     </table>
                 </center>

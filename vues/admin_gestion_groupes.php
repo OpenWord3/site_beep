@@ -171,7 +171,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Deconnexion</a></li>
+                    <li><a class="logout" href="<?php INDEX ?>?=vue_accueil">Deconnexion</a></li>
               </ul>
             </div>
         </header>
@@ -186,11 +186,11 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <p class="centered"><a href="admin_profile.php"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                  <p class="centered"><a href="admin_profile.php"><img src="./assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
-                      <a class="active" href="admin_index.php">
+                      <a class="active" href="<?php INDEX ?>?index=vue_accueil_admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Tableau de bord</span>
                       </a>
@@ -202,34 +202,39 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
+<<<<<<< HEAD
                           <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
                           <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
+=======
+                          <li><a  href="<?php INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
+                          <li><a  href="<?php INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
+>>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_salles_conferences.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_conference" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_droits.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_droit" >
                           <i class="fa fa-plus-circle"></i>
                           <span>Droits</span>
                       </a>
                   </li>
                   
                   <li class="sub-menu">
-                      <a href="admin_call_center.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_callcenter" >
                           <i class="fa fa-phone-square"></i>
                           <span>Centres d'appels</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="admin_standard.php" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_standard" >
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
@@ -237,10 +242,15 @@
 
 
                   <li class="sub-menu">
-                      <a href="admin_gateways.php" >
+                      <a href="admin_javascript:;" >
                           <i class="fa fa-random"></i>
-                          <span>Gateways</span>
+                          <span>Gateway, numeros entrants et switch</span>
                       </a>
+                      <ul class="sub">
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                      </ul>
                   </li>
 
                   <li class="sub-menu">
