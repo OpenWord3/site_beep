@@ -13,6 +13,54 @@
 		return $exist;
 	}
 
+	//Fonction qui recuper le nom de la gateway
+	function nom_gateway($id_gateway){
+		global $bdd;
+
+		$req=$bdd->prepare("SELECT compte FROM gateways WHERE id_gateway = :id_gateway");
+		$req->execute(array("id_gateway"=>$id_gateway));
+
+		while($results = $req->fetch()){
+			$result = $results["compte"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui recuper le host de la gateway
+	function host_gateway($id_gateway){
+		global $bdd;
+
+		$req=$bdd->prepare("SELECT host FROM gateways WHERE id_gateway = :id_gateway");
+		$req->execute(array("id_gateway"=>$id_gateway));
+
+		while($results = $req->fetch()){
+			$result = $results["host"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui recuper le port de la gateway
+	function port_gateway($id_gateway){
+		global $bdd;
+
+		$req=$bdd->prepare("SELECT port FROM gateways WHERE id_gateway = :id_gateway");
+		$req->execute(array("id_gateway"=>$id_gateway));
+
+		while($results = $req->fetch()){
+			$result = $results["port"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
 	//Fonction qui ajoute une nouvelle gateway 
 	function new_compte_gateway($compte,$mdp,$host,$port){
 		global $bdd;
