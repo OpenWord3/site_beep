@@ -203,7 +203,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
-                          <li><a  href="<?php echo INDEX ?>show_contextes.php">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
                       </ul>
                   </li>
 
