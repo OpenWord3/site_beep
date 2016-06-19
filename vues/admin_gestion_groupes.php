@@ -202,13 +202,8 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-<<<<<<< HEAD
                           <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
                           <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
-=======
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
->>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                       </ul>
                   </li>
 

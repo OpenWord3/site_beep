@@ -16,7 +16,7 @@
 			$_SESSION["id_user"] = $id_user;
 		}
 		else{
-			include("");
+			include("./vues/user.php");
 		}
 	}
 ?>

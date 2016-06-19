@@ -16,10 +16,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/lineicons/style.css">    
     <link href="./assets/css/style.css" rel="stylesheet">
     <link href="./assets/css/style-responsive.css" rel="stylesheet">
-<<<<<<< HEAD
     <link rel="shortcut icon" href="./assets/img/favicons/favicon.ico">
-=======
->>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
     <script src="./assets/js/chart-master/Chart.js"></script>
   </head>
 
@@ -301,7 +298,7 @@
                                   <th>Options</th>
                                   <th>Valeurs</th>
                                   <th>
-								  <form>
+								  <form action="<?php echo INDEX ?>?index=del_conf" method="post">
 										<input type="hidden" name="id_conf" value="<?php echo $donnees['id_conf']; ?>">
 										<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash-o "></i></button>
 									</form>    
@@ -376,7 +373,6 @@
           </div>
         </div>
 		
-<<<<<<< HEAD
 <div id="modal_edit" class="modal fade" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -389,7 +385,11 @@
                 <div class="modal-body">
                     <p>Loading...</p>
                 </div>
-=======
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 		<div class="modal fade" id="modifier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -429,29 +429,26 @@
           </div>
         </div>
 		
-		<div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer la salle {xxx} ?</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer la conférence</h4>
               </div>
               <div class="modal-body">
                 <center>
-				  <button class="btn btn-success btn-lg">
-					OUI
-				  </button>
-				  <button class="btn btn-danger btn-lg">
-					NON
-				  </button>
->>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
-				</center>
- 
+                    <table width="300">
+                      <tr>
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+						<button type="button" data-dismiss="modal" class="btn">Cancel</button>	
+                      </tr>
+                    </table>
+                </center>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
 		
 		
         <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -540,6 +537,16 @@ $(".LienModal").click(function(oEvt){
         });
     });
    </script>  
+   	<script>
+		$('button[name="remove_levels"]').on('click', function(e){
+			var $form=$(this).closest('form');
+			e.preventDefault();
+			$('#confirm').modal({ backdrop: 'static', keyboard: false })
+				.one('click', '#delete', function (e) {
+					$form.trigger('submit');
+				});
+		});
+	</script> 
 
   </body>
 </html>

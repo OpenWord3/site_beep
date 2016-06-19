@@ -201,13 +201,13 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
-                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_groupes">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php echo INDEX ?>?index=vue_gestion_conference" >
+                      <a href="<?php echo INDEX ?>?index=show_conferences" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>

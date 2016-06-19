@@ -1,9 +1,11 @@
 <?php
 	function add_groupe($contexte){
 		global $bdd;
-		$req = $bdd->prepare("INSERT INTO `contextes`(`nom`) values(:nom);");
+		$type_contexte = 1;
+		$req = $bdd->prepare("INSERT INTO `contextes`(`nom`,`type_contexte`) values(:nom,:type_contexte);");
 		$req->execute(array(
-							'nom'=>$contexte));
+							'nom'=>$contexte,
+							'type_contexte'=>$type_contexte));
 		$req->closeCursor();
 	}
 	
@@ -16,7 +18,7 @@
 	
 	function show_groupe(){
 		global $bdd;
-		$req = $bdd->query("SELECT * FROM contextes");
+		$req = $bdd->query("SELECT * FROM contextes WHERE type_contexte = 1");
 		return $req;
 	}
 	

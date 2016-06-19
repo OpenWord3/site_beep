@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tableau de bord Admin">
     <meta name="author" content="Louis-Adolphe Mougnin">
@@ -201,22 +201,13 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-<<<<<<< HEAD
                           <li><a  href="admin_gestion_personnes.php">Personnes</a></li>
                           <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
-=======
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
->>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-<<<<<<< HEAD
                       <a href="<?php echo INDEX ?>?index=show_conferences" >
-=======
-                      <a href="<?php INDEX ?>?index=vue_gestion_conference" >
->>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
@@ -443,22 +434,14 @@
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
-<<<<<<< HEAD
                     <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></td>
-=======
-                    <td><input type="textbox" placeholder="Nom du groupe" name="groupe"></td>
->>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                   </tr>
                 </table>
                 </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-<<<<<<< HEAD
                 <button type="submit" class="btn btn-primary">Ajouter</button>
-=======
-                <button type="button" class="btn btn-primary" name="ajouter_groupe">Ajouter</button>
->>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
               </div>
               </form>
             </div>
@@ -545,11 +528,7 @@
                     <table width="300">
                       <tr>
                         <th><label>Le nom de l'utilisateur</label></th>
-<<<<<<< HEAD
                         <th><input type="textbox" placeholder="Le nom de l'utilisateur" name="login"></th>
-=======
-                        <th><input type="textbox" placeholder="Le nom de l'utilisateur" name="pseudo"></th>
->>>>>>> be5413265db7bc95748e54878e64f9e006ad95d5
                       </tr>
                       <tr>
                         <th><label>Le nom de son groupe</label></th>
