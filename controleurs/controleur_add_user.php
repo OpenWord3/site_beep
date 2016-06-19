@@ -44,7 +44,7 @@
 				add_num($num,$protocole,$id_user[0]);
 			}
 			
-			//exec('sudo /var/script_beep/adduser.sh '.$login.' '.$mdp.' '.$mail.' '.$num.' '.$protocole.' '.$port.' '.$option_transfert.' '.$num_transfert.' '.$contexte);
+			exec('sudo /var/script_beep/adduser.sh '.$login.' '.$mdp.' '.$mail.' '.$num.' '.$protocole.' '.$port.' '.$option_transfert.' '.$num_transfert.' '.$contexte);
 			$msg = "<h3 style='color:green'>L'utilisateur $nom $prenom à bien été ajouter</h3>";
 			include("./controleurs/controleur_show_users.php");	
 		}
