@@ -14,38 +14,27 @@
 			$alert = "Ce compte associer au host que vous avez entré existe déja.";
 			
 		} else {
-			new_compte_gateway($compte,$mdp,$host,$port);			
-			#$id_groupe_switch = id_groupe_switch($groupe);
-			#new_liaison($id_compte_gateway,$id_groupe_switch);
+			new_compte_gateway($compte,$mdp,$host,$port);
+			#exec('sudo /var/script_beep/add_trunk.sh '.$compte.' '.$mdp.' '.$host.' '.$port);			
 			$alert = "La gateway a bien été ajouté.";
 		}
-
-	}else if(isset($_POST["ajouter_numero"])){
-		$num_geo = $_POST["num_geo"];
-		$num_sip = $_POST["num_sip"];
-		$inum = $_POST["inum"];
-		$compte = $_POST["compte"];
-		$id_compte_gateway = id_compte_gateway($compte);
-		numbers_gateway($num_geo,$num_sip,$inum,$id_compte_gateway);
-		$alert = "le(s) numeros ont bien été enregistrés";
-
-	}else if(isset($_POST["ajouter_switch"])){
-		$switch = $_POST["switch"];
-		$compte = $_POST["compte"];
-		$id_compte_gateway = id_compte_gateway($compte);
-		add_switch($switch,$id_gateway);
-		$alert = $_POST["le switch a bien été enregistrés"];
 
 	}else if(isset($_POST["modifier"])){
 		$new_mdp=$_POST["new_mdp"];
 		$id_gateway=$_POST["id_gateway"];
+		$compte = nom_gateway($id_gateway);
 		change_mdp($new_mdp,$id_gateway);
+		#exec('sudo /var/script_beep/modif_trunk.sh '.$compte.' '.$new_mdp);
 		$alert = "Le mot de passe de la gateway a bien été modifié.";
 
 	}else if(isset($_POST["supprimer"])){
 		$id_gateway = $_POST["id_gateway"];
+		$compte = nom_gateway($id_gateway);
+		$host = host_gateway($id_gateway);
+		$port = port_gateway($id_gateway);
 		del_incom_num($id_gateway);
 		del_gateway($id_gateway);
+		#exec('sudo /var/script_beep/remove_trunk.sh '.$compte.' '.$host.' '.$port);
 		$alert = "La gateway a bien été supprimée.";
 	}
 
