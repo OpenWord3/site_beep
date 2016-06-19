@@ -307,8 +307,12 @@
 			<div class="modal-content modal-popup">
 				<a href="" class="close-link"><i class="icon_close_alt2" data-dismiss="modal" aria-hidden="true"></i></a>
 				<h3 class="white">Connexion</h3>
-				<form action="<?php echo INDEX ?>?index=vue_connexion" method="POST" class="popup-form">
-					<input type="text" class="form-control form-white" placeholder="Nom" name="pseudo">
+				<h3 class="white"><?php if(isset($msg)){ echo $msg; }?></h3>
+				<form action="<?php echo INDEX ?>?index=connexion_user" class="popup-form" method="POST">
+					<input type="text" class="form-control form-white" placeholder="Nom" name="login">
+
+			<!--	<form action="<?php echo INDEX ?>?index=vue_connexion" method="POST" class="popup-form"> -->
+			<!--		<input type="text" class="form-control form-white" placeholder="Nom" name="pseudo"> -->
 					<input type="password" class="form-control form-white" placeholder="Mot de Passe" name="mdp">
 					<div class="checkbox-holder text-left">
 						<div class="checkbox">
@@ -316,6 +320,7 @@
 							<label for="squaredOne"><span>En cliquant, j'accepte <strong>les conditions d'utilisations</strong></span></label>
 						</div>
 					</div>
+					<button type="submit" class="btn btn-submit">Valider</button>
 					<button type="submit" class="btn btn-submit" name="valider">Valider</button>
 				</form>
 			</div>

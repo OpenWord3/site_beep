@@ -202,8 +202,8 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
-                          <li><a  href="<?php INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
+                          <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
                       </ul>
                   </li>
 
@@ -290,6 +290,7 @@
 		    <div class="row mt">
        		<div class="col-lg-12">
                 <div class="content-panel">
+				<?php if(isset($msg)){ echo $msg;} ?>
                     <h3><i class="fa fa-angle-right"></i> Liste des groupes d'utilisateurs</h3>
                     <section id="unseen">
                       <table class="table table-hover">
@@ -300,41 +301,18 @@
                           </tr>
                         </thead>
                         <tbody>
+						<?php $i=1; $show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $nom = $donnees['nom']; ?>
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Travail</td>
+                            <th scope="row"><?php echo $i; ?></th>
+                            <td><?php echo $nom; ?></td>
                             <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
+							<form action="<?php echo INDEX ?>?index=del_contexte" method="POST">
+								<input type="hidden" name="nom_groupe" value="<?php echo $nom; ?>">
+								<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash-o "></i></button>
+							</form>                            
+							</th>
                           </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Cours</td>
-                            <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Administrateur</td>
-                            <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td>Commerciaux</td>
-                            <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
-                          </tr>
-                          <tr>
-                            <th scope="row">5</th>
-                            <td>Direction</td>
-                            <th>
-                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmation"><i class="fa fa-trash-o "></i></button>
-                            </th>
-                          </tr>
+						<?php $i++;} ?>
                         </tbody>
                       </table>
                     </section>
@@ -355,21 +333,21 @@
 
               <div class="modal-body">
                 <center>
-                  <form>
+                  <form action="<?php echo INDEX ?>?index=del_contexte" method="POST">
                     <table width="300">
                       <tr>
                         <th><label>Nom du groupe</label></th>
-                        <th><input type="textbox" placeholder="Nom du groupe"></th>
+                        <th><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></th>
                       </tr>
                     </table>
-                  </form>
                 </center>
               </div>
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#confirmation" data-target="#confirmation">Supprimer</button>
+                <button type="submit" class="btn btn-primary" button class="btn btn-danger btn-xs" >Supprimer</button>
               </div>
+			 </form>
             </div>
           </div>
         </div>
@@ -383,45 +361,39 @@
               </div>
               <div class="modal-body">
                 <center>
-                <form>
+                <form action="<?php echo INDEX ?>?index=add_contexte" method="POST">
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
-                    <td><input type="textbox" placeholder="Nom du groupe"></td>
+                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></td>
                   </tr>
                 </table>
-                </form>
                 </center>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-primary"  name="from_groupe" value="from_groupe">Ajouter</button>
               </div>
+              </form>
             </div>
           </div>
         </div>
 
-        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer le groupe {nom du groupe} ?</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer le groupe</h4>
               </div>
               <div class="modal-body">
                 <center>
-                  <form>
                     <table width="300">
                       <tr>
-                        <button class="btn btn-success btn-lg" data-target="#">
-                          Oui
-                        </button>
-                        <button class="btn btn-danger btn-lg" data-target="#">
-                          Non
-                        </button>
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+						<button type="button" data-dismiss="modal" class="btn">Cancel</button>	
                       </tr>
                     </table>
-                  </form>
                 </center>
               </div>
             </div>
@@ -466,7 +438,16 @@
       });
 
   </script>
-    
+	<script>
+		$('button[name="remove_levels"]').on('click', function(e){
+			var $form=$(this).closest('form');
+			e.preventDefault();
+			$('#confirm').modal({ backdrop: 'static', keyboard: false })
+				.one('click', '#delete', function (e) {
+					$form.trigger('submit');
+				});
+		});
+	</script> 
 
   </body>
 </html>

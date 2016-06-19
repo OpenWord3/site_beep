@@ -202,7 +202,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="admin_gestion_personnes.php">Personnes</a></li>
-                          <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
+                          <li><a  href="./vues/admin_gestion_groupes.php">Groupes</a></li>
                       </ul>
                   </li>
 
