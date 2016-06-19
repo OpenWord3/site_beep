@@ -203,12 +203,12 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
-                          <li><a  href="admin_gestion_groupes.php">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>show_contextes.php">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_conference" >
+                      <a href="<?php INDEX ?>?index=show_conferences" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
