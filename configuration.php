@@ -6,6 +6,7 @@
 	include("./modeles/modele_switch.php");
 	include("./modeles/modele_numero_entrant.php");
 	include("./modeles/modele_call_center.php");
+	include("./modeles/modele_droit.php");
 
 	//Constante de l'index
 	define("INDEX","index.php");
