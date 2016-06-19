@@ -337,6 +337,11 @@
                   <table width="300">
                     <tr>
                       <input type="hidden" name="id_switch" value="<?php echo $result["id_switch"] ?>">
+                      <input type="hidden" name="compte" value="<?php echo $result["compte"]; ?>">
+                      <input type="hidden" name="host" value="<?php echo $result["host"]; ?>">
+                      <input type="hidden" name="port" value="<?php echo $result["port"]; ?>">
+                      <input type="hidden" name="groupe" value="><?php echo $result["nom"]; ?>">
+                      <input type="hidden" name="switch" value="><?php echo $result["switch"]; ?>">
                       <p>Etes-vous sûr de vouloir supprimer cette gateway ?</p>
                     </tr>
                   </table>

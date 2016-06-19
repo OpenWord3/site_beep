@@ -294,7 +294,7 @@
                                 <?php foreach($liste_gateway as $result) { ?>
                                 <tr>                                  
                                   <td><?php echo $result["compte"]; ?></td>
-                                  <td><?php echo $result["mdp"]; ?></td>
+                                  <td><button data-toggle="modal" data-target="#athentication<?php echo $result["id_gateway"]; ?>">Voir mot de passe</button></td>
                                   <td><?php echo $result["host"]; ?></td>
                                   <td><?php echo $result["port"]; ?></td>
                                   <td>
@@ -320,6 +320,38 @@
           </button>
         </center>
         <!-- Modal -->
+
+        <?php foreach($liste_gateway as $result) { ?>
+
+          <div class="modal fade" id="athentication<?php echo $result["id_gateway"]; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Mot de passe de la gateway <?php echo $result["compte"]; ?></h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                <form>
+                  <table width="300">
+                    <tr>
+                      <p>Etrez votre mot de passe admin</p>
+                      <input type="password" id="password"/> 
+                      <span id="resultat" style="display:none; color:green;">Le mot de passe est : <?php echo $result["mdp"] ?></span>
+                      <span id="resultat2" style="display:none; color:red;">Entrez le bon mot de passe admin</span>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="non">Non</button>
+                    <button type="submit" class="btn btn-primary" id="submit">Valider</button>
+                  </div> 
+                </form>
+                </center>
+              </div>
+            </div>
+          </div>
+          </div>
+        <?php } ?>
 
         <?php foreach($liste_gateway as $result) { ?>
 
@@ -487,9 +519,30 @@
     
   <script>
       //custom select box
+      $(document).ready(function(){
 
-      $(function(){
+        $("#submit").click(function{
+          $.post(
+            './controleurs/admin.php',{
+              password : $("#password").val()
+            },
+
+            function(data){
+              if(data == "c'est bon"){
+                $("#resultat").fadeOut();
+              } else {
+                $("#resultat2").fadeOut();
+              }
+            },
+
+            'text'
+
+          );
+        });
+
+        $(function(){
           $('select.styled').customSelect();
+        });
       });
 
   </script>

@@ -36,6 +36,11 @@
 
 	}else if(isset($_POST["supprimer_switch"])){
 		$id_switch = $_POST["id_switch"];
+		$compte = $_POST["compte"];
+		$host = $_POST["host"];
+		$port = $_POST["port"];
+		$groupe = $_POST["groupe"];
+		$switch = $_POST["switch"];
 		del_switch($id_switch);
 		$alert = "Le switch a bien été supprimé.";
 	} 	
