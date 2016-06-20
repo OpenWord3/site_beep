@@ -16,7 +16,7 @@
 			$_SESSION["id_user"] = $id_user;
 		}
 		else{
-			include("./vues/user.php");
+			include("./vues/dashboard.php");
 		}
 	}
 ?>

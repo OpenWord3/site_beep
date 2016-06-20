@@ -12,11 +12,11 @@
 			$alert = "Le centre d’appel que vous avez entré existe déjà.";
 			$membre_call = membre_call($nom_call);
 
-		}else{
-			#exec('sudo /var/script_beep/add_callcenter.sh '.$nom_call.' '.$trategy.' '.$num_call);
+		}else{			
 			add_callcenter($nom_call,$num_call,$strategy); 
-			$alert = "Le centre d’appel a bien été ajouté.";
+			#exec('sudo /var/script_beep/add_callcenter.sh '.$nom_call.' '.$trategy.' '.$num_call);			
 			$membre_call = membre_call($nom_call);
+			$alert = "Le centre d’appel a bien été ajouté.";
 		}
 		
 	} else if(isset($_POST["supprimer_call_center"])){
@@ -38,6 +38,8 @@
 			$alert = "Le membre existe déjà dans ce centre d'appel.";
 		}else {
 			add_member($id_callcenter,$id_user);
+			$chaine = 'SIP/'.$login;
+			#exec('sudo /var/script_beep/add_member_callcenter.sh '.$chaine.' '.$nom_call);
 			$alert = "Le membre a bien été ajouté.";
 		}		
 
@@ -46,8 +48,9 @@
 		$login = $_POST["membre"];
 		$id_user = id_user($login);
 		$id_callcenter = id_call($nom_call);
-
+		$chaine = 'SIP/'.$login;
 		del_membre($id_callcenter,$id_user);
+		#exec('sudo /var/script_beep/remove_member_callcenter.sh '.$chaine.' '.$nom_call);
 
 		$alert = "Le membre a bien été retiré.";
 	} 
