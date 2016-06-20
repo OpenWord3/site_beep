@@ -24,7 +24,7 @@ else{
 	
 	$check_num = check_nums($nums_users,$nums_callcenters,$nums_conferences,$num);
 	if($num_origine == 770){
-		update_conf($num,$mdp,$opt_talk,$opt_music,$id_conf);
+		update_conf($num_origine,$mdp,$opt_talk,$opt_music,$id_conf);
 		
 		if($opt_music == 1 && $opt_talk == 1){
 			exec('sudo /var/script_beep/chg_option.pl 1');
@@ -41,7 +41,7 @@ else{
 		
 	}	
 	else if($num_origine == 790){
-		update_conf($num,$mdp,$opt_talk,$opt_music,$id_conf);
+		update_conf($num_origine,$mdp,$opt_talk,$opt_music,$id_conf);
 		
 		if($opt_music == 1 && $opt_talk == 1){
 			exec('sudo /var/script_beep/chg_option.pl 4');
