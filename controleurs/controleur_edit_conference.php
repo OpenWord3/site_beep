@@ -75,9 +75,9 @@ else{
 			exec('sudo /var/script_beep/chng_mdp_conference.pl '.$num.' '.$mdp);
 //		}
 		
-		if(($opt_music == 1) && ($opt_talk == 1)){
-			//exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 3');
-			exec('sudo /home/steephen/test/chng_option_conference.pl '.$num_origine.' 3');
+		/*if(($opt_music == 1) && ($opt_talk == 1)){
+			$test
+			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 3');
 			$msg = "<h3 style='color:green'>L'option talk only et music à bien été modifier pour la conférence $num</h3>";
 		}	
 		else if(($opt_talk ==1) && ($opt_music == 0)){
@@ -88,17 +88,17 @@ else{
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 1');
 			$msg = "<h3 style='color:green'>L'option music à bien été modifier pour la conférence $num</h3>";
 		}
-		else if(($opt_talk ==0) && ($opt_music == 0)){
+		else if(($opt_talk ==0) && ($opt_music == 0)){*/
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 4');
-			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence $num</h3>";
-		}
+			/*$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence $num</h3>";
+		}*/
 		//$msg = "<h3 style='color:green'>La conférence à bien été modifier</h3>";
 	}
 	else if($check_num == 0){		
 		exec('sudo /var/script_beep/delete_conference.pl '.$num_origine.' '.$mdp_origine);
 		exec('sudo /var/script_beep/create_conference.pl '.$num.' '.$mdp);
 		
-		if($opt_music == 1 && $opt_talk == 1){
+	/*	if($opt_music == 1 && $opt_talk == 1){
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 3');
 			$msg = "<h3 style='color:green'>La conférence $num à bien été modifier </h3>";
 		}	
@@ -110,10 +110,10 @@ else{
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 1');
 			$msg = "<h3 style='color:green'>La conférence $num à bien été modifier</h3>";
 		}
-		else if($opt_talk ==0 && $opt_music == 0){
+		else if($opt_talk ==0 && $opt_music == 0){*/
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 4');
-			$msg = "<h3 style='color:green'>La conférence $num à bien été modifier</h3>";
-		}
+		/*	$msg = "<h3 style='color:green'>La conférence $num à bien été modifier</h3>";
+		}*/
 		update_conf($num,$mdp,$opt_talk,$opt_music,$id_conf);
 		
 		$msg = "<h3 style='color:green'>La conférence à bien été modifier</h3>";
