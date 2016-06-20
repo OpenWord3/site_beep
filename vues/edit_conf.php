@@ -11,7 +11,7 @@
                   <tr>
                     <td><label>Mot de Passe</label></td>
                     <td><input type="textbox" value="<?php echo $select_conf['mdp'];?>" name="mdp_conf" <?php if(($select_conf['num'] == 770) || ($select_conf['num'] == 790)){ echo " disabled"; } ?>></td>
-					<?php if(($select_conf['num'] == 770) || ($select_conf['num'] == 790)) { ?> <input type="hidden" name="mdp_origine" value="<?php echo $select_conf['mdp'];?>" > <?php } ?>
+					<input type="hidden" name="mdp_origine" value="<?php echo $select_conf['mdp'];?>" >
                   </tr>
                   <tr>
                     <td><label>TalkOnly</label></td>
