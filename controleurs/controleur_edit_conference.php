@@ -4,6 +4,7 @@ $id_conf = $_POST['modifier'];
 $num = $_POST['num_conf'];
 $num_origine = $_POST['num_origine'];
 $mdp = $_POST['mdp_conf'];
+$mdp_origine = $_POST['mdp_origine'];
 
 if(!isset($_POST['opt_talk'])){
 	$opt_talk = 0;
@@ -24,7 +25,7 @@ else{
 	
 	$check_num = check_nums($nums_users,$nums_callcenters,$nums_conferences,$num);
 	if($num_origine == 770){
-		update_conf($num_origine,$mdp,$opt_talk,$opt_music,$id_conf);
+		update_conf($num_origine,$mdp_origine,$opt_talk,$opt_music,$id_conf);
 		
 		if($opt_music == 1 && $opt_talk == 1){
 			exec('sudo /var/script_beep/chg_option.pl 1');
