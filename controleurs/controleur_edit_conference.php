@@ -54,7 +54,7 @@ else{
 			$msg = "<h3 style='color:green'>L'option talk only et music à bien été modifier pour la conférence 790</h3>";
 		}
 		else if(($opt_talk ==1) && ($opt_music == 0)){
-			exec('sudo /var/script_beep/chg_option.pl 6');
+			exec('sudo /var/script_beep/chg_option.pl'.' 6');
 			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence 790</h3>";
 		}		
 		else if(($opt_music ==1) && ($opt_talk == 0)){

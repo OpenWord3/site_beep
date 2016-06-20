@@ -28,7 +28,6 @@
 		exec('sudo /var/script_beep/create_conference.pl '.$num_conf.' '.$mdp_conf);
 		
 		if($opt_music == 1 && $opt_talk == 1){
-			echo "hellooo";
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num_conf.' 3');
 		}	
 		else if(($opt_talk ==1) && ($opt_music == 0)){
