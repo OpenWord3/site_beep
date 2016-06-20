@@ -59,14 +59,23 @@
 
 	} else if(isset($_POST["retirer_droit_interne"])){
 		$groupe1=$_POST["groupe1"];
-		$groupe2=$_POST["groupe2"];		
+		$groupe2=$_POST["groupe2"];	
+		$unidir=$_POST["unidir"];
+		$bidir=$_POST["bidir"];	
 
 		$id_groupe1 = id_groupe_switch($groupe1);
 		$id_groupe2 = id_groupe_switch($groupe2);
 
-		del_droit_bidir($id_groupe1,$id_groupe2);
+		if($unidir == '1' && $bidir == '0'){
+			#echo "condition1 respectee";			
+			#exec('sudo /var/script_beep/cancel_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);			
 
-		#exec('sudo /var/script_beep/cancel_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
+		} else {
+			#echo "condition1 pas respectee";
+			#exec('sudo /var/script_beep/cancel_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
+		}
+		
+		del_droit_bidir($id_groupe1,$id_groupe2);
 		$alert = "Ce droit a bien été supprimé.";
 		
 	}else if(isset($_POST["retirer_droit_externe"])){
