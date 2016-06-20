@@ -22,7 +22,7 @@
 				$unidir = '0';
 				$bidir = '1';
 				new_droit($id_groupe1,$id_groupe2,$unidir,$bidir);
-				#exec('sudo /var/script_beep/droit_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
+				exec('sudo /var/script_beep/droit_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
 				$alert = "Le droit a bien été ajouté.";
 			}
 			
@@ -35,7 +35,7 @@
 				$unidir = '1';
 				$bidir = '0';
 				new_droit($id_groupe1,$id_groupe2,$unidir,$bidir);
-				#exec('sudo /var/script_beep/droit_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
+				exec('sudo /var/script_beep/droit_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
 				$alert = "Le droit a bien été ajouté.";
 			}
 			
@@ -53,7 +53,7 @@
 			$alert = "Ce droit existe déjà.";
 		}else {
 			new_droit_extern($id_groupe1,$id_groupe2);
-			#exec('sudo /var/script_beep/droit_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
+			exec('sudo /var/script_beep/droit_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
 			$alert = "Le droit a bien été ajouté.";
 		}
 
@@ -66,13 +66,11 @@
 		$id_groupe1 = id_groupe_switch($groupe1);
 		$id_groupe2 = id_groupe_switch($groupe2);
 
-		if($unidir == '1' && $bidir == '0'){
-			#echo "condition1 respectee";			
-			#exec('sudo /var/script_beep/cancel_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);			
+		if($unidir == '1' && $bidir == '0'){			
+			exec('sudo /var/script_beep/cancel_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);			
 
 		} else {
-			#echo "condition1 pas respectee";
-			#exec('sudo /var/script_beep/cancel_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
+			exec('sudo /var/script_beep/cancel_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
 		}
 		
 		del_droit_bidir($id_groupe1,$id_groupe2);
@@ -87,7 +85,7 @@
 
 		del_droit_extern($id_groupe1,$id_groupe2);
 		
-		#exec('sudo /var/script_beep/cancel_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
+		exec('sudo /var/script_beep/cancel_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
 		$alert = "Ce droit a bien été supprimé.";
 	}
 

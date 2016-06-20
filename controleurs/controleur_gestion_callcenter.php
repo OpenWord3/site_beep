@@ -14,7 +14,7 @@
 
 		}else{			
 			add_callcenter($nom_call,$num_call,$strategy); 
-			#exec('sudo /var/script_beep/add_callcenter.sh '.$nom_call.' '.$trategy.' '.$num_call);			
+			exec('sudo /var/script_beep/add_callcenter.sh '.$nom_call.' '.$trategy.' '.$num_call);			
 			$membre_call = membre_call($nom_call);
 			$alert = "Le centre d’appel a bien été ajouté.";
 		}
@@ -23,7 +23,7 @@
 		$nom_call = $_POST["nom_call"];
 		$id_call_center = id_call($nom_call);
 		del_callcenter($id_call_center);
-		#exec('sudo /var/script_beep/remove_callcenter.sh '.$nom_call);
+		exec('sudo /var/script_beep/remove_callcenter.sh '.$nom_call);
 		$alert = "Le callcenter a bien été supprimé.";
 
 	}else if(isset($_POST["ajouter_membre"])){
@@ -39,7 +39,7 @@
 		}else {
 			add_member($id_callcenter,$id_user);
 			$chaine = 'SIP/'.$login;
-			#exec('sudo /var/script_beep/add_member_callcenter.sh '.$chaine.' '.$nom_call);
+			exec('sudo /var/script_beep/add_member_callcenter.sh '.$chaine.' '.$nom_call);
 			$alert = "Le membre a bien été ajouté.";
 		}		
 
@@ -50,7 +50,7 @@
 		$id_callcenter = id_call($nom_call);
 		$chaine = 'SIP/'.$login;
 		del_membre($id_callcenter,$id_user);
-		#exec('sudo /var/script_beep/remove_member_callcenter.sh '.$chaine.' '.$nom_call);
+		exec('sudo /var/script_beep/remove_member_callcenter.sh '.$chaine.' '.$nom_call);
 
 		$alert = "Le membre a bien été retiré.";
 	} 

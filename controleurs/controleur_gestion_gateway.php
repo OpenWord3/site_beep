@@ -15,7 +15,7 @@
 			
 		} else {
 			new_compte_gateway($compte,$mdp,$host,$port);
-			#exec('sudo /var/script_beep/add_trunk.sh '.$compte.' '.$mdp.' '.$host.' '.$port);			
+			exec('sudo /var/script_beep/add_trunk.sh '.$compte.' '.$mdp.' '.$host.' '.$port);			
 			$alert = "La gateway a bien été ajouté.";
 		}
 
@@ -27,7 +27,7 @@
 		$port = port_gateway($id_gateway);
 		$mdp = mdp_gateway($id_gateway);
 		change_mdp($new_mdp,$id_gateway);
-		#exec('sudo /var/script_beep/modif_trunk.sh '.$compte.' '.$new_mdp.' '.$host.' '.$port.' '.$mdp);
+		exec('sudo /var/script_beep/modif_trunk.sh '.$compte.' '.$new_mdp.' '.$host.' '.$port.' '.$mdp);
 		$alert = "Le mot de passe de la gateway a bien été modifié.";
 
 	}else if(isset($_POST["supprimer"])){
@@ -45,8 +45,8 @@
 		del_switch($id_switch);
 
 		del_gateway($id_gateway);
-		#exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$nom_groupe.' '.$nom_switch_gateway);
-		#exec('sudo /var/script_beep/remove_trunk.sh '.$compte.' '.$host.' '.$port);
+		exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$nom_groupe.' '.$nom_switch_gateway);
+		exec('sudo /var/script_beep/remove_trunk.sh '.$compte.' '.$host.' '.$port);
 		$alert = "La gateway a bien été supprimée.";
 	}
 

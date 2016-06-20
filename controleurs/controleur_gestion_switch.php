@@ -28,7 +28,7 @@
 				add_switch($id_gateway,$switch);
 				$id_switch = id_last_switch();
 				link_switch_contexte($id_groupe,$id_switch);
-				#exec('sudo /var/script_beep/add_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
+				exec('sudo /var/script_beep/add_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
 				$alert = "Le switch a bien été ajouté.";
 			}
 		}
@@ -43,7 +43,7 @@
 		$groupe = $_POST["groupe"];
 		$switch = $_POST["switch"];
 		del_switch($id_switch);
-		#exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
+		exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
 		$alert = "Le switch a bien été supprimé.";
 	} 	
 	include("./vues/admin_switch.php");
