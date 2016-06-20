@@ -5,8 +5,8 @@
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" value="<?php echo $select_conf['num']; ?>" name="num_conf"></td>
-					<input type="hidden" name="num_origine" value="<?php echo $select_conf['num'];?>" <?php if(($select_conf['num'] == 770) || ($select_conf['num'] == 790)){ echo "disabled"; } ?>>
+                    <td><input type="textbox" value="<?php echo $select_conf['num']; ?>" name="num_conf" <?php if(($select_conf['num'] == 770) || ($select_conf['num'] == 790)){ echo "disabled"; } ?>></td>
+					<input type="hidden" name="num_origine" value="<?php echo $select_conf['num'];?>" >
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
