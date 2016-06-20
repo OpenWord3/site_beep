@@ -89,7 +89,7 @@ else{
 		}
 		else if(($opt_talk ==0) && ($opt_music == 0)){
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 4');
-			/$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence $num</h3>";
+			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence $num</h3>";
 		}
 	}
 	else if($check_num == 0){		
