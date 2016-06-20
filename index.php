@@ -20,13 +20,13 @@
 				include("./controleurs/controleur_del_user.php");
 				break;	
 			case "edit_user":
-				include("./controleurs/controleur_edit_user.php ");
+				include("./controleurs/controleur_edit_user.php");
 				break;			
 			case "show_edit_user":
-				include("./controleurs/controleur_show_edit_user.php ");
+				include("./controleurs/controleur_show_edit_user.php");
 				break;			
 			case "show_users":
-				include("./controleurs/controleur_show_users.php ");
+				include("./controleurs/controleur_show_users.php");
 				break;
 			case "add_contexte":
 				include("./controleurs/controleur_add_groupe.php");

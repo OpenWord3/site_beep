@@ -34,15 +34,16 @@
 		if($num_origine == $num){
 			update_user($nom,$prenom,$login,$mdp,$mail,$num_transfert,$option_transfert,$role,$droit_conf,$jours,$horaires,$id_contexte[0],$id_user);
 			update_num($num,$protocole,$id_user);
-			//exec('sudo /var/script_beep/adduser.sh '.$login.' '.$mdp.' '.$mail.' '.$num.' '.$protocole.' '.$port.' '.$option_transfert.' '.$num_transfert.' '.$contexte);
+			exec('sudo /var/script_beep/deleteuser.sh '.$login.' '.$find_user_groupe);
+			exec('sudo /var/script_beep/adduser.sh '.$login.' '.$mdp.' '.$mail.' '.$num.' '.$protocole.' '.$port.' '.$option_transfert.' '.$num_transfert.' '.$contexte);
 			$msg = "<h3 style='color:green'>L'utilisateur $login à bien été modifier</h3>";
 			include("./controleurs/controleur_show_users.php");	
 		}
 		else if($check_num == 0){
 			update_user($nom,$prenom,$login,$mdp,$mail,$num_transfert,$option_transfert,$role,$droit_conf,$jours,$horaires,$id_contexte[0],$id_user);
 			update_num($num,$protocole,$id_user);
-			
-			//exec('sudo /var/script_beep/adduser.sh '.$login.' '.$mdp.' '.$mail.' '.$num.' '.$protocole.' '.$port.' '.$option_transfert.' '.$num_transfert.' '.$contexte);
+			exec('sudo /var/script_beep/deleteuser.sh '.$login.' '.$find_user_groupe);
+			exec('sudo /var/script_beep/adduser.sh '.$login.' '.$mdp.' '.$mail.' '.$num.' '.$protocole.' '.$port.' '.$option_transfert.' '.$num_transfert.' '.$contexte);
 			$msg = "<h3 style='color:green'>L'utilisateur $login à bien été modifier</h3>";
 			include("./controleurs/controleur_show_users.php");	
 		}

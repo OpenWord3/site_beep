@@ -13,7 +13,7 @@
 		del_user($id_user);
 		del_user_conf($id_user);
 		
-		//exec('sudo /var/script_beep/deleteuser.sh '.$login.' '.$find_user_groupe);
+		exec('sudo /var/script_beep/deleteuser.sh '.$login.' '.$find_user_groupe);
 		$msg = "<h3 style='color:green'>L'utilisateur $login à bien été supprimer</h3>";
 		include("./controleurs/controleur_show_users.php");		
 	}
