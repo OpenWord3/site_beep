@@ -93,8 +93,11 @@ else{
 		}
 	}
 	else if($check_num == 0){		
-		exec('sudo /var/script_beep/delete_conference.pl '.$num_origine.' '.$mdp_origine);
-		exec('sudo /var/script_beep/create_conference.pl '.$num.' '.$mdp);
+		exec('sudo /var/script_beep//chng_num_conference.pl '.$num_origine.' '.$num);
+		
+		if($mdp != $mdp_origine){
+			exec('sudo /var/script_beep/chng_mdp_conference.pl '.$num.' '.$mdp);
+		}
 		
 		if($opt_music == 1 && $opt_talk == 1){
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 3');
