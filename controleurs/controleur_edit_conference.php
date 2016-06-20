@@ -70,7 +70,7 @@ else{
 	// FIN
 	else if($num == $num_origine){
 		update_conf($num,$mdp,$opt_talk,$opt_music,$id_conf);
-		echo "num_origine;"
+		
 		if($mdp != $mdp_origine){
 			exec('sudo /var/script_beep/chng_mdp_conference.pl '.$num.' '.$mdp);
 		}
