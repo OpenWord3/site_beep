@@ -71,12 +71,11 @@ else{
 	else if($num == $num_origine){
 		update_conf($num,$mdp,$opt_talk,$opt_music,$id_conf);
 		
-		//if($mdp != $mdp_origine){
+		if($mdp != $mdp_origine){
 			exec('sudo /var/script_beep/chng_mdp_conference.pl '.$num.' '.$mdp);
-	//	}
+		}
 		
 		if(($opt_music == 1) && ($opt_talk == 1)){
-			$test
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 3');
 			$msg = "<h3 style='color:green'>L'option talk only et music à bien été modifier pour la conférence $num</h3>";
 		}	
