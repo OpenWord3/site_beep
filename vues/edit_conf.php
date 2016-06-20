@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>        
-                <form action="<?php echo INDEX ?>?index=edit_conf" method="POST">
+                <form action="<?php echo INDEX ?>?index=edit_conference" method="POST">
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
