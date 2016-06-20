@@ -24,6 +24,8 @@ else{
 	
 	$check_num = check_nums($nums_users,$nums_callcenters,$nums_conferences,$num);
 	if($num_origine == 770){
+		update_conf($num,$mdp,$opt_talk,$opt_music,$id_conf);
+		
 		if($opt_music == 1 && $opt_talk == 1){
 			exec('sudo /var/script_beep/chg_option.pl 1');
 			$msg = "<h3 style='color:green'>L'option talk only et music à bien été modifier pour la conférence 770</h3>";
@@ -39,6 +41,8 @@ else{
 		
 	}	
 	else if($num_origine == 790){
+		update_conf($num,$mdp,$opt_talk,$opt_music,$id_conf);
+		
 		if($opt_music == 1 && $opt_talk == 1){
 			exec('sudo /var/script_beep/chg_option.pl 4');
 			$msg = "<h3 style='color:green'>L'option talk only et music à bien été modifier pour la conférence 790</h3>";
