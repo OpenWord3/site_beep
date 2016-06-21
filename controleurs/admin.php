@@ -1,16 +1,12 @@
 <?php
-	$password = "zalika";
-	if(isset($_POST["password"])){
-		if($_POST["password"] == $password){
-			//$retour = "Le mot de passe est : bien.";
-			$retour = "1";
+	
+	if(isset($_POST['p'])){
+		$p = "zalika";
+		if($_POST['p'] == $p){
+			echo "<br /><br /><font style='color:green;font-weight:bold;'>Le mot de passe est : bien.</font><br /><br />";
 		} else {
-			//$retour = "Entrez le bon mot de passe admin.";
-			$retour = "0";
+			echo "<br /><br /><font style='color:red;font-weight:600;'>Entrez le bon mot de passe admin.</font><br /><br />";
 		}
-	}else{
-		//$retour = "Entrez le bon mot de passe admin.";
-		$retour = "0";
 	}
-	echo $retour;
+	
 ?>

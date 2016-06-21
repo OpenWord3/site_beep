@@ -551,7 +551,9 @@
                   <center>
                     <form action="<?php echo INDEX ?>?index=vue_gestion_droit" method="POST">
                       <input type="hidden" name="groupe1" value="<?php echo $result["nomg1"]; ?>">
-                      <input type="hidden" name="groupe2" value="<?php echo $result["nomg2"]; ?>"
+                      <input type="hidden" name="groupe2" value="<?php echo $result["nomg2"]; ?>">
+                      <input type="hidden" name="unidir" value="<?php echo $result["unidirectionnel"]; ?>">
+                      <input type="hidden" name="bidir" value="<?php echo $result["bidirectionnel"]; ?>">
                       <table width="300">
                         <tr>
                           <button class="btn btn-success btn-lg" type="submit" name="retirer_droit_interne">

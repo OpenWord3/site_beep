@@ -164,4 +164,49 @@
 
 		$req->closeCursor();
 	}
+
+	//Fonction qui recupere l'id des switchs rataches a cette gateway
+	function id_switch_gateway($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `id_switch` FROM `switchs` WHERE id_gateway = '$id_gateway'");
+
+		while($results = $req->fetch()){
+			$result = $results["id_switch"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui recupere les noms des switchs 
+	function nom_switch_gateway($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `switch` FROM `switchs` WHERE id_gateway = '$id_gateway'");
+
+		while($results = $req->fetch()){
+			$result = $results["switch"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui recupere le mdp de la gateway
+	function mdp_gateway($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `mdp` FROM `gatewayss` WHERE id_gateway = '$id_gateway'");
+
+		while($results = $req->fetch()){
+			$result = $results["mdp"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
 ?>
