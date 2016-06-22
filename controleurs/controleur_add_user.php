@@ -17,6 +17,9 @@
 	
 	if(!isset($port)){
 		$port = 0;
+	}	
+	if(!isset($num_transfert)){
+		$port = 0;
 	}
 	
 	$nums_users = nums_users();
