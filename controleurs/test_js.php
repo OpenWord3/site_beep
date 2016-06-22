@@ -34,6 +34,7 @@
 	          	<table width="300">
 		            <tr>
 		              <p>Etrez votre mot de passe admin</p>
+		              <input name="id_gateway" id="id_gateway" type="hidden" value="1"/>
 		              <input type="password" id="password" name="password"/>
 		              <span id="resultat"></span> 
 		            </tr>
@@ -58,13 +59,14 @@
 	      //custom select box
 	        $("#submit").on('click', function(){
 	        	var password = $("#password").val();
+	        	var id_gateway = $("#id_gateway").val();
 	        	console.log(password);
 	        	//console.error(alert(e.message));
 	        	$.ajax
                     ({		
                     	type: "POST",
 	        			url: "admin.php",
-	        			data: "p=" + password,
+	        			data: "p=" + password + "&id=" + id_gateway,
 	        			datatype: 'html',
 	        			success: function(msg)
                         {
