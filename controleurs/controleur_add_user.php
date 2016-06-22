@@ -18,7 +18,7 @@
 	if(!isset($port)){
 		$port = 0;
 	}	
-	if(!isset($num_transfert)){
+	if(empty($num_transfert)){
 		$num_transfert = 0;
 	}
 	
