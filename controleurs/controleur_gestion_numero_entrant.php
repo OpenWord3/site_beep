@@ -4,8 +4,14 @@
 	$all_gateways = all_gateway();
 	
 	if(isset($_POST["ajouter_set"])){
-		$compte = $_POST["compte"];
-		$host = $_POST["host"];
+
+		$gateway = $_POST["gateway"];
+		$pieces = explode("_", $gateway);
+
+		$compte = $pieces[0];
+		$host = $pieces[1];
+		$port = $pieces[2];
+
 		$num_geo = htmlspecialchars($_POST["num_geo"]);
 		$num_sip = htmlspecialchars($_POST["num_sip"]);
 		$inum = htmlspecialchars($_POST["inum"]);
@@ -20,7 +26,7 @@
 			$verif_inum = verif_inum($inum);
 		}		
 
-		$id_gateway = id_gateway_switch($compte,$host);
+		$id_gateway = id_gateway_switch($compte,$host,$port);
 
 		//je creer le set sans aucun numero au depart
 		add_set($id_gateway);

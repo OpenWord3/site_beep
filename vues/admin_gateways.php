@@ -245,6 +245,7 @@
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_groupes_externes">Groupes externes</a></li>
                       </ul>
                   </li>
 
@@ -280,7 +281,9 @@
                       <h4><i class="fa fa-angle-right"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
-                              <?php if(isset($_POST["ajouter"])){ echo $alert; }else if(isset($_POST["modifier"])){ echo $alert; } ?>
+                              <?php if(isset($_POST["ajouter_gateway"])){ echo $alert; 
+                                    }else if(isset($_POST["modifier"])){ echo $alert; 
+                                      }else if(isset($_POST["supprimer"])){echo $alert;} ?>
                               <thead>
                               <tr>
                                 <th>Compte</th>
@@ -521,24 +524,7 @@
       //custom select box
       $(document).ready(function(){
 
-        $("#submit").click(function{
-          $.post(
-            './controleurs/admin.php',{
-              password : $("#password").val()
-            },
-
-            function(data){
-              if(data == "c'est bon"){
-                $("#resultat").fadeOut();
-              } else {
-                $("#resultat2").fadeOut();
-              }
-            },
-
-            'text'
-
-          );
-        });
+        
 
         $(function(){
           $('select.styled').customSelect();

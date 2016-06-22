@@ -24,6 +24,19 @@
 		return $exist;
 	}
 
+	//Fonction qui verifie si le numero existe deja
+	function verif_num_call($num_call){
+		global $bdd;
+
+		$req = $bdd->prepare("SELECT `num` FROM `call_centers` WHERE `num` = :num_call");
+		$req->execute(array("num_call"=>$num_call));
+
+		$exist = $req->rowCount();
+		$req->closeCursor();
+
+		return $exist;
+	}
+
 	//Fonction qui ajoute un nouveau callcenter
 	function add_callcenter($nom_call,$num_call,$strategy){
 		global $bdd;

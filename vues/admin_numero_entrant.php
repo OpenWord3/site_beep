@@ -245,6 +245,7 @@
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_groupes_externes">Groupes externes</a></li>
                       </ul>
                   </li>
 
@@ -410,18 +411,10 @@
                 <form>
                 <table width="300">
                   <tr>
-                    <td><label>Compte</label></td>
-                    <td><select name="compte">
+                    <td><label>Gateway</label></td>
+                    <td><select name="gateway">
                         <?php foreach($all_gateways as $result){ ?>
-                        <option><?php echo $result["compte"]; ?></option>
-                        <?php } ?>
-                    </select></td>
-                  </tr>
-                  <tr>
-                    <td><label>Host</label></td>
-                    <td><select name="host">
-                        <?php foreach($all_gateways as $result){ ?>
-                        <option><?php echo $result["host"]; ?></option>
+                        <option><?php echo $result["compte"]; ?>_<?php echo $result["host"]; ?>_<?php echo $result["port"]; ?></option>
                         <?php } ?>
                     </select></td>
                   </tr>

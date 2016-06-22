@@ -171,7 +171,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="<?php INDEX ?>?=vue_accueil">Deconnexion</a></li>
+                    <li><a class="logout" href="<?php echo INDEX ?>?=vue_accueil">Deconnexion</a></li>
               </ul>
             </div>
         </header>
@@ -190,7 +190,7 @@
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
-                      <a class="active" href="<?php INDEX ?>?index=vue_accueil_admin">
+                      <a class="active" href="<?php echo INDEX ?>?index=vue_accueil_admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Tableau de bord</span>
                       </a>
@@ -202,34 +202,34 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php INDEX ?>?index=show_users">Personnes</a></li>
-                          <li><a  href="<?php INDEX ?>?index=show_contextes">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=show_conferences" >
+                      <a href="<?php echo INDEX ?>?index=show_conferences" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_droit" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_droit" >
                           <i class="fa fa-plus-circle"></i>
                           <span>Droits</span>
                       </a>
                   </li>
                   
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_callcenter" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_callcenter" >
                           <i class="fa fa-phone-square"></i>
                           <span>Centres d'appels</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php INDEX ?>?index=vue_gestion_standard" >
+                      <a href="<?php echo INDEX ?>?index=vue_gestion_standard" >
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
@@ -245,6 +245,7 @@
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_groupes_externes">Groupes externes</a></li>
                       </ul>
                   </li>
 
@@ -292,6 +293,10 @@
                   <div class="content-panel">
                       <h3><i class="fa fa-angle-right"></i> Les droits internes</h3>
                       <section id="unseen">
+                      <?php if(isset($_POST["ajouter_droit_interne"])){echo $alert;
+                        }else if(isset($_POST["ajouter_droit_externe"])){echo $alert;
+                          }else if(isset($_POST["retirer_droit_interne"])){echo $alert;
+                            }else if(isset($_POST["retirer_droit_externe"])){echo $alert;} ?>
                         <table class="table table-hover">
                           <thead>
                             <tr>

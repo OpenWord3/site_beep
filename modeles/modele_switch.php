@@ -127,11 +127,12 @@
 
 	//Fonction qui renvoie le nom du groupe du switch
 	function nom_groupe($id_switch){
+		global $bdd;
 		$req = $bdd->query("SELECT nom FROM switchs 
 							 JOIN gateways ON gateways.id_gateway = switchs.id_gateway 
 							 JOIN contextes_has_switchs ON switchs.id_switch = contextes_has_switchs.id_switch
 							 JOIN contextes ON contextes.id_contexte = contextes_has_switchs.id_contexte 
-							 WHERE id_swtich = '$id_switch'");
+							 WHERE switchs.id_switch = '$id_switch'");
 		while($results = $req->fetch()){
 			$result = $results["nom"];
 		}

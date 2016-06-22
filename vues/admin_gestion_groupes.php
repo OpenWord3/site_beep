@@ -245,6 +245,7 @@
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_groupes_externes">Groupes externes</a></li>
                       </ul>
                   </li>
 
@@ -290,7 +291,7 @@
 		    <div class="row mt">
        		<div class="col-lg-12">
                 <div class="content-panel">
-				<?php if(isset($msg)){ echo $msg;} ?>
+				          <?php if(isset($msg)){ echo $msg;} ?>
                     <h3><i class="fa fa-angle-right"></i> Liste des groupes d'utilisateurs</h3>
                     <section id="unseen">
                       <table class="table table-hover">
@@ -301,7 +302,7 @@
                           </tr>
                         </thead>
                         <tbody>
-						<?php $i=1; $show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $nom = $donnees['nom']; ?>
+						              <?php $i=1; $show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $nom = $donnees['nom']; ?>
                           <tr>
                             <th scope="row"><?php echo $i; ?></th>
                             <td><?php echo $nom; ?></td>

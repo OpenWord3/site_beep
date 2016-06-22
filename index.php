@@ -70,6 +70,9 @@
 			case "vue_gestion_callcenter":
 				include("./controleurs/controleur_gestion_callcenter.php");
 				break;
+			case "vue_gestion_groupes_externes":
+				include("./controleurs/controleur_gestion_groupes_externes.php");
+				break;
 		}
 	}
 

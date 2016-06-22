@@ -11,12 +11,12 @@
 
 		$verif_compte=compte_gateway($compte,$host,$port);
 		if($verif_compte != 0){
-			$alert = "Ce compte associer au host que vous avez entré existe déja.";
+			$alert = "<font style='color:red;font-weight:bold;'>Ce compte associer au host que vous avez entré existe déja.</font>";
 			
 		} else {
 			new_compte_gateway($compte,$mdp,$host,$port);
-			exec('sudo /var/script_beep/add_trunk.sh '.$compte.' '.$mdp.' '.$host.' '.$port);			
-			$alert = "La gateway a bien été ajouté.";
+			exec('sudo /var/script_beep/add_trunk.sh '.$compte.' '.$mdp.' '.$host.' '.$port);
+			$alert = "<font style='color:green;font-weight:bold;'>La gateway a bien été ajouté.</font>";
 		}
 
 	}else if(isset($_POST["modifier"])){
@@ -28,7 +28,7 @@
 		$mdp = mdp_gateway($id_gateway);
 		change_mdp($new_mdp,$id_gateway);
 		exec('sudo /var/script_beep/modif_trunk.sh '.$compte.' '.$new_mdp.' '.$host.' '.$port.' '.$mdp);
-		$alert = "Le mot de passe de la gateway a bien été modifié.";
+		$alert = "<font style='color:green;font-weight:bold;'>Le mot de passe de la gateway a bien été modifié.</font>";
 
 	}else if(isset($_POST["supprimer"])){
 
@@ -38,16 +38,19 @@
 		$host = host_gateway($id_gateway);
 		$port = port_gateway($id_gateway);
 		del_incom_num($id_gateway);
-		$id_switch_gateway = id_switch_gateway($id_gateway);
-		$nom_switch_gateway = nom_switch_gateway($id_gateway);
-		$nom_groupe = nom_groupe($id_switch_gateway);		
-		
-		del_switch($id_switch);
 
-		del_gateway($id_gateway);
-		exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$nom_groupe.' '.$nom_switch_gateway);
+		$switch_exist = switch_exist($id_gateway);
+
+		if($switch_exist != 0){
+			$id_switch_gateway = id_switch_gateway($id_gateway);
+			$nom_switch_gateway = nom_switch_gateway($id_gateway);
+			$nom_groupe = nom_groupe($id_switch_gateway);
+			del_switch($id_switch_gateway);
+			exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$nom_groupe.' '.$nom_switch_gateway);
+		}
+		del_gateway($id_gateway);		
 		exec('sudo /var/script_beep/remove_trunk.sh '.$compte.' '.$host.' '.$port);
-		$alert = "La gateway a bien été supprimée.";
+		$alert = "<font style='color:green;font-weight:bold;'>La gateway a bien été supprimée.</font>";
 	}
 
 	include("./vues/admin_gateways.php");
