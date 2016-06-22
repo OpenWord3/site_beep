@@ -287,9 +287,6 @@
             </center>
           </div>
         </div>
-
-        <!--<section class="wrapper">-->
-          
   		    <div class="row mt">
          		<div class="col-lg-12">
                   <div class="content-panel">  				
