@@ -1,5 +1,6 @@
 <?php
 
+
 $id_conf = $_POST['modifier'];
 $num = $_POST['num_conf'];
 $num_origine = $_POST['num_origine'];
@@ -93,7 +94,7 @@ else{
 		}
 	}
 	else if($check_num == 0){		
-		exec('sudo /var/script_beep//chng_num_conference.pl '.$num_origine.' '.$num);
+		exec('sudo /var/script_beep/chng_num_conference.pl '.$num_origine.' '.$num);
 		
 		if($mdp != $mdp_origine){
 			exec('sudo /var/script_beep/chng_mdp_conference.pl '.$num.' '.$mdp);
