@@ -1,15 +1,64 @@
 <?php
 	//Fonction qui recupere le compte de la gateway
-	function compte_gateway($compte,$host){
+	function compte_gateway($compte,$host,$port){
 		global $bdd;
 
-		$req = $bdd->prepare("SELECT compte FROM `gateways` WHERE compte = :compte AND host = :host");
+		$req = $bdd->prepare("SELECT compte FROM `gateways` WHERE compte = :compte AND host = :host AND port = :port");
 		$req->execute(array("compte"=>$compte,
-							"host"=>$host));
+							"host"=>$host,
+							"port"=>$port));
 		$exist = $req->rowCount();
 		$req->closeCursor();
 
 		return $exist;
+	}
+
+	//Fonction qui recuper le nom de la gateway
+	function nom_gateway($id_gateway){
+		global $bdd;
+
+		$req=$bdd->prepare("SELECT compte FROM gateways WHERE id_gateway = :id_gateway");
+		$req->execute(array("id_gateway"=>$id_gateway));
+
+		while($results = $req->fetch()){
+			$result = $results["compte"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui recuper le host de la gateway
+	function host_gateway($id_gateway){
+		global $bdd;
+
+		$req=$bdd->prepare("SELECT host FROM gateways WHERE id_gateway = :id_gateway");
+		$req->execute(array("id_gateway"=>$id_gateway));
+
+		while($results = $req->fetch()){
+			$result = $results["host"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui recuper le port de la gateway
+	function port_gateway($id_gateway){
+		global $bdd;
+
+		$req=$bdd->prepare("SELECT port FROM gateways WHERE id_gateway = :id_gateway");
+		$req->execute(array("id_gateway"=>$id_gateway));
+
+		while($results = $req->fetch()){
+			$result = $results["port"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
 	}
 
 	//Fonction qui ajoute une nouvelle gateway 
@@ -107,15 +156,6 @@
 		$req->closeCursor();
 	}
 
-	//Fonction qui supprime la liaison entre la gateway et le groupe
-	function del_liaison($id_gateway){
-		global $bdd;
-
-		$req = $bdd->query("DELETE FROM `gateway_has_contextes` WHERE id_gateway = '$id_gateway'");
-
-		$req->closeCursor();
-	}
-
 	//Fonction qui supprime les numeros pour les appels entrants pour la gateway
 	function del_incom_num($id_gateway){
 		global $bdd;
@@ -123,5 +163,62 @@
 		$req = $bdd->query("DELETE FROM `set_nums` WHERE id_gateway = '$id_gateway'");
 
 		$req->closeCursor();
+	}
+
+	//Fonction qui recupere l'id des switchs rataches a cette gateway
+	function id_switch_gateway($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `id_switch` FROM `switchs` WHERE id_gateway = '$id_gateway'");
+
+		while($results = $req->fetch()){
+			$result = $results["id_switch"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui recupere les noms des switchs 
+	function nom_switch_gateway($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `switch` FROM `switchs` WHERE id_gateway = '$id_gateway'");
+
+		while($results = $req->fetch()){
+			$result = $results["switch"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui recupere le mdp de la gateway
+	function mdp_gateway($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `mdp` FROM `gatewayss` WHERE id_gateway = '$id_gateway'");
+
+		while($results = $req->fetch()){
+			$result = $results["mdp"];
+		}
+		
+		$req->closeCursor();
+
+		return $result;
+	}
+
+	//Fonction qui verifie si pour une gateway un switch existe
+	function switch_exist($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `id_switch` FROM `switchs` WHERE id_gateway = '$id_gateway'");
+		
+		$exist = $req->rowCount();
+		$req->closeCursor();
+
+		return $exist;
 	}
 ?>

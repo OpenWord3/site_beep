@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 	<title>Bienvenue chez Beep</title>
-	<?php include("./assets/css.php"); ?>
+	<?php include("./assets/pages/css.php"); ?>
 </head>
 <body>
 
 <div class="wrapper">
     
-	<?php include("./assets/menu.php"); ?>
+	<?php include("./assets/pages/menu.php"); ?>
 
         <div class="content">
             <div class="container-fluid">
@@ -37,7 +37,7 @@
                                         	<td>
                                                 <audio controls="controls">
                                                   Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
+                                                  <source src="./assets/pages/audios/coq.mp3" type="audio/mp3">
                                                 </audio>
                                             </td>
                                         </tr>
@@ -49,7 +49,7 @@
                                         	<td>
                                                 <audio controls="controls">
                                                   Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
+                                                  <source src="./assets/pages/audios/coq.mp3" type="audio/mp3">
                                                 </audio>
                                             </td>
                                         </tr>
@@ -61,7 +61,7 @@
                                         	<td>
                                                 <audio controls="controls">
                                                   Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
+                                                  <source src="./assets/pages/audios/coq.mp3" type="audio/mp3">
                                                 </audio>
                                             </td>
                                         </tr>
@@ -73,7 +73,7 @@
                                         	<td>
                                                 <audio controls="controls">
                                                   Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
+                                                  <source src="./assets/pages/audios/coq.mp3" type="audio/mp3">
                                                 </audio>
                                             </td>
                                         </tr>
@@ -84,40 +84,40 @@
 						</div>
 					</div>
 					
-					<?php include("./assets/footer.php"); ?>
+					<?php include("./assets/pages/footer.php"); ?>
 
 				</div>
 			</div>
 
-			<?php include("./assets/phone.php"); ?>
+			<?php include("./assets/pages/phone.php"); ?>
 
 </body>
 
     <!--   Core JS Files   -->
-    <script src="./assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="./assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/pages/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="./assets/pages/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="./assets/js/bootstrap-checkbox-radio-switch.js"></script>
+	<script src="./assets/pages/js/bootstrap-checkbox-radio-switch.js"></script>
 
 	<!--  Charts Plugin -->
-	<script src="./assets/js/chartist.min.js"></script>
+	<script src="./assets/pages/js/chartist.min.js"></script>
 
     <!--  Notifications Plugin    -->
-    <script src="./assets/js/bootstrap-notify.js"></script>
+    <script src="./assets/pages/js/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="./assets/js/light-bootstrap-dashboard.js"></script>
+	<script src="./assets/pages/js/light-bootstrap-dashboard.js"></script>
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="./assets/js/demo.js"></script>
+	<script src="./assets/pages/js/demo.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="vendor/js/jquery.2.1.0.min.js"><\/script>')</script>
-	<script src="./assets/vendor/js/bootstrap.min.js"></script>
-	<script src="./assets/js/man.js"></script>
+	<script src="./assets/pages/vendor/js/bootstrap.min.js"></script>
+	<script src="./assets/pages/js/man.js"></script>
 
 
 </html>

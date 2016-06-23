@@ -94,11 +94,29 @@
 	function all_sets(){
 		global $bdd;
 
-		$req = $bdd->query("SELECT `id_set_num`,`num_geo`,`num_sip`,`inum`,`compte`,`host` FROM `set_nums` JOIN `gateways` ON gateways.id_gateway = set_nums.id_gateway");
+		$req = $bdd->query("SELECT `id_set_num`,`num_geo`,`num_sip`,`inum`,`compte`,`host`,`receveur` FROM `set_nums` JOIN `gateways` ON gateways.id_gateway = set_nums.id_gateway");
 		$req->execute(array(0));
 		$result = $req->fetchAll();
 		
 		$req->closeCursor();
 		return $result;
+	}
+
+	//Fonction qui supprime un set de numero
+	function del_set($id_set_num){
+		global $bdd;
+
+		$req = $bdd->query("DELETE FROM `set_nums` WHERE `id_set_num` = '$id_set_num'");
+
+		$req->closeCursor();		
+	}
+
+	//Fonction qui ajoute un receveur au set
+	function add_receiver($id_set_num,$receveur){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `set_nums` SET `receveur` = '$receveur' WHERE `id_set_num` = '$id_set_num'");
+
+		$req->closeCursor();
 	}
 ?>

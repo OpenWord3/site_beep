@@ -171,7 +171,7 @@
             </div>
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="<?php echo INDEX ?>?=vue_accueil">Deconnexion</a></li>
+                    <li><a class="logout" href="<?php INDEX ?>?=vue_accueil">Deconnexion</a></li>
               </ul>
             </div>
         </header>
@@ -190,7 +190,7 @@
                   <h5 class="centered">Louis-Adolphe Mougnin</h5>
                     
                   <li class="mt">
-                      <a class="active" href="<?php echo INDEX ?>?index=vue_accueil_admin">
+                      <a class="active" href="<?php INDEX ?>?index=vue_accueil_admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Tableau de bord</span>
                       </a>
@@ -208,28 +208,28 @@
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php echo INDEX ?>?index=show_conferences" >
+                      <a href="<?php INDEX ?>?index=show_conferences" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php echo INDEX ?>?index=vue_gestion_droit" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_droit" >
                           <i class="fa fa-plus-circle"></i>
                           <span>Droits</span>
                       </a>
                   </li>
                   
                   <li class="sub-menu">
-                      <a href="<?php echo INDEX ?>?index=vue_gestion_callcenter" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_callcenter" >
                           <i class="fa fa-phone-square"></i>
                           <span>Centres d'appels</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php echo INDEX ?>?index=vue_gestion_standard" >
+                      <a href="<?php INDEX ?>?index=vue_gestion_standard" >
                           <i class="fa fa-sitemap"></i>
                           <span>Standard</span>
                       </a>
@@ -278,353 +278,170 @@
         <div class="row mt">
           <div class="col-lg-12">
             <center>
-              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouterdroitinterne">
-                <i class="fa fa-plus"></i> droits interne
+              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter_groupe">
+                <i class="fa fa-plus"></i> groupe
               </button>
-              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouterdroitexterne">
-                <i class="fa fa-plus"></i> droits externe
+              <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
+                <i class="fa fa-minus"></i> groupe
               </button>
             </center>
           </div>
         </div>
-        
-          <div class="row mt">
-            <div class="col-lg-12">
-                  <div class="content-panel">
-                      <h3><i class="fa fa-angle-right"></i> Les droits internes</h3>
-                      <section id="unseen">
-                      <?php if(isset($_POST["ajouter_droit_interne"])){echo $alert;
-                        }else if(isset($_POST["ajouter_droit_externe"])){echo $alert;
-                          }else if(isset($_POST["retirer_droit_interne"])){echo $alert;
-                            }else if(isset($_POST["retirer_droit_externe"])){echo $alert;} ?>
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>Groupe 1</th>
-                              <th><center>Autorisation</center></th>
-                              <th>Groupe 2</th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php $i=0; foreach($all_droits_internes as $result){ $i++;?>
-                            <tr>
-                              <th scope="row"><?php echo $i; ?></th>
-                              <td><?php echo $result["nomg1"]; ?></td>
-                              <td><center><img <?php if($result["unidirectionnel"] == "1"){ echo "src='./assets/img/1.png'";} else if($result["bidirectionnel"] == "1"){ echo "src='./assets/img/2.png'";}?> width="20%"></center></td>
-                              <td><?php echo $result["nomg2"]; ?></td>
-                              <td>
-                                  <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmationintern<?php echo $result["nomg1"]; ?><?php echo $result["nomg2"]; ?>"><i class="fa fa-trash-o "></i></button>
-                              </td>
-                            </tr>
-                            <?php } ?>
-                          </tbody>
-                        </table>
-                      </section>
+  		    <div class="row mt">
+         		<div class="col-lg-12">
+                  <div class="content-panel">  				
+                      <h3><i class="fa fa-angle-right">Liste des groupes de switchs</i></h3>
+                            <section id="unseen">
+                              <table class="table table-bordered table-striped table-condensed">
+                                <?php if(isset($_POST["ajouter_groupe_externe"])){ echo $alert; 
+                                      }else if(isset($_POST["modifier"])){ echo $alert; 
+                                        }else if(isset($_POST["supprimer_groupe_externe"])){echo $alert;} ?>
+                                <thead>
+                                <tr>
+                                  <th>Nom du groupe</th>
+                                  <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  <?php foreach($all_groupes_externes as $result) { ?>
+                                  <tr>                                  
+                                    <td><?php echo $result["nom"]; ?></td>
+                                    <td>
+                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_contexte"]; ?>"><i class="fa fa-trash-o "></i></button>
+                                    </td>
+                                  </tr> 
+                                  <?php } ?>                             
+                                </tbody>
+                            </table>
+                            </section>
               </div><!-- /content-panel -->
-           </div><!-- /col-lg-4 -->     
+           </div><!-- /col-lg-4 -->			
           </div><!-- /row -->
-        
-          <div class="row mt">
-            <div class="col-lg-12">
-                  <div class="content-panel">
-                      <h3><i class="fa fa-angle-right"></i> Les droits externes</h3>
-                      <section id="unseen">
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>Groupe 1</th>
-                              <th><center>Autorisation</center></th>
-                              <th>Groupe 2</th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php $i=0; foreach($all_droits_externes as $result){ $i++;?>
-                            <tr>
-                              <th scope="row"><?php echo $i; ?></th>
-                              <td><?php echo $result["nomg1"]; ?></td>
-                              <td><center><img src='./assets/img/1.png' width="20%"></center></td>
-                              <td><?php echo $result["nomg2"]; ?></td>
-                              <td>
-                                  <button class="btn btn-danger btn-xs" data-toggle="modal" data-dismiss="modal" data-target="#confirmationextern<?php echo $result["nomg1"]; ?><?php echo $result["nomg2"]; ?>"><i class="fa fa-trash-o "></i></button>
-                              </td>
-                            </tr>
-                            <?php } ?>
-                          </tbody>
-                        </table>
-                      </section>
-              </div><!-- /content-panel -->
-           </div><!-- /col-lg-4 -->     
-          </div><!-- /row -->
+        </section>
 
+		    </section><! --/wrapper -->
         <!-- Modal -->
 
-        <div class="modal fade" id="ajouterdroitexterne" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <?php foreach($all_groupes_externes as $result) { ?>
+
+          <div class="modal fade" id="suppression<?php echo $result["id_contexte"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter un droit externe</h4>
+                <h4 class="modal-title" id="myModalLabel">Suppression du groupe de switch <?php echo $result["nom"]; ?></h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form action="<?php echo INDEX ?>?index=vue_gestion_droit" method="POST"> 
-                  <table width="500">
-                    <tr>
-                      <td><label> Le groupe </label>&nbsp;<select name="groupe1">
-                          <?php foreach($all_groupes_normaux as $result){ ?>
-                            <option><?php echo $result["nom"] ?></option>
-                          <?php } ?>
-                        </select></td>
-                      <td colspan="2"><label><center>a le droit d'appeler l'exterieur via </center></label></td>
-                      <td><label> la gateway </label>&nbsp;<select name="groupe2">
-                          <?php foreach($list_groupe_gateway as $result){ ?>
-                            <option><?php echo $result["nom"] ?></option>
-                          <?php } ?>
-                        </select></td>
-                    </tr>
-                    <tr>
-                      <td> </td>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_groupes_externes" method="POST">
+                  <table width="300">
+                    <tr>                  
+                      <input type="hidden" name="nom" value="<?php echo $result["nom"] ?>">
+                      <p>Etes-vous sûr de vouloir supprimer ce groupe ?</p>
                     </tr>
                   </table>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-primary" name="ajouter_droit_externe">Ajouter</button>
-                  </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Non</button>
+                    <button type="submit" class="btn btn-primary" name="supprimer_groupe_externe">Oui</button>
+                  </div> 
                 </form>
                 </center>
-              </div>              
+              </div>
             </div>
           </div>
-        </div>
+          </div>
+        <?php } ?>
 
-        <div class="modal fade" id="ajouterdroitinterne" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="ajouter_groupe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter un droit interne</h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un groupe pour switch</h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form action="<?php echo INDEX ?>?index=vue_gestion_droit" method="POST"> 
-                  <table width="500">
-                    <tr>
-                      <td><label> Le groupe </label>&nbsp;<select id="intern1" name="groupe1">
-                          <?php foreach($all_groupes_normaux as $result){ ?>
-                            <option><?php echo $result["nom"] ?></option>
-                          <?php } ?>
-                        </select></td>
-                      <td colspan="2"><label><center>a le droit de contacter</center></label></td>
-                      <td><label> le groupe </label>&nbsp;<select id="intern2" name="groupe2">
-                          <?php foreach($all_groupes_normaux as $result){ ?>
-                            <option><?php echo $result["nom"] ?></option>
-                          <?php } ?>
-                        </select></td>
-                    </tr>
-                    <tr>
-                      <td> </td>
-                    </tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="unidirectionnel" required><label><b>Unidirectionnel</b> Appels possibles du groupe 1 vers le groupe 2</label></td></tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="bidirectionnel" required><label><b>Bidirectionnel</b> Appels possibles entre les 2 groupes</label></td></tr>
-                  </table>
-                  <span id="intern" style="display:none; color:red;">Vous avez entré le même groupe deux fois.  !</span>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_groupes_externes" method="POST">
+                <table width="300">
+                  <tr>
+                    <td><label>Groupe</label></td>
+                    <td><input type="textbox" placeholder="Nom du groupe" name="nom"></td>
+                  </tr>                  
+                </table>
+                
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-primary" name="ajouter_droit_interne">Ajouter</button>
+                    <button type="submit" class="btn btn-primary" name="ajouter_groupe_externe">Ajouter</button>
                   </div>
-                </form>
+                  </form>
                 </center>
-              </div>              
+              </div> 
             </div>
           </div>
         </div>
 
-        <div class="modal fade" id="supprimerdroitexterne" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un droit interne</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer le groupe</h4>
               </div>
               <div class="modal-body">
                 <center>
-                <form>
-                  <table width="600">
-                    <tr>
-                      <td><label> Le groupe </label>&nbsp;<select name="groupe1">
-                        <option>Travail</option>
-                      </select></td>
-                      <td colspan="2"><label><center>n'a pas le droit de contacter</center></label></td>
-                      <td><label> le groupe </label>&nbsp;<select name="groupe2">
-                        <option>Travail</option>
-                      </select></td>
-                    </tr>
-                    <tr>
-                      <td> </td>
-                    </tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="unidirectionnel"><label><b>Unidirectionnel</b> Le groupe 1 ne pourra plus joindre le groupe 2</label></td></tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="bidirectionnel"><label><b>Bidirectionnel</b> Les deux groupes ne pourront plus se joindre</label></td></tr>
-                  </table>
-                </form>
+                    <form action="<?php echo INDEX ?>?index=vue_gestion_groupes_externes" method="POST">
+                      <table width="300">                      
+                          <tr><td><label>Groupe</label></td>
+                          <td><input type="text" name="nom" placeholder="Nom du groupe"/></td></tr>
+                          <tr>
+    						            <td><button type="submit" class="btn btn-primary" name="supprimer_groupe_externe">Delete</button></td>
+    						            <td><button type="button" data-dismiss="modal" class="btn">Cancel</button></td>	
+                          </tr>                      
+                      </table>
+                    </form>
                 </center>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Supprimer</button>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="modal fade" id="supprimerdroitinterne" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un droit interne</h4>
-              </div>
-              <div class="modal-body">
-                <center>
-                <form>
-                  <table width="600">
-                    <tr>
-                      <td><label> Le groupe </label>&nbsp;<select name="groupe1"><option>Travail</option><option>Cours</option><option>Administrateurs</option><option>Commerciaux</option><option>Direction</option></select></td>
-                      <td colspan="2"><label><center>n'a pas le droit de contacter</center></label></td>
-                      <td><label> le groupe </label>&nbsp;<select name="groupe2"><option>Travail</option><option>Cours</option><option>Administrateurs</option><option>Commerciaux</option><option>Direction</option></select></td>
-                    </tr>
-                    <tr>
-                      <td> </td>
-                    </tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="unidirectionnel"><label><b>Unidirectionnel</b> Le groupe 1 ne pourra plus joindre le groupe 2</label></td></tr>
-                    <tr><td colspan="4"><input type="radio" name="type" value="bidirectionnel"><label><b>Bidirectionnel</b> Les deux groupes ne pourront plus se joindre</label></td></tr>
-                  </table>
-                </form>
-                </center>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Supprimer</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <?php $i=0; foreach($all_droits_externes as $result){ $i++;?>
-        <div class="modal fade" id="confirmationextern<?php echo $result["nomg1"]; ?><?php echo $result["nomg2"]; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="myModalLabel">Annuler ce droit externe ?</h4>
-                </div>
-                <div class="modal-body">
-                  <center>
-                    <form action="<?php echo INDEX ?>?index=vue_gestion_droit" method="POST">
-                      <input type="hidden" name="groupe1" value="<?php echo $result["nomg1"]; ?>">
-                      <input type="hidden" name="groupe2" value="<?php echo $result["nomg2"]; ?>"
-                      <table width="300">
-                        <tr>
-                          <button class="btn btn-success btn-lg" type="submit" name="retirer_droit_externe">
-                            Oui 
-                          </button>
-                          <button class="btn btn-danger btn-lg" data-target="#">
-                            Non
-                          </button>
-                        </tr>
-                      </table>
-                    </form>
-                  </center>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php } ?>
-
-        <?php foreach($all_droits_internes as $result){ ?>
-          <div class="modal fade" id="confirmationintern<?php echo $result["nomg1"]; ?><?php echo $result["nomg2"]; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="myModalLabel">Annuler ce droit interne ?</h4>
-                </div>
-                <div class="modal-body">
-                  <center>
-                    <form action="<?php echo INDEX ?>?index=vue_gestion_droit" method="POST">
-                      <input type="hidden" name="groupe1" value="<?php echo $result["nomg1"]; ?>">
-                      <input type="hidden" name="groupe2" value="<?php echo $result["nomg2"]; ?>">
-                      <input type="hidden" name="unidir" value="<?php echo $result["unidirectionnel"]; ?>">
-                      <input type="hidden" name="bidir" value="<?php echo $result["bidirectionnel"]; ?>">
-                      <table width="300">
-                        <tr>
-                          <button class="btn btn-success btn-lg" type="submit" name="retirer_droit_interne">
-                            Oui 
-                          </button>
-                          <button class="btn btn-danger btn-lg" data-target="#">
-                            Non
-                          </button>
-                        </tr>
-                      </table>
-                    </form>
-                  </center>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php } ?>
-
       </section><!-- /MAIN CONTENT -->
       
-	  <!--main content end-->
+      <!--main content end-->
       <!--footer start-->
-		<?php include ("./assets/pages/admin_footer.php") ?>
+      <footer class="site-footer">
+          <div class="text-center">
+              2016 - Beep Project
+              <a href="admin_gestion_groupes.php#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
       <!--footer end-->
   </section>
 
-  <?php include ("./assets/pages/admin_js.php") ?>
-    
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jjquery-1.8.3.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="./assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="./assets/js/jquery.scrollTo.min.js"></script>
+    <script src="./assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+    <!--common script for all pages-->
+    <script src="./assets/js/common-scripts.js"></script>
+
     <!--script for this page-->    <!--script for this page-->
     <script type="text/javascript" src="./assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="./assets/js/gritter-conf.js"></script>
     
-  <script>
+    <script>
+        //custom select box
 
-    $(document).ready(function(){
+        $(function(){
+            $('select.styled').customSelect();
+        });
 
-      //code pour verifier le nouveau mot de passe et la verification du nouveau mot de passe
-      var intern1;
-      var intern2;
-      
-      $("#intern1").blur(function(){
-          
-          $("#intern").fadeOut();
-          intern1 = $("#intern1").val();
-
-          $("#intern2").blur(function(){
-
-              intern2 = $(this).val();
-
-              if(intern1 === intern2){
-                  
-                  $("#intern").fadeIn();
-                  $("#intern1").focus();              
-              } 
-
-          });
-       }); 
-       //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });  
-    });      
-
-  </script>
-    
-
+    </script>
   </body>
 </html>

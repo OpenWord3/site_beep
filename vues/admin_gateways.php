@@ -7,6 +7,7 @@
     <meta name="description" content="Tableau de bord Admin">
     <meta name="author" content="Louis-Adolphe Mougnin">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Theme, Responsive, Fluid, Retina">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
     <title>Tableau de bord - Beep</title>
@@ -203,13 +204,13 @@
                           <span>Utilisateurs & Groupes</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
-                          <li><a  href="<?php echo INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
+                          <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="<?php echo INDEX ?>?index=vue_gestion_conference" >
+                      <a href="<?php echo INDEX ?>?index=show_conferences" >
                           <i class="fa fa-bank"></i>
                           <span>Salles de conférences</span>
                       </a>
@@ -245,6 +246,7 @@
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_groupes_externes">Groupes externes</a></li>
                       </ul>
                   </li>
 
@@ -280,7 +282,9 @@
                       <h4><i class="fa fa-angle-right"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
-                              <?php if(isset($_POST["ajouter"])){ echo $alert; }else if(isset($_POST["modifier"])){ echo $alert; } ?>
+                              <?php if(isset($_POST["ajouter_gateway"])){ echo $alert; 
+                                    }else if(isset($_POST["modifier"])){ echo $alert; 
+                                      }else if(isset($_POST["supprimer"])){echo $alert;} ?>
                               <thead>
                               <tr>
                                 <th>Compte</th>
@@ -294,7 +298,7 @@
                                 <?php foreach($liste_gateway as $result) { ?>
                                 <tr>                                  
                                   <td><?php echo $result["compte"]; ?></td>
-                                  <td><?php echo $result["mdp"]; ?></td>
+                                  <td><button data-toggle="modal" data-target="#athentication<?php echo $result["id_gateway"]; ?>">Voir mot de passe</button></td>
                                   <td><?php echo $result["host"]; ?></td>
                                   <td><?php echo $result["port"]; ?></td>
                                   <td>
@@ -320,6 +324,38 @@
           </button>
         </center>
         <!-- Modal -->
+
+        <?php foreach($liste_gateway as $result) { ?>
+
+          <div class="modal fade" id="athentication<?php echo $result["id_gateway"]; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Mot de passe de la gateway <?php echo $result["compte"]; ?></h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                <!--<form>-->
+                  <table width="300">
+                    <tr>
+                      <p>Etrez votre mot de passe admin</p>
+                      <input type="password" id="password<?php echo $result["id_gateway"]; ?>"/> 
+                      <span id="resultat<?php echo $result["id_gateway"]; ?>"></span>
+                      <input id="id_gateway<?php echo $result["id_gateway"]; ?>" type="hidden" name="id_gateway" value="<?php echo $result["id_gateway"]; ?>">
+                    </tr>
+                  </table>                  
+                <!--</form>-->
+                </center>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="non<?php echo $result["id_gateway"]; ?>">Fermer</button>
+                <button type="submit" class="btn btn-primary" id="submit<?php echo $result["id_gateway"]; ?>">Valider</button>
+              </div> 
+            </div>
+          </div>
+          </div>
+        <?php } ?>
 
         <?php foreach($liste_gateway as $result) { ?>
 
@@ -372,10 +408,6 @@
                     <tr>
                       <td><label>Mot de Passe</label></td>
                       <td><input type="textbox" Value="Chargé son mot de passe"></td>
-                    </tr>
-                    <tr>
-                      <td><label>Port</label></td>
-                      <td><input type="textbox" placeholder="Entrez le port SVP"></td>
                     </tr>
                   </table>
                   <div class="modal-footer">
@@ -474,9 +506,40 @@
     
   <script>
       //custom select box
+      $(document).ready(function(){
 
-      $(function(){
+        <?php foreach($liste_gateway as $result) { ?>
+          $("#submit<?php echo $result['id_gateway']; ?>").on('click', function(){
+            //$("#submit<?php echo $result['id_gateway']; ?>").click(function(){
+              var password = $("#password<?php echo $result['id_gateway']; ?>").val();
+              var id_gateway = $("#id_gateway<?php echo $result['id_gateway']; ?>").val();
+              console.log(password);
+              console.log(id_gateway);
+              //console.error(alert(e.message));
+              $.ajax
+              ({    
+                type: "POST",
+                url: "./vues/admin.php",
+                data: "p=" + password + "&id=" + id_gateway,
+                datatype: 'html',
+                success: function(msg)
+                {
+                  $("#resultat<?php echo $result['id_gateway']; ?>").html(msg);
+                  $("#resultat<?php echo $result['id_gateway']; ?>").fadeIn();
+                }
+              });          
+            });
+
+            $("#non<?php echo $result['id_gateway']; ?>").on('click',function(){
+            //$("#non<?php echo $result['id_gateway']; ?>").click(function(){
+              $("#resultat<?php echo $result['id_gateway']; ?>").fadeOut();
+              $("#password<?php echo $result['id_gateway']; ?>").val("");
+            });
+        <?php } ?>
+
+        $(function(){
           $('select.styled').customSelect();
+        });
       });
 
   </script>
