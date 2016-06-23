@@ -209,4 +209,16 @@
 
 		return $result;
 	}
+
+	//Fonction qui verifie si pour une gateway un switch existe
+	function switch_exist($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT `id_switch` FROM `switchs` WHERE id_gateway = '$id_gateway'");
+		
+		$exist = $req->rowCount();
+		$req->closeCursor();
+
+		return $exist;
+	}
 ?>

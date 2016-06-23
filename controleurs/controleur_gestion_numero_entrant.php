@@ -4,8 +4,14 @@
 	$all_gateways = all_gateway();
 	
 	if(isset($_POST["ajouter_set"])){
-		$compte = $_POST["compte"];
-		$host = $_POST["host"];
+
+		$gateway = $_POST["gateway"];
+		$pieces = explode("_", $gateway);
+
+		$compte = $pieces[0];
+		$host = $pieces[1];
+		$port = $pieces[2];
+
 		$num_geo = htmlspecialchars($_POST["num_geo"]);
 		$num_sip = htmlspecialchars($_POST["num_sip"]);
 		$inum = htmlspecialchars($_POST["inum"]);
@@ -20,7 +26,7 @@
 			$verif_inum = verif_inum($inum);
 		}		
 
-		$id_gateway = id_gateway_switch($compte,$host);
+		$id_gateway = id_gateway_switch($compte,$host,$port);
 
 		//je creer le set sans aucun numero au depart
 		add_set($id_gateway);
@@ -58,8 +64,6 @@
 		}else {
 			$alert_inum = "";
 		}
-
-		include("./vues/admin_numero_entrant.php");
 
 	}else if(isset($_POST["modifier_set"])){
 		$id_set = $_POST["id_set_num"];
@@ -108,17 +112,66 @@
 			}
 		}else {
 			$alert_inum = "";
-		}
-
-		include("./vues/admin_numero_entrant.php");	
+		}	
 
 	}else if(isset($_POST["supprimer_set"])){
 		$id_set_num = $_POST["id_set_num"];
 		del_set($id_set_num);
-		$alert = "le set a bien été supprimé";
-		include("./vues/admin_numero_entrant.php");
+		$alert = "le set a bien été supprimé";		
 		
-	} else {
-		include("./vues/admin_numero_entrant.php");
+	} else if(isset($_POST["configurer_set"])){
+		$id_set_num = $_POST["id_set_num"];
+		$num_geo = $_POST["num_geo"];
+		$num_sip = $_POST["num_sip"];
+		$inum = $_POST["inum"];
+		$choix = $_POST["receveur"];
+
+		if($choix == '1'){
+
+			$receveur = htmlspecialchars($_POST["svi"]);
+			$p1 = $_POST["proposition1"];
+			$p2 = $_POST["proposition2"];
+			$p3 = $_POST["proposition3"];
+
+			if($p1 == $p2 || $p2 == $p3 || $p3 == $p1){
+				$alert = "<font style='color:red;font-weight:bold;'>Les trois propositions doivent être différentes.</font>";
+			} else if($receveur == ""){
+				$alert = "<font style='color:red;font-weight:bold;'>Renseignez le nom du SVI.</font>";
+			} else {
+				
+				if($p1 == "utilisateur"){
+					$p1 = htmlspecialchars($_POST["user1"]);
+				} else if($p2 == "utilisateur"){
+					$p2 = htmlspecialchars($_POST["user2"]);
+				}else if($p3 == "utilisateur"){
+					$p3 = htmlspecialchars($_POST["user3"]);	
+				}
+				if($p1 != "" && $p2 != "" && $p3 != ""){				
+					add_receiver($id_set_num,$receveur);
+					exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3);
+					$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
+				} else {
+					$alert = "<font style='color:red;font-weight:bold;'>Renseignez le login de l'utilisateur que le SVI doit appeler.</font>";
+				}
+			}
+
+		} else if($choix == '2'){
+			$receveur = "standard";
+			add_receiver($id_set_num,$receveur);
+			exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3);
+			$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
+		} else {
+			
+			if($receveur == ""){
+				$alert = "<font style='color:red;font-weight:bold;'>Renseignez le nom de l'utilisateur.</font>";
+			} else {
+				add_receiver($id_set_num,$receveur);
+				exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3);
+				$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
+			}
+		}
 	}
+
+	include("./vues/admin_numero_entrant.php");
+	
 ?>

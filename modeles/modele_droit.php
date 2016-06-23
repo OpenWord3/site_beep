@@ -19,7 +19,25 @@
 	function check_droit_unidir($id_groupe1,$id_groupe2){
 		global $bdd;
 
-		$req=$bdd->prepare("SELECT * FROM droits WHERE groupe_id_groupe = :id_groupe1 AND groupe_id_groupe1 = :id_groupe2");
+		$req=$bdd->prepare("SELECT * FROM droits 
+							WHERE groupe_id_groupe = :id_groupe1 AND groupe_id_groupe1 = :id_groupe2 
+							AND (unidirectionnel = '1' OR bidirectionnel ='1')");
+		$req->execute(array("id_groupe1"=>$id_groupe1,
+							"id_groupe2"=>$id_groupe2));
+
+		$exist = $req->rowCount();
+		$req->closeCursor();
+
+		return $exist;
+	}
+
+	//Fonction qui verifie droit alternative
+	function check_altern($id_groupe2,$id_groupe1){
+		global $bdd;
+
+		$req=$bdd->prepare("SELECT * FROM droits 
+							WHERE groupe_id_groupe = :id_groupe2 AND groupe_id_groupe1 = :id_groupe1 
+							AND bidirectionnel ='1'");
 		$req->execute(array("id_groupe1"=>$id_groupe1,
 							"id_groupe2"=>$id_groupe2));
 
@@ -33,9 +51,12 @@
 	function check_droit_bidir($id_groupe1,$id_groupe2){
 		global $bdd;
 
-		$req=$bdd->prepare("SELECT * FROM droits WHERE groupe_id_groupe = :id_groupe1 AND groupe_id_groupe1 = :id_groupe2");
-		$req->execute(array("id_groupe1"=>$id_groupe1,
-							"id_groupe2"=>$id_groupe2));
+		$req=$bdd->prepare("SELECT * FROM droits 
+							WHERE (groupe_id_groupe = :id1 AND groupe_id_groupe1 = :id2) 
+							OR (groupe_id_groupe = :id2 AND groupe_id_groupe1 = :id1) 
+							AND (bidirectionnel = '1' OR unidirectionnel = '1')");
+		$req->execute(array("id1"=>$id_groupe1,
+							"id2"=>$id_groupe2));
 
 		$exist = $req->rowCount();
 		$req->closeCursor();
@@ -132,5 +153,7 @@
 		$req->closeCursor();
 		return $result;
 	}
-	
+
+	//Fonction
+
 ?>

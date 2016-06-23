@@ -7,6 +7,7 @@
     <meta name="description" content="Tableau de bord Admin">
     <meta name="author" content="Louis-Adolphe Mougnin">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Theme, Responsive, Fluid, Retina">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
     <title>Tableau de bord - Beep</title>
@@ -245,6 +246,7 @@
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
                           <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+                          <li><a href="<?php echo INDEX ?>?index=vue_gestion_groupes_externes">Groupes externes</a></li>
                       </ul>
                   </li>
 
@@ -280,7 +282,9 @@
                       <h4><i class="fa fa-angle-right"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
-                              <?php if(isset($_POST["ajouter"])){ echo $alert; }else if(isset($_POST["modifier"])){ echo $alert; } ?>
+                              <?php if(isset($_POST["ajouter_gateway"])){ echo $alert; 
+                                    }else if(isset($_POST["modifier"])){ echo $alert; 
+                                      }else if(isset($_POST["supprimer"])){echo $alert;} ?>
                               <thead>
                               <tr>
                                 <th>Compte</th>
@@ -332,22 +336,22 @@
               </div>
               <div class="modal-body">
                 <center>
-                <form>
+                <!--<form>-->
                   <table width="300">
                     <tr>
                       <p>Etrez votre mot de passe admin</p>
-                      <input type="password" id="password"/> 
-                      <span id="resultat" style="display:none; color:green;">Le mot de passe est : <?php echo $result["mdp"] ?></span>
-                      <span id="resultat2" style="display:none; color:red;">Entrez le bon mot de passe admin</span>
+                      <input type="password" id="password<?php echo $result["id_gateway"]; ?>"/> 
+                      <span id="resultat<?php echo $result["id_gateway"]; ?>"></span>
+                      <input id="id_gateway<?php echo $result["id_gateway"]; ?>" type="hidden" name="id_gateway" value="<?php echo $result["id_gateway"]; ?>">
                     </tr>
-                  </table>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="non">Non</button>
-                    <button type="submit" class="btn btn-primary" id="submit">Valider</button>
-                  </div> 
-                </form>
+                  </table>                  
+                <!--</form>-->
                 </center>
               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="non<?php echo $result["id_gateway"]; ?>">Fermer</button>
+                <button type="submit" class="btn btn-primary" id="submit<?php echo $result["id_gateway"]; ?>">Valider</button>
+              </div> 
             </div>
           </div>
           </div>
@@ -521,24 +525,34 @@
       //custom select box
       $(document).ready(function(){
 
-        $("#submit").click(function{
-          $.post(
-            './controleurs/admin.php',{
-              password : $("#password").val()
-            },
+        <?php foreach($liste_gateway as $result) { ?>
+          $("#submit<?php echo $result['id_gateway']; ?>").on('click', function(){
+            //$("#submit<?php echo $result['id_gateway']; ?>").click(function(){
+              var password = $("#password<?php echo $result['id_gateway']; ?>").val();
+              var id_gateway = $("#id_gateway<?php echo $result['id_gateway']; ?>").val();
+              console.log(password);
+              console.log(id_gateway);
+              //console.error(alert(e.message));
+              $.ajax
+              ({    
+                type: "POST",
+                url: "./vues/admin.php",
+                data: "p=" + password + "&id=" + id_gateway,
+                datatype: 'html',
+                success: function(msg)
+                {
+                  $("#resultat<?php echo $result['id_gateway']; ?>").html(msg);
+                  $("#resultat<?php echo $result['id_gateway']; ?>").fadeIn();
+                }
+              });          
+            });
 
-            function(data){
-              if(data == "c'est bon"){
-                $("#resultat").fadeOut();
-              } else {
-                $("#resultat2").fadeOut();
-              }
-            },
-
-            'text'
-
-          );
-        });
+            $("#non<?php echo $result['id_gateway']; ?>").on('click',function(){
+            //$("#non<?php echo $result['id_gateway']; ?>").click(function(){
+              $("#resultat<?php echo $result['id_gateway']; ?>").fadeOut();
+              $("#password<?php echo $result['id_gateway']; ?>").val("");
+            });
+        <?php } ?>
 
         $(function(){
           $('select.styled').customSelect();
