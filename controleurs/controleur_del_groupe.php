@@ -4,7 +4,7 @@
 	$id_groupe_default = find_groupe_default();
 	$id_contexte = find_id_groupe($contexte);
 	$select_users_contexte = select_users_contexte($contexte);
-	$show_groupes = show_groupes();
+	$show_groupes = show_groupe();
 	$default = "default";
 	
 	move_users_groupe($id_groupe_default[0],$id_contexte[0]);
