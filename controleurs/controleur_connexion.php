@@ -13,7 +13,7 @@
 				if($pseudo == "admin"){
 					include("./vues/admin_index.php");
 				} else {
-					include("./vues/user.php");
+					include("./vues/dashboard.php");
 				}
 			} else {
 				include("./vues/accueil.php");	

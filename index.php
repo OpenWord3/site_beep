@@ -40,6 +40,36 @@
 			case "vue_gestion_switch":
 				include("./controleurs/controleur_gestion_switch.php");
 				break;
+			case "vue_tableau_bord":
+				include("./controleurs/controleur_tableau_bord.php");
+				break;
+			case "vue_chat":
+				include("./controleurs/controleur_chat.php");
+				break;
+			case "vue_contacts":
+				include("./controleurs/controleur_contacts.php");
+				break;
+			case "vue_voicemail":
+				include("./controleurs/controleur_voicemail.php");
+				break;
+			case "vue_user":
+				include("./controleurs/controleur_user.php");
+				break;
+			case "vue_prise_note":
+				include("./vues/admin_blank.php");
+				break;
+			case "vue_calendrier":
+				include("./vues/admin_calendar.php");
+				break;
+			case "vue_gallerie":
+				include("./vues/admin_gallery.php");
+				break;
+			case "vue_todo_list":
+				include("./vues/admin_todo_list.php");
+				break;
+			case "vue_verrouillage":
+				include("./vues/admin_lock_screen.php");
+				break;
 			default:
 				include("./vues/accueil.php");		
 		}

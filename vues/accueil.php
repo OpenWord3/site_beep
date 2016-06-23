@@ -312,7 +312,7 @@
 					<input type="password" class="form-control form-white" placeholder="Mot de Passe" name="mdp">
 					<div class="checkbox-holder text-left">
 						<div class="checkbox">
-							<input type="checkbox" value="None" id="squaredOne" name="check" />
+							<input type="checkbox" required value="None" id="squaredOne" name="check" />
 							<label for="squaredOne"><span>En cliquant, j'accepte <strong>les conditions d'utilisations</strong></span></label>
 						</div>
 					</div>
