@@ -11,10 +11,8 @@
 
   <section id="container" >
 
-<<<<<<< HEAD
       <?php include ("./assets/pages/admin_menu.php") ?>
 	  
-=======
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>

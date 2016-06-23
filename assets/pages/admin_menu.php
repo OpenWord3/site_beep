@@ -11,7 +11,7 @@
 			<ul class="nav top-menu">
 		  
 				<li class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle" href="admin_index.php#">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo INDEX ?>?index=vue_accueil_admin">
 						<i class="fa fa-tasks"></i>
 						<span class="badge bg-theme">4</span>
 					</a>
@@ -21,7 +21,7 @@
 							<p class="green">Vous avez 4 notifications</p>
 						</li>
 						<li>
-							<a href="admin_index.php#">
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<div class="task-info">
 									<div class="desc">Utilisation de la mémoire</div>
 									<div class="percent">40%</div>
@@ -32,9 +32,55 @@
 									</div>
 								</div>
 							</a>
-						</li>
+						</li> <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Accueil</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-globe"></i>
+                                    <b class="caret"></b>
+                                    <span class="notification">2</span>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Vous avez réçu un message vocale</a></li>
+                                <li><a href="#">Vous avez manqué 2 appels</a></li>
+                              </ul>
+                        </li>
+                        <li>
+                           <a href="">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="<?php echo INDEX ?>?=vue_accueil">
+                                Deconnexion
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 						<li>
-							<a href="admin_index.php#">
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<div class="task-info">
 									<div class="desc">Base de données</div>
 									<div class="percent">60%</div>
@@ -47,7 +93,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="admin_index.php#">
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<div class="task-info">
 									<div class="desc">Utilisateurs DHADI</div>
 									<div class="percent">80%</div>
@@ -60,7 +106,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="admin_index.php#">
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin"
 								<div class="task-info">
 									<div class="desc">Flux de communication</div>
 									<div class="percent">70%</div>
@@ -89,7 +135,7 @@
 							<p class="green">Vous avez 5 nouveaux messages</p>
 						</li>
 						<li>
-							<a href="admin_index.php#">
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<span class="photo"><img alt="avatar" src="./assets/img/ui-zac.jpg"></span>
 								<span class="subject">
 								<span class="from">Zac Snider</span>
@@ -101,7 +147,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="admin_index.php#">
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<span class="photo"><img alt="avatar" src="./assets/img/ui-divya.jpg"></span>
 								<span class="subject">
 								<span class="from">Divya Manian</span>
@@ -113,7 +159,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="admin_index.php#">
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<span class="photo"><img alt="avatar" src="./assets/img/ui-danro.jpg"></span>
 								<span class="subject">
 								<span class="from">Dan Rogers</span>
@@ -125,7 +171,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="admin_index.php#">
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<span class="photo"><img alt="avatar" src="./assets/img/ui-sherman.jpg"></span>
 								<span class="subject">
 								<span class="from">Dj Sherman</span>
@@ -137,7 +183,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="admin_index.php#">Voir tous les messages</a>
+							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">Voir tous les messages</a>
 						</li>
 					</ul>
 				</li>

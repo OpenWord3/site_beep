@@ -67,6 +67,15 @@
 			case "vue_gestion_droit":
 				include("./controleurs/controleur_gestion_droit.php");
 				break;
+			case "vue_gestion_utilisateur":
+				include("./controleurs/controleur_gestion_utilisateur.php");
+				break;
+			case "vue_gestion_groupe":
+				include("./controleurs/controleur_gestion_groupe.php");
+				break;
+			case "vue_gestion_groupe":
+				include("./controleurs/controleur_gestion_groupe.php");
+				break;
 			case "vue_gestion_callcenter":
 				include("./controleurs/controleur_gestion_callcenter.php");
 				break;
@@ -75,7 +84,6 @@
 				break;
 			case "vue_connexion":
 				include("./controleurs/controleur_connexion.php");
-				#include("./vues/admin_index.php");
 				break;
 			case "vue_accueil_admin":
 				include("./controleurs/controleur_admin.php");

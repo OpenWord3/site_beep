@@ -265,7 +265,7 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
->>>>>>> 7689b9871eaeaa341337558257bdbbd57a2e35fb
+
       <section id="main-content">
           <section class="wrapper site-min-height">
           	<h3><i class="fa fa-angle-right"></i> Gestion du standard</h3>

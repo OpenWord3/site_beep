@@ -11,7 +11,7 @@
 	}
 	else if(!empty($check_compte_user)){
 		if($check_compte_user['role'] == 1){
-			include("./controleurs/controleur_show_users.php");	
+			include("./controleurs/controleur_admin.php");	
 			$id_user = find_id_user($login);
 			$_SESSION["id_user"] = $id_user;
 		}

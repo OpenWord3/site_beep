@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-<<<<<<< HEAD
-=======
+
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tableau de bord Admin">
     <meta name="author" content="Louis-Adolphe Mougnin">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Theme, Responsive, Fluid, Retina">
 
->>>>>>> 7689b9871eaeaa341337558257bdbbd57a2e35fb
     <title>Tableau de bord - Beep</title>
 	
 	<?php include ("./assets/pages/admin_css.php") ?>
@@ -19,11 +17,9 @@
   <body>
   <section id="container" >
 
-<<<<<<< HEAD
-      <?php include ("./assets/pages/admin_menu.php") ?>
-	  
-=======
-      <header class="header black-bg">
+	<?php include ("./assets/pages/admin_menu.php") ?>
+
+		<header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
