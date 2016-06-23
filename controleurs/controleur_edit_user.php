@@ -28,7 +28,7 @@
 	$check_num = check_nums($nums_users,$nums_callcenters,$nums_conferences,$num);
 	
 	$id_contexte = find_id_groupe($contexte);
-	$find_user_groupe = find_user_groupe($login)
+	$find_user_groupe = find_user_groupe($login);
 		
 	if(!empty($find_id_user)){
 		$msg = "<h3 style='color:red'>Le login $login n est pas disponible</h3>";
