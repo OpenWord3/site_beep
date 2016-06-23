@@ -31,7 +31,7 @@
 	
 	function show_groupe(){
 		global $bdd;
-		$req = $bdd->query("SELECT * FROM contextes WHERE type_contexte = 1");
+		$req = $bdd->query("SELECT * FROM contextes WHERE type_contexte = 1 ORDER BY nom ASC");
 		return $req;
 	}
 

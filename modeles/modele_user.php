@@ -150,7 +150,7 @@
 	function select_users_contexte($contexte){
 		global $bdd;
 		
-		$req = $bdd->query("SELECT * FROM users JOIN contextes ON users.id_contexte = contextes.id_contexte WHERE contextes.nom LIKE '$contexte'");
+		$req = $bdd->query("SELECT * FROM users JOIN contextes ON users.id_contexte = contextes.id_contexte JOIN numeros ON users.id_user = numeros.id_user WHERE contextes.nom LIKE '$contexte'");
 		
 		return $req;
 		
