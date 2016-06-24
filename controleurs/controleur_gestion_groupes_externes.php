@@ -9,7 +9,7 @@
 
 		if(empty($check_groupe)){
 			add_groupe($contexte,$type_contexte);
-			//Mettre le script qui creer les contextes
+			exec('sudo /var/script_beep/add_groupe_extern.sh '.$contexte);
 			$alert = "<font style='color:green;font-weight:bold;'>Le groupe a bien été ajouté.</font>";
 		} else {
 			$alert = "<font style='color:red;font-weight:bold;'>Ce groupe existe déja.</font>";
@@ -28,7 +28,7 @@
 		} else {
 			$id_contexte = id_groupe($contexte);
 			del_groupe_externe($id_contexte);
-			//Mettre le script qui supprime les contextes
+			exec('sudo /var/script_beep/change_groupe_extern.sh '.$contexte);
 			$alert = "<font style='color:green;font-weight:bold;'>Le groupe a bien été supprimée.</font>";
 		}
 	}
