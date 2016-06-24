@@ -126,6 +126,16 @@
 		$inum = $_POST["inum"];
 		$choix = $_POST["receveur"];
 
+		if($num_geo == ""){
+			$num_geo = '0'
+		}
+		if($num_sip == ""){
+			$num_sip = '0'
+		}
+		if($inum == ""){
+			$inum = '0'
+		}
+
 		if($choix == '1'){
 
 			$receveur = htmlspecialchars($_POST["svi"]);
