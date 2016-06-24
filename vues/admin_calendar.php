@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tableau de bord Admin">
-    <meta name="author" content="Louis-Adolphe Mougnin">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Theme, Responsive, Fluid, Retina">
-
     <title>Tableau de bord - Beep</title>
+<<<<<<< HEAD
+	
+	<?php include ("./assets/pages/admin_css.php") ?>
+	
+=======
 
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
     <link href="./assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -18,12 +17,17 @@
     <link href="./assets/css/style.css" rel="stylesheet">
     <link href="./assets/css/style-responsive.css" rel="stylesheet">
     <script src="./assets/js/chart-master/Chart.js"></script>
+>>>>>>> 7689b9871eaeaa341337558257bdbbd57a2e35fb
   </head>
 
   <body>
 
   <section id="container" >
 
+<<<<<<< HEAD
+      <?php include ("./assets/pages/admin_menu.php") ?>
+	  
+=======
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -266,6 +270,7 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
+>>>>>>> 7689b9871eaeaa341337558257bdbbd57a2e35fb
       <section id="main-content">
           <section class="wrapper">
           	<h3><i class="fa fa-angle-right"></i> Calendar</h3>
@@ -301,19 +306,16 @@
 		</section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
-      <!--main content end-->
+	  <!--main content end-->
       <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2016 - Beep Project
-              <a href="admin_index.php#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
+		<?php include ("./assets/pages/admin_footer.php") ?>
       <!--footer end-->
   </section>
 
+<<<<<<< HEAD
+  <?php include ("./assets/pages/admin_js.php") ?>
+    
+=======
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/jquery-ui-1.9.2.custom.min.js"></script>
@@ -327,6 +329,7 @@
     <!--common script for all pages-->
     <script src="./assets/js/common-scripts.js"></script>
 
+>>>>>>> 7689b9871eaeaa341337558257bdbbd57a2e35fb
     <!--script for this page-->
     <script src="./assets/js/calendar-conf-events.js"></script> 
     <script>

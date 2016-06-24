@@ -170,6 +170,11 @@
 						<div class="title">
 							<h4>Hassane Sangare</h4>
 							<h5 class="muted regular"><b>Chef de projet</b></h5>
+							<h5 class="muted regular">Expert gateways</h5>
+							<h5 class="muted regular">Expert call-centers</h5>
+							<h5 class="muted regular">Expert ASTERISK/DAHDI</h5>
+							<h5 class="muted regular">Expert Scrpting Shell</h5>
+							<h5 class="muted regular">Developpeur du site</h5>
 						</div>
 					</div>
 				</div>
@@ -183,7 +188,12 @@
 						<img src="assets/img/team/team1.jpg" alt="Team Image" class="avatar"></a>
 						<div class="title">
 							<h4>Serge Mougnin</h4>
-							<h5 class="muted regular">Membre de l'équipe</h5>
+							<h5 class="muted regular"><b>Membre de l'équipe</b></h5>
+							<h5 class="muted regular">Expert ASTERISK/SIP</h5>
+							<h5 class="muted regular">Expert Voicemail</h5>
+							<h5 class="muted regular">Expert scripting shell</h5>
+							<h5 class="muted regular">Developpeur du site</h5>
+							<h5 class="muted regular">Désigner du site</h5>
 						</div>
 					</div>
 				</div>
@@ -197,7 +207,12 @@
 						<img src="assets/img/team/team2.jpg" alt="Team Image" class="avatar">
 						<div class="title">
 							<h4>Steephen Ilangovane</h4>
-							<h5 class="muted regular">Membre de l'équipe</h5>
+							<h5 class="muted regular"><b>Membre de l'équipe</b></h5>
+							<h5 class="muted regular">Expert ASTERISK/SIP</h5>
+							<h5 class="muted regular">Expert Conférence</h5>
+							<h5 class="muted regular">Expert SVI</h5>
+							<h5 class="muted regular">Expert scripting Perl</h5>
+							<h5 class="muted regular">Developpeur du site</h5>
 						</div>
 					</div>
 				</div>
@@ -211,7 +226,7 @@
 						<img src="assets/img/team/team4.jpg" alt="Team Image" class="avatar">
 						<div class="title">
 							<h4>Adjevi Koudossou</h4>
-							<h5 class="muted regular">Suiveur de Projet</h5>
+							<h5 class="muted regular"><b>Suiveur de Projet</b></h5>
 						</div>
 					</div>
 				</div>
@@ -310,17 +325,13 @@
 				<h3 class="white"><?php if(isset($msg)){ echo $msg; }?></h3>
 				<form action="<?php echo INDEX ?>?index=connexion_user" class="popup-form" method="POST">
 					<input type="text" class="form-control form-white" placeholder="Nom" name="login">
-
-			<!--	<form action="<?php echo INDEX ?>?index=vue_connexion" method="POST" class="popup-form"> -->
-			<!--		<input type="text" class="form-control form-white" placeholder="Nom" name="pseudo"> -->
 					<input type="password" class="form-control form-white" placeholder="Mot de Passe" name="mdp">
 					<div class="checkbox-holder text-left">
 						<div class="checkbox">
-							<input type="checkbox" value="None" id="squaredOne" name="check" />
+							<input type="checkbox" required value="None" id="squaredOne" name="check" />
 							<label for="squaredOne"><span>En cliquant, j'accepte <strong>les conditions d'utilisations</strong></span></label>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-submit">Valider</button>
 					<button type="submit" class="btn btn-submit" name="valider">Valider</button>
 				</form>
 			</div>
