@@ -3,6 +3,8 @@
 <head>
 	<title>Bienvenue chez Beep</title>
 	<?php include("./assets/pages/css.php"); ?>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="lienvers/html2canvas.js"></script>
 </head>
 <body>
 
@@ -96,7 +98,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="control-label">Image de Profil</label>
-												<input id="input-3a" type="file" class="file" readonly="true" name="photo">
+												<input id="input-3a" type="file" class="file" readonly="true" name="photo" class="btn btn-info">
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +111,7 @@
                                             </div>
                                         </div>
                                     </div>
-									<button type="submit" value="apercu" id="apercu" name="apercu">APERCU</button>
+									<button type="submit" value="apercu" id="apercu" name="apercu" class="btn btn-info-outline"><i class="fa fa-eye"></i></button>
                                     <button type="submit" class="btn btn-info btn-fill pull-right">MODIFIER</button>
                                     <div class="clearfix"></div>
                                 </form>
@@ -127,15 +129,14 @@
 								$description = $_POST['description'];
 								$photo = $_POST['photo'];
 						?>
-						<div class="card card-user">
+						<div class="card card-user" id="ma-div" class="ma-div">
                             <div class="image">
-                                <img src="./assets/pages/images/back.jpg" alt="font"/>
+                                <img src="./assets/img/back.jpg" alt="font"/>
                             </div>
                             <div class="content">
                                 <div class="author">
                                      <a href="#">
-                                    <img class="avatar border-gray" src="./assets/pages/img/faces/face-3.jpg" alt="..."/>
-
+                                    <img class="avatar border-gray" src="./assets/img/faces/face-1.jpg" alt="..."/>
                                       <h4 class="title"><?php echo $nom ?> <?php echo $prenoms ?><br />
                                          <small>michael23</small>
                                       </h4>
@@ -151,6 +152,12 @@
 
                             </div>
                         </div>
+						
+						<center>
+							<form method=POST>
+								<button type="submit" id="enregistrer" name="enregistrer" class="btn btn-info-outline"><i class="fa fa-arrow-down"></i></button>
+							</form>
+						</center>
                     </div>
 					<?php } ?>
 
@@ -192,5 +199,31 @@
 	<script>window.jQuery || document.write('<script src="vendor/js/jquery.2.1.0.min.js"><\/script>')</script>
 	<script src="./assets/pages/vendor/js/bootstrap.min.js"></script>
 	<script src="./assets/pages/js/man.js"></script>
+		
+	<script language="javascript">
+	$("#enregistrer").click(function() {
+		var capture = {};
+		var target = $('#ma-div');
+		html2canvas(target, {
+			onrendered: function(canvas) {
+				capture.img = canvas.toDataURL( "image/png" );
+				capture.data = { 'image' : capture.img };
+				$.ajax({
+				url: "/ajax.php",
+				data: capture.data,
+				type: 'post',
+				success: function( result ) {
+					console.log( result );
+				}
+				});
+			}
+		});
+	});
+	</script>
+	
+	<?php
+		$save = str_replace('data:image/png;base64,', '', $_POST['image'] );
+		file_put_contents( 'img/image.png', base64_decode( $save ) );
+	?>
 
 </html>
