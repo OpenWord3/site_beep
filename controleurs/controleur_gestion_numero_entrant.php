@@ -158,15 +158,15 @@
 		} else if($choix == '2'){
 			$receveur = "standard";
 			add_receiver($id_set_num,$receveur);
-			exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3);
+			exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum);
 			$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
 		} else {
-			
+			$receveur = htmlspecialchars($_POST["utilisateur"]);
 			if($receveur == ""){
 				$alert = "<font style='color:red;font-weight:bold;'>Renseignez le nom de l'utilisateur.</font>";
 			} else {
 				add_receiver($id_set_num,$receveur);
-				exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3);
+				exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum);
 				$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
 			}
 		}
