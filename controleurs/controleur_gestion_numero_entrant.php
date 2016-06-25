@@ -17,13 +17,19 @@
 		$inum = htmlspecialchars($_POST["inum"]);
 
 		if($num_geo != ""){
-			$verif_num_geo = verif_num_geo($num_geo);	
+			$verif_num_geo = verif_num_geo($num_geo);
+			$verif_num_geo2 = verif_num_sip($num_geo);
+			$verif_num_geo3 = verif_inum($num_geo);	
 		}
 		if($num_sip != ""){
 			$verif_num_sip = verif_num_sip($num_sip);
+			$verif_num_sip2 = verif_num_geo($num_sip);
+			$verif_num_sip3 = verif_inum($num_sip);
 		}
 		if($inum != ""){
 			$verif_inum = verif_inum($inum);
+			$verif_inum2 = verif_num_sip($inum);
+			$verif_inum3 = verif_num_geo($inum);
 		}		
 
 		$id_gateway = id_gateway_switch($compte,$host,$port);
@@ -33,7 +39,7 @@
 		$id_set = id_set();
 
 		if(isset($verif_num_geo)){
-			if($verif_num_geo == 0){
+			if($verif_num_geo == 0 && $verif_num_geo2 == 0 && $verif_num_geo3 == 0){
 				add_num_geo($id_set,$num_geo);
 				$alert_geo = "";
 			} else {
@@ -44,7 +50,7 @@
 		}
 
 		if(isset($verif_num_sip)){
-			if($verif_num_sip == 0){
+			if($verif_num_sip == 0 && $verif_num_sip2 == 0 && $verif_num_sip3 == 0){
 				add_num_sip($id_set,$num_sip);
 				$alert_sip = "";
 			} else {
@@ -55,7 +61,7 @@
 		}
 
 		if(isset($verif_inum)){
-			if($verif_inum == 0){
+			if($verif_inum == 0 && $verif_inum2 == 0 && $verif_inum3 == 0){
 				add_inum($id_set,$inum);
 				$alert_inum = "";
 			} else {
