@@ -19,7 +19,7 @@
 				$membre_call = membre_call($nom_call);
 			} else {		
 				add_callcenter($nom_call,$num_call,$strategy); 
-				exec('sudo /var/script_beep/add_callcenter.sh '.$nom_call.' '.$trategy.' '.$num_call);			
+				exec('sudo /var/script_beep/add_callcenter.sh '.$nom_call.' '.$strategy.' '.$num_call);			
 				$membre_call = membre_call($nom_call);
 				$alert = "<font style='color:green;font-weight:bold;'>Le centre d’appel a bien été ajouté.</font>";
 			}

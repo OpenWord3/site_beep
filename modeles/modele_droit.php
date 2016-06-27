@@ -123,6 +123,15 @@
 		$req->closeCursor();
 	}
 
+	//Function qui supprime le groupe
+	function del_droit_extern2($id_groupe){
+		global $bdd;
+
+		$req=$bdd->query("DELETE FROM droits WHERE groupe_id_groupe = '$id_groupe'");
+
+		$req->closeCursor();
+	}
+
 	//Fonction qui affiche tous les droits internes
 	function all_droits_internes(){
 		global $bdd;
