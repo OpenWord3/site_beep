@@ -352,19 +352,6 @@
 				</div>
 			</div>
 		</div>
-		<?php
-			function test(){
-				global $cdr;
-				
-				$req = $cdr->query("SELECT * FROM cdr");
-				$donnees = $req->fetch();
-				
-				return $donnees;
-			}
-			$test = test();
-			
-			print_r($test);
-		?>
 	</footer>
 	<!-- Holder for mobile navigation -->
 	<div class="mobile-nav">
