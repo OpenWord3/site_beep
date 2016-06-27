@@ -363,7 +363,7 @@
 			}
 			$test = test();
 			
-			echo $test[0];
+			print_r($test);
 		?>
 	</footer>
 	<!-- Holder for mobile navigation -->
