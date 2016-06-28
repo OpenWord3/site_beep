@@ -43,7 +43,7 @@
 				add_num_geo($id_set,$num_geo);
 				$alert_geo = "";
 			} else {
-				$alert_geo = "Ce numéro géographique existe déjà.";
+				$alert_geo = "<font style='color:red;font-weight:bold;'>Ce numéro géographique existe déjà.</font>";
 			}
 		} else {
 			$alert_geo = "";
@@ -54,7 +54,7 @@
 				add_num_sip($id_set,$num_sip);
 				$alert_sip = "";
 			} else {
-				$alert_sip = "Ce numéro SIP existe déjà.";	
+				$alert_sip = "<font style='color:red;font-weight:bold;'>Ce numéro SIP existe déjà.</font>";	
 			}
 		} else {
 			$alert_sip = "";
@@ -65,7 +65,7 @@
 				add_inum($id_set,$inum);
 				$alert_inum = "";
 			} else {
-				$alert_inum = "Ce numéro INUM existe déjà.";
+				$alert_inum = "<font style='color:red;font-weight:bold;'>Ce numéro INUM existe déjà.</font>";
 			}
 		}else {
 			$alert_inum = "";
@@ -98,7 +98,7 @@
 				add_num_geo($id_set,$num_geo);
 				$alert_geo = "";
 			} else {
-				$alert_geo = "Ce numéro existe déjà.";
+				$alert_geo = "<font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font>";
 			}
 		} else {
 			$alert_geo = "";
@@ -109,7 +109,7 @@
 				add_num_sip($id_set,$num_sip);
 				$alert_sip = "";
 			} else {
-				$alert_sip = "Ce numéro existe déjà.";	
+				$alert_sip = "<font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font>";	
 			}
 		} else {
 			$alert_sip = "";
@@ -120,7 +120,7 @@
 				add_inum($id_set,$inum);
 				$alert_inum = "";
 			} else {
-				$alert_inum = "Ce numéro existe déjà.";
+				$alert_inum = "<font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font>";
 			}
 		}else {
 			$alert_inum = "";
@@ -129,7 +129,7 @@
 	}else if(isset($_POST["supprimer_set"])){
 		$id_set_num = $_POST["id_set_num"];
 		del_set($id_set_num);
-		$alert = "le set a bien été supprimé";		
+		$alert = "<font style='color:green;font-weight:bold;'>le set a bien été supprimé.</font>";		
 		
 	} else if(isset($_POST["configurer_set"])){
 		$id_set_num = $_POST["id_set_num"];
