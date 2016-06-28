@@ -46,7 +46,7 @@
 
 /* J'indique le titre de mon graphique, son positionnement sur l'image et sa police */ 
  $myPicture->setFontProperties(array("FontName"=>"./pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>11));
- $myPicture->drawText(200,25,"Votre consomation téléphonique les trois derniers jours",array("FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE));
+ $myPicture->drawText(300,25,"Votre consomation téléphonique les trois derniers jours",array("FontSize"=>20,"Align"=>TEXT_ALIGN_BOTTOMMIDDLE));
 
 /* Je choisi le fond de mon graphique */
  $myPicture->setFontProperties(array("FontName"=>"./pChart2.1.4/fonts/pf_arma_five.ttf","FontSize"=>6));
