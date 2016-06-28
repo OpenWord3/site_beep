@@ -6,9 +6,9 @@
  $date_yesterday_2 = date('Y-m-d', strtotime("2 day ago" ));
  $date_yesterday_3 = date('Y-m-d', strtotime("3 day ago" ));
  
- $graph_today = graph_day($date_tomorrow,$date_today);
- $graph_yesterday_1 = graph_day($date_today,$date_yesterday_1);
- $graph_yesterday_2 = graph_day($date_yesterday_1,$date_yesterday_2);
+ $graph_today = graph_day($login,$date_tomorrow,$date_today);
+ $graph_yesterday_1 = graph_day($login,$date_today,$date_yesterday_1);
+ $graph_yesterday_2 = graph_day($login,$date_yesterday_1,$date_yesterday_2);
  
  $date_today_d = date('D');
  $date_yesterday_1_d = date('D', strtotime("1 day ago"));
