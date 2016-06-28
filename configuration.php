@@ -23,6 +23,9 @@
 	include("./pChart2.1.4/class/pPie.class.php");
 	include("./pChart2.1.4/class/pIndicator.class.php");
 	
+	include ('./jpgraph-4.0.0/src/jpgraph.php');
+	include ('jpgraph-4.0.0/src/jpgraph_bar.php');
+	
 
 	//Constante de l'index
 	define("INDEX","index.php");
