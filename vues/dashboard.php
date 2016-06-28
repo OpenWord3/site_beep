@@ -118,7 +118,7 @@
                 </div>
             </div>
         </div>
-<?php  echo '<img src="$img">'; ?>
+<?php  echo "<img src='$img'>"; ?>
 
         <?php include("./assets/pages/footer.php"); ?>
 
