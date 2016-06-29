@@ -19,7 +19,7 @@
  if(empty($graph_today[0])){
 	 $graph_today[0] = 0;
  } 
- if(empty$graph_yesterday_1[0])){
+ if(empty($graph_yesterday_1[0])){
 	 $graph_yesterday_1[0] = 0;
  } 
  if(empty($graph_yesterday_2[0])){
