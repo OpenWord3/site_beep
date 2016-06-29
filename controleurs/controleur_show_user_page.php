@@ -20,9 +20,9 @@
  if($graph_yesterday_1[0] == "NULL"){
 	 $graph_yesterday_1[0] = 0;
  } 
- //if($graph_yesterday_2[0] == "NULL"){
+ if(empty($graph_yesterday_2[0])){
 	 $graph_yesterday_2[0] = 0;
- //}
+ }
  
  // Dataset definition   
  $DataSet = new pData;  
