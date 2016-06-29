@@ -51,17 +51,16 @@
 		$req->closeCursor();
 	}
 
-	//Fonction qui liste tous les utilisateurs
+	//Fonction qui retourne tous les utilisateurs
 	function all_users(){
 		global $bdd;
 
 		$req = $bdd->query("SELECT login FROM users WHERE role = '0'");
-
 		$req->execute(array(0));
 		$result = $req->fetchAll();
 		
 		$req->closeCursor();
-		return $result;
+		return $result;		
 	}
 
 	//Fonction qui recupere l'id de l'utilisateur

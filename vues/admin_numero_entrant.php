@@ -74,8 +74,7 @@
         <!-- Modal -->
 
         <?php foreach($all_sets as $result) { ?>
-
-          <div class="modal fade" id="configuration<?php echo $result["id_set_num"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="configuration<?php echo $result['id_set_num']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -89,62 +88,106 @@
                   <input type="hidden" name="num_geo" value="<?php echo $result["num_geo"]; ?>">
                   <input type="hidden" name="num_sip" value="<?php echo $result["num_sip"]; ?>">
                   <input type="hidden" name="inum" value="<?php echo $result["inum"]; ?>">
+                  <input type="hidden" name="old_receiver" value="<?php echo $result["receveur"]; ?>">                  
                   <table width="300">
-                    <tr id="receveurtr<?php echo $result["id_set_num"] ?>">                      
+                    <tr id="receveurtr<?php echo $result['id_set_num']; ?>">                      
                       <td><label>Receveur</label></td>
-                      <td><select name="receveur" id="receveur<?php echo $result["id_set_num"] ?>">
+                      <td><select name="receveur" id="receveur<?php echo $result['id_set_num']; ?>">
                         <option value="1">SVI</option>
                         <option value="2">Standard</option>
                         <option value="3">Utilisateur</option>
                       </select></td>
                     </tr>
-                    <tr id="svitr<?php echo $result["id_set_num"] ?>" style="display:none;">
+                    <tr id="svitr<?php echo $result['id_set_num']; ?>" style="display:none;">
                       <td><label>Nom du SVI</label></td>
-                      <td><input type="text" name="svi" id="svi<?php echo $result["id_set_num"] ?>"></td>
+                      <td><input type="text" name="svi" id="svi<?php echo $result['id_set_num']; ?>"></td>
                     </tr>
-                    <tr id="proposition1tr<?php echo $result["id_set_num"] ?>" style="display:none;">
+                    <tr id="proposition1tr<?php echo $result['id_set_num']; ?>" style="display:none;">
                       <td><label>Proposition 1</label></td>
-                      <td><select name="proposition1" id="proposition1<?php echo $result["id_set_num"] ?>">
+                      <td><select name="proposition1" id="proposition1<?php echo $result['id_set_num']; ?>">
                         <option value="conférence">conférence</option>
                         <option value="standard">standard</option>
                         <option value="composer">composer</option>
                         <option value="utilisateur">utilisateur</option>
+                        <option value="callcenter">centre d'appel</option>
                       </select></td>
                     </tr>
-                    <tr id="p1<?php echo $result["id_set_num"] ?>" style="display:none;">
+                    <tr id="p1<?php echo $result['id_set_num']; ?>" style="display:none;">
                       <td><label>Nom de l'utilisateur</label></td>
-                      <td><input type="text" name="user1" id="user1<?php echo $result["id_set_num"] ?>"></td>
+                      <td><select name="user1" id="user1<?php echo $result['id_set_num']; ?>">
+                        <?php foreach($all_users as $resultuser){ ?>
+                          <option><?php echo $resultuser["login"]; ?></option>
+                        <?php } ?>
+                      </select></td>
                     </tr>
-                    <tr id="proposition2tr<?php echo $result["id_set_num"] ?>" style="display:none;">
+                    <tr id="pcall1<?php echo $result['id_set_num']; ?>" style="display:none;">
+                      <td><label>Centre d'appel</label></td>
+                      <td><select name="call1" id="call1<?php echo $result['id_set_num']; ?>" >
+                        <?php foreach($all_callcenters as $resultcall){ ?>
+                          <option><?php echo $resultcall["nom"]; ?></option>
+                        <?php } ?>
+                      </select></td>
+                    </tr>                   
+                    <tr id="proposition2tr<?php echo $result['id_set_num']; ?>" style="display:none;">
                       <td><label>Proposition 2</label></td>
-                      <td><select name="proposition2" id="proposition2<?php echo $result["id_set_num"] ?>">
+                      <td><select name="proposition2" id="proposition2<?php echo $result['id_set_num']; ?>">
                         <option value="conférence">conférence</option>
                         <option value="standard">standard</option>
                         <option value="composer">composer</option>
                         <option value="utilisateur">utilisateur</option>
+                        <option value="callcenter">centre d'appel</option>
                       </select></td>
-                    </tr>
-                    <tr id="p2<?php echo $result["id_set_num"] ?>" style="display:none;">
+                    </tr> 
+                    <tr id="p2<?php echo $result['id_set_num']; ?>" style="display:none;">
                       <td><label>Nom de l'utilisateur</label></td>
-                      <td><input type="text" name="user2" id="user2<?php echo $result["id_set_num"] ?>"></td>
-                    </tr>
-                    <tr id="proposition3tr<?php echo $result["id_set_num"] ?>" style="display:none;">
+                      <td><select name="user2" id="user2<?php echo $result['id_set_num']; ?>">
+                        <?php foreach($all_users as $resultuser){ ?>
+                          <option><?php echo $resultuser["login"]; ?></option>
+                        <?php } ?>
+                      </select></td>
+                    </tr> 
+                    <tr id="pcall2<?php echo $result['id_set_num']; ?>" style="display:none;">
+                      <td><label>Centre d'appel</label></td>
+                      <td><select name="call2" id="call2<?php echo $result['id_set_num']; ?>">
+                        <?php foreach($all_callcenters as $resultcall){ ?>
+                          <option><?php echo $resultcall["nom"]; ?></option>
+                        <?php } ?>
+                      </select></td>
+                    </tr>  
+                    <tr id="proposition3tr<?php echo $result['id_set_num']; ?>" style="display:none;">
                       <td><label>Proposition 3</label></td>
-                      <td><select name="proposition3" id="proposition3<?php echo $result["id_set_num"] ?>">
+                      <td><select name="proposition3" id="proposition3<?php echo $result['id_set_num']; ?>">
                         <option value="conférence">conférence</option>
                         <option value="standard">standard</option>
                         <option value="composer">composer</option>
                         <option value="utilisateur">utilisateur</option>
+                        <option value="callcenter">centre d'appel</option>
                       </select></td>
                     </tr>
-                    <tr id="p3<?php echo $result["id_set_num"] ?>" style="display:none;">
+                    <tr id="p3<?php echo $result['id_set_num']; ?>" style="display:none;">
                       <td><label>Nom de l'utilisateur</label></td>
-                      <td><input type="text" name="user3" id="user3<?php echo $result["id_set_num"] ?>"></td>
+                      <td><select name="user3" id="user3<?php echo $result['id_set_num']; ?>">
+                        <?php foreach($all_users as $resultuser){ ?>
+                          <option><?php echo $resultuser["login"]; ?></option>
+                        <?php } ?>
+                      </select></td>
                     </tr>
-                    <tr id="utilisateurtr<?php echo $result["id_set_num"] ?>" style="display:none;">
+                    <tr id="pcall3<?php echo $result['id_set_num']; ?>" style="display:none;">
+                      <td><label>Centre d'appel</label></td>
+                      <td><select name="call3" id="call3<?php echo $result['id_set_num']; ?>">
+                        <?php foreach($all_callcenters as $resultcall){ ?>
+                          <option><?php echo $resultcall["nom"]; ?></option>
+                        <?php } ?>
+                      </select></td>
+                    </tr>
+                    <tr id="utilisateurtr<?php echo $result['id_set_num']; ?>" style="display:none;">
                       <td><label>Utilisateur</label></td>
-                      <td><input type="text" name="utilisateur" id="utilisateur<?php echo $result["id_set_num"] ?>"></td>
-                    </tr>                    
+                      <td><select name="utilisateur" id="utilisateur<?php echo $result['id_set_num']; ?>">
+                        <?php foreach($all_users as $resultuser){ ?>
+                          <option><?php echo $resultuser["login"]; ?></option>
+                        <?php } ?>
+                      </select></td>
+                    </tr>                                     
                   </table>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="non<?php echo $result['id_set_num'] ?>">Non</button>
@@ -155,12 +198,12 @@
               </div>
             </div>
           </div>
-          </div>
+          </div>                 
         <?php } ?>
 
         <?php foreach($all_sets as $result) { ?>
 
-          <div class="modal fade" id="suppression<?php echo $result["id_set_num"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="suppression<?php echo $result['id_set_num']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -172,7 +215,11 @@
                 <form action="<?php echo INDEX ?>?index=vue_gestion_numero_entrant" method="POST">
                   <table width="300">
                     <tr>
-                      <input type="hidden" name="id_set_num" value="<?php echo $result["id_set_num"] ?>">
+                      <input type="hidden" name="id_set_num" value="<?php echo $result['id_set_num']; ?>">
+                      <input type="hidden" name="num_geo" value="<?php echo $result['num_geo']; ?>">
+                      <input type="hidden" name="num_sip" value="<?php echo $result['num_sip']; ?>">
+                      <input type="hidden" name="inum" value="<?php echo $result['inum']; ?>">
+                      <input type="hidden" name="receveur" value="<?php echo $result['receveur']; ?>">
                       <p>Etes-vous sûr de vouloir supprimer ce set de numero ?</p>
                     </tr>
                   </table>
@@ -190,7 +237,7 @@
 
         <?php foreach($all_sets as $result) { ?>
 
-          <div class="modal fade" id="modification<?php echo $result["id_set_num"] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modification<?php echo $result['id_set_num']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -200,7 +247,7 @@
               <div class="modal-body">
                 <center>
                 <form action="<?php echo INDEX ?>?index=vue_gestion_numero_entrant" method="POST">
-                  <input type="hidden" name="id_set_num" value="<?php echo $result["id_set_num"] ?>">
+                  <input type="hidden" name="id_set_num" value="<?php echo $result['id_set_num']; ?>">
                   <table width="300">
                    <tr>
                       <td><label>Numéro géographique</label></td>
@@ -381,7 +428,7 @@
           });
 
           <?php foreach($all_sets as $result) { ?>
-          $("#receveur<?php echo $result["id_set_num"] ?>").click(function(){
+          $("#receveur<?php echo $result['id_set_num']; ?>").click(function(){
               var receveur = $(this).val();
               if(receveur == 1){
                 $("#svitr<?php echo $result['id_set_num'] ?>").fadeIn();
@@ -396,8 +443,19 @@
                     $("#p1<?php echo $result['id_set_num'] ?>").fadeIn();
                     $("#p2<?php echo $result['id_set_num'] ?>").fadeOut();
                     $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
+                  }else if($(this).val() == "callcenter"){
+                    $("#pcall1<?php echo $result['id_set_num'] ?>").fadeIn();
+                    $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#p2<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
                   } else {
                     $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
                   }
                 });
 
@@ -406,8 +464,19 @@
                     $("#p2<?php echo $result['id_set_num'] ?>").fadeIn();
                     $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
                     $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
-                  }else {
+                    $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
+                  }else if($(this).val() == "callcenter"){
+                    $("#pcall2<?php echo $result['id_set_num'] ?>").fadeIn();
+                    $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
                     $("#p2<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
+                  } else {
+                    $("#p2<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
                   }
                 });
 
@@ -416,8 +485,19 @@
                     $("#p3<?php echo $result['id_set_num'] ?>").fadeIn();
                     $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
                     $("#p2<?php echo $result['id_set_num'] ?>").fadeOut();
-                  }else {
+                    $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
+                  }else if($(this).val() == "callcenter"){
+                    $("#pcall3<?php echo $result['id_set_num'] ?>").fadeIn();
+                    $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
                     $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#p2<?php echo $result['id_set_num'] ?>").fadeOut()
+                  } else {
+                    $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
+                    $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
                   }
                 });
 
@@ -431,6 +511,9 @@
                 $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
                 $("#p2<?php echo $result['id_set_num'] ?>").fadeOut();
                 $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
+                $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
+                $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
+                $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
 
               } else {
                 
@@ -442,6 +525,9 @@
                 $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
                 $("#p2<?php echo $result['id_set_num'] ?>").fadeOut();
                 $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
+                $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
+                $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
+                $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
               }
           });
 

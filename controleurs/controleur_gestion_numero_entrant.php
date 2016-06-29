@@ -2,6 +2,8 @@
 	
 	$all_sets = all_sets();
 	$all_gateways = all_gateway();
+	$all_callcenters = all_callcenters();
+	$all_users = all_users();
 	
 	if(isset($_POST["ajouter_set"])){
 
@@ -128,15 +130,10 @@
 
 	}else if(isset($_POST["supprimer_set"])){
 		$id_set_num = $_POST["id_set_num"];
-		del_set($id_set_num);
-		$alert = "<font style='color:green;font-weight:bold;'>le set a bien été supprimé.</font>";		
-		
-	} else if(isset($_POST["configurer_set"])){
-		$id_set_num = $_POST["id_set_num"];
 		$num_geo = $_POST["num_geo"];
 		$num_sip = $_POST["num_sip"];
 		$inum = $_POST["inum"];
-		$choix = $_POST["receveur"];
+		$receveur = $_POST["receveur"];
 
 		if($num_geo == ""){
 			$num_geo = '0';
@@ -147,6 +144,34 @@
 		if($inum == ""){
 			$inum = '0';
 		}
+		
+		exec('sudo /var/script_beep/cancel_conf_incoming.sh '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum);
+
+		del_set($id_set_num);
+		//Il faut un script qui supprime dans /var/dialplan/ippi.conf
+		$alert = "<font style='color:green;font-weight:bold;'>le set a bien été supprimé.</font>";		
+		
+	} else if(isset($_POST["configurer_set"])){
+		$id_set_num = $_POST["id_set_num"];
+		$num_geo = $_POST["num_geo"];
+		$num_sip = $_POST["num_sip"];
+		$inum = $_POST["inum"];
+		$choix = $_POST["receveur"];
+		$old_receiver = $_POST["old_receiver"];
+
+		if($num_geo == ""){
+			$num_geo = '0';
+		}
+		if($num_sip == ""){
+			$num_sip = '0';
+		}
+		if($inum == ""){
+			$inum = '0';
+		}
+
+		if($old_receiver != ""){
+			exec('sudo /var/script_beep/cancel_conf_incoming.sh '.$old_receiver.' '.$num_geo.' '.$num_sip.' '.$inum);
+		} 
 
 		if($choix == '1'){
 
@@ -192,6 +217,11 @@
 				$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
 			}
 		}
+
+		if($old_receiver != ""){
+			$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le nouveau recepteur $receveur.</font>";
+		}
+		
 	}
 
 	include("./vues/admin_numero_entrant.php");
