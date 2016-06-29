@@ -42,8 +42,9 @@
                         <div class="card ">
                             <div class="header">
                                 <h4 class="title">Votre consommation voix</h4>
-                                <p class="category">Consommation mensuelle <?php echo $total_consomation; ?></p>
+                                <p class="category">Consommation mensuelle </p>
                             </div>
+							<?php echo $total_consomation; ?>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart"></div>
 								
