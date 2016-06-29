@@ -24,22 +24,41 @@
 	 $$graph_yesterday_2[0][0] = 0;
  }
  
+ // Dataset definition   
  $DataSet = new pData;  
- $DataSet->AddPoint(array($graph_today[0],$graph_yesterday_1[0],$graph_yesterday_2[0]),"Serie1");  
- $DataSet->AddPoint(array("$date_today_d","$date_yesterday_1_d","$date_yesterday_2_d"),"Serie2");  
+ $DataSet->AddPoint(array($graph_today[0]),"Serie1");  
+ $DataSet->AddPoint(array($graph_today[0]),"Serie2");  
+ $DataSet->AddPoint(array($graph_today[0]),"Serie3");  
  $DataSet->AddAllSeries();  
- $DataSet->SetAbsciseLabelSerie("Serie2");  
+ $DataSet->SetAbsciseLabelSerie();  
+ $DataSet->SetYAxisName("Secondes");
+ $DataSet->SetYAxisUnit("s");   
+ $DataSet->SetSerieName("$date_today_d","Serie1");  
+ $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
+ $DataSet->SetSerieName("$date_yesterday_2_d","Serie3");  
   
  // Initialise the graph  
- $Test = new pChart(300,200);  
- $Test->drawFilledRoundedRectangle(7,7,293,193,5,240,240,240);  
- $Test->drawRoundedRectangle(5,5,295,195,5,230,230,230);  
-  
- // Draw the pie chart  
+ $Test = new pChart(400,230);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",8);  
- $Test->setShadowProperties(2,2,200,200,200);  
- $Test->drawFlatPieGraphWithShadow($DataSet->GetData(),$DataSet->GetDataDescription(),120,100,60,PIE_PERCENTAGE,10);  
- $Test->drawPieLegend(230,15,$DataSet->GetData(),$DataSet->GetDataDescription(),250,250,250);   
+ $Test->setGraphArea(50,30,280,200);  
+ $Test->drawFilledRoundedRectangle(7,7,693,223,5,240,240,240);  
+ $Test->drawRoundedRectangle(5,5,695,225,5,230,230,230);  
+ $Test->drawGraphArea(255,255,255,TRUE);  
+ $Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,0,2,TRUE);     
+ $Test->drawGrid(4,TRUE,230,230,230,50);  
+  
+ // Draw the 0 line  
+ $Test->setFontProperties("./chart/Fonts/tahoma.ttf",6);  
+ $Test->drawTreshold(0,143,55,72,TRUE,TRUE);  
+  
+ // Draw the bar graph  
+ $Test->drawBarGraph($DataSet->GetData(),$DataSet->GetDataDescription(),TRUE);  
+  
+ // Finish the graph  
+ $Test->setFontProperties("./chart/Fonts/tahoma.ttf",8);  
+ $Test->drawLegend(300,150,$DataSet->GetDataDescription(),255,255,255);  
+ $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
+ $Test->drawTitle(50,22,"Consomation téléphonique les trois derniers jours",50,50,50,585); 
  $Test->Render("./users_graphs/$login.png");
  
  $img = "./users_graphs/$login.png";
