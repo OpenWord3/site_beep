@@ -118,7 +118,7 @@
                 </div>
             </div>
         </div>
-		<h2>Votre consommation téléphonique les trois serniers jours</h2>
+		<h2>Votre consommation téléphonique les trois derniers jours</h2>
 <?php  echo "<img src='$img'>"; ?>
 
         <?php include("./assets/pages/footer.php"); ?>
