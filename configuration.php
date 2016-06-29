@@ -17,11 +17,8 @@
 	
 	include("./function_check_nums.php");
 	
-	include("./pChart2.1.4/class/pData.class.php");
-	include("./pChart2.1.4/class/pDraw.class.php");
-	include("./pChart2.1.4/class/pImage.class.php");
-	include("./pChart2.1.4/class/pPie.class.php");
-	include("./pChart2.1.4/class/pIndicator.class.php");
+	include("./chart/pChart/pData.class");
+	include("./chart/pChart/pChart.class");
 	
 
 	//Constante de l'index
