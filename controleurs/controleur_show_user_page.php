@@ -1,5 +1,7 @@
 <?php
  
+ $last_day_month = date('Y-m-d', strtotime("noon last day of this month" ));
+ $total_consomation = sum_duration_month($login,$last_day_month);
  $date_tomorrow = date('Y-m-d', strtotime("1 day"));
  $date_today = date('Y-m-d');
  $date_yesterday_1 = date('Y-m-d', strtotime("1 day ago" ));
@@ -14,10 +16,10 @@
  $date_yesterday_1_d = date('D', strtotime("1 day ago"));
  $date_yesterday_2_d = date('D', strtotime("2 day ago"));
 
- if($graph_today[0] == "NULL"){
+ if(empty($graph_today[0])){
 	 $graph_today[0] = 0;
  } 
- if($graph_yesterday_1[0] == "NULL"){
+ if(empty$graph_yesterday_1[0])){
 	 $graph_yesterday_1[0] = 0;
  } 
  if(empty($graph_yesterday_2[0])){

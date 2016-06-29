@@ -7,6 +7,15 @@
 		$donnees = $req->fetch();
 		
 		return $donnees;	
+	}	
+	
+	function sum_duration_month($login,$date){
+		global $cdr;
+		
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND (start <= '$date') AND (lastapp LIKE 'dial' OR lastapp LIKE 'MeetMe')");
+		$donnees = $req->fetch();
+		
+		return $donnees;	
 	}
 
 ?>

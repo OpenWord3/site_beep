@@ -41,12 +41,12 @@
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
-                                <h4 class="title">Votre consommation</h4>
-                                <p class="category">Consommation mensuelle</p>
+                                <h4 class="title">Votre consommation voix</h4>
+                                <p class="category">Consommation mensuelle <?php echo $total_consomation; ?></p>
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart"></div>
-
+								
                                 <div class="footer">
                                     <div class="legend">
                                         <i class="fa fa-circle text-info"></i> Interne à la société
