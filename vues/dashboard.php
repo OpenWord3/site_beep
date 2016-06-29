@@ -38,13 +38,12 @@
                     </div>
 
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
-                                <h4 class="title">Votre consommation voix</h4>
+                                <h4 class="title">Votre consommation</h4>
                                 <p class="category">Consommation mensuelle </p>
                             </div>
-							<?php echo $total_consomation[0], "secondes"; ?>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart"></div>
 								
@@ -121,6 +120,8 @@
         </div>
 		<h2>Votre consommation téléphonique les trois derniers jours</h2>
 <?php  echo "<img src='$img'>"; ?>
+		<h2>Votre consommation voix pour ce mois</h2>
+			<?php echo $total_consomation[0], "secondes"; ?>
 
         <?php include("./assets/pages/footer.php"); ?>
 
