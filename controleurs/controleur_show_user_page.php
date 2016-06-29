@@ -25,7 +25,7 @@
  }
  
  $DataSet = new pData;  
- $DataSet->AddPoint(array($graph_today,$graph_yesterday_1,$graph_yesterday_2),"Serie1");  
+ $DataSet->AddPoint(array($graph_today[0],$graph_yesterday_1[0],$graph_yesterday_2[0]),"Serie1");  
  $DataSet->AddPoint(array("$date_today_d","$date_yesterday_1_d","$date_yesterday_2_d"),"Serie2");  
  $DataSet->AddAllSeries();  
  $DataSet->SetAbsciseLabelSerie("Serie2");  
