@@ -14,15 +14,15 @@
  $date_yesterday_1_d = date('D', strtotime("1 day ago"));
  $date_yesterday_2_d = date('D', strtotime("2 day ago"));
 
- //if($graph_today[0] == "NULL"){
+ if($graph_today[0] == "NULL"){
 	 $graph_today[0] = 0;
- //} 
+ } 
  if($graph_yesterday_1[0] == "NULL"){
 	 $graph_yesterday_1[0] = 0;
  } 
- if($graph_yesterday_2[0] == "NULL"){
+ //if($graph_yesterday_2[0] == "NULL"){
 	 $graph_yesterday_2[0] = 0;
- }
+ //}
  
  // Dataset definition   
  $DataSet = new pData;  
