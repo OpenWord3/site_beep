@@ -18,17 +18,17 @@
 	 $graph_today[0] = 0;
  } 
  if($graph_yesterday_1[0] == "NULL"){
-	 $$graph_yesterday_1[0] = 0;
+	 $graph_yesterday_1[0] = 0;
  } 
  if($graph_yesterday_2[0] == "NULL"){
-	 $$graph_yesterday_2[0][0] = 0;
+	 $graph_yesterday_2[0] = 0;
  }
  
  // Dataset definition   
  $DataSet = new pData;  
  $DataSet->AddPoint(array($graph_today[0]),"Serie1");  
- $DataSet->AddPoint(array($graph_today[0]),"Serie2");  
- $DataSet->AddPoint(array($graph_today[0]),"Serie3");  
+ $DataSet->AddPoint(array($graph_yesterday_1[0]),"Serie2");  
+ $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie3");  
  $DataSet->AddAllSeries();  
  $DataSet->SetAbsciseLabelSerie();  
  $DataSet->SetYAxisName("Secondes");
@@ -58,7 +58,6 @@
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",8);  
  $Test->drawLegend(300,150,$DataSet->GetDataDescription(),255,255,255);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
- $Test->drawTitle(50,22,"Consomation téléphonique les trois derniers jours",50,50,50,585); 
  $Test->Render("./users_graphs/$login.png");
  
  $img = "./users_graphs/$login.png";
