@@ -95,6 +95,16 @@
 				$old_inum = '0';
 			}
 
+			if($num_geo == ""){
+				$num_geo = '0';
+			}
+			if($num_sip == ""){
+				$num_sip = '0';
+			}
+			if($inum == ""){
+				$inum = '0';
+			}
+
 			exec('sudo /var/script_beep/update_set_incoming.sh '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$old_num_geo.' '.$old_num_sip.' '.$old_inum);
 		}
 
