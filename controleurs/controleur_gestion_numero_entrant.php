@@ -84,30 +84,6 @@
 		$old_inum = $_POST["old_inum"];
 		$receveur = $_POST["receveur"];
 
-		if($receveur != ""){
-			if($old_num_geo == ""){
-				$old_num_geo = '0';
-			}
-			if($old_num_sip == ""){
-				$old_num_sip = '0';
-			}
-			if($old_inum == ""){
-				$old_inum = '0';
-			}
-
-			if($num_geo == ""){
-				$num_geo = '0';
-			}
-			if($num_sip == ""){
-				$num_sip = '0';
-			}
-			if($inum == ""){
-				$inum = '0';
-			}
-
-			exec('sudo /var/script_beep/update_set_incoming.sh '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$old_num_geo.' '.$old_num_sip.' '.$old_inum);
-		}
-
 		if($num_geo != ""){
 			$verif_num_geo = verif_num_geo($num_geo);
 			$verif_num_geo2 = verif_num_sip($num_geo);
@@ -155,6 +131,30 @@
 			}
 		}else {
 			$alert_inum = "";
+		}
+
+		if($receveur != ""){
+			if($old_num_geo == ""){
+				$old_num_geo = '0';
+			}
+			if($old_num_sip == ""){
+				$old_num_sip = '0';
+			}
+			if($old_inum == ""){
+				$old_inum = '0';
+			}
+
+			if($num_geo == ""){
+				$num_geo = '0';
+			}
+			if($num_sip == ""){
+				$num_sip = '0';
+			}
+			if($inum == ""){
+				$inum = '0';
+			}
+
+			exec('sudo /var/script_beep/update_set_incoming.sh '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$old_num_geo.' '.$old_num_sip.' '.$old_inum);
 		}	
 
 	}else if(isset($_POST["supprimer_set"])){
