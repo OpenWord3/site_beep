@@ -24,9 +24,9 @@
                           <?php if(isset($_POST["configurer_set"])){echo $alert;}?>
                             <table class="table table-bordered table-striped table-condensed">
                               <?php if(isset($_POST["ajouter_set"])){ 
-                                      echo $alert_geo+" "+$alert_sip+" "+$alert_inum; 
+                                      echo $alert_geo." ".$alert_sip." ".$alert_inum; 
                                     }else if(isset($_POST["modifier_set"])){ 
-                                      echo $alert_geo+" "+$alert_sip+" "+$alert_inum; 
+                                      //echo $alert_geo+" "+$alert_sip+" "+$alert_inum; 
                                     }else if(isset($_POST["supprimer_set"])){ echo $alert; } ?>
                               <thead>
                               <tr>
@@ -242,24 +242,28 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Modification d'un ou des numéros du set du compte <?php echo $result["compte"]; ?></h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un ou des numéros au set du compte <?php echo $result["compte"]; ?></h4>
               </div>
               <div class="modal-body">
                 <center>
                 <form action="<?php echo INDEX ?>?index=vue_gestion_numero_entrant" method="POST">
                   <input type="hidden" name="id_set_num" value="<?php echo $result['id_set_num']; ?>">
+                  <input type="hidden" name="old_num_geo" value="<?php echo $result['num_geo']; ?>">
+                  <input type="hidden" name="old_num_sip" value="<?php echo $result['num_sip']; ?>">
+                  <input type="hidden" name="old_inum" value="<?php echo $result['inum']; ?>">
+                  <input type="hidden" name="receveur" value="<?php echo $result['receveur']; ?>">
                   <table width="300">
-                   <tr>
+                   <tr <?php if($result["num_geo"] != ""){echo "style='display:none;'";} ?>>
                       <td><label>Numéro géographique</label></td>
-                      <td><input type="textbox" id="val_new_num_geo" placeholder="Nouveau Numéro géographique" name="new_num_geo"></td>
+                      <td><input type="textbox" id="val_new_num_geo" placeholder="Nouveau Numéro géographique" name="new_num_geo" <?php if($result["num_geo"] != ""){echo "value=".$result["num_geo"];} ?>></td>
                     </tr>
-                    <tr>
+                    <tr <?php if($result["num_sip"] != ""){echo "style='display:none;'";} ?>>
                       <td><label>Numéro SIP</label></td>
-                      <td><input type="textbox" id="val_new_num_sip" placeholder="Nouveau Numéro SIP" name="new_num_sip"></td>
+                      <td><input type="textbox" id="val_new_num_sip" placeholder="Nouveau Numéro SIP" name="new_num_sip" <?php if($result["num_sip"] != ""){echo "value=".$result["num_sip"];} ?>></td>
                     </tr>
-                    <tr>
+                    <tr <?php if($result["inum"] != ""){echo "style='display:none;'";} ?>>
                       <td><label>Numéro INUM</label></td>
-                      <td><input type="textbox" id="val_new_inum" placeholder="Nouveau Numéro INUM" name="new_inum"></td>
+                      <td><input type="textbox" id="val_new_inum" placeholder="Nouveau Numéro INUM" name="new_inum" <?php if($result["inum"] != ""){echo "value=".$result["inum"];} ?>></td>
                     </tr>
                   </table>
                   <span id="new_numeros" style="display:none; color:red;">Vous devez renseiger au moins un champs !</span>
