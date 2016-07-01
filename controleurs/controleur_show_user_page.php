@@ -29,14 +29,11 @@
 	 $graph_yesterday_2[0] = 0;
  }
  
- while($donnees = $select_user->fetch()){
-	 $num = $donnees['num'];
- }
  
  // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
  
  $graph_day_incoming = graph_day_outgoing($login,$date_tomorrow,$date_today);
- $graph_day_outgoing = graph_day_outgoing($num,$date_tomorrow,$date_today);
+ $graph_day_outgoing = graph_day_outgoing($select_user[0],$date_tomorrow,$date_today);
  
  // Dataset definition   
  $DataSet = new pData;  
