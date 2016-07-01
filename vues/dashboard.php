@@ -123,7 +123,8 @@
 		<h2>Votre consommation téléphonique pour cette semaine</h2>
 <?php  echo "<img src='$graph_week'>"; ?>
 		<h2>Votre consommation voix pour ce mois</h2>
-		<?php echo "img src='$graph_month'>"; ?>
+		<?php echo "<img src='$graph_month'>"; ?>
+		
 			<?php echo $total_consomation[0], "secondes"; ?>
 
         <?php include("./assets/pages/footer.php"); ?>
