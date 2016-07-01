@@ -90,8 +90,8 @@
  //ON DESSINE LES GRAPHES
  $DataSet = new pData;  
  // $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie3");  
- $DataSet->AddPoint(array($graph_outgoing_yesterday_1[0],$graph_outgoing_yesterday_2[0],$graph_outgoing_yesterday_3[0],$graph_outgoing_yesterday_4[0],$graph_outgoing_yesterday_5[0]$graph_outgoing_yesterday_6[0],$graph_outgoing_yesterday_7[0]),"Serie1");   
- $DataSet->AddPoint(array($graph_incoming_yesterday_1[0],$graph_incoming_yesterday_2[0],$graph_incoming_yesterday_3[0],$graph_incoming_yesterday_4[0],$graph_incoming_yesterday_5[0]$graph_incoming_yesterday_6[0],$graph_incoming_yesterday_7[0]),"Serie2");   
+ $DataSet->AddPoint(array($graph_outgoing_yesterday_1[0],$graph_outgoing_yesterday_2[0],$graph_outgoing_yesterday_3[0],$graph_outgoing_yesterday_4[0],$graph_outgoing_yesterday_5[0],$graph_outgoing_yesterday_6[0],$graph_outgoing_yesterday_7[0]),"Serie1");   
+ $DataSet->AddPoint(array($graph_incoming_yesterday_1[0],$graph_incoming_yesterday_2[0],$graph_incoming_yesterday_3[0],$graph_incoming_yesterday_4[0],$graph_incoming_yesterday_5[0],$graph_incoming_yesterday_6[0],$graph_incoming_yesterday_7[0]),"Serie2");   
  $DataSet->AddPoint(array("$date_yesterday_1_d","$date_yesterday_2_d","$date_yesterday_3_d","$date_yesterday_4_d","$date_yesterday_5_d","$date_yesterday_6_d","$date_yesterday_7_d"),"Serie3");  
  $DataSet->AddSerie("Serie1");  
  $DataSet->AddSerie("Serie2"); 
