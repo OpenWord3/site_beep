@@ -1,5 +1,8 @@
 <?php
  
+ $id_user = $_SESSION['id_user'];
+ $select_user = select_user($id_user);
+ 
  $last_day_month = date('Y-m-d', strtotime("noon last day of this month" ));
  $total_consomation = sum_duration_month($login,$last_day_month);
  $date_tomorrow = date('Y-m-d', strtotime("1 day"));
@@ -26,18 +29,27 @@
 	 $graph_yesterday_2[0] = 0;
  }
  
+ while($donnees = $select_user->fetch()){
+	 $num = $donnees['num'];
+ }
+ 
+ // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
+ 
+ $graph_day_incoming = graph_day_outgoing($login,$date_tomorrow,$date_today);
+ $graph_day_outgoing = graph_day_outgoing($num,$date_tomorrow,$date_today);
+ 
  // Dataset definition   
  $DataSet = new pData;  
- $DataSet->AddPoint(array($graph_today[0]),"Serie1");  
- $DataSet->AddPoint(array($graph_yesterday_1[0]),"Serie2");  
- $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie3");  
+ // $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie3");  
+ $DataSet->AddPoint(array($graph_day_outgoing[0]),"Serie2");  
+ $DataSet->AddPoint(array($graph_day_incoming[0]),"Serie1");  
  $DataSet->AddAllSeries();  
  $DataSet->SetAbsciseLabelSerie();  
  $DataSet->SetYAxisName("Secondes");
  $DataSet->SetYAxisUnit("s");   
- $DataSet->SetSerieName("$date_today_d","Serie1");  
- $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
- $DataSet->SetSerieName("$date_yesterday_2_d","Serie3");  
+ // $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
+ $DataSet->SetSerieName("OUTGOING","Serie2");  
+ $DataSet->SetSerieName("INCOMING","Serie1");  
   
  // Initialise the graph  
  $Test = new pChart(400,230);  
@@ -61,6 +73,8 @@
  $Test->drawLegend(300,150,$DataSet->GetDataDescription(),255,255,255);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
  $Test->Render("./users_graphs/$login.png");
+ 
+ // $last_calls = last_calls($login);
  
  $img = "./users_graphs/$login.png";
  include("./vues/dashboard.php");

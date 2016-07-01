@@ -90,8 +90,8 @@
 		global $bdd;
 		
 		$req = $bdd->query("SELECT * FROM users JOIN numeros ON users.id_user = numeros.id_user WHERE users.id_user = '$id_user'");
-		$donnees = $req->fetch();
-		return $donnees;
+		// $donnees = $req->fetch();
+		return $req;
 	}
 	
 	function update_user($nom,$prenom,$login,$mdp,$mail,$num_transfert,$option_transfert,$role,$droit_conf,$jours,$horaires,$id_contexte,$id_user){
