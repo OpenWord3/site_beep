@@ -5,7 +5,7 @@
  
  // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
  
- $graph_day_incoming = graph_day_incoming($select_user[0],$date_today);
+ $graph_day_incoming = graph_day_incoming($num[0],$date_today);
  $graph_day_outgoing = graph_day_outgoing($login,$date_today);
  
  if(empty($graph_day_incoming[0])){
