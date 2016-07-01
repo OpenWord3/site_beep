@@ -35,6 +35,8 @@
  $graph_day_incoming = graph_day_incoming($select_user[0],$date_tomorrow,$date_today);
  $graph_day_outgoing = graph_day_outgoing($login,$date_tomorrow,$date_today);
  
+ echo $graph_day_incoming[0];
+ echo $graph_day_outgoing[0];
  // Dataset definition   
  $DataSet = new pData;  
  // $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie3");  
