@@ -1,7 +1,8 @@
 <?php
  
  $date = date('Y-m'); 
- $date_d = date('F');
+ setlocale(LC_TIME, 'fr_FR');
+ $date_d = strftime('%B');
  
  // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
  
