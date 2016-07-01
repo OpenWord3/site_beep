@@ -120,7 +120,6 @@
         </div>
 		<h2>Votre consommation téléphonique pour aujourd'hui</h2>
 <?php  echo "<img src='$graph_day'>"; ?>
-		<h2>Votre consommation voix pour ce mois</h2>		
 		<h2>Votre consommation téléphonique pour cette semaine</h2>
 <?php  echo "<img src='$graph_week'>"; ?>
 		<h2>Votre consommation voix pour ce mois</h2>

@@ -13,8 +13,8 @@
  include("./graph_week.php");
  
  
- $graph_day = "./users_graphs/$login_day.png";
- $graph_week = "./users_graphs/$login_week.png";
+ $graph_day = "./users_graphs/$login_day";
+ $graph_week = "./users_graphs/$login_week";
  
  include("./vues/dashboard.php");
 
