@@ -33,52 +33,6 @@
 								</div>
 							</a>
 						</li> <div class="main-panel">
-						<nav class="navbar navbar-default navbar-fixed">
-							<div class="container-fluid">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#">Accueil</a>
-								</div>
-								<div class="collapse navbar-collapse">
-									<ul class="nav navbar-nav navbar-left">
-										<li>
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-												<i class="fa fa-dashboard"></i>
-											</a>
-										</li>
-										<li class="dropdown">
-											  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-													<i class="fa fa-globe"></i>
-													<b class="caret"></b>
-													<span class="notification">2</span>
-											  </a>
-											  <ul class="dropdown-menu">
-												<li><a href="#">Vous avez réçu un message vocale</a></li>
-												<li><a href="#">Vous avez manqué 2 appels</a></li>
-											  </ul>
-										</li>
-										<li>
-										   <a href="">
-												<i class="fa fa-search"></i>
-											</a>
-										</li>
-									</ul>
-
-									<ul class="nav navbar-nav navbar-right">
-										<li>
-											<a href="<?php echo INDEX ?>?=vue_accueil">
-												Deconnexion
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</nav>
 						<li>
 							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<div class="task-info">

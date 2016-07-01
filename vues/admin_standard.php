@@ -27,6 +27,12 @@
                     <td><label>Transfert</label></td>
                     <td><input type="checkbox"></td>
                   </tr>
+				  <tr>
+                    <td><label>Nouvel Utilisateur</label></td>
+                    <td>
+						<input type="text" value="standard" name="user" id="user" placeholder="Utilisateur"/>
+					</td>
+                  </tr>
                   <tr>
                     <td><label>Jour de début</label></td>
                     <td>
@@ -84,6 +90,7 @@
           	</div>
 			<?php
 				if(isset($_POST['modifier'])){
+					$user=$_POST['user'];
 					$begin_jour=$_POST['begin_jour'];
 					$end_jour=$_POST['end_jour'];
 					$begin_heure=$_POST['begin_heure'];
@@ -91,7 +98,7 @@
 					$end_heure=$_POST['end_heure'];
 					$end_minute=sprintf("%02d",$_POST['end_minute']);
 					
-					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour);
+					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour.' '.$user);
 				}
 			?>
 		</section><! --/wrapper -->
