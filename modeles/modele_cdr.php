@@ -1,10 +1,10 @@
 <?php
 
-	function graph_day($login,$date_1,$date_2){
+	function graph_day($login,$date){
 		global $cdr;
 		
 		// $req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND (start <= '$date_1') AND (start >= '$date_2') AND (lastapp LIKE 'dial' OR lastapp LIKE 'MeetMe')");
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND (start <= '$date_1') AND (start >= '$date_2')");
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start = '$date_1 . %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;	
@@ -13,16 +13,16 @@
 	function graph_day_outgoing($login,$date){
 		global $cdr;
 		
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start <= '$date . %'");
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start = '$date . %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;	
 	}		
 	
-	function graph_day_incoming($num,$date_1,$date_2){
+	function graph_day_incoming($num,$date){
 		global $cdr;
 		
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE dst = $num AND (start <= '$date_1') AND (start >= '$date_2')");
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE dst = $num AND start = '$date_1 . %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;	

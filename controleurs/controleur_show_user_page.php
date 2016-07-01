@@ -11,15 +11,15 @@
  $date_yesterday_2 = date('Y-m-d', strtotime("2 day ago" ));
  $date_yesterday_3 = date('Y-m-d', strtotime("3 day ago" ));
  
- $graph_today = graph_day($login,$date_tomorrow,$date_today);
- $graph_yesterday_1 = graph_day($login,$date_today,$date_yesterday_1);
- $graph_yesterday_2 = graph_day($login,$date_yesterday_1,$date_yesterday_2);
+ // $graph_today = graph_day($login,$date_tomorrow,$date_today);
+ // $graph_yesterday_1 = graph_day($login,$date_today,$date_yesterday_1);
+ // $graph_yesterday_2 = graph_day($login,$date_yesterday_1,$date_yesterday_2);
  
  $date_today_d = date('D');
  $date_yesterday_1_d = date('D', strtotime("1 day ago"));
  $date_yesterday_2_d = date('D', strtotime("2 day ago"));
 
- if(empty($graph_today[0])){
+ /*if(empty($graph_today[0])){
 	 $graph_today[0] = 0;
  } 
  if(empty($graph_yesterday_1[0])){
@@ -27,12 +27,12 @@
  } 
  if(empty($graph_yesterday_2[0])){
 	 $graph_yesterday_2[0] = 0;
- }
+ }*/
  
  
  // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
  
- $graph_day_incoming = graph_day_incoming($select_user[0],$date_tomorrow,$date_today);
+ $graph_day_incoming = graph_day_incoming($select_user[0],$date_today);
  $graph_day_outgoing = graph_day_outgoing($login,$date_today);
  
  if(empty($graph_day_incoming[0])){
@@ -79,7 +79,10 @@
  
  // $last_calls = last_calls($login);
  
- $img = "./users_graphs/$login.png";
+ include("./graph_week.php");
+ 
+ 
+ $img = "./users_graphs/$login_week.png";
  include("./vues/dashboard.php");
 
 ?>
