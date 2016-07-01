@@ -26,7 +26,7 @@
  $date_yesterday_2_d = date('D', strtotime("2 day ago"));
  $date_yesterday_3_d = date('D', strtotime("3 day ago"));
  $date_yesterday_4_d = date('D', strtotime("4 day ago"));
- $date_yesterday_5_d = date('D', strtotime("5 ay ago"));
+ $date_yesterday_5_d = date('D', strtotime("5 day ago"));
  $date_yesterday_6_d = date('D', strtotime("6 day ago"));
  $date_yesterday_7_d = date('D', strtotime("7 day ago"));
 
@@ -98,7 +98,7 @@
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",8);  
  $Test->drawLegend(300,50,$DataSet->GetDataDescription(),255,255,255);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
- $Test->Render("./users_graphs/$login_week.png");
+ $Test->Render("./users_graphs/$login_week");
  
  // $last_calls = last_calls($login);
  
