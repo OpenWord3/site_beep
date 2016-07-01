@@ -26,6 +26,24 @@
 		$donnees = $req->fetch();
 		
 		return $donnees;	
+	}		
+		
+	function graph_month_outgoing($login,$date){
+		global $cdr;
+		
+		$req = $cdr->query('SELECT SUM(duration) FROM cdr WHERE src LIKE "$login" AND start LIKE "$date%"');
+		$donnees = $req->fetch();
+		
+		return $donnees;	
+	}
+	
+	function graph_month_incoming($num,$date){
+		global $cdr;
+		
+		$req = $cdr->query('SELECT SUM(duration) FROM cdr WHERE dst = $num AND start LIKE "$date%"');
+		$donnees = $req->fetch();
+		
+		return $donnees;	
 	}	
 	
 	function sum_duration_month($login,$date){

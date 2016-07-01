@@ -11,10 +11,12 @@
  
  include("./graph_day.php");
  include("./graph_week.php");
+ include("./graph_month.php");
  
  
  $graph_day = "./users_graphs/$login_day";
  $graph_week = "./users_graphs/$login_week";
+ $graph_month = "./users_graphs/$login_month";
  
  include("./vues/dashboard.php");
 
