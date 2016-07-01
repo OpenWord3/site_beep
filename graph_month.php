@@ -5,8 +5,8 @@
  
  // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
  
- $graph_month_incoming = graph_day_incoming($num[0],$date);
- $graph_month_outgoing = graph_day_outgoing($login,$date);
+ $graph_month_incoming = graph_month_incoming($num[0],$date);
+ $graph_month_outgoing = graph_month_outgoing($login,$date);
  
  if(empty($graph_month_incoming[0])){
 	 $graph_month_incoming[0] = 0;
@@ -22,7 +22,6 @@
  $DataSet->AddSerie("Serie1");  
  $DataSet->AddSerie("Serie2"); 
  $DataSet->SetAbsciseLabelSerie("Serie3");
- $DataSet->SetAbsciseLabelSerie();  
  $DataSet->SetYAxisName("Secondes");
  $DataSet->SetYAxisUnit("s");   
  $DataSet->SetSerieName("OUTGOING","Serie1");  
