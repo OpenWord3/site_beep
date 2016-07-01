@@ -72,10 +72,10 @@
 		$id_groupe2 = id_groupe_switch($groupe2);
 
 		if($unidir == '1' && $bidir == '0'){			
-			exec('sudo /var/script_beep/cancel_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);			
+			exec('sudo /var/script_beep/cancel_droit_unidirectionnel.sh '.$groupe1.' '.$groupe2);			
 
 		} else {
-			exec('sudo /var/script_beep/cancel_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
+			exec('sudo /var/script_beep/cancel_droit_bidirectionnel.sh '.$groupe1.' '.$groupe2);
 		}
 		
 		del_droit_bidir($id_groupe1,$id_groupe2);
@@ -90,7 +90,7 @@
 
 		del_droit_extern($id_groupe1,$id_groupe2);
 		
-		exec('sudo /var/script_beep/cancel_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
+		exec('sudo /var/script_beep/cancel_droit_unidirectionnel.sh '.$groupe1.' '.$groupe2);
 		$alert = "<font style='color:green;font-weight:bold;'>Ce droit a bien été supprimé.</font>";
 	}
 

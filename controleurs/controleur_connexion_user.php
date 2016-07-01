@@ -10,13 +10,15 @@
 		include("./vues/accueil.php");
 	}
 	else if(!empty($check_compte_user)){
+		$id_user = find_id_user($login);
+		$_SESSION["id_user"] = $id_user[0];
+		
 		if($check_compte_user['role'] == 1){
 			include("./controleurs/controleur_admin.php");	
-			$id_user = find_id_user($login);
-			$_SESSION["id_user"] = $id_user;
+
 		}
 		else{
-			include("./vues/dashboard.php");
+			include("./controleurs/controleur_show_user_page.php");
 		}
 	}
 ?>

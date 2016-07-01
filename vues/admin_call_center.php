@@ -20,6 +20,9 @@
 			  <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
 				<i class="fa fa-plus"></i> call center
 			  </button>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modifier">
+        <i class="fa fa-pencil"></i> call center
+        </button>
 			  <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
 				<i class="fa fa-minus"></i> call center
 			  </button>
@@ -232,6 +235,53 @@
             </div>
           </div>
         </div>
+
+        <!-- ===================================================================================================================================================== -->
+        <div class="modal fade" id="modifier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modifier un centre d'appels</h4>
+              </div>
+              <div class="modal-body">
+
+                <center>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_callcenter" method="POST">
+                <table width="300">
+                  <tr>
+                    <th><label>Entrer le nom</label></th>
+                    <th><select name="nom_call">
+                      <?php foreach ($all_callcenters as $result) { ?>
+                        <option><?php echo $result["nom"]; ?></option>
+                      <?php } ?>
+                    </select></th>
+                  </tr>
+                  <tr>
+                      <th><label>Stratégie</label></th>
+                      <th><select required name="strategy">
+                            <option>ringall</option>
+                            <option>roundrobin</option>
+                            <option>leastrecent</option>
+                            <option>fewestcall</option>
+                            <option>random</option>
+                            <option>rrmemory</option>
+                            <option>linear</option>
+                            <option>wrandom</option>
+                          </select></th>
+                    </tr>
+                </table>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                  <button type="submit" class="btn btn-primary" name="modifier_call_center">Modifier</button>
+                </div>
+                </form>
+              </div>
+              
+            </div>
+          </div>
+
+        <!-- ===================================================================================================================================================== -->
 
         <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">

@@ -19,7 +19,7 @@
 				$membre_call = membre_call($nom_call);
 			} else {		
 				add_callcenter($nom_call,$num_call,$strategy); 
-				exec('sudo /var/script_beep/add_callcenter.sh '.$nom_call.' '.$trategy.' '.$num_call);			
+				exec('sudo /var/script_beep/add_callcenter.sh '.$nom_call.' '.$strategy.' '.$num_call);			
 				$membre_call = membre_call($nom_call);
 				$alert = "<font style='color:green;font-weight:bold;'>Le centre d’appel a bien été ajouté.</font>";
 			}
@@ -32,7 +32,15 @@
 		exec('sudo /var/script_beep/remove_callcenter.sh '.$nom_call);
 		$alert = "<font style='color:green;font-weight:bold;'>Le centre d’appel a bien été supprimé.</font>";
 
-	}else if(isset($_POST["ajouter_membre"])){
+	}else if(isset($_POST["modifier_call_center"])){
+		$nom_call = $_POST["nom_call"];
+		$strategy = $_POST["strategy"];
+
+		update_strategy($nom_call,$strategy);
+		exec('sudo /var/script_beep/modif_callcenter.sh '.$nom_call.' '.$strategy);	
+		$alert = "<font style='color:green;font-weight:bold;'>La strategie du centre d’appel a bien été modifiée.</font>";	
+
+	} else if(isset($_POST["ajouter_membre"])){
 		$login = $_POST["membre"];
 		$nom_call = $_POST["nom_call"];
 		$id_user = id_user($login);

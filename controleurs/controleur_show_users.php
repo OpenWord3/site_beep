@@ -6,6 +6,9 @@
 	//$x=1;
 	
 	$port = array();
+	if(empty($nb_dahdi)){
+		$nb_dahdi = 0;
+	}
 		while($donnees = $info_port->fetch()){
 			//echo $donnees['port'], "<br>";
 			$port[] = $donnees['port'];

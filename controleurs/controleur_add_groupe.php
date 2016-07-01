@@ -11,8 +11,9 @@
 	else if(empty($check_groupe)){
 		$type_contexte = 1;
 		add_groupe($contexte,$type_contexte);
+		exec('sudo /var/script_beep/addgroupe.sh '.$contexte);
 		if(isset($_POST['from_groupe'])){
-			$msg = "<h3 style='color:green'>Le groupe $contexte à bien été ajouter</h3>";
+			$msg = "<h3 style='color:green'>Le groupe $contexte à bien été ajouter</h3>";			
 			include("./vues/admin_gestion_groupes.php");
 		}
 		else{
@@ -20,6 +21,5 @@
 		include("./controleurs/controleur_show_users.php");	
 		}
 	}
-
 	
 ?>

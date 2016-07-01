@@ -12,8 +12,14 @@
 	include("./modeles/modele_user.php");
 	include("./modeles/modele_groupe.php");
 	include("./modeles/modele_conference.php");
-	include("./function_check_nums.php");
 	include("./modeles/modele_droit.php");
+	include("./modeles/modele_cdr.php");
+	
+	include("./function_check_nums.php");
+	
+	include("./chart/pChart/pData.class");
+	include("./chart/pChart/pChart.class");
+	
 
 	//Constante de l'index
 	define("INDEX","index.php");

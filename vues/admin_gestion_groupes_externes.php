@@ -133,7 +133,11 @@
                     <form action="<?php echo INDEX ?>?index=vue_gestion_groupes_externes" method="POST">
                       <table width="300">                      
                           <tr><td><label>Groupe</label></td>
-                          <td><input type="text" name="nom" placeholder="Nom du groupe"/></td></tr>
+                          <td><select name="nom">
+                            <?php foreach($all_groupes_externes as $result) { ?>
+                            <option><?php echo $result["nom"] ?></option>
+                            <?php } ?>
+                          </select></td>
                           <tr>
     						            <td><button type="submit" class="btn btn-primary" name="supprimer_groupe_externe">Delete</button></td>
     						            <td><button type="button" data-dismiss="modal" class="btn">Cancel</button></td>	

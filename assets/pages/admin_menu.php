@@ -178,13 +178,13 @@
 					  <span>Utilisateurs & Groupes</span>
 				  </a>
 				  <ul class="sub">
-					  <li><a  href="<?php echo INDEX ?>?index=vue_gestion_utilisateur">Personnes</a></li>
-					  <li><a  href="<?php echo INDEX ?>?index=vue_gestion_groupe">Groupes</a></li>
+					  <li><a  href="<?php echo INDEX ?>?index=show_users">Utilisateurs</a></li>
+					  <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
 				  </ul>
 			  </li>
 
 			  <li class="sub-menu">
-				  <a href="<?php echo INDEX ?>?index=vue_gestion_conference" >
+				  <a href="<?php echo INDEX ?>?index=show_conferences" >
 					  <i class="fa fa-bank"></i>
 					  <span>Salles de conférences</span>
 				  </a>
@@ -219,6 +219,7 @@
 					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
 					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
 					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_groupes_externes">Groupes externes</a></li>
 				  </ul>
 			  </li>
 

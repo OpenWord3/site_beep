@@ -73,8 +73,8 @@
 			case "vue_gestion_groupe":
 				include("./controleurs/controleur_gestion_groupe.php");
 				break;
-			case "vue_gestion_groupe":
-				include("./controleurs/controleur_gestion_groupe.php");
+			case "vue_gestion_conference":
+				include("./controleurs/controleur_gestion_conference.php");
 				break;
 			case "vue_gestion_callcenter":
 				include("./controleurs/controleur_gestion_callcenter.php");

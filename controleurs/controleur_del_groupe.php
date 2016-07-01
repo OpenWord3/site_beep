@@ -11,7 +11,7 @@
 	del_groupe($id_contexte[0]);
 		
 	while($donnees = $select_users_contexte->fetch()){
-		exec('sudo /var/script_beep/change_contexte.sh '.$donnees['login'].' '.$donnees['contexte'].' '.$default.' '.$donnees['num'].' '.$donnees['protocole'].' '.$donnees['user'].' '.$donnees['mail']);
+		exec('sudo /var/script_beep/change_contexte.sh '.$donnees['login'].' '.$contexte.' '.$default.' '.$donnees['num'].' '.$donnees['protocole'].' '.$donnees['user'].' '.$donnees['mail']);
 	}
 	
 	while($donnees = $show_groupes->fetch()){
