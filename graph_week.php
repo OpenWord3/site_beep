@@ -106,7 +106,8 @@
  $DataSet->SetSerieName("$date_yesterday_5_d","Serie5");  
  $DataSet->SetSerieName("$date_yesterday_6_d","Serie6");  
  $DataSet->SetSerieName("$date_yesterday_7_d","Serie7");  */
-  
+ $DataSet->SetSerieName("OUTGOING","Serie1");  
+ $DataSet->SetSerieName("INCOMING","Serie2");  
  // Initialise the graph  
  $Test = new pChart(400,230);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",8);  
