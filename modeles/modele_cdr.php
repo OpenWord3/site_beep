@@ -40,7 +40,7 @@
 	function last_calls($login){
 		global $cdr;
 		
-		$req = $cdr->query(" select dst,dstchannel,start from cdr where src like '$login' order by start desc limit 5")
+		$req = $cdr->query(" select dst,dstchannel,start from cdr where src like '$login' order by start desc limit 5");
 	}
 
 ?>
