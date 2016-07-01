@@ -1,7 +1,7 @@
 <?php
  
  //ON RECUPERES TOUTES LES DATES DE LA SEMAINE
-
+ 
  $date_tomorrow = date('Y-m-d', strtotime("1 day"));
  $date_today = date('Y-m-d');
  $date_yesterday_1 = date('Y-m-d', strtotime("1 day ago" ));
@@ -31,15 +31,14 @@
  $graph_incoming_yesterday_7 = graph_day_incoming($num[0],$date_yesterday_7);
  
  //ON RECUPERES LES DATES EN JOURS
- setlocale(LC_TIME, 'fr_FR');
- $date_today_d = strftime('%a');
- $date_yesterday_1_d = strftime('%a', strtotime("1 day ago"));
- $date_yesterday_2_d = strftime('%a', strtotime("2 day ago"));
- $date_yesterday_3_d = strftime('%a', strtotime("3 day ago"));
- $date_yesterday_4_d = strftime('%a', strtotime("4 day ago"));
- $date_yesterday_5_d = strftime('%a', strtotime("5 day ago"));
- $date_yesterday_6_d = strftime('%a', strtotime("6 day ago"));
- $date_yesterday_7_d = strftime('%a', strtotime("7 day ago"));
+ $date_today_d = date('D');
+ $date_yesterday_1_d = date('D', strtotime("1 day ago"));
+ $date_yesterday_2_d = date('D', strtotime("2 day ago"));
+ $date_yesterday_3_d = date('D', strtotime("3 day ago"));
+ $date_yesterday_4_d = date('D', strtotime("4 day ago"));
+ $date_yesterday_5_d = date('D', strtotime("5 day ago"));
+ $date_yesterday_6_d = date('D', strtotime("6 day ago"));
+ $date_yesterday_7_d = date('D', strtotime("7 day ago"));
 
  //GRAPH = 0 SI VIDE
  if(empty($graph_outgoing_yesterday_1[0])){
