@@ -398,6 +398,8 @@ ul.sidebar-menu li a.active i {
 /* MAIN CONTENT CONFIGURATION */
 #main-content {
     margin-left: 210px;
+	min-height : 790px;
+	max-height : autopx;
 }
 
 .header, .footer {
@@ -2218,7 +2220,7 @@ label {
 .site-footer {
     background: #68dff0;
     color: #fff;
-    padding: 10px 0;
+    padding: 10px 0px;
 }
 
 
