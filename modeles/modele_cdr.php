@@ -40,7 +40,7 @@
 	function graph_month_incoming($num,$date){
 		global $cdr;
 		
-		$req = $cdr->query('SELECT SUM(duration) FROM cdr WHERE dst = $num AND start LIKE "$date%"');
+		$req = $cdr->query('SELECT SUM(duration) FROM cdr WHERE dst LIKE "$num" AND start LIKE "$date%"');
 		$donnees = $req->fetch();
 		
 		return $donnees;	
