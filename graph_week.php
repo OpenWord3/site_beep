@@ -11,14 +11,23 @@
  $date_yesterday_6 = date('Y-m-d', strtotime("6 day ago" ));
  $date_yesterday_7 = date('Y-m-d', strtotime("7 day ago" ));
  
- //ON RECUPERES LES DONNES POUR LES GRAPHES
- $graph_yesterday_1 = graph_day($login,$date_yesterday_1);
- $graph_yesterday_2 = graph_day($login,$date_yesterday_2);
- $graph_yesterday_2 = graph_day($login,$date_yesterday_3);
- $graph_yesterday_2 = graph_day($login,$date_yesterday_4);
- $graph_yesterday_2 = graph_day($login,$date_yesterday_5);
- $graph_yesterday_2 = graph_day($login,$date_yesterday_6);
- $graph_yesterday_2 = graph_day($login,$date_yesterday_7);
+ //ON RECUPERES LES DONNES OUTGOING POUR LES GRAPHES
+ $graph_outgoing_yesterday_1 = graph_day_outgoing($login,$date_yesterday_1);
+ $graph_outgoing_yesterday_2 = graph_day_outgoing($login,$date_yesterday_2);
+ $graph_outgoing_yesterday_3 = graph_day_outgoing($login,$date_yesterday_3);
+ $graph_outgoing_yesterday_4 = graph_day_outgoing($login,$date_yesterday_4);
+ $graph_outgoing_yesterday_5 = graph_day_outgoing($login,$date_yesterday_5);
+ $graph_outgoing_yesterday_6 = graph_day_outgoing($login,$date_yesterday_6);
+ $graph_outgoing_yesterday_7 = graph_day_outgoing($login,$date_yesterday_7);
+
+ //ON RECUPERES LES DONNES INCOMING POUR LES GRAPHES
+ $graph_incoming_yesterday_1 = graph_day_incoming($num[0],$date_yesterday_1);
+ $graph_incoming_yesterday_2 = graph_day_incoming($num[0],$date_yesterday_2);
+ $graph_incoming_yesterday_3 = graph_day_incoming($num[0],$date_yesterday_3);
+ $graph_incoming_yesterday_4 = graph_day_incoming($num[0],$date_yesterday_4);
+ $graph_incoming_yesterday_5 = graph_day_incoming($num[0],$date_yesterday_5);
+ $graph_incoming_yesterday_6 = graph_day_incoming($num[0],$date_yesterday_6);
+ $graph_incoming_yesterday_7 = graph_day_incoming($num[0],$date_yesterday_7);
  
  //ON RECUPERES LES DATES EN JOURS
  $date_today_d = date('D');
@@ -31,50 +40,72 @@
  $date_yesterday_7_d = date('D', strtotime("7 day ago"));
 
  //GRAPH = 0 SI VIDE
- if(empty($graph_yesterday_1[0])){
-	 $graph_yesterday_1[0] = 0;
+ if(empty($graph_outgoing_yesterday_1[0])){
+	 $graph_outgoing_yesterday_1[0] = 0;
  } 
- if(empty($graph_yesterday_2[0])){
-	 $graph_yesterday_2[0] = 0;
+ if(empty($graph_outgoing_yesterday_2[0])){
+	 $graph_outgoing_yesterday_2[0] = 0;
  }
- if(empty($graph_yesterday_3[0])){
-	 $graph_yesterday_3[0] = 0;
+ if(empty($graph_outgoing_yesterday_3[0])){
+	 $graph_outgoing_yesterday_3[0] = 0;
  } 
- if(empty($graph_yesterday_4[0])){
-	 $graph_yesterday_4[0] = 0;
+ if(empty($graph_outgoing_yesterday_4[0])){
+	 $graph_outgoing_yesterday_4[0] = 0;
  } 
- if(empty($graph_yesterday_5[0])){
-	 $graph_yesterday_5[0] = 0;
+ if(empty($graph_outgoing_yesterday_5[0])){
+	 $graph_outgoing_yesterday_5[0] = 0;
  }
- if(empty($graph_yesterday_6[0])){
-	 $graph_yesterday_6[0] = 0;
+ if(empty($graph_outgoing_yesterday_6[0])){
+	 $graph_outgoing_yesterday_6[0] = 0;
  }
- if(empty($graph_yesterday_7[0])){
-	 $graph_yesterday_7[0] = 0;
+ if(empty($graph_outgoing_yesterday_7[0])){
+	 $graph_outgoing_yesterday_7[0] = 0;
+ } 
+ 
+ if(empty($graph_incoming_yesterday_1[0])){
+	 $graph_incoming_yesterday_1[0] = 0;
+ } 
+ if(empty($graph_incoming_yesterday_2[0])){
+	 $graph_incoming_yesterday_2[0] = 0;
  }
+ if(empty($graph_incoming_yesterday_3[0])){
+	 $graph_incoming_yesterday_3[0] = 0;
+ } 
+ if(empty($graph_incoming_yesterday_4[0])){
+	 $graph_incoming_yesterday_4[0] = 0;
+ } 
+ if(empty($graph_incoming_yesterday_5[0])){
+	 $graph_incoming_yesterday_5[0] = 0;
+ }
+ if(empty($graph_incoming_yesterday_6[0])){
+	 $graph_incoming_yesterday_6[0] = 0;
+ }
+ if(empty($graph_incoming_yesterday_7[0])){
+	 $graph_incoming_yesterday_7[0] = 0;
+ }
+ 
+ 
+ 
  
  //ON DESSINE LES GRAPHES
  $DataSet = new pData;  
  // $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie3");  
- $DataSet->AddPoint(array($graph_yesterday_1[0]),"Serie1");  
- $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie2");  
- $DataSet->AddPoint(array($graph_yesterday_3[0]),"Serie3");  
- $DataSet->AddPoint(array($graph_yesterday_4[0]),"Serie4");  
- $DataSet->AddPoint(array($graph_yesterday_5[0]),"Serie5");  
- $DataSet->AddPoint(array($graph_yesterday_6[0]),"Serie6");  
- $DataSet->AddPoint(array($graph_yesterday_7[0]),"Serie7");  
- $DataSet->AddAllSeries();  
- $DataSet->SetAbsciseLabelSerie();  
+ $DataSet->AddPoint(array($graph_outgoing_yesterday_1[0],$graph_outgoing_yesterday_2[0],$graph_outgoing_yesterday_3[0],$graph_outgoing_yesterday_4[0],$graph_outgoing_yesterday_5[0]$graph_outgoing_yesterday_6[0],$graph_outgoing_yesterday_7[0]),"Serie1");   
+ $DataSet->AddPoint(array($graph_incoming_yesterday_1[0],$graph_incoming_yesterday_2[0],$graph_incoming_yesterday_3[0],$graph_incoming_yesterday_4[0],$graph_incoming_yesterday_5[0]$graph_incoming_yesterday_6[0],$graph_incoming_yesterday_7[0]),"Serie2");   
+ $DataSet->AddPoint(array("$date_yesterday_1_d","$date_yesterday_2_d","$date_yesterday_3_d","$date_yesterday_4_d","$date_yesterday_5_d","$date_yesterday_6_d","$date_yesterday_7_d"),"Serie3");  
+ $DataSet->AddSerie("Serie1");  
+ $DataSet->AddSerie("Serie2"); 
+ $DataSet->SetAbsciseLabelSerie("Serie3");  
  $DataSet->SetYAxisName("Secondes");
  $DataSet->SetYAxisUnit("s");   
  // $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
- $DataSet->SetSerieName("$date_yesterday_1_d","Serie1");  
+ /*$DataSet->SetSerieName("$date_yesterday_1_d","Serie1");  
  $DataSet->SetSerieName("$date_yesterday_2_d","Serie2");  
  $DataSet->SetSerieName("$date_yesterday_3_d","Serie3");  
  $DataSet->SetSerieName("$date_yesterday_4_d","Serie4");  
  $DataSet->SetSerieName("$date_yesterday_5_d","Serie5");  
  $DataSet->SetSerieName("$date_yesterday_6_d","Serie6");  
- $DataSet->SetSerieName("$date_yesterday_7_d","Serie7");  
+ $DataSet->SetSerieName("$date_yesterday_7_d","Serie7");  */
   
  // Initialise the graph  
  $Test = new pChart(400,230);  
