@@ -1,7 +1,6 @@
 <?php
  
  //ON RECUPERES TOUTES LES DATES DE LA SEMAINE
- setlocale(LC_TIME, 'fra_fra');
 
  $date_tomorrow = date('Y-m-d', strtotime("1 day"));
  $date_today = date('Y-m-d');
@@ -32,6 +31,8 @@
  $graph_incoming_yesterday_7 = graph_day_incoming($num[0],$date_yesterday_7);
  
  //ON RECUPERES LES DATES EN JOURS
+ setlocale(LC_TIME, 'fra_fra');
+ 
  $date_today_d = strftime('%a');
  $date_yesterday_1_d = strftime('%a', strtotime("1 day ago"));
  $date_yesterday_2_d = strftime('%a', strtotime("2 day ago"));
