@@ -65,10 +65,10 @@
 	}
 
 	//Fonction qui modifie la strategy d'un callcenter
-	function update_strategy($id_call_center,$strategy){
+	function update_strategy($nom_call,$strategy){
 		global $bdd;
 
-		$req = $bdd->query("UPDATE `call_centers` SET `strategy` = '$strategy' WHERE `id_call_center` = '$id_call_center'");
+		$req = $bdd->query("UPDATE `call_centers` SET `strategy` = '$strategy' WHERE `nom` = '$nom_call'");
 
 		$req->closeCursor();
 	}
