@@ -4,7 +4,7 @@
 		global $cdr;
 		
 		// $req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND (start <= '$date_1') AND (start >= '$date_2') AND (lastapp LIKE 'dial' OR lastapp LIKE 'MeetMe')");
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start = '$date_1 . %'");
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start = '$date . %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;	
