@@ -119,4 +119,14 @@
 
 		$req->closeCursor();
 	}
+
+	//Fonction qui retire un utilisateur
+	function del_receiver($id_set_num){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE `set_nums` SET `receveur` = '' WHERE `id_set_num` = '$id_set_num'");
+
+		$req->closeCursor();
+	}
+
 ?>

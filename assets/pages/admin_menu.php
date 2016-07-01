@@ -224,7 +224,7 @@
 					  <span>Utilisateurs & Groupes</span>
 				  </a>
 				  <ul class="sub">
-					  <li><a  href="<?php echo INDEX ?>?index=show_users">Personnes</a></li>
+					  <li><a  href="<?php echo INDEX ?>?index=show_users">Utilisateurs</a></li>
 					  <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
 				  </ul>
 			  </li>

@@ -325,13 +325,7 @@
 				<h3 class="white"><?php if(isset($msg)){ echo $msg; }?></h3>
 				<form action="<?php echo INDEX ?>?index=connexion_user" class="popup-form" method="POST">
 					<input type="text" class="form-control form-white" placeholder="Nom" name="login">
-					<input type="password" class="form-control form-white" placeholder="Mot de Passe" name="mdp">
-					<div class="checkbox-holder text-left">
-						<div class="checkbox">
-							<input type="checkbox" required value="None" id="squaredOne" name="check" />
-							<label for="squaredOne"><span>En cliquant, j'accepte <strong>les conditions d'utilisations</strong></span></label>
-						</div>
-					</div>
+					<input type="password" class="form-control form-white" placeholder="Mot de Passe" name="mdp">					
 					<button type="submit" class="btn btn-submit" name="valider">Valider</button>
 				</form>
 			</div>
