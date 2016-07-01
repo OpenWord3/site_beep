@@ -32,14 +32,14 @@
  
  // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
  
- $graph_day_incoming = graph_day_outgoing($login,$date_tomorrow,$date_today);
+ $graph_day_incoming = graph_day_incoming($login,$date_tomorrow,$date_today);
  $graph_day_outgoing = graph_day_outgoing($select_user[0],$date_tomorrow,$date_today);
  
  // Dataset definition   
  $DataSet = new pData;  
  // $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie3");  
- $DataSet->AddPoint(array(200),"Serie2");  
- $DataSet->AddPoint(array(400),"Serie1");  
+ $DataSet->AddPoint(array($graph_day_outgoing[0]),"Serie2");  
+ $DataSet->AddPoint(array($graph_day_incoming[0]),"Serie1");  
  $DataSet->AddAllSeries();  
  $DataSet->SetAbsciseLabelSerie();  
  $DataSet->SetYAxisName("Secondes");
