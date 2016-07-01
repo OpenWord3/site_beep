@@ -4,7 +4,7 @@
 		global $cdr;
 		
 		// $req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND (start <= '$date_1') AND (start >= '$date_2') AND (lastapp LIKE 'dial' OR lastapp LIKE 'MeetMe')");
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start LIKE '$date . %'");
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start LIKE '$date %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;	
@@ -13,7 +13,7 @@
 	function graph_day_outgoing($login,$date){
 		global $cdr;
 		
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start LIKE '$date . %'");
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE src LIKE '$login' AND start LIKE '$date %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;	
@@ -22,7 +22,7 @@
 	function graph_day_incoming($num,$date){
 		global $cdr;
 		
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE dst = $num AND start LIKE '$date . %'");
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE dst = $num AND start LIKE '$date %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;	
