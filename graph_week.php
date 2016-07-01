@@ -96,7 +96,7 @@
  // Finish the graph  
  $login_week = $login . "_week.png";
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",8);  
- $Test->drawLegend(300,150,$DataSet->GetDataDescription(),255,255,255);  
+ $Test->drawLegend(300,50,$DataSet->GetDataDescription(),255,255,255);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
  $Test->Render("./users_graphs/$login_week.png");
  
