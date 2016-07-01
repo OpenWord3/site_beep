@@ -546,6 +546,12 @@
             $("#proposition3tr<?php echo $result['id_set_num'] ?>").fadeOut();
             $("#utilisateurtr<?php echo $result['id_set_num'] ?>").fadeOut();
             $("#svitr<?php echo $result['id_set_num'] ?>").fadeOut();
+            $("#p3<?php echo $result['id_set_num'] ?>").fadeOut();
+            $("#p1<?php echo $result['id_set_num'] ?>").fadeOut();
+            $("#p2<?php echo $result['id_set_num'] ?>").fadeOut();
+            $("#pcall3<?php echo $result['id_set_num'] ?>").fadeOut();
+            $("#pcall1<?php echo $result['id_set_num'] ?>").fadeOut();
+            $("#pcall2<?php echo $result['id_set_num'] ?>").fadeOut();
           });
       <?php } ?>
 

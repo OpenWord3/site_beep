@@ -221,10 +221,21 @@
 					$p2 = htmlspecialchars($_POST["user2"]);
 				}else if($p3 == "utilisateur"){
 					$p3 = htmlspecialchars($_POST["user3"]);	
+				} else if($p1 == "callcenter"){
+					$nom_call = $_POST["call1"];
+				}else if($p2 == "callcenter"){
+					$nom_call = $_POST["call2"];
+				}else if($p3 == "callcenter"){
+					$nom_call = $_POST["call3"];
 				}
+
 				if($p1 != "" && $p2 != "" && $p3 != ""){				
 					add_receiver($id_set_num,$receveur);
-					exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3);
+					if (isset($nom_call)){
+						exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3.' '.$nom_call);
+					} else {
+						exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3);
+					}
 					$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
 				} else {
 					$alert = "<font style='color:red;font-weight:bold;'>Renseignez le login de l'utilisateur que le SVI doit appeler.</font>";
