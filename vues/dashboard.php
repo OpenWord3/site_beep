@@ -118,7 +118,7 @@
                 </div>
             </div>
         </div>
-		<h2>Votre consommation téléphonique les trois derniers jours</h2>
+		<h2>Votre consommation téléphonique pour aujourd'hui</h2>
 <?php  echo "<img src='$img'>"; ?>
 		<h2>Votre consommation voix pour ce mois</h2>
 			<?php echo $total_consomation[0], "secondes"; ?>
