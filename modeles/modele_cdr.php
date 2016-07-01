@@ -22,7 +22,7 @@
 	function graph_day_incoming($num,$date){
 		global $cdr;
 		
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE dst = $num AND start = '$date_1 . %'");
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE dst = $num AND start = '$date . %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;	

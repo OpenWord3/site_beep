@@ -97,11 +97,11 @@
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",8);  
  $Test->drawLegend(300,150,$DataSet->GetDataDescription(),255,255,255);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
- $Test->Render("./users_graphs/$login.png");
+ $Test->Render("./users_graphs/$login_week.png");
  
  // $last_calls = last_calls($login);
  
- $img = "./users_graphs/$login_week.png";
- include("./vues/dashboard.php");
+ // $img = "./users_graphs/$login_week.png";
+ // include("./vues/dashboard.php");
 
 ?>
