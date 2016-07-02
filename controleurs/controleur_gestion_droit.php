@@ -94,6 +94,10 @@
 		$alert = "<h3><font style='color:green;font-weight:bold;'>Ce droit a bien été supprimé.</font></h3>";
 	}
 
+	$all_droits_internes = all_droits_internes();
+	$all_droits_externes = all_droits_externes();
+	$all_groupes_normaux = all_groupes_normaux();
+	$list_groupe_gateway = list_groupe_gateway();
 	include("./vues/admin_droits.php");
 	header("Refresh: 0;url=./vues/admin_droits.php");
 ?>

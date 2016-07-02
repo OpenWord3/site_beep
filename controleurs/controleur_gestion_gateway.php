@@ -37,21 +37,35 @@
 		$compte = nom_gateway($id_gateway);
 		$host = host_gateway($id_gateway);
 		$port = port_gateway($id_gateway);
+
 		del_incom_num($id_gateway);
+
+		$info_set = info_set($id_gateway);
+		foreach($info_set as $result){
+			exec('sudo /var/script_beep/cancel_conf_incoming.sh '.$result['receveur'].' '.$result['num_geo'].' '.$result['num_sip'].' '.$result['inum']);
+		}
+		
 
 		$switch_exist = switch_exist($id_gateway);
 
 		if($switch_exist != 0){
-			$id_switch_gateway = id_switch_gateway($id_gateway);
-			$nom_switch_gateway = nom_switch_gateway($id_gateway);
-			$nom_groupe = nom_groupe($id_switch_gateway);
-			del_switch($id_switch_gateway);
-			exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$nom_groupe.' '.$nom_switch_gateway);
+			$id_switch_gateway = id_switch_gateway($id_gateway);			
+
+			foreach($id_switch_gateway as $result){				
+				$nom_groupe = nom_groupe($result['id_switch']);
+				$nom_switch_gateway = $result['switch'];
+				exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$nom_groupe.' '.$nom_switch_gateway);
+				del_switch($result['id_switch']);
+			}			
+			
 		}
 		del_gateway($id_gateway);		
 		exec('sudo /var/script_beep/remove_trunk.sh '.$compte.' '.$host.' '.$port);
 		$alert = "<h3><font style='color:green;font-weight:bold;'>La gateway a bien été supprimée.</font></h3>";
 	}
+
+	$list_groupe_gateway = list_groupe_gateway();
+	$liste_gateway = all_gateway();
 
 	include("./vues/admin_gateways.php");
 ?>

@@ -169,14 +169,12 @@
 	function id_switch_gateway($id_gateway){
 		global $bdd;
 
-		$req = $bdd->query("SELECT `id_switch` FROM `switchs` WHERE id_gateway = '$id_gateway'");
+		$req = $bdd->query("SELECT `id_switch`,`switch` FROM `switchs` WHERE id_gateway = '$id_gateway'");
 
-		while($results = $req->fetch()){
-			$result = $results["id_switch"];
-		}
+		$req->execute(array(0));
+		$result = $req->fetchAll();
 		
 		$req->closeCursor();
-
 		return $result;
 	}
 
@@ -220,5 +218,18 @@
 		$req->closeCursor();
 
 		return $exist;
+	}
+
+	//Fonction qui renvoie les informa3tions du set rattache a une gateway
+	function info_set($id_gateway){
+		global $bdd;
+
+		$req = $bdd->query("SELECT * FROM set_nums WHERE id_gateway = '$id_gateway'");
+
+		$req->execute(array(0));
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+		return $result;
 	}
 ?>

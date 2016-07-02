@@ -34,5 +34,6 @@
 		}
 	}
 
+	$all_groupes_externes = all_groupes_externes();
 	include("./vues/admin_gestion_groupes_externes.php");
 ?>

@@ -44,5 +44,10 @@
 		exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
 		$alert = "<h3><font style='color:green;font-weight:bold;'>Le switch a bien été supprimé.</font></h3>";
 	} 	
+
+	$all_switchs = all_switchs();
+	$groupes = list_groupe_gateway();
+	$gateways = all_gateway();
+	$all_gateways = all_gateway();
 	include("./vues/admin_switch.php");
 ?>
