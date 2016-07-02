@@ -18,6 +18,6 @@
 		exec('sudo /var/script_beep/del_include.sh '.$contexte.' '.$donnees['nom']);
 	}
 	
-	$msg = "<h3 style='color:red'>Le groupe $contexte à bien été supprimer</h3>";
+	$msg = "<h3 style='color:green'><b>Le groupe $contexte à bien été supprimé</b></h3>";
 	include("./vues/admin_gestion_groupes.php");	
 ?>

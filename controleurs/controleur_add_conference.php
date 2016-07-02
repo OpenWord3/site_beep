@@ -40,11 +40,11 @@
 			exec('sudo /var/script_beep/chng_option_conference.pl '.$num_conf.' 4');
 		}
 		
-		$msg = "<h3 style='color:green'>Le numero de conference $num_conf à bien ete ajouter</h3>";
+		$msg = "<h3 style='color:green'><b>Le numéro de conférence $num_conf à bien été ajouté</b></h3>";
 		include("./controleurs/controleur_show_conferences.php");	
 	}
 	else if($check_num == 1){
-		$msg = "<h3 style='color:red'>Ce numéro de conference n'est pas disponilbe</h3>";
+		$msg = "<h3 style='color:red'><b>Ce numéro de conférence n'est pas disponible</b></h3>";
 		include("./controleurs/controleur_show_conferences.php");	
 	}
 	

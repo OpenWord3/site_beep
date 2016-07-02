@@ -95,4 +95,5 @@
 	}
 
 	include("./vues/admin_droits.php");
+	header("Refresh: 0;url=./vues/admin_droits.php");
 ?>

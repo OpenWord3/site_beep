@@ -14,7 +14,6 @@
 	  
       <section id="main-content">
         <section class="wrapper">
-			<?php if(isset($msg)){ echo $msg;} ?>
           	<h3><i class="fa fa-angle-right"></i> Liste des Salles de conférences</h3>
 			<center>
 				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
@@ -24,9 +23,12 @@
 				<i class="fa fa-minus"></i> salle de conférence
 				</button>
 			</center>
-						<?php 
-			$show_conf = show_conf();
-			while($donnees = $show_conf->fetch()){
+			
+			<center><?php if(isset($msg)){ echo $msg;} ?></center>
+			
+			<?php 
+				$show_conf = show_conf();
+				while($donnees = $show_conf->fetch()){
 			?>
 				<div class="row mt">
 					<div class="col-lg-12">
@@ -88,7 +90,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" placeholder="Nunméro de salle de conférence" name="num_conf"></td>
+                    <td><input type="textbox" placeholder="Numéro de salle de conférence" name="num_conf"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
@@ -144,7 +146,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" placeholder="Nunméro de salle de conférence" name="num_conf"></td>
+                    <td><input type="textbox" placeholder="Numéro de salle de conférence" name="num_conf"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
@@ -205,7 +207,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" placeholder="Nunméro de salle de conférence" name="num_conf"></td>
+                    <td><input type="textbox" placeholder="Numéro de salle de conférence" name="num_conf"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>

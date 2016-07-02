@@ -33,7 +33,7 @@
                   <i class="fa fa-minus"></i> utilisateur
                 </button>
               </center>
-					<?php if(isset($msg)){echo $msg; }?>
+					<center><?php if(isset($msg)){ echo $msg;} ?></center>
 		  		    <?php $show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $contexte =  $donnees['nom'];$select_users = select_users($contexte); ?>
 		  		    <div class="row mt">
 			       		<div class="col-lg-12">
@@ -276,8 +276,8 @@
                   <form action="<?php echo INDEX ?>?index=del_user" method="POST">
                     <table width="300">
                       <tr>
-                        <th><label>Le nom de l'utilisateur</label></th>
-                        <th><input type="textbox" placeholder="Le nom de l'utilisateur" name="login"></th>
+                        <th><label>Le login de l'utilisateur</label></th>
+                        <th><input type="textbox" placeholder="Le login de l'utilisateur" name="login"></th>
                       </tr>
                       <tr>
                         <th><label>Le nom de son groupe</label></th>

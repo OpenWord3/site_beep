@@ -31,7 +31,7 @@
 	$find_user_groupe = find_user_groupe($login);
 		
 	if(!empty($find_id_user)){
-		$msg = "<h3 style='color:red'>Le login $login n est pas disponible</h3>";
+		$msg = "<h3 style='color:red'><b>Le login $login n'est pas disponible</b></h3>";
 		include("./controleurs/controleur_show_users.php");	
 	}
 	else if(empty($find_id_user)){
@@ -41,7 +41,7 @@
 			// exec('sudo /var/script_beep/deleteuser.sh '.$login.' '.$find_user_groupe[0]);
 			exec('sudo /var/script_beep/edit_user.sh '.$login.' '.$find_user_groupe[0].' '.$contexte);
 			// exec('sudo /var/script_beep/adduser.sh '.$login.' '.$mdp.' '.$mail.' '.$num.' '.$protocole.' '.$port.' '.$option_transfert.' '.$num_transfert.' '.$contexte);
-			$msg = "<h3 style='color:green'>L'utilisateur $login à bien été modifier</h3>";
+			$msg = "<h3 style='color:green'><b>L'utilisateur $login à bien été modifié</b></h3>";
 			include("./controleurs/controleur_show_users.php");	
 		}
 		else if($check_num == 0){
@@ -50,11 +50,11 @@
 			// exec('sudo /var/script_beep/deleteuser.sh '.$login.' '.$find_user_groupe[0]);
 			exec('sudo /var/script_beep/edit_user.sh '.$login.' '.$find_user_groupe[0].' '.$contexte);
 			// exec('sudo /var/script_beep/adduser.sh '.$login.' '.$mdp.' '.$mail.' '.$num.' '.$protocole.' '.$port.' '.$option_transfert.' '.$num_transfert.' '.$contexte);
-			$msg = "<h3 style='color:green'>L'utilisateur $login à bien été modifier</h3>";
+			$msg = "<h3 style='color:green'><b>L'utilisateur $login à bien été modifié</b></h3>";
 			include("./controleurs/controleur_show_users.php");	
 		}
 		else if($check_num == 1){
-			$msg = "<h3 style='color:red'>Le numero $num n est pas disponible</h3>";
+			$msg = "<h3 style='color:red'><b>Le numéro $num n'est pas disponible</b></h3>";
 			include("./controleurs/controleur_show_users.php");	
 		}
 	}

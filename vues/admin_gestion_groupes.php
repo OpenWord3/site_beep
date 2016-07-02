@@ -24,13 +24,13 @@
                 <i class="fa fa-minus"></i> groupe
               </button>
             </center>
+			<center><?php if(isset($msg)){ echo $msg;} ?></center>
           </div>
         </div>
 
 		    <div class="row mt">
        		<div class="col-lg-12">
                 <div class="content-panel">
-				          <?php if(isset($msg)){ echo $msg;} ?>
                     <h3><i class="fa fa-angle-right"></i> Liste des groupes d'utilisateurs</h3>
                     <section id="unseen">
                       <table class="table table-hover">
@@ -41,7 +41,7 @@
                           </tr>
                         </thead>
                         <tbody>
-						              <?php $i=1; $show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $nom = $donnees['nom']; ?>
+						 <?php $i=1; $show_groupes = show_groupe(); while($donnees = $show_groupes->fetch()){ $nom = $donnees['nom']; ?>
                           <tr>
                             <th scope="row"><?php echo $i; ?></th>
                             <td><?php echo $nom; ?></td>
