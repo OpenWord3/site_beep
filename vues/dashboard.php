@@ -46,7 +46,8 @@
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart"></div>
-								
+									<?php echo "<img src='$graph_month'>"; ?>
+									<?php echo $total_consomation[0], "secondes"; ?>
                                 <div class="footer">
                                     <div class="legend">
                                         <i class="fa fa-circle text-info"></i> Interne à la société
@@ -122,10 +123,6 @@
 <?php  echo "<img src='$graph_day'>"; ?>
 		<h2>Votre consommation téléphonique pour cette semaine</h2>
 <?php  echo "<img src='$graph_week'>"; ?>
-		<h2>Votre consommation voix pour ce mois</h2>
-		<?php echo "<img src='$graph_month'>"; ?>
-		
-			<?php echo $total_consomation[0], "secondes"; ?>
 
         <?php include("./assets/pages/footer.php"); ?>
 
