@@ -18,7 +18,7 @@
 		
 		$verif_switch = verif_switch($compte,$host,$groupe,$switch);
 		if($verif_switch != 0){
-			$alert = "<font style='color:red;font-weight:bold;'>Ce switch existe déjà.</font>";
+			$alert = "<h3><font style='color:red;font-weight:bold;'>Ce switch existe déjà.</font></h3>";
 
 		} else {
 			$id_gateway = id_gateway_switch($compte,$host,$port);
@@ -27,7 +27,7 @@
 			$id_switch = id_last_switch();
 			link_switch_contexte($id_groupe,$id_switch);
 			exec('sudo /var/script_beep/add_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
-			$alert = "<font style='color:green;font-weight:bold;'>Le switch a bien été ajouté.</font>";
+			$alert = "<h3><font style='color:green;font-weight:bold;'>Le switch a bien été ajouté.</font></h3>";
 		}
 		
 
@@ -42,7 +42,7 @@
 		$switch = $_POST["switch"];
 		del_switch($id_switch);
 		exec('sudo /var/script_beep/del_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
-		$alert = "<font style='color:green;font-weight:bold;'>Le switch a bien été supprimé.</font>";
+		$alert = "<h3><font style='color:green;font-weight:bold;'>Le switch a bien été supprimé.</font></h3>";
 	} 	
 	include("./vues/admin_switch.php");
 ?>

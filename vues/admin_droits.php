@@ -28,16 +28,22 @@
             </center>
           </div>
         </div>
+		
+		<center>
+			<?php
+				if(isset($_POST["ajouter_droit_interne"])){echo $alert;
+				}else if(isset($_POST["ajouter_droit_externe"])){echo $alert;
+				}else if(isset($_POST["retirer_droit_interne"])){echo $alert;
+				}else if(isset($_POST["retirer_droit_externe"])){echo $alert;}
+			?>
+		</center>
         
           <div class="row mt">
             <div class="col-lg-12">
                   <div class="content-panel">
                       <h3><i class="fa fa-angle-right"></i> Les droits internes</h3>
                       <section id="unseen">
-                      <?php if(isset($_POST["ajouter_droit_interne"])){echo $alert;
-                        }else if(isset($_POST["ajouter_droit_externe"])){echo $alert;
-                          }else if(isset($_POST["retirer_droit_interne"])){echo $alert;
-                            }else if(isset($_POST["retirer_droit_externe"])){echo $alert;} ?>
+					  <center>
                         <table class="table table-hover">
                           <thead>
                             <tr>

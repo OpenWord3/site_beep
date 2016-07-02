@@ -45,7 +45,7 @@
 				add_num_geo($id_set,$num_geo);
 				$alert_geo = "";
 			} else {
-				$alert_geo = "<font style='color:red;font-weight:bold;'>Ce numéro géographique existe déjà.</font>";
+				$alert_geo = "<h3><font style='color:red;font-weight:bold;'>Ce numéro géographique existe déjà.</font></h3>";
 			}
 		} else {
 			$alert_geo = "";
@@ -56,7 +56,7 @@
 				add_num_sip($id_set,$num_sip);
 				$alert_sip = "";
 			} else {
-				$alert_sip = "<font style='color:red;font-weight:bold;'>Ce numéro SIP existe déjà.</font>";	
+				$alert_sip = "<h3><font style='color:red;font-weight:bold;'>Ce numéro SIP existe déjà.</font></h3>";	
 			}
 		} else {
 			$alert_sip = "";
@@ -67,7 +67,7 @@
 				add_inum($id_set,$inum);
 				$alert_inum = "";
 			} else {
-				$alert_inum = "<font style='color:red;font-weight:bold;'>Ce numéro INUM existe déjà.</font>";
+				$alert_inum = "<h3><font style='color:red;font-weight:bold;'>Ce numéro INUM existe déjà.</font></h3>";
 			}
 		}else {
 			$alert_inum = "";
@@ -105,7 +105,7 @@
 				add_num_geo($id_set,$num_geo);
 				$alert_geo = "";
 			} else {
-				$alert_geo = "<font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font>";
+				$alert_geo = "<h3><font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font></h3>";
 			}
 		} else {
 			$alert_geo = "";
@@ -116,7 +116,7 @@
 				add_num_sip($id_set,$num_sip);
 				$alert_sip = "";
 			} else {
-				$alert_sip = "<font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font>";	
+				$alert_sip = "<h3><font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font></h3>";	
 			}
 		} else {
 			$alert_sip = "";
@@ -127,7 +127,7 @@
 				add_inum($id_set,$inum);
 				$alert_inum = "";
 			} else {
-				$alert_inum = "<font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font>";
+				$alert_inum = "<h3><font style='color:red;font-weight:bold;'>Ce numéro existe déjà.</font></h3>";
 			}
 		}else {
 			$alert_inum = "";
@@ -178,7 +178,7 @@
 
 		del_set($id_set_num);
 		
-		$alert = "<font style='color:green;font-weight:bold;'>le set a bien été supprimé.</font>";		
+		$alert = "<h3><font style='color:green;font-weight:bold;'>Le set a bien été supprimé.</font></h3>";		
 		
 	} else if(isset($_POST["configurer_set"])){
 		$id_set_num = $_POST["id_set_num"];
@@ -210,9 +210,9 @@
 			$p3 = $_POST["proposition3"];
 
 			if($p1 == $p2 || $p2 == $p3 || $p3 == $p1){
-				$alert = "<font style='color:red;font-weight:bold;'>Les trois propositions doivent être différentes.</font>";
+				$alert = "<h3><font style='color:red;font-weight:bold;'>Les trois propositions doivent être différentes.</font></h3>";
 			} else if($receveur == ""){
-				$alert = "<font style='color:red;font-weight:bold;'>Renseignez le nom du SVI.</font>";
+				$alert = "<h3><font style='color:red;font-weight:bold;'>Renseignez le nom du SVI.</font></h3>";
 			} else {
 				
 				if($p1 == "utilisateur"){
@@ -236,9 +236,9 @@
 					} else {
 						exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum.' '.$p1.' '.$p2.' '.$p3);
 					}
-					$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
+					$alert = "<h3><font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font></h3>";
 				} else {
-					$alert = "<font style='color:red;font-weight:bold;'>Renseignez le login de l'utilisateur que le SVI doit appeler.</font>";
+					$alert = "<h3><font style='color:red;font-weight:bold;'>Renseignez le login de l'utilisateur que le SVI doit appeler.</font></h3>";
 				}
 			}
 
@@ -246,20 +246,20 @@
 			$receveur = "standard";
 			add_receiver($id_set_num,$receveur);
 			exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum);
-			$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
+			$alert = "<h3><font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font></h3>";
 		} else {
 			$receveur = htmlspecialchars($_POST["utilisateur"]);
 			if($receveur == ""){
-				$alert = "<font style='color:red;font-weight:bold;'>Renseignez le nom de l'utilisateur.</font>";
+				$alert = "<h3><font style='color:red;font-weight:bold;'>Renseignez le nom de l'utilisateur.</font></h3>";
 			} else {
 				add_receiver($id_set_num,$receveur);
 				exec('sudo /var/script_beep/incoming_call.sh '.$choix.' '.$receveur.' '.$num_geo.' '.$num_sip.' '.$inum);
-				$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font>";
+				$alert = "<h3><font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le receveur $receveur.</font></h3>";
 			}
 		}
 
 		if($old_receiver != ""){
-			$alert = "<font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le nouveau recepteur $receveur.</font>";
+			$alert = "<h3><font style='color:green;font-weight:bold;'>Le set de numéro a bien été configuré sur le nouveau recepteur $receveur.</font></h3>";
 		}
 		
 	}

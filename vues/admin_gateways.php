@@ -16,15 +16,18 @@
       <section id="main-content">
         <section class="wrapper">
           	<h3><i class="fa fa-angle-right"></i> Liste des Gateways</h3>
+			<center>
+				<?php if(isset($_POST["ajouter_gateway"])){ echo $alert; 
+					}else if(isset($_POST["modifier"])){ echo $alert; 
+					}else if(isset($_POST["supprimer"])){echo $alert;}
+				?>
+			</center>
 		  		    <div class="row mt">
 			       		<div class="col-lg-12">
                       <div class="content-panel">
                       <h4><i class="fa fa-angle-right"></i></h4>
                           <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
-                              <?php if(isset($_POST["ajouter_gateway"])){ echo $alert; 
-                                    }else if(isset($_POST["modifier"])){ echo $alert; 
-                                      }else if(isset($_POST["supprimer"])){echo $alert;} ?>
                               <thead>
                               <tr>
                                 <th>Compte</th>

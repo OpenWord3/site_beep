@@ -11,12 +11,12 @@
 
 		$verif_compte=compte_gateway($compte,$host,$port);
 		if($verif_compte != 0){
-			$alert = "<font style='color:red;font-weight:bold;'>Ce compte associer au host que vous avez entré existe déja.</font>";
+			$alert = "<h3><font style='color:red;font-weight:bold;'>Le compte associé existe déjà.</font></h3>";
 			
 		} else {
 			new_compte_gateway($compte,$mdp,$host,$port);
 			exec('sudo /var/script_beep/add_trunk.sh '.$compte.' '.$mdp.' '.$host.' '.$port);
-			$alert = "<font style='color:green;font-weight:bold;'>La gateway a bien été ajouté.</font>";
+			$alert = "<h3><font style='color:green;font-weight:bold;'>La gateway a bien été ajoutée.</font></h3>";
 		}
 
 	}else if(isset($_POST["modifier"])){
@@ -28,7 +28,7 @@
 		$mdp = mdp_gateway($id_gateway);
 		change_mdp($new_mdp,$id_gateway);
 		exec('sudo /var/script_beep/modif_trunk.sh '.$compte.' '.$new_mdp.' '.$host.' '.$port.' '.$mdp);
-		$alert = "<font style='color:green;font-weight:bold;'>Le mot de passe de la gateway a bien été modifié.</font>";
+		$alert = "<h3><font style='color:green;font-weight:bold;'>Le mot de passe de la gateway a bien été modifié.</font></h3>";
 
 	}else if(isset($_POST["supprimer"])){
 
@@ -50,7 +50,7 @@
 		}
 		del_gateway($id_gateway);		
 		exec('sudo /var/script_beep/remove_trunk.sh '.$compte.' '.$host.' '.$port);
-		$alert = "<font style='color:green;font-weight:bold;'>La gateway a bien été supprimée.</font>";
+		$alert = "<h3><font style='color:green;font-weight:bold;'>La gateway a bien été supprimée.</font></h3>";
 	}
 
 	include("./vues/admin_gateways.php");
