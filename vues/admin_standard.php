@@ -22,7 +22,7 @@
 				
 				  <?php
 					// ouverture du fichier texte en mode "lecture seule"
-					$ouvre=fopen("/var/dialplan/standard.conf","r");
+					$ouvr	e=fopen("/var/dialplan/standard.conf","r");
 					// $ouvre=fopen("standard.conf","r");
 					$i = 0;
 					while ($i < 5)
@@ -57,7 +57,7 @@
 					// echo $he2[0]."</br>";
 					// echo $he2[1]."</br>";
 
-					echo $temp;
+					// echo $temp;
 
 					// fermeture du fichier
 					fclose($ouvre);
