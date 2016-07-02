@@ -81,13 +81,13 @@
                     <td><label>Jour de début</label></td>
                     <td>
 						<select value="begin_jour" name="begin_jour" id="begin_jour">
-							<option value="mon" <?php echo ($jour[0] = "mon")?'selected="selected"'; ?>>Lundi</option>
-							<option value="tue" <?php echo ($jour[0] = "tue")?'selected="selected"'; ?>>Mardi</option>
-							<option value="wed" <?php echo ($jour[0] = "wed")?'selected="selected"'; ?>>Mercredi</option>
-							<option value="thu" <?php echo ($jour[0] = "thu")?'selected="selected"'; ?>>Jeudi</option>
-							<option value="fri" <?php echo ($jour[0] = "fri")?'selected="selected"'; ?>>Vendredi</option>
-							<option value="sat" <?php echo ($jour[0] = "sat")?'selected="selected"'; ?>>Samedi</option>
-							<option value="sun" <?php echo ($jour[0] = "sun")?'selected="selected"'; ?>>Dimanche</option>
+							<option value="mon" <?php echo ($jour[0] = "mon")?'selected="selected"':''; ?>>Lundi</option>
+							<option value="tue" <?php echo ($jour[0] = "tue")?'selected="selected"':''; ?>>Mardi</option>
+							<option value="wed" <?php echo ($jour[0] = "wed")?'selected="selected"':''; ?>>Mercredi</option>
+							<option value="thu" <?php echo ($jour[0] = "thu")?'selected="selected"':''; ?>>Jeudi</option>
+							<option value="fri" <?php echo ($jour[0] = "fri")?'selected="selected"':''; ?>>Vendredi</option>
+							<option value="sat" <?php echo ($jour[0] = "sat")?'selected="selected"':''; ?>>Samedi</option>
+							<option value="sun" <?php echo ($jour[0] = "sun")?'selected="selected"':''; ?>>Dimanche</option>
 						</select>
 					</td>
                   </tr>
@@ -95,13 +95,13 @@
                     <td><label>Jour de fin</label></td>
                     <td>
 						<select  value="end_jour" name="end_jour" id="end_jour">
-							<option value="mon" <?php echo ($jour[1] = "mon")?'selected="selected"'; ?>>Lundi</option>
-							<option value="tue" <?php echo ($jour[1] = "tue")?'selected="selected"'; ?>>Mardi</option>
-							<option value="wed" <?php echo ($jour[1] = "wed")?'selected="selected"'; ?>>Mercredi</option>
-							<option value="thu" <?php echo ($jour[1] = "thu")?'selected="selected"'; ?>>Jeudi</option>
-							<option value="fri" <?php echo ($jour[1] = "fri")?'selected="selected"'; ?>>Vendredi</option>
-							<option value="sat" <?php echo ($jour[1] = "sat")?'selected="selected"'; ?>>Samedi</option>
-							<option value="sun" <?php echo ($jour[1] = "sun")?'selected="selected"'; ?>>Dimanche</option>
+							<option value="mon" <?php echo ($jour[1] = "mon")?'selected="selected"':''; ?>>Lundi</option>
+							<option value="tue" <?php echo ($jour[1] = "tue")?'selected="selected"':''; ?>>Mardi</option>
+							<option value="wed" <?php echo ($jour[1] = "wed")?'selected="selected"':''; ?>>Mercredi</option>
+							<option value="thu" <?php echo ($jour[1] = "thu")?'selected="selected"':''; ?>>Jeudi</option>
+							<option value="fri" <?php echo ($jour[1] = "fri")?'selected="selected"':''; ?>>Vendredi</option>
+							<option value="sat" <?php echo ($jour[1] = "sat")?'selected="selected"':''; ?>>Samedi</option>
+							<option value="sun" <?php echo ($jour[1] = "sun")?'selected="selected"':''; ?>>Dimanche</option>
 						</select>
 					</td>
                   </tr>
