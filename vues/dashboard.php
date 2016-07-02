@@ -17,17 +17,12 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Utilisations de votre ligne</h4>
-                                <p class="category">Consommation hebdomadaire</p>
+                                <p class="category">Derniers Appels</p>
                             </div>
                             <div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
 
                                 <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Lundi
-                                        <i class="fa fa-circle text-danger"></i> Mardi
-                                        <i class="fa fa-circle text-warning"></i> Mercredi
-                                    </div>
                                     <hr>
                                     <div class="stats">
                                         <i class="fa fa-clock-o"></i> Dernière mise à jour il y'a 2 minutes
@@ -36,36 +31,11 @@
                             </div>
                         </div>
                     </div>
-
-                <div class="row">
-                    <div class="col-md-6">
+					
+					<div class="col-md-6">
                         <div class="card ">
                             <div class="header">
-                                <h4 class="title">Votre consommation</h4>
-                                <p class="category">Consommation mensuelle </p>
-                            </div>
-                            <div class="content">
-                                <div id="chartActivity" class="ct-chart"></div>
-									<?php echo "<img src='$graph_month'>"; ?>
-									<?php echo $total_consomation[0], "secondes"; ?>
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Interne à la société
-                                        <i class="fa fa-circle text-danger"></i> Externe à la société
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Dernière mise à jour il y'a 28 jours
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card ">
-                            <div class="header">
-                                <h4 class="title">Mes derniers appels</h4>
+                                <h4 class="title">Informations</h4>
                             </div>
                             <div class="content">
                                 <div class="table-full-width">
@@ -116,13 +86,186 @@
                             </div>
                         </div>
                     </div>
+				</div>
+
+                <div class="row">
+					<div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Votre consommation</h4>
+                            </div>
+							<div class="header">
+                                <p class="category">Consommation Journalière</p>
+							</div>
+							<div class="content">
+									<center><?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?></center><br>
+									<center>
+										<?php
+											$heures=intval($total_consomation[0] / 3600);
+											$minutes=intval(($total_consomation[0] % 3600) / 60);
+											$secondes=intval((($total_consomation[0] % 3600) % 60));
+
+											//echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+										?>
+									</center>
+								<div class="footer">
+									<!--<div class="legend">
+										<i class="fa fa-circle text-info"></i> Interne à la société
+										<i class="fa fa-circle text-danger"></i> Externe à la société
+									</div>-->
+									<hr>
+									<div class="stats">
+										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
+											<?php
+												$filename = './users_graphs/adidas_day.png';
+												// setlocale(LC_TIME, 'fr_FR.UTF8');
+												// setlocale(LC_TIME, 'fr_FR');
+												// setlocale(LC_TIME, 'fr');
+												setlocale(LC_TIME, 'fra_fra');
+												if (file_exists($filename)) {
+													echo strftime("%A %d %B %Y", filemtime($filename))," à ",strftime("%H:%M:%S", filemtime($filename));
+												}
+											?>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+					
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Votre consommation</h4>
+                            </div>
+							<div class="header">
+                                <p class="category">Consommation hebdomadaire</p>
+							</div>
+							<div class="content">
+									<center><?php echo "<img src='$graph_week' width='100%' height='100%'>"; ?></center><br>
+									<center>
+										<?php
+											$heures=intval($total_consomation[0] / 3600);
+											$minutes=intval(($total_consomation[0] % 3600) / 60);
+											$secondes=intval((($total_consomation[0] % 3600) % 60));
+
+											//echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+										?>
+									</center>
+								<div class="footer">
+									<!--<div class="legend">
+										<i class="fa fa-circle text-info"></i> Interne à la société
+										<i class="fa fa-circle text-danger"></i> Externe à la société
+									</div>-->
+									<hr>
+									<div class="stats">
+										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
+											<?php
+												$filename = './users_graphs/adidas_week.png';
+												// setlocale(LC_TIME, 'fr_FR.UTF8');
+												// setlocale(LC_TIME, 'fr_FR');
+												// setlocale(LC_TIME, 'fr');
+												setlocale(LC_TIME, 'fra_fra');
+												if (file_exists($filename)) {
+													echo strftime("%A %d %B %Y", filemtime($filename))," à ",strftime("%H:%M:%S", filemtime($filename));
+												}
+											?>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
                 </div>
+				
+				<div class="row">
+					<div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Votre consommation</h4>
+                            </div>
+							<div class="header">
+                                <p class="category">Consommation mensuelle </p>
+							</div>
+							<div class="content">
+									<center><?php echo "<img src='$graph_month' width='100%' height='100%'>"; ?></center><br>
+									<center>
+										<?php
+											$heures=intval($total_consomation[0] / 3600);
+											$minutes=intval(($total_consomation[0] % 3600) / 60);
+											$secondes=intval((($total_consomation[0] % 3600) % 60));
+
+											echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+										?>
+									</center>
+								<div class="footer">
+									<!--<div class="legend">
+										<i class="fa fa-circle text-info"></i> Interne à la société
+										<i class="fa fa-circle text-danger"></i> Externe à la société
+									</div>-->
+									<hr>
+									<div class="stats">
+										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
+											<?php
+												$filename = './users_graphs/adidas_month.png';
+												// setlocale(LC_TIME, 'fr_FR.UTF8');
+												// setlocale(LC_TIME, 'fr_FR');
+												// setlocale(LC_TIME, 'fr');
+												setlocale(LC_TIME, 'fra_fra');
+												if (file_exists($filename)) {
+													echo strftime("%A %d %B %Y", filemtime($filename))," à ",strftime("%H:%M:%S", filemtime($filename));
+												}
+											?>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+					
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Votre consommation</h4>
+                            </div>
+							<div class="header">
+                                <p class="category">Consommation Annuelle</p>
+							</div>
+							<div class="content">
+									<center><?php //echo "<img src='$graph_week' width='100%' height='100%'>"; ?></center><br>
+									<center>
+										<?php
+											$heures=intval($total_consomation[0] / 3600);
+											$minutes=intval(($total_consomation[0] % 3600) / 60);
+											$secondes=intval((($total_consomation[0] % 3600) % 60));
+
+											//echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+										?>
+									</center>
+								<div class="footer">
+									<!--<div class="legend">
+										<i class="fa fa-circle text-info"></i> Interne à la société
+										<i class="fa fa-circle text-danger"></i> Externe à la société
+									</div>-->
+									<hr>
+									<div class="stats">
+										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
+											<?php
+												$filename = './users_graphs/adidas_week.png';
+												// setlocale(LC_TIME, 'fr_FR.UTF8');
+												// setlocale(LC_TIME, 'fr_FR');
+												// setlocale(LC_TIME, 'fr');
+												setlocale(LC_TIME, 'fra_fra');
+												if (file_exists($filename)) {
+													echo strftime("%A %d %B %Y", filemtime($filename))," à ",strftime("%H:%M:%S", filemtime($filename));
+												}
+											?>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+				s
             </div>
         </div>
-		<h2>Votre consommation téléphonique pour aujourd'hui</h2>
-<?php  echo "<img src='$graph_day'>"; ?>
-		<h2>Votre consommation téléphonique pour cette semaine</h2>
-<?php  echo "<img src='$graph_week'>"; ?>
 
         <?php include("./assets/pages/footer.php"); ?>
 

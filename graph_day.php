@@ -25,8 +25,8 @@
  $DataSet->SetYAxisName("Secondes");
  $DataSet->SetYAxisUnit("s");   
  // $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
- $DataSet->SetSerieName("OUTGOING","Serie2");  
- $DataSet->SetSerieName("INCOMING","Serie1");  
+ $DataSet->SetSerieName("Appels Sortants","Serie2");  
+ $DataSet->SetSerieName("Appels Entrants","Serie1");  
   
  // Initialise the graph  
  $Test = new pChart(400,230);  

@@ -4,7 +4,7 @@
 		
 		$pseudo = htmlspecialchars($_POST["pseudo"]);
 		$mdp = htmlspecialchars($_POST["mdp"]);
-
+		
 		$existe = compte($pseudo);
 		if($existe != 0){
 			// on verifie le mot de passe rattache au pseudo
