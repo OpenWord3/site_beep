@@ -25,9 +25,7 @@
 					$ouvre=fopen("/var/dialplan/standard.conf","r");
 					// $ouvre=fopen("standard.conf","r");
 					$i = 0;
-					while ($i < 5)
-
-					{
+					while ($i < 5) {
 						// on recupère la ligne courante
 						$temp = fgets($ouvre);
 						$i++;
@@ -50,12 +48,24 @@
 					$h2 = $heure[1];
 					$he2 = explode(":",$h2);
 
+					while ($i < 16) {
+						// on recupère la ligne courante
+						$temps = fgets($ouvre);
+						$i++;
+					}
+
+					$phrase = explode("/",$temps);
+
+					$mot = $phrase[1];
+					$mots = explode(",",$mot);
+					
 					// echo $jour[0]."</br>";
 					// echo $jour[1]."</br>";
 					// echo $he1[0]."</br>";
 					// echo $he1[1]."</br>";
 					// echo $he2[0]."</br>";
 					// echo $he2[1]."</br>";
+					// echo $mots[0];
 
 					// echo $temp;
 
@@ -74,7 +84,7 @@
 				  <tr>
                     <td><label>Nouvel Utilisateur</label></td>
                     <td>
-						<input type="text" value="standard" name="user" id="user" placeholder="Utilisateur"/>
+						<input type="text" value="$mots[0]" name="user" id="user" placeholder="Utilisateur"/>
 					</td>
                   </tr>
                   <tr>
