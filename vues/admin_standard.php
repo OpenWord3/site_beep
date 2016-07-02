@@ -84,7 +84,7 @@
 				  <tr>
                     <td><label>Nouvel Utilisateur</label></td>
                     <td>
-						<input type="text" value="$mots[0]" name="user" id="user" placeholder="Utilisateur"/>
+						<input type="text" value="<? php echo $mots[0] ?>" name="user" id="user" placeholder="Utilisateur"/>
 					</td>
                   </tr>
                   <tr>
