@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<title>Bienvenue chez Beep</title>
-	<?php include("../assets/pages/css.php"); ?>
+	<?php include("/assets/pages/css.php"); ?>
 </head>
 <body>
 
