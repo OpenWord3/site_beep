@@ -19,6 +19,50 @@
           		<div class="col-lg-12">
                 <center>
                 <form method="POST">
+				
+				  <?php
+					// ouverture du fichier texte en mode "lecture seule"
+
+					$ouvre=fopen("/var/dialplan/standard.conf","r");
+					$i = 0;
+					while ($i < 5)
+
+					{
+					// on recupère la ligne courante
+					$temp = fgets($ouvre);
+					$i++;
+					}
+
+					$valeurs = explode(",",$temp);
+
+					$jours = $valeurs[3];
+					$jour = explode("-",$jours);
+
+					$corrections = $valeurs[2];
+					$correction = explode("(",$corrections);
+
+					$heures = $correction[1];
+					$heure = explode("-",$heures);
+
+					$h1 = $heure[0];
+					$he1 = explode(":",$h1);
+
+					$h2 = $heure[1];
+					$he2 = explode(":",$h2);
+
+					echo $jour[0]; echo "</br>";
+					echo $jour[1]; echo "</br>";
+					// echo $he1[0]; echo "</br>";
+					// echo $he1[1]; echo "</br>";
+					// echo $he2[0]; echo "</br>";
+					// echo $he2[1]; echo "</br>";
+
+					echo $temp;
+
+					// fermeture du fichier
+					fclose($ouvre);
+				  ?>
+				  
                 <table width="300">
                   <tr>
                     <td><label><h2>Options</h2></label></td>
@@ -50,7 +94,7 @@
                   <tr>
                     <td><label>Jour de fin</label></td>
                     <td>
-						<select  value="end_jour" name="end_jour" id="end_jour">>
+						<select  value="end_jour" name="end_jour" id="end_jour">
 							<option value="mon">Lundi</option>
 							<option value="tue">Mardi</option>
 							<option value="wed">Mercredi</option>
@@ -61,18 +105,19 @@
 						</select>
 					</td>
                   </tr>
+				  
                   <tr>
                     <td><label>Heure de début</label></td>
                     <td>
-						<input type="number" value="8" min="01" max="24" step="01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="begin_heure" name="begin_heure"/> heures
-						<input type="number" value="00" min="00" max="59" step="01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="begin_minute" name="begin_minute"/> minutes
+						<input type="number" value="<?php echo $he1[0] ?>" min="01" max="24" step="01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="begin_heure" name="begin_heure"/> heures
+						<input type="number" value="<?php echo $he1[1] ?>" min="00" max="59" step="01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="begin_minute" name="begin_minute"/> minutes
 					</td>
                   </tr>
                   <tr>
                     <td><label>Heure de fin</label></td>
                     <td>
-						<input type="number" value="16" min="01" max="24" step="01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="end_heure" name="end_heure"/> heures
-						<input type="number" value="00" min="00" max="59" step="01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="end_minute" name="end_minute"/> minutes
+						<input type="number" value="<?php echo $he2[0] ?>" min="01" max="24" step="01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="end_heure" name="end_heure"/> heures
+						<input type="number" value="<?php echo $he2[1] ?>" min="00" max="59" step="01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="end_minute" name="end_minute"/> minutes
 					</td>
                   </tr>
                 </table><br>
