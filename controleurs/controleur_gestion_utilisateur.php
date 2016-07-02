@@ -17,10 +17,10 @@
 		$verif_pseudo = compte($pseudo);
 		$verif_mail = check_mail($email);
 		if($verif_pseudo != 0){
-			$alert="Ce compte existe déjà";
+			$alert="<h3><font style='color:red;font-weight:bold;'>Ce compte existe déjà.</font></h3>";
 			include("./vues/admin_gestion_personnes.php");
 		} else if($verif_mail != 0){
-			$alert="Ce mail existe déjà";
+			$alert="<h3><font style='color:red;font-weight:bold;'>Ce mail existe déjà.</font></h3>";
 			include("./vues/admin_gestion_personnes.php");
 		}
 		exec('sudo /var/script_beep/adduser.sh '.$pseudo.' '.$mdp.' '.$email.' '.$num_exten.' '.$protocole.' '.$port.' '.$transfert.' '.$telephone.' '.$groupe);

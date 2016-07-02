@@ -37,7 +37,7 @@
                     </a>
                 </li>
 				<li>
-                    <a data-toggle="modal" data-dismiss="modal" data-target="#telephone">
+                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#telephone">
                         <i class="pe-7s-phone"></i>
                         <p>Clavier Rapide</p>
                     </a>

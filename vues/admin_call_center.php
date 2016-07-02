@@ -20,21 +20,28 @@
 			  <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
 				<i class="fa fa-plus"></i> call center
 			  </button>
-        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modifier">
-        <i class="fa fa-pencil"></i> call center
-        </button>
+			  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modifier">
+				<i class="fa fa-pencil"></i> call center
+			  </button>
 			  <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
 				<i class="fa fa-minus"></i> call center
 			  </button>
 			</center>
-      <?php if(isset($_POST["ajouter_call_center"])){echo $alert;
-            }else if(isset($_POST["supprimer_call_center"])){echo $alert;
-              }else if(isset($_POST["ajouter_membre"])){echo $alert;
-                }else if(isset($_POST["supprimer_membre"])){echo $alert;} ?>
-      <?php foreach($all_callcenters as $result){ 
-        $nom_call = $result["nom"];
-        $membre_call = membre_call($nom_call);
-      ?>
+			
+			<center>
+				<?php
+					if(isset($_POST["ajouter_call_center"])){echo $alert;
+					}else if(isset($_POST["supprimer_call_center"])){echo $alert;
+					}else if(isset($_POST["ajouter_membre"])){echo $alert;
+					}else if(isset($_POST["supprimer_membre"])){echo $alert;}
+				?>
+			</center>
+		
+			<?php foreach($all_callcenters as $result){ 
+				$nom_call = $result["nom"];
+				$membre_call = membre_call($nom_call);
+			?>
+			
 			<div class="row mt">
 				<div class="col-lg-12">
 			  <div class="content-panel">

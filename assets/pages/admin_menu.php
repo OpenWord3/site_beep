@@ -79,6 +79,7 @@
 								</div>
 							</div>
 						</nav>
+
 						<li>
 							<a href="<?php echo INDEX ?>?index=vue_accueil_admin">
 								<div class="task-info">

@@ -31,19 +31,19 @@ else{
 		
 		if(($opt_music == 1) && ($opt_talk == 1)){
 			exec('sudo /var/script_beep/chg_option.pl 1');
-			$msg = "<h3 style='color:green'>L'option talk only et music à bien été modifier pour la conférence 770</h3>";
+			$msg = "<h3 style='color:green'><b>Les options talk only et music ont bien été modifiées pour la conférence 770</b></h3>";
 		}	
 		else if(($opt_talk ==1) && ($opt_music == 0)){
 			exec('sudo /var/script_beep/chg_option.pl 2');
-			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence 770</h3>";
+			$msg = "<h3 style='color:green'><b>L'option talk only à bien été modifiée pour la conférence 770</b></h3>";
 		}		
 		else if(($opt_music ==1) && ($opt_talk == 0)){
 			exec('sudo /var/script_beep/chg_option.pl 3');
-			$msg = "<h3 style='color:green'>L'option music à bien été modifier pour la conférence 770</h3>";
+			$msg = "<h3 style='color:green'><b>L'option music à bien été modifiée pour la conférence 770</b></h3>";
 		}
 		else if(($opt_talk ==0) && ($opt_music == 0)){
 			exec('sudo /var/script_beep/chg_option.pl 4');
-			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence 770</h3>";
+			$msg = "<h3 style='color:green'><b>L'option talk only à bien été modifiée pour la conférence 770</b></h3>";
 		}		
 		
 	}	
@@ -51,20 +51,20 @@ else{
 		update_conf($num_origine,$mdp,$opt_talk,$opt_music,$id_conf);
 		
 		if(($opt_music == 1) && ($opt_talk == 1)){
-			exec('sudo /var/script_beep/chg_option.pl 5');
-			$msg = "<h3 style='color:green'>L'option talk only et music à bien été modifier pour la conférence 790</h3>";
-		}
+			exec('sudo /var/script_beep/chg_option.pl 1');
+			$msg = "<h3 style='color:green'><b>Les options talk only et music ont bien été modifiées pour la conférence 790</b></h3>";
+		}	
 		else if(($opt_talk ==1) && ($opt_music == 0)){
-			exec('sudo /var/script_beep/chg_option.pl 6');
-			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence 790</h3>";
+			exec('sudo /var/script_beep/chg_option.pl 2');
+			$msg = "<h3 style='color:green'><b>L'option talk only à bien été modifiée pour la conférence 790</b></h3>";
 		}		
 		else if(($opt_music ==1) && ($opt_talk == 0)){
-			exec('sudo /var/script_beep/chg_option.pl 7');
-			$msg = "<h3 style='color:green'>L'option music à bien été modifier pour la conférence 790</h3>";
+			exec('sudo /var/script_beep/chg_option.pl 3');
+			$msg = "<h3 style='color:green'><b>L'option music à bien été modifiée pour la conférence 790</b></h3>";
 		}
 		else if(($opt_talk ==0) && ($opt_music == 0)){
-			exec('sudo /var/script_beep/chg_option.pl 8');
-			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence 770</h3>";
+			exec('sudo /var/script_beep/chg_option.pl 4');
+			$msg = "<h3 style='color:green'><b>L'option talk only à bien été modifiée pour la conférence 790</b></h3>";
 		}		
 		
 	}
@@ -77,20 +77,20 @@ else{
 		}
 		
 		if(($opt_music == 1) && ($opt_talk == 1)){
-			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 3');
-			$msg = "<h3 style='color:green'>L'option talk only et music à bien été modifier pour la conférence $num</h3>";
+			exec('sudo /var/script_beep/chg_option.pl 1');
+			$msg = "<h3 style='color:green'><b>Les options talk only et music ont bien été modifiées pour la conférence $num</b></h3>";
 		}	
 		else if(($opt_talk ==1) && ($opt_music == 0)){
-			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 2');
-			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence $num</h3>";
+			exec('sudo /var/script_beep/chg_option.pl 2');
+			$msg = "<h3 style='color:green'><b>L'option talk only à bien été modifiée pour la conférence $num</b></h3>";
 		}		
 		else if(($opt_music ==1) && ($opt_talk == 0)){
-			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 1');
-			$msg = "<h3 style='color:green'>L'option music à bien été modifier pour la conférence $num</h3>";
+			exec('sudo /var/script_beep/chg_option.pl 3');
+			$msg = "<h3 style='color:green'><b>L'option music à bien été modifiée pour la conférence $num</b></h3>";
 		}
 		else if(($opt_talk ==0) && ($opt_music == 0)){
-			exec('sudo /var/script_beep/chng_option_conference.pl '.$num.' 4');
-			$msg = "<h3 style='color:green'>L'option talk only à bien été modifier pour la conférence $num</h3>";
+			exec('sudo /var/script_beep/chg_option.pl 4');
+			$msg = "<h3 style='color:green'><b>L'option talk only à bien été modifiée pour la conférence $num</b></h3>";
 		}
 	}
 	else if($check_num == 0){		
@@ -114,10 +114,10 @@ else{
 		}
 		update_conf($num,$mdp,$opt_talk,$opt_music,$id_conf);
 		
-		$msg = "<h3 style='color:green'>La conférence $num à bien été modifier</h3>";
+		$msg = "<h3 style='color:green'><b>La conférence $num à bien été modifiée</b></h3>";
 	}
 	else if($check_num == 1){
-		$msg = "<h3 style='color:red'>Le numero $num n est pas disponible</h3>";
+		$msg = "<h3 style='color:red'><b>Le numéro $num n'est pas disponible</b></h3>";
 	}
 	
 	include("./controleurs/controleur_show_conferences.php");	

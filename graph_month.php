@@ -24,8 +24,8 @@
  $DataSet->SetAbsciseLabelSerie("Serie3");
  $DataSet->SetYAxisName("Secondes");
  $DataSet->SetYAxisUnit("s");   
- $DataSet->SetSerieName("OUTGOING","Serie1");  
- $DataSet->SetSerieName("INCOMING","Serie2");  
+ $DataSet->SetSerieName("Appels Sortants","Serie1");  
+ $DataSet->SetSerieName("Appels Entrants","Serie2");  
   
  // Initialise the graph  
  $Test = new pChart(400,230);  

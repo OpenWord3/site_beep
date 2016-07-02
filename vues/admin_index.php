@@ -417,7 +417,7 @@
         $(document).ready(function () {
         var unique_id = $.gritter.add({
             // (string | mandatory) the heading of the notification
-            title: 'Bienvenue sur le tableau de bord de l\'adminitrateur Beep',
+            title: 'Bienvenue sur le tableau de bord de l\'administrateur Beep',
             // (string | mandatory) the text inside the notification
             text: 'Vous avez manqué à Beep :)',
             // (string | optional) the image to display on the left

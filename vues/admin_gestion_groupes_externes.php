@@ -28,15 +28,19 @@
             </center>
           </div>
         </div>
+		<center>
+			<?php
+				if(isset($_POST["ajouter_groupe_externe"])){ echo $alert; 
+                }else if(isset($_POST["modifier"])){ echo $alert; 
+                }else if(isset($_POST["supprimer_groupe_externe"])){echo $alert;}
+			?>
+		</center>
   		    <div class="row mt">
          		<div class="col-lg-12">
                   <div class="content-panel">  				
                       <h3><i class="fa fa-angle-right">Liste des groupes de switchs</i></h3>
                             <section id="unseen">
                               <table class="table table-bordered table-striped table-condensed">
-                                <?php if(isset($_POST["ajouter_groupe_externe"])){ echo $alert; 
-                                      }else if(isset($_POST["modifier"])){ echo $alert; 
-                                        }else if(isset($_POST["supprimer_groupe_externe"])){echo $alert;} ?>
                                 <thead>
                                 <tr>
                                   <th>Nom du groupe</th>
