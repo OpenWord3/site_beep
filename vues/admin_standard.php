@@ -22,7 +22,7 @@
 				
 				  <?php
 					// ouverture du fichier texte en mode "lecture seule"
-					$ouvr	e=fopen("/var/dialplan/standard.conf","r");
+					$ouvre=fopen("/var/dialplan/standard.conf","r");
 					// $ouvre=fopen("standard.conf","r");
 					$i = 0;
 					while ($i < 5)
