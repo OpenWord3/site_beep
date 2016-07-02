@@ -118,6 +118,9 @@
 			case "vue_verrouillage":
 				include("./vues/admin_lock_screen.php");
 				break;
+			case "vue_deconnexion":
+				include("./controleurs/controleur_deconnexion.php");
+				break;
 			default:
 				include("./vues/accueil.php");		
 		}

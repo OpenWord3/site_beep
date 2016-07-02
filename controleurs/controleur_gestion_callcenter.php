@@ -68,5 +68,6 @@
 		$alert = "<font style='color:green;font-weight:bold;'>Le membre a bien été retiré.</font>";
 	} 
 	
+	$all_callcenters = all_callcenters();
 	include("./vues/admin_call_center.php");
 ?>

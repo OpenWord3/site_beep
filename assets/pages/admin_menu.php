@@ -71,7 +71,7 @@
 
 									<ul class="nav navbar-nav navbar-right">
 										<li>
-											<a href="<?php echo INDEX ?>?=vue_accueil">
+											<a href="<?php echo INDEX ?>?index=vue_accueil">
 												Deconnexion
 											</a>
 										</li>

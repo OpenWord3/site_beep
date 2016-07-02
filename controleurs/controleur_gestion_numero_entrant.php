@@ -264,6 +264,10 @@
 		
 	}
 
+	$all_sets = all_sets();
+	$all_gateways = all_gateway();
+	$all_callcenters = all_callcenters();
+	$all_users = all_users();
 	include("./vues/admin_numero_entrant.php");
 	
 ?>
