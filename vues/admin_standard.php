@@ -18,7 +18,7 @@
           	<div class="row mt">
           		<div class="col-lg-12">
                 <center>
-                <form method="POST" action=" " onSubmit="window.location.reload()">
+                <form method="POST" action="">
 				
 				  <?php
 					// ouverture du fichier texte en mode "lecture seule"
@@ -154,6 +154,7 @@
 					$end_minute=sprintf("%02d",$_POST['end_minute']);
 					
 					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour.' '.$user);
+					echo "window.location.reload()";
 				}
 			?>
 		</section><! --/wrapper -->
