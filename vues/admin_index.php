@@ -191,17 +191,48 @@
 						
 					</div><!-- /row -->
 					
-					<div class="row mt">
-                      <!--CUSTOM CHART START -->
-                      <div class="border-head">
-                          <h3>Visites Mensuelles</h3>
-                      </div>
-                      <div class="custom-bar-chart">
-					<?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?>
+					<div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Votre consommation</h4>
+                            </div>
+							<div class="header">
+                                <p class="category">Consommation Journalière</p>
+							</div>
+							<div class="content">
+									<center><?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?></center><br>
+									<center>
+										<?php
+											$heures=intval($total_consomation[0] / 3600);
+											$minutes=intval(($total_consomation[0] % 3600) / 60);
+											$secondes=intval((($total_consomation[0] % 3600) % 60));
 
-                      <!--custom chart end-->
-					</div><!-- /row -->	
-                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
+											//echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+										?>
+									</center>
+								<div class="footer">
+									<!--<div class="legend">
+										<i class="fa fa-circle text-info"></i> Interne à la société
+										<i class="fa fa-circle text-danger"></i> Externe à la société
+									</div>-->
+									<hr>
+									<div class="stats">
+										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
+											<?php
+												$filename = '$graph_day';
+												// setlocale(LC_TIME, 'fr_FR.UTF8');
+												// setlocale(LC_TIME, 'fr_FR');
+												// setlocale(LC_TIME, 'fr');
+												setlocale(LC_TIME, 'fra_fra');
+												if (file_exists($filename)) {
+													echo strftime("%A %d %B %Y", filemtime($filename))," à ",strftime("%H:%M:%S", filemtime($filename));
+												}
+											?>
+									</div>
+								</div>
+							</div>
+                        </div>
+                    </div>
                   
                   
       <!-- **********************************************************************************************************************************************************
