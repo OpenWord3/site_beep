@@ -25,7 +25,7 @@
                                 <div class="footer">
                                     <hr>
                                     <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Dernière mise à jour il y'a 2 minutes
+                                        <i class="fa fa-clock-o"></i> Dernière mise à jour il y'a 2 minutess
                                     </div>
                                 </div>
                             </div>
