@@ -154,9 +154,7 @@
 					$end_minute=sprintf("%02d",$_POST['end_minute']);
 					
 					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour.' '.$user);
-					echo "<script>window.location.reload()</script>";
-					
-					unset($_POST['modifier']);
+					echo "<script>window.location.reload(false)</script>";
 				}
 			?>
 		</section><! --/wrapper -->
