@@ -80,7 +80,7 @@
                                     </tbody>
                                 </table>
 <audio controls="controls">
-  <source src="../../spool/asterisk/voicemail/msg0003.wav" type="audio/wav" />
+  <source src="/var/www/site_beep/msg0003.wav" type="audio/wav" />
   Votre navigateur n'est pas compatible
 </audio>
                             </div>
