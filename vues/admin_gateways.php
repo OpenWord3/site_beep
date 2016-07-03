@@ -213,21 +213,24 @@
                 <h4 class="modal-title" id="myModalLabel">Supprimer une gateway</h4>
               </div>
               <div class="modal-body">
-
                 <center>
-                <form>
-                <table width="300">
-                  <tr>
-                    <th><label>Entrer le nom</label></th>
-                    <th><input type="textbox" placeholder="Le nom"></th>
-                  </tr>
-                </table>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_gateway" method="post">
+                  <table width="300">
+                    <tr>
+                      <th><label>Entrer le nom</label></th>
+                      <th><select name="id_gateway">
+                        <?php foreach($liste_gateway as $result) { ?>
+                          <option value="<?php echo $result["id_gateway"] ?>"><?php echo $result["compte"]."_".$result["host"]."_".$result["port"] ?></option>
+                        <?php } ?>
+                      </select></th>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" name="supprimer">Supprimer</button>
+                  </div>
                 </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary" data-target="#confirmer">Supprimer</button>
-              </div>
+              </div>              
             </div>
           </div>
 

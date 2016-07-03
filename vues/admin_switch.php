@@ -17,7 +17,7 @@
         <section class="wrapper">
           	<h3><i class="fa fa-angle-right"></i> Liste des Gateways et leurs switchs</h3>
 				  <center>
-					<?php if(isset($_POST["ajouter_switch"])){ echo $alert; }else if(isset($_POST["supprimer_switch"])){ echo $alert; } ?>
+					<?php if(isset($_POST["ajouter_switch"])){ echo $alert; }else if(isset($_POST["supprimer_switch"])){ echo $alert; }else if(isset($_POST["modifier_switch"])){echo $alert;} ?>
 				  </center>
 		  		    <div class="row mt">
 			       		<div class="col-lg-12">
@@ -87,7 +87,7 @@
                       <input type="hidden" name="port" value="<?php echo $result["port"]; ?>">
                       <input type="hidden" name="groupe" value="<?php echo $result["nom"]; ?>">
                       <input type="hidden" name="switch" value="<?php echo $result["switch"]; ?>">
-                      <p>Etes-vous sûr de vouloir supprimer cette gateway ?</p>
+                      <p>Etes-vous sûr de vouloir supprimer ce switch ?</p>
                     </tr>
                   </table>
                   <div class="modal-footer">
@@ -123,7 +123,7 @@
                   </table>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" >Fermer</button>
-                    <button type="submit" class="btn btn-primary" name="modifier">Modifier</button>
+                    <button type="submit" class="btn btn-primary" name="modifier_switch">Modifier</button>
                   </div> 
                 </form>
                 </center>
@@ -185,21 +185,24 @@
                 <h4 class="modal-title" id="myModalLabel">Supprimer un switch</h4>
               </div>
               <div class="modal-body">
-
                 <center>
-                <form>
-                <table width="300">
-                  <tr>
-                    <th><label>Entrer le switch</label></th>
-                    <th><input type="textbox" placeholder="Le nom"></th>
-                  </tr>
-                </table>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="post">
+                  <table width="300">
+                    <tr>
+                      <td><label>Entrer le switch</label></td>
+                      <td><select name="id_switch">
+                        <?php foreach($all_switchs as $result) { ?>
+                          <option value="<?php echo $result["id_switch"]; ?>"><?php echo $result["compte"]."_".$result["host"]."_".$result["port"]."_".$result["nom"]."_".$result["switch"] ?></option>
+                        <?php } ?>
+                      </select></td>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" name="supprimer_switch">Supprimer</button>
+                  </div>
                 </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary" data-target="#confirmer">Supprimer</button>
-              </div>
+              </div>              
             </div>
           </div>
 
