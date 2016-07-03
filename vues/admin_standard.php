@@ -153,9 +153,11 @@
 					$end_heure=$_POST['end_heure'];
 					$end_minute=sprintf("%02d",$_POST['end_minute']);
 					
+					$location="/var/www/site_beep/admin_standard.php";
+					
 					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour.' '.$user);
+					echo "<script>document.location.href=".$location."; </script>";
 				}
-					echo "<script>window.location.reload()</script>";
 			?>
 		</section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
