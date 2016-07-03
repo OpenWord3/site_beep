@@ -11,9 +11,15 @@
  
  if(empty($graph_day_incoming[0])){
 	 $graph_day_incoming[0] = 0;
- } 
+ }
+ else{
+	 $graph_day_incoming[0] = $graph_day_incoming[0]/60;
+ }
  if(empty($graph_day_outgoing[0])){
 	 $graph_day_outgoing[0] = 0;
+ }
+ else{
+	 $graph_day_outgoing[0] = $graph_day_outgoing[0]/60;
  }
  // Dataset definition   
  $DataSet = new pData;  
@@ -22,8 +28,8 @@
  $DataSet->AddPoint(array($graph_day_incoming[0]),"Serie1");  
  $DataSet->AddAllSeries();  
  $DataSet->SetAbsciseLabelSerie();  
- $DataSet->SetYAxisName("Secondes");
- $DataSet->SetYAxisUnit("s");   
+ $DataSet->SetYAxisName("Minutes");
+ $DataSet->SetYAxisUnit("m");   
  // $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
  $DataSet->SetSerieName("Appels Sortants","Serie2");  
  $DataSet->SetSerieName("Appels Entrants","Serie1");  
