@@ -8,7 +8,7 @@
 
 <div class="wrapper">
     
-	<?php include("./assets/pages/menu.php"); ?>
+	<?php include("/var/www/site_beep/assets/pages/menu.php"); ?>
 
         <div class="content">
             <div class="container-fluid">
@@ -87,7 +87,7 @@
 						</div>
 					</div>
 					
-					<?php include("/var/www/site_beep/assets/pages/footer.php"); ?>
+					<?php include("./assets/pages/footer.php"); ?>
 
 				</div>
 			</div>
