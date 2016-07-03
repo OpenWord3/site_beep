@@ -3,11 +3,6 @@
 function graph_month($graph_month_incoming,$graph_month_outgoing,$login){
  $date_d = date('F');
  
- // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
- 
- $graph_month_incoming = graph_month_incoming($num[0],$date);
- $graph_month_outgoing = graph_month_outgoing($login,$date);
- 
  if(empty($graph_month_incoming[0])){
 	 $graph_month_incoming[0] = 0;
  } 
