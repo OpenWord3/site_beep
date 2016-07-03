@@ -43,48 +43,100 @@
  //GRAPH = 0 SI VIDE
  if(empty($graph_outgoing_yesterday_1[0])){
 	 $graph_outgoing_yesterday_1[0] = 0;
- } 
+ }
+ else{
+	$graph_outgoing_yesterday_1[0] = $graph_outgoing_yesterday_1[0]/60;
+ }
+ 
  if(empty($graph_outgoing_yesterday_2[0])){
 	 $graph_outgoing_yesterday_2[0] = 0;
  }
+ else{
+	 $graph_outgoing_yesterday_2[0] = $graph_outgoing_yesterday_2[0]/60;
+ }
+ 
  if(empty($graph_outgoing_yesterday_3[0])){
 	 $graph_outgoing_yesterday_3[0] = 0;
  } 
+ else{
+	 $graph_outgoing_yesterday_3[0] = $graph_outgoing_yesterday_3[0]/60;
+ }
+ 
  if(empty($graph_outgoing_yesterday_4[0])){
 	 $graph_outgoing_yesterday_4[0] = 0;
  } 
+ else{
+	 $graph_outgoing_yesterday_4[0] = $graph_outgoing_yesterday_4[0]/60;
+ }
+ 
  if(empty($graph_outgoing_yesterday_5[0])){
 	 $graph_outgoing_yesterday_5[0] = 0;
  }
+ else{
+	 $graph_outgoing_yesterday_5[0] = $graph_outgoing_yesterday_5[0]/60;
+ }
+ 
  if(empty($graph_outgoing_yesterday_6[0])){
 	 $graph_outgoing_yesterday_6[0] = 0;
  }
+ else{
+	 $graph_outgoing_yesterday_6[0] = $graph_outgoing_yesterday_6[0]/60;
+ }
+ 
  if(empty($graph_outgoing_yesterday_7[0])){
 	 $graph_outgoing_yesterday_7[0] = 0;
- } 
+ }
+ else{
+	 $graph_outgoing_yesterday_7[0] = $graph_outgoing_yesterday_7[0]/60;
+ }
  
  if(empty($graph_incoming_yesterday_1[0])){
 	 $graph_incoming_yesterday_1[0] = 0;
  } 
+ else{
+	 $graph_incoming_yesterday_1[0] = $graph_incoming_yesterday_1[0]/60;
+ }
+ 
  if(empty($graph_incoming_yesterday_2[0])){
 	 $graph_incoming_yesterday_2[0] = 0;
  }
+ else{
+	 $graph_incoming_yesterday_2[0] = $graph_incoming_yesterday_2[0]/60;
+ }
+ 
  if(empty($graph_incoming_yesterday_3[0])){
 	 $graph_incoming_yesterday_3[0] = 0;
- } 
+ }
+else{
+	$graph_incoming_yesterday_3[0] = $graph_incoming_yesterday_3[0]/60;
+} 
+
  if(empty($graph_incoming_yesterday_4[0])){
 	 $graph_incoming_yesterday_4[0] = 0;
  } 
+ else{
+	 $graph_incoming_yesterday_4[0] = $graph_incoming_yesterday_4[0]/60;
+ }
  if(empty($graph_incoming_yesterday_5[0])){
 	 $graph_incoming_yesterday_5[0] = 0;
  }
+ else{
+	 $graph_incoming_yesterday_5[0] = $graph_incoming_yesterday_5[0]/60;
+ }
+ 
  if(empty($graph_incoming_yesterday_6[0])){
 	 $graph_incoming_yesterday_6[0] = 0;
  }
+ else{
+	 $graph_incoming_yesterday_6[0] = $graph_incoming_yesterday_6[0]/60;
+ }
+ 
  if(empty($graph_incoming_yesterday_7[0])){
 	 $graph_incoming_yesterday_7[0] = 0;
  }
- 
+else{
+	$graph_incoming_yesterday_7[0] = $graph_incoming_yesterday_7[0]/60;
+} 
  
  
  
@@ -97,8 +149,8 @@
  $DataSet->AddSerie("Serie1");  
  $DataSet->AddSerie("Serie2"); 
  $DataSet->SetAbsciseLabelSerie("Serie3");  
- $DataSet->SetYAxisName("Secondes");
- $DataSet->SetYAxisUnit("s");   
+ $DataSet->SetYAxisName("Minutes");
+ $DataSet->SetYAxisUnit("m");   
  // $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
  /*$DataSet->SetSerieName("$date_yesterday_1_d","Serie1");  
  $DataSet->SetSerieName("$date_yesterday_2_d","Serie2");  
