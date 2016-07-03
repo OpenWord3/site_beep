@@ -14,7 +14,7 @@
  $graph_day_incoming = graph_day_incoming($num[0],$date_today);
  $graph_day_outgoing = graph_day_outgoing($login,$date_today);
  
- graph_day($graph_day_incoming,$graph_day_outgoing,$login);
+ $login_day = graph_day($graph_day_incoming,$graph_day_outgoing,$login);
  include("./graph_week.php");
  include("./graph_month.php");
  
