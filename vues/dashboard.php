@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<title>Bienvenue chez Beep</title>
-	<?php include("/assets/pages/css.php"); ?>
+	<?php include("/assets/pages/CSS.php"); ?>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
                                 <div class="footer">
                                     <hr>
                                     <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Dernière mise à jour il y'a 2 minutess
+                                        <i class="fa fa-clock-o"></i> Dernière mise à jour il y'a 2 minutes
                                     </div>
                                 </div>
                             </div>
