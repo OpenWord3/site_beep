@@ -18,7 +18,7 @@
           	<div class="row mt">
           		<div class="col-lg-12">
                 <center>
-                <form method="POST">
+                <form method="POST" action="<?php echo INDEX ?>?index=vue_gestion_standard">
 				
 				  <?php
 					// ouverture du fichier texte en mode "lecture seule"
@@ -154,7 +154,6 @@
 					$end_minute=sprintf("%02d",$_POST['end_minute']);
 					
 					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour.' '.$user);
-					header("Refresh:0;");
 				}
 			?>
 		</section><! --/wrapper -->
