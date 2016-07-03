@@ -60,5 +60,7 @@ function graph_day($graph_day_incoming,$graph_day_outgoing,$login){
  $Test->drawLegend(300,150,$DataSet->GetDataDescription(),255,255,255);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
  $Test->Render("./users_graphs/$login_day");
+ 
+ return $login_day;
 }
 ?>
