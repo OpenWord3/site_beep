@@ -1,6 +1,6 @@
 <?php
  
- $date = date('Y-m'); 
+function graph_month($graph_month_incoming,$graph_month_outgoing,$login){
  $date_d = date('F');
  
  // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
@@ -57,5 +57,7 @@
  $Test->drawLegend(300,150,$DataSet->GetDataDescription(),255,255,255);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
  $Test->Render("./users_graphs/$login_month");
-  
+ 
+ return $login_month;
+}
 ?>

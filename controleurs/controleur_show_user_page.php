@@ -11,6 +11,7 @@
  
  // include("./graph_day.php");
  //LES DATES
+ $date = date('Y-m'); 
  $date_today = date('Y-m-d'); 
  $date_yesterday_1 = date('Y-m-d', strtotime("1 day ago" ));
  $date_yesterday_2 = date('Y-m-d', strtotime("2 day ago" ));
@@ -41,12 +42,14 @@
  $graph_incoming_yesterday_6 = graph_day_incoming($num[0],$date_yesterday_6);
  $graph_incoming_yesterday_7 = graph_day_incoming($num[0],$date_yesterday_7);
  
+ //EXECUTION DES FONCTIONS GRAPHES MOIS
+ $graph_month_incoming = graph_month_incoming($num[0],$date);
+ $graph_month_outgoing = graph_month_outgoing($login,$date);
  
+ // CREATION DES GRAPHES
  $login_day = graph_day($graph_day_incoming,$graph_day_outgoing,$login);
  $login_week = graph_week($graph_outgoing_yesterday_1,$graph_outgoing_yesterday_2,$graph_outgoing_yesterday_3,$graph_outgoing_yesterday_4,$graph_outgoing_yesterday_5,$graph_outgoing_yesterday_6,$graph_outgoing_yesterday_7,$graph_incoming_yesterday_1,$graph_incoming_yesterday_2,$graph_incoming_yesterday_3,$graph_incoming_yesterday_4,$graph_incoming_yesterday_5,$graph_incoming_yesterday_6,$graph_incoming_yesterday_7,$login);
- // include("./graph_week.php");
- include("./graph_month.php");
- 
+ $login_month = graph_month($graph_month_incoming,$graph_month_outgoing,$login);
  
  $graph_day = "./users_graphs/$login_day";
  $graph_week = "./users_graphs/$login_week";
