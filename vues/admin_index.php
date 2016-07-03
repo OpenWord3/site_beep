@@ -256,7 +256,8 @@
                       </div>
                       <!--custom chart end-->
 					</div><!-- /row -->	
-					
+					<h2>Graph Jours</h2>
+					<?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?>
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   
                   

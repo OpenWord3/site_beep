@@ -9,7 +9,6 @@
  
  // $last_calls = last_calls($login);
  
- // include("./graph_day.php");
  //LES DATES
  $date = date('Y-m'); 
  $date_today = date('Y-m-d'); 
