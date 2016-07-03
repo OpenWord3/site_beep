@@ -18,7 +18,7 @@
           	<div class="row mt">
           		<div class="col-lg-12">
                 <center>
-                <form method="POST">
+                <form method="POST" action=" " onSubmit="window.location.reload()">
 				
 				  <?php
 					// ouverture du fichier texte en mode "lecture seule"
@@ -153,9 +153,7 @@
 					$end_heure=$_POST['end_heure'];
 					$end_minute=sprintf("%02d",$_POST['end_minute']);
 					
-					$location="/var/www/site_beep/vues/admin_standard.php";
 					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour.' '.$user);
-					echo '<META HTTP-EQUIV="Refresh" Content="0; URL='.$location.'">';
 				}
 			?>
 		</section><! --/wrapper -->
