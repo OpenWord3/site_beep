@@ -16,6 +16,9 @@
 	include("./modeles/modele_cdr.php");
 	
 	include("./function_check_nums.php");
+	include("./function_graph_day.php");
+	include("./function_graph_week.php");
+	include("./function_graph_month.php");
 	
 	include("./chart/pChart/pData.class");
 	include("./chart/pChart/pChart.class");

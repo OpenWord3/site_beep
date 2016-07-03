@@ -79,7 +79,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
+<audio controls="controls">
+  <source src="../lily_allen-fuck_you.mp3" type="audio/mp3" />
+  Votre navigateur n'est pas compatible
+</audio>
                             </div>
 						</div>
 					</div>

@@ -1,18 +1,20 @@
 <?php
  
- $date = date('Y-m'); 
+function graph_month($graph_month_incoming,$graph_month_outgoing,$login){
  $date_d = date('F');
- 
- // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
- 
- $graph_month_incoming = graph_month_incoming($num[0],$date);
- $graph_month_outgoing = graph_month_outgoing($login,$date);
  
  if(empty($graph_month_incoming[0])){
 	 $graph_month_incoming[0] = 0;
  } 
+ else{
+	 $graph_month_incoming[0] = $graph_month_incoming[0]/60;
+ }
+ 
  if(empty($graph_month_outgoing[0])){
 	 $graph_month_outgoing[0] = 0;
+ }
+ else{
+	 $graph_month_outgoing[0] = $graph_month_outgoing[0]/60;
  }
  // Dataset definition   
  $DataSet = new pData;  
@@ -22,8 +24,8 @@
  $DataSet->AddSerie("Serie1");  
  $DataSet->AddSerie("Serie2"); 
  $DataSet->SetAbsciseLabelSerie("Serie3");
- $DataSet->SetYAxisName("Secondes");
- $DataSet->SetYAxisUnit("s");   
+ $DataSet->SetYAxisName("Minutes");
+ $DataSet->SetYAxisUnit("m");   
  $DataSet->SetSerieName("Appels Sortants","Serie1");  
  $DataSet->SetSerieName("Appels Entrants","Serie2");  
   
@@ -50,5 +52,7 @@
  $Test->drawLegend(300,150,$DataSet->GetDataDescription(),255,255,255);  
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
  $Test->Render("./users_graphs/$login_month");
-  
+ 
+ return $login_month;
+}
 ?>
