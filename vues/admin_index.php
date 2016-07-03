@@ -191,48 +191,74 @@
 						
 					</div><!-- /row -->
 					
-					<div class="col-md-6">
-                        <div class="card ">
-                            <div class="header">
-                                <h4 class="title">Votre consommation</h4>
-                            </div>
-							<div class="header">
-                                <p class="category">Consommation Journalière</p>
-							</div>
-							<div class="content">
-									<center><?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?></center><br>
-									<center>
-										<?php
-											$heures=intval($total_consomation[0] / 3600);
-											$minutes=intval(($total_consomation[0] % 3600) / 60);
-											$secondes=intval((($total_consomation[0] % 3600) % 60));
-
-											//echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
-										?>
-									</center>
-								<div class="footer">
-									<!--<div class="legend">
-										<i class="fa fa-circle text-info"></i> Interne à la société
-										<i class="fa fa-circle text-danger"></i> Externe à la société
-									</div>-->
-									<hr>
-									<div class="stats">
-										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
-											<?php
-												$filename = '$graph_day';
-												// setlocale(LC_TIME, 'fr_FR.UTF8');
-												// setlocale(LC_TIME, 'fr_FR');
-												// setlocale(LC_TIME, 'fr');
-												setlocale(LC_TIME, 'fra_fra');
-												if (file_exists($filename)) {
-													echo strftime("%A %d %B %Y", filemtime($filename))," à ",strftime("%H:%M:%S", filemtime($filename));
-												}
-											?>
-									</div>
-								</div>
-							</div>
-                        </div>
-                    </div>
+					<div class="row mt">
+                      <!--CUSTOM CHART START -->
+                      <div class="border-head">
+                          <h3>Visites Mensuelles</h3>
+                      </div>
+                      <div class="custom-bar-chart">
+                          <ul class="y-axis">
+                              <li><span>10.000</span></li>
+                              <li><span>8.000</span></li>
+                              <li><span>6.000</span></li>
+                              <li><span>4.000</span></li>
+                              <li><span>2.000</span></li>
+                              <li><span>0</span></li>
+                          </ul>
+                          <div class="bar">
+                              <div class="title">JANVIER</div>
+                              <div class="value tooltips" data-original-title="8.500" data-toggle="tooltip" data-placement="top">85%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">FEVRIER</div>
+                              <div class="value tooltips" data-original-title="5.000" data-toggle="tooltip" data-placement="top">50%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">MARS</div>
+                              <div class="value tooltips" data-original-title="6.000" data-toggle="tooltip" data-placement="top">60%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">AVRIL</div>
+                              <div class="value tooltips" data-original-title="4.500" data-toggle="tooltip" data-placement="top">45%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">MAI</div>
+                              <div class="value tooltips" data-original-title="3.200" data-toggle="tooltip" data-placement="top">32%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">JUIN</div>
+                              <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top">62%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">JUILLET</div>
+                              <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">75%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">AOUT</div>
+                              <div class="value tooltips" data-original-title="6.000" data-toggle="tooltip" data-placement="top">60%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">SEPTEMBRE</div>
+                              <div class="value tooltips" data-original-title="4.500" data-toggle="tooltip" data-placement="top">45%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">OCTOBRE</div>
+                              <div class="value tooltips" data-original-title="3.200" data-toggle="tooltip" data-placement="top">32%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">NOVEMBRE</div>
+                              <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top">62%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">DECEMBRE</div>
+                              <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">75%</div>
+                          </div>
+                      </div>
+                      <!--custom chart end-->
+					</div><!-- /row -->	
+					<h2>Graph Jours</h2>
+					<?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?>
+                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   
                   
       <!-- **********************************************************************************************************************************************************
