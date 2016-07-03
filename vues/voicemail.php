@@ -79,7 +79,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
+<audio controls="controls">
+  <source src="/var/spool/asterisk/voicemail/travail/1002/INBOX/msg0003.wav" type="audio/wav" />
+  Votre navigateur n'est pas compatible
+</audio>
                             </div>
 						</div>
 					</div>
