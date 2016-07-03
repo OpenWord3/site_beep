@@ -1,15 +1,16 @@
 <?php
 	//Fonction qui verifie si un switch existe deja
-	function verif_switch($compte,$host,$groupe,$switch){
+	function verif_switch($compte,$host,$port,$groupe,$switch){
 		global $bdd;
 
 		$req = $bdd->prepare("SELECT switch FROM switchs 
 							 JOIN gateways ON gateways.id_gateway = switchs.id_gateway 
 							 JOIN contextes_has_switchs ON switchs.id_switch = contextes_has_switchs.id_switch
 							 JOIN contextes ON contextes.id_contexte = contextes_has_switchs.id_contexte
-							 WHERE compte = :compte AND host = :host AND nom = :groupe AND switch = :switch");
+							 WHERE compte = :compte AND host = :host AND port = :port AND nom = :groupe AND switch = :switch");
 		$req->execute(array("compte"=>$compte,
 							"host"=>$host,
+							"port"=>$port,
 							"groupe"=>$groupe,
 							"switch"=>$switch));
 
@@ -140,6 +141,32 @@
 		$req->closeCursor();
 
 		return $result;
+	}
+
+	//Fonction qui renvoie la gateway et le groupe d'un switch
+	function gateway_groupe($id_switch){
+		global $bdd;
+
+		$req = $bdd->query("SELECT compte,host,port,nom,switch FROM switchs 
+							 JOIN gateways ON gateways.id_gateway = switchs.id_gateway 
+							 JOIN contextes_has_switchs ON switchs.id_switch = contextes_has_switchs.id_switch
+							 JOIN contextes ON contextes.id_contexte = contextes_has_switchs.id_contexte
+							 WHERE switchs.id_switch = '$id_switch'");
+
+		$req->execute(array(0));
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+		return $result;
+	}
+
+	//Fonction qui modifie un switch
+	function change_switch($id_switch,$switch){
+		global $bdd;
+
+		$req = $bdd->query("UPDATE switchs SET switch = '$switch' WHERE id_switch = '$id_switch'");
+
+		$req->closeCursor();
 	}
 
 ?>

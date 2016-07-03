@@ -32,7 +32,6 @@
 
 	}else if(isset($_POST["supprimer"])){
 
-		#il ne faudrait pas oublier de supprimer les configurations qui seront faites pour les numeros entrants
 		$id_gateway = $_POST["id_gateway"];
 		$compte = nom_gateway($id_gateway);
 		$host = host_gateway($id_gateway);

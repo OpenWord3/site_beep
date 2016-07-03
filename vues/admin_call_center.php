@@ -243,6 +243,37 @@
           </div>
         </div>
 
+        <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Supprimer un centre d'appels</h4>
+              </div>
+              <div class="modal-body">
+
+                <center>
+                <form action="<?php echo INDEX ?>?index=vue_gestion_callcenter" method="POST">
+                <table width="300">
+                  <tr>
+                    <th><label>Entrer le nom</label></th>
+                    <th><select name="nom_call">
+                      <?php foreach ($all_callcenters as $result) { ?>
+                        <option><?php echo $result["nom"]; ?></option>
+                      <?php } ?>
+                    </select></th>
+                  </tr>
+                </table>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                  <button type="submit" class="btn btn-primary" name="supprimer_call_center">Supprimer</button>
+                </div>
+                </form>
+              </div>
+              
+            </div>
+          </div>
+
         <!-- ===================================================================================================================================================== -->
         <div class="modal fade" id="modifier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -290,36 +321,7 @@
 
         <!-- ===================================================================================================================================================== -->
 
-        <div class="modal fade" id="supprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un centre d'appels</h4>
-              </div>
-              <div class="modal-body">
-
-                <center>
-                <form action="<?php echo INDEX ?>?index=vue_gestion_callcenter" method="POST">
-                <table width="300">
-                  <tr>
-                    <th><label>Entrer le nom</label></th>
-                    <th><select name="nom_call">
-                      <?php foreach ($all_callcenters as $result) { ?>
-                        <option><?php echo $result["nom"]; ?></option>
-                      <?php } ?>
-                    </select></th>
-                  </tr>
-                </table>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                  <button type="submit" class="btn btn-primary" name="supprimer_call_center">Supprimer</button>
-                </div>
-                </form>
-              </div>
-              
-            </div>
-          </div>
+        
       </section><!-- /MAIN CONTENT -->
       
 	  <!--main content end-->

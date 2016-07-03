@@ -77,6 +77,15 @@
 	
 	$req->closeCursor();
 	}
+
+	//Fonction qui supprime le numero de l'utilisateur
+	function remove_num($id_user){
+		global $bdd;
+
+		$req = $bdd->query("DELETE FROM numeros WHERE id_user = $id_user");
+
+		$req->closeCursor();		
+	}
 	
 	function select_users($contexte){
 		global $bdd;
@@ -155,4 +164,13 @@
 		return $req;
 		
 	}
+
+	//Fonction qui retire un membre d'un callcenter
+	function remove_membre($id_user){
+		global $bdd;
+
+		$req = $bdd->query("DELETE FROM call_center_users WHERE id_user = $id_user");
+		
+		$req->closeCursor();
+	} 
 ?>
