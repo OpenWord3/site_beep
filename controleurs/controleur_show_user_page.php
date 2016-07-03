@@ -3,7 +3,6 @@
  $id_user = $_SESSION['id_user'];
  $num = select_user($id_user);
  $num = $num['num'];
- print_r($num);
  $last_day_month = date('Y-m-d', strtotime("noon last day of this month" ));
  $total_consomation = sum_duration_month($login,$last_day_month);
 
@@ -22,7 +21,7 @@
  $date_yesterday_7 = date('Y-m-d', strtotime("7 day ago" ));
 
  // EXECUTION DES  FONCTIONS GRAPHES JOURS
- $graph_day_incoming = graph_day_incoming($num[0],$date_today);
+ $graph_day_incoming = graph_day_incoming($num,$date_today);
  $graph_day_outgoing = graph_day_outgoing($login,$date_today);
  
  //EXECUTION DES FONCTIONS GRAPHES SEMAINE
@@ -34,16 +33,16 @@
  $graph_outgoing_yesterday_6 = graph_day_outgoing($login,$date_yesterday_6);
  $graph_outgoing_yesterday_7 = graph_day_outgoing($login,$date_yesterday_7);
 
- $graph_incoming_yesterday_1 = graph_day_incoming($num[0],$date_yesterday_1);
- $graph_incoming_yesterday_2 = graph_day_incoming($num[0],$date_yesterday_2);
- $graph_incoming_yesterday_3 = graph_day_incoming($num[0],$date_yesterday_3);
- $graph_incoming_yesterday_4 = graph_day_incoming($num[0],$date_yesterday_4);
- $graph_incoming_yesterday_5 = graph_day_incoming($num[0],$date_yesterday_5);
- $graph_incoming_yesterday_6 = graph_day_incoming($num[0],$date_yesterday_6);
- $graph_incoming_yesterday_7 = graph_day_incoming($num[0],$date_yesterday_7);
+ $graph_incoming_yesterday_1 = graph_day_incoming($num,$date_yesterday_1);
+ $graph_incoming_yesterday_2 = graph_day_incoming($num,$date_yesterday_2);
+ $graph_incoming_yesterday_3 = graph_day_incoming($num,$date_yesterday_3);
+ $graph_incoming_yesterday_4 = graph_day_incoming($num,$date_yesterday_4);
+ $graph_incoming_yesterday_5 = graph_day_incoming($num,$date_yesterday_5);
+ $graph_incoming_yesterday_6 = graph_day_incoming($num,$date_yesterday_6);
+ $graph_incoming_yesterday_7 = graph_day_incoming($num,$date_yesterday_7);
  
  //EXECUTION DES FONCTIONS GRAPHES MOIS
- $graph_month_incoming = graph_month_incoming($num[0],$date);
+ $graph_month_incoming = graph_month_incoming($num,$date);
  $graph_month_outgoing = graph_month_outgoing($login,$date);
  
  // CREATION DES GRAPHES
