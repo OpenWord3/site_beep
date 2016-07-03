@@ -8,7 +8,7 @@
 
 <div class="wrapper">
     
-	<?php include("/var/www/site_beep/assets/pages/menu.php"); ?>
+	<?php include("./assets/pages/menu.php"); ?>
 
         <div class="content">
             <div class="container-fluid">
@@ -97,8 +97,8 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="./assets/pages/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="./assets/pages/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/var/www/site_beep/assets/pages/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="/var/www/site_beep/assets/pages/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="./assets/pages/js/bootstrap-checkbox-radio-switch.js"></script>
