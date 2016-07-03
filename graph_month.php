@@ -11,8 +11,15 @@
  if(empty($graph_month_incoming[0])){
 	 $graph_month_incoming[0] = 0;
  } 
+ else{
+	 $graph_month_incoming[0] = $graph_month_incoming[0]/60;
+ }
+ 
  if(empty($graph_month_outgoing[0])){
 	 $graph_month_outgoing[0] = 0;
+ }
+ else{
+	 $graph_month_outgoing[0] = $graph_month_outgoing[0]/60;
  }
  // Dataset definition   
  $DataSet = new pData;  
@@ -22,8 +29,8 @@
  $DataSet->AddSerie("Serie1");  
  $DataSet->AddSerie("Serie2"); 
  $DataSet->SetAbsciseLabelSerie("Serie3");
- $DataSet->SetYAxisName("Secondes");
- $DataSet->SetYAxisUnit("s");   
+ $DataSet->SetYAxisName("Minutes");
+ $DataSet->SetYAxisUnit("m");   
  $DataSet->SetSerieName("Appels Sortants","Serie1");  
  $DataSet->SetSerieName("Appels Entrants","Serie2");  
   
