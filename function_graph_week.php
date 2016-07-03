@@ -1,18 +1,6 @@
 <?php
  
  function graph_week($graph_outgoing_yesterday_1,$graph_outgoing_yesterday_2,$graph_outgoing_yesterday_3,$graph_outgoing_yesterday_4,$graph_outgoing_yesterday_5,$graph_outgoing_yesterday_6,$graph_outgoing_yesterday_7,$graph_incoming_yesterday_1,$graph_incoming_yesterday_2,$graph_incoming_yesterday_3,$graph_incoming_yesterday_4,$graph_incoming_yesterday_5,$graph_incoming_yesterday_6,$graph_incoming_yesterday_7,$login){
- 
-
- 
- //ON RECUPERES LES DATES EN JOURS
- $date_today_d = date('D');
- $date_yesterday_1_d = date('D', strtotime("1 day ago"));
- $date_yesterday_2_d = date('D', strtotime("2 day ago"));
- $date_yesterday_3_d = date('D', strtotime("3 day ago"));
- $date_yesterday_4_d = date('D', strtotime("4 day ago"));
- $date_yesterday_5_d = date('D', strtotime("5 day ago"));
- $date_yesterday_6_d = date('D', strtotime("6 day ago"));
- $date_yesterday_7_d = date('D', strtotime("7 day ago"));
 
  //GRAPH = 0 SI VIDE
  if(empty($graph_outgoing_yesterday_1[0])){
