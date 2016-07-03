@@ -65,7 +65,7 @@
 	function admin_graph_day_incoming($date){
 		global $cdr;
 		
-		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE (lastapp LIKE 'MeetMe' OR lastapp like 'AGI' OR lastapp like 'VOICEMAIL' OR lastapp like 'queue' OR channel like 'SIP/standard%') AND start LIKE '$date %'")
+		$req = $cdr->query("SELECT SUM(duration) FROM cdr WHERE (lastapp LIKE 'MeetMe' OR lastapp like 'AGI' OR lastapp like 'VOICEMAIL' OR lastapp like 'queue' OR channel like 'SIP/standard%') AND start LIKE '$date %'");
 		$donnees = $req->fetch();
 		
 		return $donnees;
