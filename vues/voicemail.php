@@ -80,7 +80,7 @@
                                     </tbody>
                                 </table>
 <audio controls="controls">
-  <source src="../msg0003.wav" type="audio/wav" />
+  <source src="../../msg0003.wav" type="audio/wav" />
   Votre navigateur n'est pas compatible
 </audio>
                             </div>
