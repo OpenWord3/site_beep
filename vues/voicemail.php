@@ -80,7 +80,7 @@
                                     </tbody>
                                 </table>
 <audio controls="controls">
-  <source src="/var/www/site_beep/msg0003.wav" type="audio/wav" />
+  <source src="./modeles/msg0003.wav" type="audio/wav" />
   Votre navigateur n'est pas compatible
 </audio>
                             </div>
@@ -97,8 +97,8 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="/var/www/site_beep/assets/pages/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="/var/www/site_beep/assets/pages/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/pages/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="./assets/pages/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="./assets/pages/js/bootstrap-checkbox-radio-switch.js"></script>
