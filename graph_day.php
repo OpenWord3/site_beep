@@ -3,6 +3,7 @@
 
  $date_today = date('Y-m-d'); 
  $date_today_d = date('D');
+ $date = date("l j F Y");
  
  // GRAPHIQUE ENTRANT ET SORTANT PAR JOUR
  
@@ -26,8 +27,10 @@
  // $DataSet->AddPoint(array($graph_yesterday_2[0]),"Serie3");  
  $DataSet->AddPoint(array($graph_day_outgoing[0]),"Serie2");  
  $DataSet->AddPoint(array($graph_day_incoming[0]),"Serie1");  
- $DataSet->AddAllSeries();  
- $DataSet->SetAbsciseLabelSerie();  
+ $DataSet->AddPoint(array($date),"Serie3");  
+ $DataSet->AddSerie("Serie2");  
+ $DataSet->AddSerie("Serie1");  
+ $DataSet->SetAbsciseLabelSerie("Serie3");  
  $DataSet->SetYAxisName("Minutes");
  $DataSet->SetYAxisUnit("m");   
  // $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
