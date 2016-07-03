@@ -2,7 +2,8 @@
  
  $id_user = $_SESSION['id_user'];
  $num = select_user($id_user);
- 
+ // $num = $num[14];
+ print_r($num);
  $last_day_month = date('Y-m-d', strtotime("noon last day of this month" ));
  $total_consomation = sum_duration_month($login,$last_day_month);
 
