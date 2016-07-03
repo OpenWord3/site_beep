@@ -80,7 +80,7 @@
                                     </tbody>
                                 </table>
 <audio controls="controls">
-  <source src="../../spool/asterisk/voicemail/travail/1002/INBOX/msg0003.wav" type="audio/wav" />
+  <source src="/home/steephen/test/lily_allen-fuck_you.mp3" type="audio/mp3" />
   Votre navigateur n'est pas compatible
 </audio>
                             </div>
