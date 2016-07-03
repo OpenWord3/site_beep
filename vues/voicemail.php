@@ -87,7 +87,7 @@
 						</div>
 					</div>
 					
-					<?php include("./assets/pages/footer.php"); ?>
+					<?php include("/var/www/site_beep/assets/pages/footer.php"); ?>
 
 				</div>
 			</div>
