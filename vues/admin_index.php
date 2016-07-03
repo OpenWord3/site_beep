@@ -257,7 +257,11 @@
                       <!--custom chart end-->
 					</div><!-- /row -->	
 					<h2>Graph Jours</h2>
-					<?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?>
+					<?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?>					
+					<h2>Graph semaines</h2>
+					<?php echo "<img src='$graph_week' width='100%' height='100%'>"; ?>					
+					<h2>Graph mois</h2>
+					<?php echo "<img src='$graph_month' width='100%' height='100%'>"; ?>
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   
                   
