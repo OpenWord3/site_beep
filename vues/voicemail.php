@@ -79,6 +79,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
+								<?php echo $num; ?>
 <audio controls="controls">
   <source src="./voicemail/voicemail/<?php $num; ?>/INBOX/msg0000.wav" type="audio/wav" />
   Votre navigateur n'est pas compatible
