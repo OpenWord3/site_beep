@@ -84,6 +84,7 @@
   <source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg000<?php echo $i; ?>.wav" type="audio/wav" />
   Votre navigateur n'est pas compatible
 </audio>
+								<?php } ?>
                             </div>
 						</div>
 					</div>
