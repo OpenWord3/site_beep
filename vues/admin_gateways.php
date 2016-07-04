@@ -45,8 +45,8 @@
                                   <td><?php echo $result["host"]; ?></td>
                                   <td><?php echo $result["port"]; ?></td>
                                   <td>
-                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification<?php echo $result["id_gateway"]; ?>" ><a href="#modification<?php echo $result["id_gateway"]; ?>"></a><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_gateway"]; ?>"><i class="fa fa-trash-o "></i></button>
+                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification<?php echo $result["id_gateway"]; ?>" <?php if($result["compte"] == 'dahdi'){echo "disabled";} ?>><a href="#modification<?php echo $result["id_gateway"]; ?>" ></a><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_gateway"]; ?>" <?php if($result["compte"] == 'dahdi'){echo "disabled";} ?>><i class="fa fa-trash-o "></i></button>
                                   </td>
                                 </tr> 
                                 <?php } ?>                             
@@ -148,10 +148,6 @@
                       <input type="hidden" name="id_gateway" value="<?php echo $result["id_gateway"] ?>">
                       <td><input type="textbox" placeholder="Nouveau mot de passe" name="new_mdp" required></td>
                     </tr>
-                    <!--<tr>
-                      <td><label>Mot de Passe</label></td>
-                      <td><input type="textbox" Value="Chargé son mot de passe"></td>
-                    </tr>-->
                   </table>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" >Fermer</button>
