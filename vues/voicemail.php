@@ -32,8 +32,7 @@
 											<source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg000<?php echo $i; ?>.wav" type="audio/wav" />
 												Votre navigateur n'est pas compatible
 											</audio>
-											</td>
-										<div class="stats">
+																					<div class="stats">
 										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
 											<?php
 												$filename = "./voicemail/voicemail/$num/INBOX/msg000$i.wav";
@@ -43,6 +42,7 @@
 												}
 											?>
 										</div>
+											</td>
                                         </tr>
 										<?php } ?>
                                     </tbody>
