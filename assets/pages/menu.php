@@ -7,7 +7,7 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="<?php echo INDEX ?>?index=vue_tableau_bord">
+                    <a href="<?php echo INDEX ?>?index=show_tableau_bord">
                         <i class="pe-7s-graph"></i>
                         <p>Accueil</p>
                     </a>
