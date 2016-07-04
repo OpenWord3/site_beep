@@ -88,8 +88,8 @@
 			case "vue_accueil_admin":
 				include("./controleurs/controleur_admin.php");
 				break;
-			case "vue_tableau_bord":
-				include("./controleurs/controleur_tableau_bord.php");
+			case "show_tableau_bord":
+				include("./controleurs/controleur_show_user_page.php");
 				break;
 			case "vue_chat":
 				include("./controleurs/controleur_chat.php");
