@@ -32,9 +32,6 @@
 											<source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg000<?php echo $i; ?>.wav" type="audio/wav" />
 											<?php
 												$filename = "./voicemail/voicemail/$num/INBOX/msg000$i.wav";
-												// setlocale(LC_TIME, 'fr_FR.UTF8');
-												// setlocale(LC_TIME, 'fr_FR');
-												// setlocale(LC_TIME, 'fr');
 												setlocale(LC_TIME, 'fra_fra');
 												if (file_exists($filename)) {
 													echo strftime("%A %d %B %Y", filemtime($filename))," à ",strftime("%H:%M:%S", filemtime($filename));

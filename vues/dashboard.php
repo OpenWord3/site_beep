@@ -117,7 +117,7 @@
 									<div class="stats">
 										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
 											<?php
-												$filename = '$graph_day';
+												$filename = "$graph_day";
 												// setlocale(LC_TIME, 'fr_FR.UTF8');
 												// setlocale(LC_TIME, 'fr_FR');
 												// setlocale(LC_TIME, 'fr');
