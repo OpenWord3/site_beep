@@ -41,7 +41,6 @@
                             </div>
 						</div>
 					</div>
-					<?php echo $count_vocale; ?>
 					<?php include("./assets/pages/footer.php"); ?>
 
 				</div>
