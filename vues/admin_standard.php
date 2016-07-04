@@ -59,16 +59,6 @@
 					$mot = $phrase[1];
 					$mots = explode(",",$mot);
 					
-					// echo $jour[0]."</br>";
-					// echo $jour[1]."</br>";
-					// echo $he1[0]."</br>";
-					// echo $he1[1]."</br>";
-					// echo $he2[0]."</br>";
-					// echo $he2[1]."</br>";
-					// echo $mots[0];
-
-					// echo $temp;
-
 					// fermeture du fichier
 					fclose($ouvre);
 				  ?>
@@ -151,6 +141,8 @@
 					$end_minute=sprintf("%02d",$_POST['end_minute']);
 					
 					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour.' '.$user);
+					exec('sudo /var/script_beep/standard_user.sh '.$user);
+					
 					//echo "<script>window.location.reload(true)</script>";
 				}
 			?>
