@@ -25,16 +25,16 @@
                                     	<th>Message</th>
                                     </thead>
                                     <tbody>
+										<?php for($i=0; $i <= $count_vocale; $i++){?>
                                         <tr>
-											<?php for($i=0; $i <= 20; $i++){?>
 											<td>								
 											<audio controls="controls">
 											<source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg000<?php echo $i; ?>.wav" type="audio/wav" />
 												Votre navigateur n'est pas compatible
 											</audio>
 											</td>
-											<?php } ?>
                                         </tr>
+										<?php } ?>
                                     </tbody>
                                 </table>
 
