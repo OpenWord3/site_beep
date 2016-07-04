@@ -22,10 +22,10 @@
 				
 				  <?php
 					// ouverture du fichier texte en mode "lecture seule"
-					$ouvre=fopen("/var/dialplan/standard.conf","r");
-					// $ouvre=fopen("standard.conf","r");
+					grep -c GotoIfTime /var/dialplan/standard.conf >> /var/tmp/tmpstandard
+					$ouvre=fopen("/var/tmp/tmpstandard","r");
 					$i = 0;
-					while ($i < 5) {
+					while ($i < 1) {
 						// on recupère la ligne courante
 						$temp = fgets($ouvre);
 						$i++;
