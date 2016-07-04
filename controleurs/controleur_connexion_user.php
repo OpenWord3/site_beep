@@ -12,6 +12,7 @@
 	else if(!empty($check_compte_user)){
 		$id_user = find_id_user($login);
 		$_SESSION["id_user"] = $id_user[0];
+		$_SESSION["login"] = $login;
 		
 		if($check_compte_user['role'] == 1){
 			include("./controleurs/controleur_admin.php");	
