@@ -23,6 +23,7 @@
 				  <?php
 					// ouverture du fichier texte en mode "lecture seule"
 					shell_exec('grep GotoIfTime /var/dialplan/standard.conf > /var/tmp/tmpstandard');
+					shell_exec('grep UTILISATEUR /var/dialplan/standard.conf > /var/tmp/tmpstandarduser');
 					$ouvre=fopen("/var/tmp/tmpstandard","r");
 					$i = 0;
 					while ($i < 1) {
@@ -47,10 +48,12 @@
 
 					$h2 = $heure[1];
 					$he2 = explode(":",$h2);
-
-					while ($i < 16) {
+					
+					$ouvrer=fopen("/var/tmp/tmpstandarduser","r");
+					$i = 0;
+					while ($i < 1) {
 						// on recupère la ligne courante
-						$temps = fgets($ouvre);
+						$temps = fgets($ouvrer);
 						$i++;
 					}
 
