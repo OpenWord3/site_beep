@@ -25,7 +25,7 @@
                                     	<th>Message</th>
                                     </thead>
                                     <tbody>
-										<?php for($i=0; $i <= $count_vocale; $i++){?>
+										<?php for($i=0; $i <= 20; $i++){?>
                                         <tr>
 											<td>								
 											<audio controls="controls">
