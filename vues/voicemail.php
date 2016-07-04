@@ -81,7 +81,7 @@
                                 </table>
 								<?php echo $num; ?>
 <audio controls="controls">
-  <source src="./voicemail/voicemail/<?php $num; ?>/INBOX/msg0000.wav" type="audio/wav" />
+  <source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg0000.wav" type="audio/wav" />
   Votre navigateur n'est pas compatible
 </audio>
                             </div>
