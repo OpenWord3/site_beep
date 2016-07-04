@@ -152,6 +152,8 @@
 					
 					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour.' '.$user);
 					echo "<script>window.location.reload(true)</script>";
+					
+					unset($_POST['modifier']);
 				}
 			?>
 		</section><! --/wrapper -->
