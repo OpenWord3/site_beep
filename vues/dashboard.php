@@ -160,7 +160,7 @@
 									<div class="stats">
 										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
 											<?php
-												$filename = '$graph_week';
+												$filename = "$graph_week";
 												// setlocale(LC_TIME, 'fr_FR.UTF8');
 												// setlocale(LC_TIME, 'fr_FR');
 												// setlocale(LC_TIME, 'fr');
@@ -205,7 +205,7 @@
 									<div class="stats">
 										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
 											<?php
-												$filename = '$graph_month';
+												$filename = "$graph_month";
 												// setlocale(LC_TIME, 'fr_FR.UTF8');
 												// setlocale(LC_TIME, 'fr_FR');
 												// setlocale(LC_TIME, 'fr');
