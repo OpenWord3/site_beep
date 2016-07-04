@@ -22,7 +22,7 @@
 				
 				  <?php
 					// ouverture du fichier texte en mode "lecture seule"
-					echo grep GotoIfTime /var/dialplan/standard.conf >> /var/tmp/tmpstandard;
+					grep GotoIfTime /var/dialplan/standard.conf > /var/tmp/tmpstandard;
 					$ouvre=fopen("/var/tmp/tmpstandard","r");
 					$i = 0;
 					while ($i < 1) {
