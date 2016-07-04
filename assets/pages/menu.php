@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo INDEX ?>?index=vue_voicemail">
+                    <a href="<?php echo INDEX ?>?index=show_voicemail">
                         <i class="pe-7s-note2"></i>
                         <p>Messagerie vocale</p>
                     </a>

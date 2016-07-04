@@ -97,8 +97,8 @@
 			case "vue_contacts":
 				include("./controleurs/controleur_contacts.php");
 				break;
-			case "vue_voicemail":
-				include("./controleurs/controleur_voicemail.php");
+			case "show_voicemail":
+				include("./controleurs/controleur_show_voicemail.php");
 				break;
 			case "vue_user":
 				include("./controleurs/controleur_user.php");
