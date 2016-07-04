@@ -101,11 +101,11 @@
 									<center><?php echo "<img src='$graph_day' width='100%' height='100%'>"; ?></center><br>
 									<center>
 										<?php
-											$heures=intval($total_consomation[0] / 3600);
-											$minutes=intval(($total_consomation[0] % 3600) / 60);
-											$secondes=intval((($total_consomation[0] % 3600) % 60));
+											$heures=intval($graph_day_outgoing[0] / 3600);
+											$minutes=intval(($graph_day_outgoing[0] % 3600) / 60);
+											$secondes=intval((($graph_day_outgoing[0] % 3600) % 60));
 
-											//echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+											echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
 										?>
 									</center>
 								<div class="footer">
@@ -117,7 +117,7 @@
 									<div class="stats">
 										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
 											<?php
-												$filename = './users_graphs/adidas_day.png';
+												$filename = '$graph_day';
 												// setlocale(LC_TIME, 'fr_FR.UTF8');
 												// setlocale(LC_TIME, 'fr_FR');
 												// setlocale(LC_TIME, 'fr');
@@ -160,7 +160,7 @@
 									<div class="stats">
 										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
 											<?php
-												$filename = './users_graphs/adidas_week.png';
+												$filename = '$graph_week';
 												// setlocale(LC_TIME, 'fr_FR.UTF8');
 												// setlocale(LC_TIME, 'fr_FR');
 												// setlocale(LC_TIME, 'fr');
@@ -205,7 +205,7 @@
 									<div class="stats">
 										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
 											<?php
-												$filename = './users_graphs/adidas_month.png';
+												$filename = '$graph_month';
 												// setlocale(LC_TIME, 'fr_FR.UTF8');
 												// setlocale(LC_TIME, 'fr_FR');
 												// setlocale(LC_TIME, 'fr');
