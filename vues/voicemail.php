@@ -22,68 +22,21 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>Date</th>
-                                    	<th>Destinataire</th>
-                                    	<th>Numéros</th>
-                                    	<th>Direction</th>
                                     	<th>Message</th>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                        	<td>01/01/2015</td>
-                                        	<td>Dakota Rice</td>
-                                        	<td>1111</td>
-                                        	<td>Service Client - Niger</td>
-                                        	<td>
-                                                <audio controls="controls">
-                                                  Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="/var/www/site_beep/assets/audios/coq.mp3" type="audio/mp3">
-                                                </audio>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        	<td>12/01/2016</td>
-                                        	<td>Minerva Hooper</td>
-                                        	<td>1025</td>
-                                        	<td>Service Commercial - Paris</td>
-                                        	<td>
-                                                <audio controls="controls">
-                                                  Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
-                                                </audio>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        	<td>31/03/2016</td>
-                                        	<td>Sage Rodriguez</td>
-                                        	<td>825</td>
-                                        	<td>Service Marketing - Orly</td>
-                                        	<td>
-                                                <audio controls="controls">
-                                                  Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
-                                                </audio>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        	<td>14/05/2016</td>
-                                        	<td>Philip Chaney</td>
-                                        	<td>565</td>
-                                        	<td>Direction SI - Paris</td>
-                                        	<td>
-                                                <audio controls="controls">
-                                                  Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
-                                                </audio>
-                                            </td>
+											<td>								
+											<?php for($i=0; $i <= 20; $i++){?>
+											<audio controls="controls">
+											<source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg000<?php echo $i; ?>.wav" type="audio/wav" />
+												Votre navigateur n'est pas compatible
+											</audio>
+											</td>
                                         </tr>
                                     </tbody>
                                 </table>
-								<?php for($i=0; $i <= 20; $i++){?>
-<audio controls="controls">
-  <source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg000<?php echo $i; ?>.wav" type="audio/wav" />
-  Votre navigateur n'est pas compatible
-</audio>
+
 								<?php } ?>
                             </div>
 						</div>
