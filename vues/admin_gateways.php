@@ -45,8 +45,8 @@
                                   <td><?php echo $result["host"]; ?></td>
                                   <td><?php echo $result["port"]; ?></td>
                                   <td>
-                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification<?php echo $result["id_gateway"]; ?>" ><a href="#modification<?php echo $result["id_gateway"]; ?>" <?php if($result["compte"] == 'dahdi'){echo "disabled"} ?>></a><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_gateway"]; ?>" <?php if($result["compte"] == 'dahdi'){echo "disabled"} ?>><i class="fa fa-trash-o "></i></button>
+                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modification<?php echo $result["id_gateway"]; ?>" ><a href="#modification<?php echo $result["id_gateway"]; ?>" <?php if($result["compte"] == 'dahdi'){echo "disabled";} ?>></a><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#suppression<?php echo $result["id_gateway"]; ?>" <?php if($result["compte"] == 'dahdi'){echo "disabled";} ?>><i class="fa fa-trash-o "></i></button>
                                   </td>
                                 </tr> 
                                 <?php } ?>                             
