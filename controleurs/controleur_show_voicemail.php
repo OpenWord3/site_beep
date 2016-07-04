@@ -4,6 +4,6 @@
  $num = $num['num'];
  
  exec('sudo /var/script_beep/count_vocale  '.$num);
- $count_vocale = fopen("/var/script_beep/count_vocale.txt");
+ $count_vocale = fopen("/var/script_beep/count_vocale.txt","r");
 include("./vues/voicemail.php");
 ?>
