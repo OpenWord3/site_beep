@@ -33,7 +33,7 @@
 												Votre navigateur n'est pas compatible
 											</audio>
 																					<div class="stats">
-										<i class="fa fa-clock-o"></i> Dernière mise à jour le 
+										<i class="fa fa-clock-o"></i> Reçu le 
 											<?php
 												$filename = "./voicemail/voicemail/$num/INBOX/msg000$i.wav";
 												setlocale(LC_TIME, 'fra_fra');
