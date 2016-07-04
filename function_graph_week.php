@@ -1,35 +1,6 @@
 <?php
  
- //ON RECUPERES TOUTES LES DATES DE LA SEMAINE
- 
- $date_tomorrow = date('Y-m-d', strtotime("1 day"));
- $date_today = date('Y-m-d');
- $date_yesterday_1 = date('Y-m-d', strtotime("1 day ago" ));
- $date_yesterday_2 = date('Y-m-d', strtotime("2 day ago" ));
- $date_yesterday_3 = date('Y-m-d', strtotime("3 day ago" ));
- $date_yesterday_4 = date('Y-m-d', strtotime("4 day ago" ));
- $date_yesterday_5 = date('Y-m-d', strtotime("5 day ago" ));
- $date_yesterday_6 = date('Y-m-d', strtotime("6 day ago" ));
- $date_yesterday_7 = date('Y-m-d', strtotime("7 day ago" ));
- 
- //ON RECUPERES LES DONNES OUTGOING POUR LES GRAPHES
- $graph_outgoing_yesterday_1 = graph_day_outgoing($login,$date_yesterday_1);
- $graph_outgoing_yesterday_2 = graph_day_outgoing($login,$date_yesterday_2);
- $graph_outgoing_yesterday_3 = graph_day_outgoing($login,$date_yesterday_3);
- $graph_outgoing_yesterday_4 = graph_day_outgoing($login,$date_yesterday_4);
- $graph_outgoing_yesterday_5 = graph_day_outgoing($login,$date_yesterday_5);
- $graph_outgoing_yesterday_6 = graph_day_outgoing($login,$date_yesterday_6);
- $graph_outgoing_yesterday_7 = graph_day_outgoing($login,$date_yesterday_7);
-
- //ON RECUPERES LES DONNES INCOMING POUR LES GRAPHES
- $graph_incoming_yesterday_1 = graph_day_incoming($num[0],$date_yesterday_1);
- $graph_incoming_yesterday_2 = graph_day_incoming($num[0],$date_yesterday_2);
- $graph_incoming_yesterday_3 = graph_day_incoming($num[0],$date_yesterday_3);
- $graph_incoming_yesterday_4 = graph_day_incoming($num[0],$date_yesterday_4);
- $graph_incoming_yesterday_5 = graph_day_incoming($num[0],$date_yesterday_5);
- $graph_incoming_yesterday_6 = graph_day_incoming($num[0],$date_yesterday_6);
- $graph_incoming_yesterday_7 = graph_day_incoming($num[0],$date_yesterday_7);
- 
+ function graph_week($graph_outgoing_yesterday_1,$graph_outgoing_yesterday_2,$graph_outgoing_yesterday_3,$graph_outgoing_yesterday_4,$graph_outgoing_yesterday_5,$graph_outgoing_yesterday_6,$graph_outgoing_yesterday_7,$graph_incoming_yesterday_1,$graph_incoming_yesterday_2,$graph_incoming_yesterday_3,$graph_incoming_yesterday_4,$graph_incoming_yesterday_5,$graph_incoming_yesterday_6,$graph_incoming_yesterday_7,$login){
  //ON RECUPERES LES DATES EN JOURS
  $date_today_d = date('D');
  $date_yesterday_1_d = date('D', strtotime("1 day ago"));
@@ -151,14 +122,6 @@ else{
  $DataSet->SetAbsciseLabelSerie("Serie3");  
  $DataSet->SetYAxisName("Minutes");
  $DataSet->SetYAxisUnit("m");   
- // $DataSet->SetSerieName("$date_yesterday_1_d","Serie2");  
- /*$DataSet->SetSerieName("$date_yesterday_1_d","Serie1");  
- $DataSet->SetSerieName("$date_yesterday_2_d","Serie2");  
- $DataSet->SetSerieName("$date_yesterday_3_d","Serie3");  
- $DataSet->SetSerieName("$date_yesterday_4_d","Serie4");  
- $DataSet->SetSerieName("$date_yesterday_5_d","Serie5");  
- $DataSet->SetSerieName("$date_yesterday_6_d","Serie6");  
- $DataSet->SetSerieName("$date_yesterday_7_d","Serie7");  */
  $DataSet->SetSerieName("Appels Sortants","Serie1");  
  $DataSet->SetSerieName("Appels Entrants","Serie2");  
  // Initialise the graph  
@@ -185,9 +148,6 @@ else{
  $Test->setFontProperties("./chart/Fonts/tahoma.ttf",10);  
  $Test->Render("./users_graphs/$login_week");
  
- // $last_calls = last_calls($login);
- 
- // $img = "./users_graphs/$login_week.png";
- // include("./vues/dashboard.php");
-
+ return $login_week;
+ }
 ?>

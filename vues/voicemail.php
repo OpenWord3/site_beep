@@ -37,7 +37,7 @@
                                         	<td>
                                                 <audio controls="controls">
                                                   Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/pages/audios/coq.mp3" type="audio/mp3">
+                                                  <source src="/var/www/site_beep/assets/audios/coq.mp3" type="audio/mp3">
                                                 </audio>
                                             </td>
                                         </tr>
@@ -49,7 +49,7 @@
                                         	<td>
                                                 <audio controls="controls">
                                                   Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/pages/audios/coq.mp3" type="audio/mp3">
+                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
                                                 </audio>
                                             </td>
                                         </tr>
@@ -61,7 +61,7 @@
                                         	<td>
                                                 <audio controls="controls">
                                                   Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/pages/audios/coq.mp3" type="audio/mp3">
+                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
                                                 </audio>
                                             </td>
                                         </tr>
@@ -73,13 +73,16 @@
                                         	<td>
                                                 <audio controls="controls">
                                                   Votre navigateur ne supporte pas l'élément <code>audio</code>.
-                                                  <source src="./assets/pages/audios/coq.mp3" type="audio/mp3">
+                                                  <source src="./assets/audios/coq.mp3" type="audio/mp3">
                                                 </audio>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-
+<audio controls="controls">
+  <source src="./modeles/msg0003.wav" type="audio/wav" />
+  Votre navigateur n'est pas compatible
+</audio>
                             </div>
 						</div>
 					</div>

@@ -148,10 +148,10 @@
                       <input type="hidden" name="id_gateway" value="<?php echo $result["id_gateway"] ?>">
                       <td><input type="textbox" placeholder="Nouveau mot de passe" name="new_mdp" required></td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                       <td><label>Mot de Passe</label></td>
                       <td><input type="textbox" Value="Chargé son mot de passe"></td>
-                    </tr>
+                    </tr>-->
                   </table>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" >Fermer</button>
