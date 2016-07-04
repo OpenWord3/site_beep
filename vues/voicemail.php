@@ -79,9 +79,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
-								<?php echo $num; ?>
+								<?php for($i=0; $i <= 20; $i++){?>
 <audio controls="controls">
-  <source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg0000.wav" type="audio/wav" />
+  <source src="./voicemail/voicemail/<?php echo $num; ?>/INBOX/msg000<?php echo $i; ?>.wav" type="audio/wav" />
   Votre navigateur n'est pas compatible
 </audio>
                             </div>
