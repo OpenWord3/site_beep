@@ -26,6 +26,7 @@ padding:5px 10px;
 position:absolute;
 width:auto;
 margin-left:30px;
+margin-top:150px;
 border:1px solid #349534;
 background:#C9FFCA;
 padding:5px 10px;
