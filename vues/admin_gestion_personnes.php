@@ -258,6 +258,7 @@ padding: 5px 10px;
                   <tr>
                     <td><label>Login</label></td>
                     <td><input type="textbox" placeholder="Login" name="pseudo" required></td>
+					<span id="msgbox" style="display:none"></span>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
