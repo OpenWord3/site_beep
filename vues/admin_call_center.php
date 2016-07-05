@@ -57,7 +57,7 @@
 						  <th>Adresse Mail</th>
 						  <th>
 							<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#ajoutermembre<?php echo $result["id_callcenter"]; ?>"><i class="fa fa-plus" ></i></button>
-							<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifierstrategy"><i class="fa fa-pencil"></i></button>
+							<!--<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifierstrategy"><i class="fa fa-pencil"></i></button>-->
 							<button class="btn btn-danger btn-xs" data-toggle="modal" data-toggle="modal" data-target="#supprimermembre<?php echo $result["id_callcenter"]; ?>"><i class="fa fa-trash-o"></i></button>
 						  </th>
 					  </tr>
