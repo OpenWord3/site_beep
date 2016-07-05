@@ -33,7 +33,8 @@
 					if(isset($_POST["ajouter_call_center"])){echo $alert;
 					}else if(isset($_POST["supprimer_call_center"])){echo $alert;
 					}else if(isset($_POST["ajouter_membre"])){echo $alert;
-					}else if(isset($_POST["supprimer_membre"])){echo $alert;}
+					}else if(isset($_POST["supprimer_membre"])){echo $alert;
+          }else if(isset($_POST["modifier_call_center"])){echo $alert;}
 				?>
 			</center>
 		
