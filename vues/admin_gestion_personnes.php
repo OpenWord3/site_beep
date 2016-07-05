@@ -7,6 +7,7 @@
     <meta name="description" content="Tableau de bord Admin">
     <meta name="author" content="Louis-Adolphe Mougnin">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Theme, Responsive, Fluid, Retina">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 
     <title>Tableau de bord - Beep</title>
 	
