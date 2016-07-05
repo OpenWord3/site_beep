@@ -11,7 +11,6 @@
     <title>Tableau de bord - Beep</title>
 	
 	<?php include ("./assets/pages/admin_css.php") ?>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 	
 	<style>
 .messagebox {
