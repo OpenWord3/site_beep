@@ -216,7 +216,7 @@
                       <th><label>Entrer le nom</label></th>
                       <th><select name="id_gateway">
                         <?php foreach($liste_gateway as $result) { ?>
-                          <option value="<?php echo $result["id_gateway"] ?>" <?php if($result["compte"] == 'dahdi'){echo "style='display:none;'"} ?>><?php echo $result["compte"]."_".$result["host"]."_".$result["port"] ?></option>
+                          <option value="<?php echo $result["id_gateway"] ?>" <?php if($result["compte"] == 'dahdi'){echo "style='display:none;'";} ?>><?php echo $result["compte"]."_".$result["host"]."_".$result["port"] ?></option>
                         <?php } ?>
                       </select></th>
                     </tr>
