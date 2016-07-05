@@ -105,13 +105,13 @@
 											$minutes=intval(($graph_day_outgoing[0] % 3600) / 60);
 											$secondes=intval((($graph_day_outgoing[0] % 3600) % 60));
 
-											echo "Appel Sortant : ",$heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+											echo "Appels Sortants : ",$heures," heures ",$minutes," minutes ",$secondes," secondes<br>"; 
 											
 											$heures=intval($graph_day_incoming[0] / 3600);
 											$minutes=intval(($graph_day_incoming[0] % 3600) / 60);
 											$secondes=intval((($graph_day_incoming[0] % 3600) % 60));
 											
-											echo "Appel Entrant : ",$heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+											echo "Appels Entrants : ",$heures," heures ",$minutes," minutes ",$secondes," secondes<br>"; 
 										?>
 									</center>
 								<div class="footer">
@@ -199,7 +199,13 @@
 											$minutes=intval(($graph_month_outgoing[0] % 3600) / 60);
 											$secondes=intval((($graph_month_outgoing[0] % 3600) % 60));
 
-											echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+											echo $heures," heures ",$minutes," minutes ",$secondes," secondes<br>"; 
+											
+											$heures=intval($graph_month_incoming[0] / 3600);
+											$minutes=intval(($graph_month_incoming[0] % 3600) / 60);
+											$secondes=intval((($graph_month_incoming[0] % 3600) % 60));
+
+											echo $heures," heures ",$minutes," minutes ",$secondes," secondes<br>"; 
 										?>
 									</center>
 								<div class="footer">
