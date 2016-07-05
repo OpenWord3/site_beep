@@ -105,7 +105,13 @@
 											$minutes=intval(($graph_day_outgoing[0] % 3600) / 60);
 											$secondes=intval((($graph_day_outgoing[0] % 3600) % 60));
 
-											echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+											echo "Appel Sortant : ",$heures," heures ",$minutes," minutes ",$secondes," secondes"; 
+											
+											$heures=intval($graph_day_incoming[0] / 3600);
+											$minutes=intval(($graph_day_incoming[0] % 3600) / 60);
+											$secondes=intval((($graph_day_incoming[0] % 3600) % 60));
+											
+											echo "Appel Entrant : ",$heures," heures ",$minutes," minutes ",$secondes," secondes"; 
 										?>
 									</center>
 								<div class="footer">
