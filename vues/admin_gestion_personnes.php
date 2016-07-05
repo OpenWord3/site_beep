@@ -482,4 +482,27 @@ $(".LienModal").click(function(oEvt){
 		}
 	</script>
   </body>
+  <script type="text/javascript">
+$("#login").keyup(function()
+{
+$("#msgbox").removeClass().addClass('messagebox').text('Check en cours...').fadeIn("slow");
+$.post("./check_pseudo.php" ,{ login:$(this).val() } ,function(data)
+{
+if(data=='no')
+{
+$("#msgbox").fadeTo(200,0.1,function()
+{
+$(this).html('Ce login est déjà pris').addClass('busy').fadeTo(900,1);
+});
+}
+else
+{
+$("#msgbox").fadeTo(200,0.1,function()
+{
+$(this).html('Ce login est disponible').addClass('dispo').fadeTo(900,1);
+});
+}
+});
+});
+</script>
 </html>
