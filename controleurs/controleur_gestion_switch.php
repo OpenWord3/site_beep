@@ -26,7 +26,12 @@
 			add_switch($id_gateway,$switch);
 			$id_switch = id_last_switch();
 			link_switch_contexte($id_groupe,$id_switch);
-			exec('sudo /var/script_beep/add_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
+			if($compte == "dahdi"){
+				exec('sudo /var/script_beep/add_switch_dahdi.sh '.$groupe.' '.$switch);
+
+			}else {
+				exec('sudo /var/script_beep/add_switch.sh '.$compte.' '.$host.' '.$port.' '.$groupe.' '.$switch);
+			}
 			$alert = "<h3><font style='color:green;font-weight:bold;'>Le switch a bien été ajouté.</font></h3>";
 		}		
 
