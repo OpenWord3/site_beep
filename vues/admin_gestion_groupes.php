@@ -48,7 +48,7 @@
                             <th>
 							<form action="<?php echo INDEX ?>?index=del_contexte" method="POST">
 								<input type="hidden" name="nom_groupe" value="<?php echo $nom; ?>">
-								<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete" <?php if($nom == 'default'){echo "disabled"} ?>><i class="fa fa-trash-o "></i></button>
+								<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete" <?php if($nom == 'default'){echo "disabled";} ?>><i class="fa fa-trash-o "></i></button>
 							</form>                            
 							</th>
                           </tr>
