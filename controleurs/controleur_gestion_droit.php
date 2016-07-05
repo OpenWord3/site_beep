@@ -43,11 +43,10 @@
 						exec('sudo /var/script_beep/droit_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
 						$alert = "<h3><font style='color:green;font-weight:bold;'>Le droit a bien été ajouté.</font></h3>";
 					}
-				}
-				$alert = "<h3><font style='color:red;font-weight:bold;'>Ce droit est impossible.</font></h3>";
+				}				
 			}
 		} else {
-
+			$alert = "<h3><font style='color:red;font-weight:bold;'>Ce droit est impossible.</font></h3>";
 		}			
 	}else if(isset($_POST["ajouter_droit_externe"])){
 		$groupe1=$_POST["groupe1"];
