@@ -189,9 +189,9 @@
 									<center><?php echo "<img src='$graph_month' width='100%' height='100%'>"; ?></center><br>
 									<center>
 										<?php
-											$heures=intval($total_consomation[0] / 3600);
-											$minutes=intval(($total_consomation[0] % 3600) / 60);
-											$secondes=intval((($total_consomation[0] % 3600) % 60));
+											$heures=intval($graph_month[0] / 3600);
+											$minutes=intval(($graph_month[0] % 3600) / 60);
+											$secondes=intval((($graph_month[0] % 3600) % 60));
 
 											echo $heures," heures ",$minutes," minutes ",$secondes," secondes"; 
 										?>

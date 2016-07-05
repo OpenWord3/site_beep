@@ -279,10 +279,10 @@
                         <th><label>Le login de l'utilisateur</label></th>
                         <th><input type="textbox" placeholder="Le login de l'utilisateur" name="login"></th>
                       </tr>
-                      <tr>
+              <!--        <tr>
                         <th><label>Le nom de son groupe</label></th>
                         <th><input type="textbox" placeholder="Le nom de son groupe" name="groupe"></th>
-                      </tr>
+                      </tr> -->
                     </table>
                 </center>
               </div>
