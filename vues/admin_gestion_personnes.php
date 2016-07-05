@@ -48,6 +48,40 @@ color:#CC0000;
 input {
 padding: 5px 10px;
 }
+
+.messagebox_num {
+position:absolute;
+width:auto;
+margin-left:30px;
+border:1px solid #c93;
+background:#ffc;
+padding:5px 10px;
+}
+
+.dispo_num {
+position:absolute;
+width:auto;
+margin-left:30px;
+margin-top:200px;
+border:1px solid #349534;
+background:#C9FFCA;
+padding:5px 10px;
+color:#008000;
+}
+
+.busy_num {
+position:absolute;
+width:auto;
+margin-left:30px;
+border:1px solid #CC0000;
+background:#F7CBCA;
+padding:5px 10px;
+color:#CC0000;
+}
+
+input {
+padding: 5px 10px;
+}
 </style>
   </head>
 
@@ -190,7 +224,8 @@ padding: 5px 10px;
                   </tr>
                   <tr>
                     <td><label>Numéro de téléphone</label></td>
-                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num" required pattern="[0-9]{2,10}"></td>
+                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num" id="num" required pattern="[0-9]{2,10}"></td>
+					<span id="msgbox_num" style="display:none"></span>
                   </tr>
                   <tr>
                     <td><label>Numéro de transfert</label></td>
@@ -538,6 +573,29 @@ else
 $("#msgbox").fadeTo(200,0.1,function()
 {
 $(this).html('Ce login est disponible').addClass('dispo').fadeTo(900,1);
+});
+}
+});
+});
+</script>
+<script type="text/javascript">
+$("#num").keyup(function()
+{
+$("#msgbox_num").removeClass().addClass('messagebox_num').text('Check en cours...').fadeIn("slow");
+$.post("./check_num.php" ,{ num:$(this).val() } ,function(data)
+{
+if(data=='no')
+{
+$("#msgbox_num").fadeTo(200,0.1,function()
+{
+$(this).html('Ce num est déjà pris').addClass('busy_num').fadeTo(900,1);
+});
+}
+else
+{
+$("#msgbox_num").fadeTo(200,0.1,function()
+{
+$(this).html('Ce num est disponible').addClass('dispo_num').fadeTo(900,1);
 });
 }
 });
