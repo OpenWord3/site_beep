@@ -11,7 +11,6 @@
 	else if(!empty($find_id_user)){
 		$id_user = $find_id_user[0];
 		remove_membre($id_user);
-		// remove_num($id_user);
 		del_user($id_user);
 		del_user_conf($id_user);
 		
