@@ -80,7 +80,7 @@
                     	<select name="user" id="user" value="<?php echo $mots[0] ?>">
                     		<?php
                     			$users_standard = users_standard(); 
-                    			foreach($users_standard as $result) 
+                    			foreach($users_standard as $result) {
                     		?>
                     			<option><?php echo $result["login"]; ?></option>
                     		<?php } ?>
