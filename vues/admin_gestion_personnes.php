@@ -167,6 +167,7 @@ padding: 5px 10px;
                   <tr>
                     <td><label>Login</label></td>
                     <td><input type="textbox" placeholder="Login" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12"></td>
+					<span id="msgbox" style="display:none"></span>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
