@@ -77,7 +77,7 @@
                     <table width="300">
                       <tr>
                         <th><label>Nom du groupe</label></th>
-                        <th><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></th>
+                        <th><input type="textbox" placeholder="Nom du groupe" name="nom_groupe" required></th>
                       </tr>
                     </table>
                 </center>
@@ -105,7 +105,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
-                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></td>
+                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe" required></td>
                   </tr>
                 </table>
                 </center>

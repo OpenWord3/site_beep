@@ -132,27 +132,27 @@
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" placeholder="Login" name="login" required></td>
+                    <td><input type="textbox" placeholder="Login" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12"></td>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
-                    <td><input type="textbox" placeholder="Nom" name="nom"></td>
+                    <td><input type="textbox" placeholder="Nom" name="nom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}"></td>
                   </tr>
                   <tr>
                     <td><label>Prenoms</label></td>
-                    <td><input type="textbox" placeholder="Prenoms" name="prenom"></td>
+                    <td><input type="textbox" placeholder="Prenoms" name="prenom" required pattern="[a-zA-Z]+[A-Za-zéèç\0\s\-]{1,32}"></td>
                   </tr>
                   <tr>
                     <td><label>Adresse Mail</label></td>
-                    <td><input type="mail" placeholder="Adresse Mail" name="mail" required></td>
+                    <td><input type="mail" placeholder="Adresse Mail" name="mail" required pattern="[a-z0-9._]+@[a-z]+.[a-z]{2,4}"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" Value="BeepProject" name="mdp"></td>
+                    <td><input type="textbox" Value="BeepProject" name="mdp" required></td>
                   </tr>
                   <tr>
                     <td><label>Numéro de téléphone</label></td>
-                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num" required></td>
+                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num" required pattern="[0-9]{2,10}"></td>
                   </tr>
                   <tr>
                     <td><label>Numéro de transfert</label></td>
@@ -183,7 +183,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
-                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></td>
+                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe" required></td>
                   </tr>
                 </table>
                 </center>
