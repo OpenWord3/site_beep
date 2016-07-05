@@ -94,6 +94,18 @@
 		//$donnees = $req->fetch();
 		return $req;
 	}
+
+	function users_standard(){
+		global $bdd;
+		
+		$req = $bdd->query("SELECT * FROM users");
+		$req->execute(array(0));
+		$result = $req->fetchAll();
+		
+		$req->closeCursor();
+
+		return $req;
+	}
 	
 	function select_user($id_user){
 		global $bdd;

@@ -77,7 +77,14 @@
 				  <tr>
                     <td><label>Nouvel Utilisateur</label></td>
                     <td>
-						<input type="text" value="<?php echo $mots[0] ?>" name="user" id="user" placeholder="Utilisateur"/>
+                    	<select name="user" id="user" value="<?php echo $mots[0] ?>">
+                    		<?php
+                    			$users_standard = users_standard(); 
+                    			foreach($users_standard as $result) 
+                    		?>
+                    			<option><?php echo $result["login"]; ?></option>
+                    		<?php } ?>
+                    	</select>
 					</td>
                   </tr>
                   <tr>
