@@ -7,7 +7,6 @@
     <meta name="description" content="Tableau de bord Admin">
     <meta name="author" content="Louis-Adolphe Mougnin">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Theme, Responsive, Fluid, Retina">
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 
     <title>Tableau de bord - Beep</title>
 	
@@ -167,7 +166,7 @@ padding: 5px 10px;
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" placeholder="Login" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12"></td>
+                    <td><input type="textbox" placeholder="Login" name="login" id="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12"></td>
 					<span id="msgbox" style="display:none"></span>
                   </tr>
                   <tr>
@@ -259,7 +258,6 @@ padding: 5px 10px;
                   <tr>
                     <td><label>Login</label></td>
                     <td><input type="textbox" placeholder="Login" name="pseudo" required></td>
-					<span id="msgbox" style="display:none"></span>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
