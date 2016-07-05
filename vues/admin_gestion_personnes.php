@@ -11,7 +11,42 @@
     <title>Tableau de bord - Beep</title>
 	
 	<?php include ("./assets/pages/admin_css.php") ?>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 	
+	<style>
+.messagebox {
+position:absolute;
+width:auto;
+margin-left:30px;
+border:1px solid #c93;
+background:#ffc;
+padding:5px 10px;
+}
+
+.dispo {
+position:absolute;
+width:auto;
+margin-left:30px;
+border:1px solid #349534;
+background:#C9FFCA;
+padding:5px 10px;
+color:#008000;
+}
+
+.busy {
+position:absolute;
+width:auto;
+margin-left:30px;
+border:1px solid #CC0000;
+background:#F7CBCA;
+padding:5px 10px;
+color:#CC0000;
+}
+
+input {
+padding: 5px 10px;
+}
+</style>
   </head>
 
   <body>
