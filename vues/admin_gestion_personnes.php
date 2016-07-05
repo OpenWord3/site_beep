@@ -52,7 +52,8 @@ padding: 5px 10px;
 .messagebox_num {
 position:absolute;
 width:auto;
-margin-left:30px;
+margin-left:140px;
+margin-top:223px;
 border:1px solid #c93;
 background:#ffc;
 padding:5px 10px;
@@ -61,8 +62,8 @@ padding:5px 10px;
 .dispo_num {
 position:absolute;
 width:auto;
-margin-left:30px;
-margin-top:200px;
+margin-left:140px;
+margin-top:223px;
 border:1px solid #349534;
 background:#C9FFCA;
 padding:5px 10px;
@@ -72,7 +73,8 @@ color:#008000;
 .busy_num {
 position:absolute;
 width:auto;
-margin-left:30px;
+margin-left:140px;
+margin-top:223px;
 border:1px solid #CC0000;
 background:#F7CBCA;
 padding:5px 10px;
