@@ -13,37 +13,41 @@
 		$id_groupe1 = id_groupe_switch($groupe1);
 		$id_groupe2 = id_groupe_switch($groupe2);
 
-		if($type == "bidirectionnel"){
-			$check_droit_bidir = check_droit_bidir($id_groupe1,$id_groupe2);
+		if($groupe1 != $groupe2){
+			if($type == "bidirectionnel"){
+				$check_droit_bidir = check_droit_bidir($id_groupe1,$id_groupe2);
 
-			if($check_droit_bidir != 0){
-				$alert = "<h3><font style='color:red;font-weight:bold;'>Ce droit existe déjà.</font></h3>";
-			} else {
-				$unidir = '0';
-				$bidir = '1';
-				new_droit($id_groupe1,$id_groupe2,$unidir,$bidir);
-				exec('sudo /var/script_beep/droit_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
-				$alert = "<h3><font style='color:green;font-weight:bold;'>Le droit a bien été ajouté.</font></h3>";
-			}
-			
-		}else{
-			$check_droit_unidir = check_droit_unidir($id_groupe1,$id_groupe2);
-			$check_altern = check_altern($id_groupe2,$id_groupe1);
-
-			if($check_droit_unidir != 0){
-				$alert = "<h3><font style='color:red;font-weight:bold;'>Ce droit existe déjà.</font></h3>";
-			} else {
-				if($check_altern != 0){
+				if($check_droit_bidir != 0){
 					$alert = "<h3><font style='color:red;font-weight:bold;'>Ce droit existe déjà.</font></h3>";
 				} else {
-					$unidir = '1';
-					$bidir = '0';
+					$unidir = '0';
+					$bidir = '1';
 					new_droit($id_groupe1,$id_groupe2,$unidir,$bidir);
-					exec('sudo /var/script_beep/droit_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
+					exec('sudo /var/script_beep/droit_appel_bidirectionnel.sh '.$groupe1.' '.$groupe2);
 					$alert = "<h3><font style='color:green;font-weight:bold;'>Le droit a bien été ajouté.</font></h3>";
 				}
+				
+			}else{
+				$check_droit_unidir = check_droit_unidir($id_groupe1,$id_groupe2);
+				$check_altern = check_altern($id_groupe2,$id_groupe1);
+
+				if($check_droit_unidir != 0){
+					$alert = "<h3><font style='color:red;font-weight:bold;'>Ce droit existe déjà.</font></h3>";
+				} else {
+					if($check_altern != 0){
+						$alert = "<h3><font style='color:red;font-weight:bold;'>Ce droit existe déjà.</font></h3>";
+					} else {
+						$unidir = '1';
+						$bidir = '0';
+						new_droit($id_groupe1,$id_groupe2,$unidir,$bidir);
+						exec('sudo /var/script_beep/droit_appel_unidirectionnel.sh '.$groupe1.' '.$groupe2);
+						$alert = "<h3><font style='color:green;font-weight:bold;'>Le droit a bien été ajouté.</font></h3>";
+					}
+				}
+				$alert = "<h3><font style='color:red;font-weight:bold;'>Ce droit est impossible.</font></h3>";
 			}
-			
+		} else {
+
 		}			
 	}else if(isset($_POST["ajouter_droit_externe"])){
 		$groupe1=$_POST["groupe1"];
