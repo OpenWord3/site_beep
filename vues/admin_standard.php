@@ -77,14 +77,7 @@
 				  <tr>
                     <td><label>Nouvel Utilisateur</label></td>
                     <td>
-                    	<select name="user" id="user" value="<?php echo $mots[0] ?>">
-                    		<?php
-                    			$users_standard = users_standard(); 
-                    			foreach($users_standard as $result) {
-                    		?>
-                    			<option><?php echo $result["login"]; ?></option>
-                    		<?php } ?>
-                    	</select>
+						<input type="text" value="<?php echo $mots[0] ?>" name="user" id="user" placeholder="Utilisateur"/>
 					</td>
                   </tr>
                   <tr>
