@@ -90,11 +90,11 @@
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" placeholder="Numéro de salle de conférence" name="num_conf"></td>
+                    <td><input type="textbox" placeholder="Numéro de salle de conférence" name="num_conf" required pattern="[0-9]{3,10}"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" Value="BeepProject" name="mdp_conf"></td>
+                    <td><input pattern="[0-9].{0,10}" type="textbox" Value="BeepProject" name="mdp_conf"></td>
                   </tr>
                   <tr>
                     <td><label>TalkOnly</label></td>
@@ -207,7 +207,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Numéro de salle de conférence</label></td>
-                    <td><input type="textbox" placeholder="Numéro de salle de conférence" name="num_conf"></td>
+                    <td><input type="textbox" placeholder="Numéro de salle de conférence" name="num_conf" required pattern="[0-9]{3,10}"></td>
                   </tr>
                   <tr>
                     <td><label>Mot de Passe</label></td>

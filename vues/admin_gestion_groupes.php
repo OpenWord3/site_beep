@@ -48,7 +48,7 @@
                             <th>
 							<form action="<?php echo INDEX ?>?index=del_contexte" method="POST">
 								<input type="hidden" name="nom_groupe" value="<?php echo $nom; ?>">
-								<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete"><i class="fa fa-trash-o "></i></button>
+								<button class="btn btn-danger btn-xs" type ="submit" name="remove_levels" value="delete" <?php if($nom == 'default'){echo "disabled";} ?>><i class="fa fa-trash-o "></i></button>
 							</form>                            
 							</th>
                           </tr>
@@ -77,7 +77,7 @@
                     <table width="300">
                       <tr>
                         <th><label>Nom du groupe</label></th>
-                        <th><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></th>
+                        <th><input type="textbox" placeholder="Nom du groupe" name="nom_groupe" required></th>
                       </tr>
                     </table>
                 </center>
@@ -105,7 +105,7 @@
                 <table width="300">
                   <tr>
                     <td><label>Nom du groupe</label></td>
-                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe"></td>
+                    <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe" required></td>
                   </tr>
                 </table>
                 </center>

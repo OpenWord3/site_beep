@@ -174,19 +174,19 @@
                 <table width="300">
                   <tr>
                     <td><label>Compte</label></td>
-                    <td><input type="textbox" placeholder="Ovh ou Ippi" name="compte"></td>
+                    <td><input type="textbox" placeholder="Ovh ou Ippi" name="compte" required></td>
                   </tr>
                   <tr>
                     <td><label>Mot de passe</label></td>
-                    <td><input type="textbox" placeholder="Mot de passe" name="mdp"></td>
+                    <td><input type="textbox" placeholder="Mot de passe" name="mdp" required></td>
                   </tr>
                   <tr>
                     <td><label>Host</label></td>
-                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr" name="host"></td>
+                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr" name="host" required></td>
                   </tr>
                   <tr>
                     <td><label>Port</label></td>
-                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr" name="port"></td>
+                    <td><input type="textbox" placeholder="ippi.fr ou ovh.fr" name="port" required pattern="[0-9]{1,10}"></td>
                   </tr>
                 </table>
                 
@@ -216,7 +216,7 @@
                       <th><label>Entrer le nom</label></th>
                       <th><select name="id_gateway">
                         <?php foreach($liste_gateway as $result) { ?>
-                          <option value="<?php echo $result["id_gateway"] ?>"><?php echo $result["compte"]."_".$result["host"]."_".$result["port"] ?></option>
+                          <option value="<?php echo $result["id_gateway"] ?>" <?php if($result["compte"] == 'dahdi'){echo "style='display:none;'";} ?>><?php echo $result["compte"]."_".$result["host"]."_".$result["port"] ?></option>
                         <?php } ?>
                       </select></th>
                     </tr>

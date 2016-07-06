@@ -24,11 +24,11 @@
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" value="<?php echo $select_user['login']; ?>" name="login" required></td>
+                    <td><input type="textbox" value="<?php echo $select_user['login']; ?>" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}"></td>
                   </tr>
 				  <tr>
                     <td><label>Mot de Passe</label></td>
-                    <td><input type="textbox" value="<?php echo $select_user['mdp']; ?>" name="mdp"></td>
+                    <td><input type="textbox" value="<?php echo $select_user['mdp']; ?>" name="mdp" required></td>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
@@ -43,7 +43,7 @@
                     <td><input type="mail" value="<?php echo $select_user['mail']; ?>" name="mail" required pattern="[a-z0-9._]+@[a-z]+.[a-z]{2,4}"></td>
                   </tr>
                     <td><label>Numéro de téléphone</label></td>
-                    <td><input type="textbox" value="<?php echo $select_user['num']; ?>" name="num"></td>
+                    <td><input type="textbox" value="<?php echo $select_user['num']; ?>" name="num" required pattern="[0-9]{2,10}"></td>
 					<input type="hidden" name="num_origine" value="<?php echo $select_user['num']; ?>">
                   </tr>
                   <tr>

@@ -33,7 +33,8 @@
 					if(isset($_POST["ajouter_call_center"])){echo $alert;
 					}else if(isset($_POST["supprimer_call_center"])){echo $alert;
 					}else if(isset($_POST["ajouter_membre"])){echo $alert;
-					}else if(isset($_POST["supprimer_membre"])){echo $alert;}
+					}else if(isset($_POST["supprimer_membre"])){echo $alert;
+          }else if(isset($_POST["modifier_call_center"])){echo $alert;}
 				?>
 			</center>
 		
@@ -57,7 +58,7 @@
 						  <th>Adresse Mail</th>
 						  <th>
 							<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#ajoutermembre<?php echo $result["id_callcenter"]; ?>"><i class="fa fa-plus" ></i></button>
-							<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifierstrategy"><i class="fa fa-pencil"></i></button>
+							<!--<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifierstrategy"><i class="fa fa-pencil"></i></button>-->
 							<button class="btn btn-danger btn-xs" data-toggle="modal" data-toggle="modal" data-target="#supprimermembre<?php echo $result["id_callcenter"]; ?>"><i class="fa fa-trash-o"></i></button>
 						  </th>
 					  </tr>
@@ -259,10 +260,10 @@
                   <table width="300">
                     <tr>
                       <td><label>Nom</label></td>
-                      <td><input type="textbox" placeholder="Nom" name="nom_call"></td>
+                      <td><input type="textbox" placeholder="Nom" name="nom_call" required></td>
                     </tr>
                       <td><label>Numéro de téléphone</label></td>
-                      <td><input type="textbox" placeholder="Numéro de téléphone" name="num_call"></td>
+                      <td><input type="textbox" placeholder="Numéro de téléphone" name="num_call" pattern="[0-9]{4}" title="quatre chiffre"></td>
                     </tr>
                     <tr>
                       <th><label>Stratégie</label></th>
