@@ -6,7 +6,7 @@
 	$select_users_contexte = select_users_contexte($contexte);
 	$show_groupes = show_groupe();
 	$default = "default";
-	$svi = "svi";
+	$svi = "svi.conf";
 	
 	move_users_groupe($id_groupe_default[0],$id_contexte[0]);
 	del_groupe($id_contexte[0]);
