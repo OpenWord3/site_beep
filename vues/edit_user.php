@@ -63,7 +63,7 @@ padding: 5px 10px;
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" value="<?php echo $select_user['login']; ?>" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}"></td>
+                    <td><input type="textbox" value="<?php echo $select_user['login']; ?>" name="login" id="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}"></td>
 					<span id="msgbox" style="display:none"></span>
                   </tr>
 				  <tr>
