@@ -260,7 +260,7 @@
                   <table width="300">
                     <tr>
                       <td><label>Nom</label></td>
-                      <td><input type="textbox" placeholder="Nom" name="nom_call"></td>
+                      <td><input type="textbox" placeholder="Nom" name="nom_call" required></td>
                     </tr>
                       <td><label>Numéro de téléphone</label></td>
                       <td><input type="textbox" placeholder="Numéro de téléphone" name="num_call" pattern="[0-9]{4}" title="quatre chiffre"></td>

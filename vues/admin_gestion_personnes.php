@@ -12,6 +12,79 @@
 	
 	<?php include ("./assets/pages/admin_css.php") ?>
 	
+	<style>
+.messagebox {
+position:absolute;
+width:auto;
+margin-left:140px;
+margin-top:70px;
+border:1px solid #c93;
+background:#ffc;
+padding:5px 10px;
+}
+
+.dispo {
+position:absolute;
+width:auto;
+margin-left:140px;
+margin-top:70px;
+border:1px solid #349534;
+background:#C9FFCA;
+padding:5px 10px;
+color:#008000;
+}
+
+.busy {
+position:absolute;
+width:auto;
+margin-left:140px;
+margin-top:70px;
+border:1px solid #CC0000;
+background:#F7CBCA;
+padding:5px 10px;
+color:#CC0000;
+}
+
+input {
+padding: 5px 10px;
+}
+
+.messagebox_num {
+position:absolute;
+width:auto;
+margin-left:140px;
+margin-top:223px;
+border:1px solid #c93;
+background:#ffc;
+padding:5px 10px;
+}
+
+.dispo_num {
+position:absolute;
+width:auto;
+margin-left:140px;
+margin-top:223px;
+border:1px solid #349534;
+background:#C9FFCA;
+padding:5px 10px;
+color:#008000;
+}
+
+.busy_num {
+position:absolute;
+width:auto;
+margin-left:140px;
+margin-top:223px;
+border:1px solid #CC0000;
+background:#F7CBCA;
+padding:5px 10px;
+color:#CC0000;
+}
+
+input {
+padding: 5px 10px;
+}
+</style>
   </head>
 
   <body>
@@ -132,7 +205,8 @@
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" placeholder="Login" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12"></td>
+                    <td><input type="textbox" placeholder="Login" name="login" id="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12"></td>
+					<span id="msgbox" style="display:none"></span>
                   </tr>
                   <tr>
                     <td><label>Nom</label></td>
@@ -152,7 +226,8 @@
                   </tr>
                   <tr>
                     <td><label>Numéro de téléphone</label></td>
-                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num" required pattern="[0-9]{2,10}"></td>
+                    <td><input type="textbox" placeholder="Numéro de téléphone" name="num" id="num" required pattern="[0-9]{2,10}"></td>
+					<span id="msgbox_num" style="display:none"></span>
                   </tr>
                   <tr>
                     <td><label>Numéro de transfert</label></td>
@@ -279,10 +354,10 @@
                         <th><label>Le login de l'utilisateur</label></th>
                         <th><input type="textbox" placeholder="Le login de l'utilisateur" name="login"></th>
                       </tr>
-                      <tr>
+              <!--        <tr>
                         <th><label>Le nom de son groupe</label></th>
                         <th><input type="textbox" placeholder="Le nom de son groupe" name="groupe"></th>
-                      </tr>
+                      </tr> -->
                     </table>
                 </center>
               </div>
@@ -482,4 +557,50 @@ $(".LienModal").click(function(oEvt){
 		}
 	</script>
   </body>
+  <script type="text/javascript">
+$("#login").keyup(function()
+{
+$("#msgbox").removeClass().addClass('messagebox').text('Check en cours...').fadeIn("slow");
+$.post("./check_pseudo.php" ,{ login:$(this).val() } ,function(data)
+{
+if(data=='no')
+{
+$("#msgbox").fadeTo(200,0.1,function()
+{
+$(this).html('Ce login est déjà pris').addClass('busy').fadeTo(900,1);
+});
+}
+else
+{
+$("#msgbox").fadeTo(200,0.1,function()
+{
+$(this).html('Ce login est disponible').addClass('dispo').fadeTo(900,1);
+});
+}
+});
+});
+</script>
+<script type="text/javascript">
+$("#num").keyup(function()
+{
+$("#msgbox_num").removeClass().addClass('messagebox_num').text('Check en cours...').fadeIn("slow");
+$.post("./check_num.php" ,{ num:$(this).val() } ,function(data)
+{
+if(data=='no')
+{
+$("#msgbox_num").fadeTo(200,0.1,function()
+{
+$(this).html('Ce num est déjà pris').addClass('busy_num').fadeTo(900,1);
+});
+}
+else
+{
+$("#msgbox_num").fadeTo(200,0.1,function()
+{
+$(this).html('Ce num est disponible').addClass('dispo_num').fadeTo(900,1);
+});
+}
+});
+});
+</script>
 </html>
