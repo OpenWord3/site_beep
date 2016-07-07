@@ -18,10 +18,10 @@
           <div class="col-lg-12">
             <center>
               <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter_groupe">
-                <i class="fa fa-plus"></i> groupe
+                <i class="fa fa-plus"></i> groupe d'utilisateurs
               </button>
               <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
-                <i class="fa fa-minus"></i> groupe
+                <i class="fa fa-minus"></i> groupe d'utilisateurs
               </button>
             </center>
 			<center><?php if(isset($msg)){ echo $msg;} ?></center>
@@ -37,7 +37,7 @@
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Nom du groupe</th>
+                            <th>Nom du groupe d'utilisateurs</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -68,7 +68,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un groupe</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer un groupe d'utilisateurs</h4>
               </div>
 
               <div class="modal-body">
@@ -76,7 +76,7 @@
                   <form action="<?php echo INDEX ?>?index=del_contexte" method="POST">
                     <table width="300">
                       <tr>
-                        <th><label>Nom du groupe</label></th>
+                        <th><label>Nom du groupe d'utilisateurs</label></th>
                         <th><input type="textbox" placeholder="Nom du groupe" name="nom_groupe" required></th>
                       </tr>
                     </table>
@@ -97,14 +97,14 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter un groupe</h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un groupe d'utilisateurs</h4>
               </div>
               <div class="modal-body">
                 <center>
                 <form action="<?php echo INDEX ?>?index=add_contexte" method="POST">
                 <table width="300">
                   <tr>
-                    <td><label>Nom du groupe</label></td>
+                    <td><label>Nom du groupe d'utilisateurs</label></td>
                     <td><input type="textbox" placeholder="Nom du groupe" name="nom_groupe" required></td>
                   </tr>
                 </table>
@@ -124,7 +124,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer le groupe</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer le groupe d'utilisateurs</h4>
               </div>
               <div class="modal-body">
                 <center>
