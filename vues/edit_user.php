@@ -1,43 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
-.messagebox {
-position:absolute;
-width:auto;
-margin-left:140px;
-margin-top:70px;
-border:1px solid #c93;
-background:#ffc;
-padding:5px 10px;
-}
-
-.dispo {
-position:absolute;
-width:auto;
-margin-left:140px;
-margin-top:70px;
-border:1px solid #349534;
-background:#C9FFCA;
-padding:5px 10px;
-color:#008000;
-}
-
-.busy {
-position:absolute;
-width:auto;
-margin-left:140px;
-margin-top:70px;
-border:1px solid #CC0000;
-background:#F7CBCA;
-padding:5px 10px;
-color:#CC0000;
-}
-
-input {
-padding: 5px 10px;
-}
-</style>
 </head>
   <body>
 				
@@ -45,7 +8,7 @@ padding: 5px 10px;
                 <table width="300">
                   <tr>
                     <th><label>Protocole</label></th>
-                    <th><select required name="protocole" onChange="THEFUNCTION(this.selectedIndex);">
+                    <th><select name="protocole" onChange="THEFUNCTION(this.selectedIndex);">
 					<option>SIP</option>
 					</select>
 					</th>
@@ -63,8 +26,7 @@ padding: 5px 10px;
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" value="<?php echo $select_user['login']; ?>" name="login" id="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}"></td>
-					<span id="msgbox" style="display:none"></span>
+                    <td><input type="textbox" value="<?php echo $select_user['login']; ?>" name="login"  required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}"></td>
                   </tr>
 				  <tr>
                     <td><label>Mot de Passe</label></td>
@@ -104,27 +66,4 @@ padding: 5px 10px;
 			</div>
 			</form>
 </body>
-  <script type="text/javascript">
-$("#login").keyup(function()
-{
-$("#msgbox").removeClass().addClass('messagebox').text('Check en cours...').fadeIn("slow");
-$.post("./check_pseudo.php" ,{ login:$(this).val() } ,function(data)
-{
-if(data=='no')
-{
-$("#msgbox").fadeTo(200,0.1,function()
-{
-$(this).html('Ce login est déjà pris').addClass('busy').fadeTo(900,1);
-});
-}
-else
-{
-$("#msgbox").fadeTo(200,0.1,function()
-{
-$(this).html('Ce login est disponible').addClass('dispo').fadeTo(900,1);
-});
-}
-});
-});
-</script>
 </html>
