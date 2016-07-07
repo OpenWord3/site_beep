@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
   <body>
 				
                   <form action="<?php echo INDEX ?>?index=edit_user" method="POST">
                 <table width="300">
                   <tr>
                     <th><label>Protocole</label></th>
-                    <th><select required name="protocole" onChange="THEFUNCTION(this.selectedIndex);">
+                    <th><select name="protocole" onChange="THEFUNCTION(this.selectedIndex);">
 					<option>SIP</option>
 					</select>
 					</th>
@@ -24,7 +26,7 @@
                   </tr>
                   <tr>
                     <td><label>Login</label></td>
-                    <td><input type="textbox" value="<?php echo $select_user['login']; ?>" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}"></td>
+                    <td><input type="textbox" value="<?php echo $select_user['login']; ?>" name="login"  required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}"></td>
                   </tr>
 				  <tr>
                     <td><label>Mot de Passe</label></td>

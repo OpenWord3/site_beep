@@ -324,7 +324,7 @@
 				<h3 class="white">Connexion</h3>
 				<h3 class="white"><?php if(isset($msg)){ echo $msg; }?></h3>
 				<form action="<?php echo INDEX ?>?index=connexion_user" class="popup-form" method="POST">
-					<input type="text" class="form-control form-white" placeholder="Nom" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12">
+					<input type="text" class="form-control form-white" placeholder="login" name="login" required pattern="[a-zA-Z]{1}[a-zA-Z0-9]{3,11}" maxlength="12">
 					<input type="password" class="form-control form-white" placeholder="Mot de Passe" name="mdp" required>					
 					<button type="submit" class="btn btn-submit" name="valider">Valider</button>
 				</form>
