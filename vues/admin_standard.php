@@ -146,7 +146,6 @@
 					exec('sudo /var/script_beep/standard.sh '.$begin_heure.' '.$begin_minute.' '.$end_heure.' '.$end_minute.' '.$begin_jour.' '.$end_jour);
 					exec('sudo /var/script_beep/standard_user.sh '.$user);
 					
-					echo $user;
 					
 					//echo "<script>window.location.reload(true)</script>";
 				}
