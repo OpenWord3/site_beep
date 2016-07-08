@@ -97,7 +97,7 @@ padding: 5px 10px;
           	<h3><i class="fa fa-angle-right"></i> Liste des utilisateurs Beep</h3>
               <center>
                 <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter_groupe">
-                  <i class="fa fa-plus"></i> groupe
+                  <i class="fa fa-plus"></i> groupe d'utilisateurs
                 </button>
                 <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
                   <i class="fa fa-plus"></i> utilisateur

@@ -226,7 +226,7 @@
 				  </a>
 				  <ul class="sub">
 					  <li><a  href="<?php echo INDEX ?>?index=show_users">Utilisateurs</a></li>
-					  <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes</a></li>
+					  <li><a  href="<?php echo INDEX ?>?index=show_contextes">Groupes d'utilisateurs</a></li>
 				  </ul>
 			  </li>
 
@@ -260,12 +260,12 @@
 			  <li class="sub-menu">
 				  <a href="admin_javascript:;" >
 					  <i class="fa fa-random"></i>
-					  <span>Gateway, numeros entrants et switch</span>
+					  <span>Gateway, numeros entrants et préfixes</span>
 				  </a>
 				  <ul class="sub">
 					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_gateway" >Gateways</a></li>
 					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_numero_entrant">Numeros entrants</a></li>
-					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">switchs</a></li>
+					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_switch">préfixes</a></li>
 					  <li><a href="<?php echo INDEX ?>?index=vue_gestion_groupes_externes">Groupes externes</a></li>
 				  </ul>
 			  </li>

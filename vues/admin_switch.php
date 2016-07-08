@@ -15,7 +15,7 @@
 	  
       <section id="main-content">
         <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Liste des Gateways et leurs switchs</h3>
+          	<h3><i class="fa fa-angle-right"></i> Liste des Gateways et leurs préfixes</h3>
 				  <center>
 					<?php if(isset($_POST["ajouter_switch"])){ echo $alert; }else if(isset($_POST["supprimer_switch"])){ echo $alert; }else if(isset($_POST["modifier_switch"])){echo $alert;} ?>
 				  </center>
@@ -31,7 +31,7 @@
                                 <th>Host</th>
                                 <th>Port</th>
                                 <th>Groupe</th>
-                                <th>Switch</th>
+                                <th>préfixes</th>
                                 <th>Actions</th>
                               </tr>
                               </thead>
@@ -59,10 +59,10 @@
 		    </section><! --/wrapper -->
         <center>
           <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#ajouter">
-            Ajouter un switch
+            Ajouter un préfixe
           </button>
           <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#supprimer">
-            Supprimer un switch
+            Supprimer un préfixe
           </button>
         </center>
         <!-- Modal -->
@@ -74,7 +74,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Suppression du switch <?php echo $result["switch"]; ?> de la gateway <?php echo $result["compte"]; ?> du host <?php echo $result["host"]; ?></h4>
+                <h4 class="modal-title" id="myModalLabel">Suppression du préfixe <?php echo $result["switch"]; ?> de la gateway <?php echo $result["compte"]; ?> du host <?php echo $result["host"]; ?></h4>
               </div>
               <div class="modal-body">
                 <center>
@@ -87,7 +87,7 @@
                       <input type="hidden" name="port" value="<?php echo $result["port"]; ?>">
                       <input type="hidden" name="groupe" value="<?php echo $result["nom"]; ?>">
                       <input type="hidden" name="switch" value="<?php echo $result["switch"]; ?>">
-                      <p>Etes-vous sûr de vouloir supprimer ce switch ?</p>
+                      <p>Etes-vous sûr de vouloir supprimer ce préfixe ?</p>
                     </tr>
                   </table>
                   <div class="modal-footer">
@@ -109,14 +109,14 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Modification du switch <?php echo $result["switch"]; ?> de la gateway <?php echo $result["compte"]; ?> du host <?php echo $result["host"]; ?></h4>
+                <h4 class="modal-title" id="myModalLabel">Modification du préfixe <?php echo $result["switch"]; ?> de la gateway <?php echo $result["compte"]; ?> du host <?php echo $result["host"]; ?></h4>
               </div>
               <div class="modal-body">
                 <center>
                 <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="POST">
                   <table width="300">
                    <tr>
-                      <td><label>nouveau switch</label></td>
+                      <td><label>nouveau préfixe</label></td>
                       <input type="hidden" name="id_switch" value="<?php echo $result["id_switch"] ?>">
                       <td><input type="textbox" placeholder="Nouveau switch" name="new_switch" required></td>
                     </tr>
@@ -138,7 +138,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Ajouter un switch</h4>
+                <h4 class="modal-title" id="myModalLabel">Ajouter un préfixe</h4>
               </div>
               <div class="modal-body">
                 <center>
@@ -161,7 +161,7 @@
                     </select></td>
                   </tr>
                   <tr>
-                    <td><label>Switch</label></td>
+                    <td><label>Préfixe</label></td>
                     <td><input type="textbox" value="X" name="switch"></td>
                   </tr>
                 </table>
@@ -182,14 +182,14 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Supprimer un switch</h4>
+                <h4 class="modal-title" id="myModalLabel">Supprimer un préfixe</h4>
               </div>
               <div class="modal-body">
                 <center>
                 <form action="<?php echo INDEX ?>?index=vue_gestion_switch" method="post">
                   <table width="300">
                     <tr>
-                      <td><label>Entrer le switch</label></td>
+                      <td><label>Entrer le préfixe</label></td>
                       <td><select name="id_switch">
                         <?php foreach($all_switchs as $result) { ?>
                           <option value="<?php echo $result["id_switch"]; ?>"><?php echo $result["compte"]."_".$result["host"]."_".$result["port"]."_".$result["nom"]."_".$result["switch"] ?></option>
